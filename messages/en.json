@@ -1,0 +1,24 @@
+{
+  "Metadata": {
+    "title": "Nextiva",
+    "description": "Built with Next.js"
+  },
+  "Navbar": {
+    "logo": "Nextiva",
+    "features": "Features",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Get Started"
+  },
+  "Hero": {
+    "title": "Build something amazing",
+    "subtitle": "A modern web experience powered by Next.js, crafted with precision and care.",
+    "primaryCta": "Get Started",
+    "secondaryCta": "Learn More"
+  },
+  "Footer": {
+    "copy": "© 2026 Nextiva. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}
