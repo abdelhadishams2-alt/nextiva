@@ -40,7 +40,13 @@ export function HeroShowcase() {
                 {/* Conversation 1 - Active */}
                 <div className="showcase__conversation-item showcase__conversation-item--active">
                   <div className="showcase__conversation-avatar">
-                    <span>SM</span>
+                    <Image
+                      src="/assets/avatar-curly-hair.png"
+                      alt={t('conversations.sarah.name')}
+                      width={36}
+                      height={36}
+                      className="showcase__conversation-avatar-img"
+                    />
                     <span className="showcase__status-dot showcase__status-dot--online" />
                   </div>
                   <div className="showcase__conversation-info">
