@@ -2,9 +2,43 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { useEffect, useRef, useState } from 'react';
 
 export function HeroShowcase() {
   const t = useTranslations('HeroShowcase');
+  const [callTime, setCallTime] = useState('0:00');
+  const [callLabel, setCallLabel] = useState(t('callCard.label'));
+  const [showSummary, setShowSummary] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const startRef = useRef<number>(0);
+
+  useEffect(() => {
+    startRef.current = Date.now();
+    timerRef.current = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startRef.current) / 1000);
+      const mins = Math.floor(elapsed / 60);
+      const secs = elapsed % 60;
+      setCallTime(`${mins}:${secs.toString().padStart(2, '0')}`);
+    }, 1000);
+
+    // After ~11s, stop timer and show final time
+    const endTimer = setTimeout(() => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      setCallTime('3m 44s');
+      setCallLabel('CALL COMPLETED');
+    }, 11000);
+
+    // After ~13s, switch to AI Summary view
+    const summaryTimer = setTimeout(() => {
+      setShowSummary(true);
+    }, 13000);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      clearTimeout(endTimer);
+      clearTimeout(summaryTimer);
+    };
+  }, []);
 
   return (
     <div className="showcase">
@@ -240,8 +274,12 @@ export function HeroShowcase() {
         <div className="showcase__call-card">
           <div className="showcase__call-card-header">
             <div className="showcase__call-header-left">
-              <svg className="showcase__call-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z" /></svg>
-              <span className="showcase__call-label">{t('callCard.label')}</span>
+              {callLabel === 'CALL COMPLETED' ? (
+                <svg className="showcase__call-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z" /></svg>
+              ) : (
+                <svg className="showcase__call-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.5906 14.5049 21 14.9389 21 15.4525V19.9525C21 20.4084 20.6744 20.8013 20.2216 20.8649C19.5633 20.9565 18.8917 21.0037 18.2093 21.0037C9.52649 21.0037 2.50244 13.9797 2.50244 5.29688C2.50244 4.61449 2.54964 3.9429 2.64117 3.28455C2.70484 2.83175 3.09768 2.50613 3.5536 2.50613H8.05355C8.5671 2.50613 9.00107 2.91555 9.04229 3.42733C9.17069 5.04907 9.63772 6.60378 10.4062 8.01058C10.6487 8.45459 10.5215 9.00977 10.1099 9.30381L8.87168 10.1883L9.36556 10.6821Z" /></svg>
+              )}
+              <span className="showcase__call-label">{callLabel}</span>
               <div className="showcase__sound-wave">
                 <span className="showcase__sound-bar" />
                 <span className="showcase__sound-bar" />
@@ -250,50 +288,127 @@ export function HeroShowcase() {
                 <span className="showcase__sound-bar" />
               </div>
             </div>
-            <span className="showcase__call-time">{t('callCard.time')}</span>
+            <span className="showcase__call-time">{callTime}</span>
           </div>
-          <div className="showcase__call-main">
-            <div className="showcase__call-title-row">
-              <div className="showcase__caller-avatar">
-                <Image
-                  src="/assets/avatar-curly-hair.png"
-                  alt={t('conversations.sarah.name')}
-                  width={44}
-                  height={44}
-                  className="showcase__caller-avatar-img"
-                />
+          {!showSummary ? (
+            <>
+              <div className="showcase__call-main">
+                <div className="showcase__call-title-row">
+                  <div className="showcase__caller-avatar">
+                    <Image
+                      src="/assets/avatar-curly-hair.png"
+                      alt={t('callCard.callerName')}
+                      width={44}
+                      height={44}
+                      className="showcase__caller-avatar-img"
+                    />
+                  </div>
+                  <span className="showcase__caller-name">{t('callCard.callerName')}</span>
+                  <div className="showcase__ai-badge">
+                    <span className="showcase__ai-badge-icon">&#10022;</span>
+                    <span className="showcase__ai-badge-text">{t('callCard.aiBadge')}</span>
+                  </div>
+                </div>
               </div>
-              <span className="showcase__caller-name">{t('callCard.aiSummary')}</span>
-              <div className="showcase__ai-badge">
-                <span className="showcase__ai-badge-icon">&#10022;</span>
-                <span className="showcase__ai-badge-text">{t('callCard.aiBadge')}</span>
+              <div className="showcase__call-conversation">
+                <div className="showcase__typing-indicator showcase__typing-indicator--1">
+                  <span /><span /><span />
+                </div>
+                <div className="showcase__chat-bubble-wrapper showcase__chat-bubble-wrapper--xbert showcase__chat-bubble-wrapper--1">
+                  <div className="showcase__chat-bubble-label">
+                    <span className="showcase__chat-bubble-label-icon">&#10022;</span>
+                    XBert AI
+                  </div>
+                  <div className="showcase__chat-bubble showcase__chat-bubble--xbert">
+                    {t('callCard.xbertBubble1')}
+                  </div>
+                </div>
+                <div className="showcase__typing-indicator showcase__typing-indicator--2">
+                  <span /><span /><span />
+                </div>
+                <div className="showcase__chat-bubble-wrapper showcase__chat-bubble-wrapper--caller showcase__chat-bubble-wrapper--2">
+                  <div className="showcase__chat-bubble showcase__chat-bubble--caller">
+                    {t('callCard.callerBubble1')}
+                  </div>
+                </div>
+                <div className="showcase__typing-indicator showcase__typing-indicator--3">
+                  <span /><span /><span />
+                </div>
+                <div className="showcase__chat-bubble-wrapper showcase__chat-bubble-wrapper--xbert showcase__chat-bubble-wrapper--3">
+                  <div className="showcase__chat-bubble-label">
+                    <span className="showcase__chat-bubble-label-icon">&#10022;</span>
+                    XBert AI
+                  </div>
+                  <div className="showcase__chat-bubble showcase__chat-bubble--xbert">
+                    {t('callCard.xbertBubble2')}
+                  </div>
+                </div>
+              </div>
+              <div className="showcase__call-action">
+                <div className="showcase__action-label">{t('callCard.appointmentScheduled')}</div>
+                <div className="showcase__action-content">
+                  <div className="showcase__action-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 10H4V19H20V10ZM15.0355 11.136L16.4497 12.5503L11.5 17.5L7.96447 13.9645L9.37868 12.5503L11.5 14.6716L15.0355 11.136ZM7 5H4V8H20V5H17V6H15V5H9V6H7V5Z" /></svg>
+                  </div>
+                  <div className="showcase__action-details">
+                    <span className="showcase__action-title">
+                      <span className="showcase__action-title-badge">AI</span>
+                      {t('callCard.appointmentConfirmed')}
+                    </span>
+                    <span className="showcase__action-subtitle">{t('callCard.appointmentTime')}</span>
+                  </div>
+                </div>
+                <div className="showcase__action-progress">
+                  <div className="showcase__action-progress-bar" />
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="showcase__summary-view">
+              <div className="showcase__call-main">
+                <div className="showcase__call-title-row">
+                  <div className="showcase__caller-avatar">
+                    <Image
+                      src="/assets/avatar-curly-hair.png"
+                      alt={t('callCard.callerName')}
+                      width={44}
+                      height={44}
+                      className="showcase__caller-avatar-img"
+                    />
+                  </div>
+                  <span className="showcase__caller-name">{t('callCard.summaryTitle')}</span>
+                  <div className="showcase__ai-badge">
+                    <span className="showcase__ai-badge-icon">&#10022;</span>
+                    <span className="showcase__ai-badge-text">{t('callCard.summaryBadge')}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="showcase__call-conversation">
+                <div className="showcase__summary-card">
+                  <div className="showcase__summary-card-label">{t('callCard.summaryLabel')}</div>
+                  <div className="showcase__summary-card-text">{t('callCard.summaryText')}</div>
+                </div>
+                <div className="showcase__summary-card">
+                  <div className="showcase__summary-card-label">{t('callCard.appointmentLabel')}</div>
+                  <div className="showcase__summary-card-text">
+                    <span className="showcase__summary-badge">{t('callCard.tomorrow')}</span>
+                    <span className="showcase__summary-badge">{t('callCard.appointmentBadgeTime')}</span>
+                    <span className="showcase__summary-badge showcase__summary-badge--success">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M11.602 13.7599L13.014 15.1719L21.4795 6.7063L22.8938 8.12051L13.014 18.0003L6.65 11.6363L8.06421 10.2221L10.189 12.3469L11.6025 13.7594L11.602 13.7599ZM11.6037 10.9322L16.5563 5.97949L17.9666 7.38977L13.014 12.3424L11.6037 10.9322ZM8.77698 16.5873L7.36396 18.0003L1 11.6363L2.41421 10.2221L3.82723 11.6352L3.82604 11.6363L8.77698 16.5873Z" /></svg>
+                    </span>
+                  </div>
+                </div>
+                <div className="showcase__summary-card">
+                  <div className="showcase__summary-card-label">{t('callCard.sentimentLabel')}</div>
+                  <div className="showcase__summary-card-text">
+                    <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.positive')}</span>
+                    <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.excited')}</span>
+                    <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.curious')}</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="showcase__call-conversation">
-            <div className="showcase__summary-card">
-              <div className="showcase__summary-card-label">{t('callCard.summaryLabel')}</div>
-              <div className="showcase__summary-card-text">{t('callCard.summaryText')}</div>
-            </div>
-            <div className="showcase__summary-card">
-              <div className="showcase__summary-card-label">{t('callCard.appointmentLabel')}</div>
-              <div className="showcase__summary-card-text">
-                <span className="showcase__summary-badge">{t('callCard.tomorrow')}</span>
-                <span className="showcase__summary-badge">{t('callCard.appointmentBadgeTime')}</span>
-                <span className="showcase__summary-badge showcase__summary-badge--success">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M11.602 13.7599L13.014 15.1719L21.4795 6.7063L22.8938 8.12051L13.014 18.0003L6.65 11.6363L8.06421 10.2221L10.189 12.3469L11.6025 13.7594L11.602 13.7599ZM11.6037 10.9322L16.5563 5.97949L17.9666 7.38977L13.014 12.3424L11.6037 10.9322ZM8.77698 16.5873L7.36396 18.0003L1 11.6363L2.41421 10.2221L3.82723 11.6352L3.82604 11.6363L8.77698 16.5873Z" /></svg>
-                </span>
-              </div>
-            </div>
-            <div className="showcase__summary-card showcase__summary-card--vibe">
-              <div className="showcase__summary-card-label">{t('callCard.sentimentLabel')}</div>
-              <div className="showcase__summary-card-text">
-                <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.positive')}</span>
-                <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.excited')}</span>
-                <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.curious')}</span>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Stats Card */}

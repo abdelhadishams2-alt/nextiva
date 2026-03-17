@@ -658,7 +658,7 @@
     rgba(255, 255, 255, 0.9) 0px 1px 0px inset;
   display: flex;
   flex-direction: column;
-  height: 320px;
+  height: auto;
   overflow: hidden;
   padding: 20px 24px 24px;
   position: relative;
@@ -814,61 +814,35 @@
 }
 
 /* ----------------------------------------------------------------
-   Call Conversation / Summary Cards
+   Summary View (after call ends)
    ---------------------------------------------------------------- */
 
-.showcase__call-conversation {
+.showcase__summary-view {
+  animation: 0.5s ease-out 0s 1 normal forwards running showcaseFadeInUp;
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
-  gap: 8px;
-  justify-content: flex-end;
-  overflow: hidden;
 }
 
 .showcase__summary-card {
   align-items: center;
-  animation: 0.3s ease 0s 1 normal forwards running showcaseFadeInUp, 3s ease-in-out 0.3s infinite normal none running showcaseSummaryCardGlow;
+  animation: 0.3s ease 0s 1 normal forwards running showcaseFadeInUp;
   background: radial-gradient(120% 100% at 0px 50%, rgba(0, 98, 184, 0.06) 0px, transparent 50%), linear-gradient(135deg, rgb(248, 249, 251), rgb(240, 242, 245));
   border: 1px solid rgba(0, 98, 184, 0.08);
   border-radius: 10px;
   display: flex;
   gap: 10px;
   overflow: hidden;
-  padding: 8px 12px;
+  padding: 10px 14px;
   position: relative;
 }
 
-.showcase__summary-card::before {
-  background: radial-gradient(circle at 100% 50%, rgba(0, 98, 184, 0.04) 0px, transparent 60%);
-  inset: 0;
-  content: "";
-  pointer-events: none;
-  position: absolute;
-}
-
 .showcase__summary-card:nth-child(2) {
-  animation-delay: 0.1s, 0.4s;
-  background: radial-gradient(120% 100% at 0px 50%, rgba(0, 98, 184, 0.07) 0px, transparent 50%), linear-gradient(135deg, rgb(247, 248, 251), rgb(238, 241, 245));
-  border-color: rgba(0, 98, 184, 0.1);
-  opacity: 0;
+  animation-delay: 0.1s;
 }
 
-.showcase__summary-card:nth-child(2)::before {
-  background: radial-gradient(circle at 100% 50%, rgba(40, 121, 174, 0.05) 0px, transparent 60%);
-}
-
-.showcase__summary-card--vibe,
 .showcase__summary-card:nth-child(3) {
-  animation-delay: 0.2s, 0.5s;
-  background: radial-gradient(120% 100% at 0px 50%, rgba(0, 98, 184, 0.06) 0px, transparent 50%), linear-gradient(135deg, rgb(247, 249, 252), rgb(239, 242, 247));
-  border-color: rgba(0, 98, 184, 0.08);
-  opacity: 0;
-}
-
-.showcase__summary-card--vibe::before,
-.showcase__summary-card:nth-child(3)::before {
-  background: radial-gradient(circle at 100% 50%, rgba(0, 98, 184, 0.04) 0px, transparent 60%);
+  animation-delay: 0.2s;
 }
 
 .showcase__summary-card-label {
@@ -890,7 +864,7 @@
   font-size: var(--text-caption);
   font-weight: 500;
   gap: 6px;
-  line-height: 1;
+  line-height: 1.4;
 }
 
 .showcase__summary-badge {
@@ -924,10 +898,149 @@
 }
 
 /* ----------------------------------------------------------------
+   Call Conversation / Chat Bubbles
+   ---------------------------------------------------------------- */
+
+.showcase__call-conversation {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.showcase__chat-bubble-wrapper {
+  animation: 0.5s ease-out 0s 1 normal forwards running showcaseBubbleAppear;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 90%;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.showcase__chat-bubble-wrapper--caller {
+  align-self: flex-start;
+}
+
+.showcase__chat-bubble-wrapper--xbert {
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.showcase__chat-bubble-label {
+  align-items: center;
+  color: var(--neutral-700);
+  display: flex;
+  font-family: var(--font-body);
+  font-size: var(--text-micro-sm);
+  font-weight: 600;
+  gap: 3px;
+  letter-spacing: -0.02em;
+  padding-right: 4px;
+}
+
+.showcase__chat-bubble-label-icon {
+  color: var(--brand-blue);
+  font-size: var(--text-micro-xs);
+}
+
+.showcase__chat-bubble {
+  border-radius: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  padding: 10px 14px;
+}
+
+.showcase__chat-bubble--caller {
+  background: var(--border-subtle);
+  border-bottom-left-radius: 4px;
+  color: rgb(26, 26, 26);
+}
+
+.showcase__chat-bubble--xbert {
+  background: rgb(26, 26, 26);
+  border-bottom-right-radius: 4px;
+  color: rgb(255, 255, 255);
+}
+
+/* Typing Indicator */
+
+.showcase__typing-indicator {
+  align-self: flex-end;
+  background: rgb(26, 26, 26);
+  border-radius: 16px 16px 4px 16px;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  padding: 12px 16px;
+}
+
+.showcase__typing-indicator span {
+  animation: 1.4s ease-in-out 0s infinite normal none running showcaseTypingBounce;
+  background: var(--blue-200);
+  border-radius: 50%;
+  height: 6px;
+  width: 6px;
+}
+
+.showcase__typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.showcase__typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Typing indicator 1: appear at 1s, disappear at 2.5s */
+.showcase__typing-indicator--1 {
+  animation: 0.3s ease 1s 1 normal forwards running showcaseBubbleAppear,
+             0.2s ease 2.5s 1 normal forwards running showcaseTypingHide;
+}
+
+/* Bubble 1: appear at 2.5s */
+.showcase__chat-bubble-wrapper--1 {
+  animation-delay: 2.5s;
+}
+
+/* Typing indicator 2: appear at 4s, disappear at 5.5s */
+.showcase__typing-indicator--2 {
+  align-self: flex-start;
+  border-radius: 16px 16px 16px 4px;
+  background: var(--border-subtle);
+  animation: 0.3s ease 4s 1 normal forwards running showcaseBubbleAppear,
+             0.2s ease 5.5s 1 normal forwards running showcaseTypingHide;
+}
+
+.showcase__typing-indicator--2 span {
+  background: rgb(150, 150, 150);
+}
+
+/* Bubble 2: appear at 5.5s */
+.showcase__chat-bubble-wrapper--2 {
+  animation-delay: 5.5s;
+}
+
+/* Typing indicator 3: appear at 7s, disappear at 8.5s */
+.showcase__typing-indicator--3 {
+  animation: 0.3s ease 7s 1 normal forwards running showcaseBubbleAppear,
+             0.2s ease 8.5s 1 normal forwards running showcaseTypingHide;
+}
+
+/* Bubble 3: appear at 8.5s */
+.showcase__chat-bubble-wrapper--3 {
+  animation-delay: 8.5s;
+}
+
+/* ----------------------------------------------------------------
    Call Action
    ---------------------------------------------------------------- */
 
 .showcase__call-action {
+  animation: 0.4s ease-out 9.5s 1 normal forwards running showcaseFadeInUp;
   background: radial-gradient(150% 120% at 10% 50%, rgba(0, 98, 184, 0.08) 0px, transparent 45%), radial-gradient(100% 100% at 90% 50%, rgba(40, 121, 174, 0.05) 0px, transparent 50%), linear-gradient(135deg, rgb(250, 251, 252), rgb(243, 245, 247));
   background-color: rgb(248, 249, 251);
   border: 1px solid rgba(0, 98, 184, 0.12);
@@ -938,11 +1051,9 @@
   opacity: 0;
   overflow: hidden;
   padding: 12px;
-  pointer-events: none;
   position: absolute;
   right: 24px;
   transform: translateY(20px);
-  transition: 0.4s;
   z-index: 10;
 }
 
@@ -955,11 +1066,6 @@
   position: absolute;
 }
 
-.showcase__call-action--visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
 
 .showcase__action-label {
   color: var(--brand-blue);
@@ -1029,7 +1135,7 @@
 }
 
 .showcase__action-progress-bar {
-  animation: 1.5s ease 0s 1 normal forwards running showcaseProgressFill;
+  animation: 2s ease 10s 1 normal forwards running showcaseProgressFill;
   background: linear-gradient(90deg, var(--brand-blue) 0, #2563eb 100%);
   border-radius: 2px;
   height: 100%;
@@ -1204,6 +1310,32 @@
   }
 }
 
+@keyframes showcaseBubbleAppear {
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes showcaseTypingBounce {
+  0%, 60%, 100% {
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes showcaseTypingHide {
+  100% {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
 @keyframes showcaseFadeInUp {
   0% {
     opacity: 0;
@@ -1212,15 +1344,6 @@
   100% {
     opacity: 1;
     transform: translateY(0px);
-  }
-}
-
-@keyframes showcaseSummaryCardGlow {
-  0%, 100% {
-    box-shadow: rgba(0, 98, 184, 0.04) 0px 2px 8px;
-  }
-  50% {
-    box-shadow: rgba(0, 98, 184, 0.08) 0px 4px 16px;
   }
 }
 
