@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { HeroParticles } from "./HeroParticles";
+import { HeroShowcase } from "./HeroShowcase";
 
 function ArrowIcon() {
   return (
@@ -75,6 +76,8 @@ export async function Hero() {
               <ArrowIcon />
             </a>
           </div>
+
+          <HeroShowcase />
         </div>
       </div>
     </section>

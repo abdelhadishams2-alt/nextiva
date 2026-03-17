@@ -135,6 +135,93 @@
     "primaryCta": "Get a Demo",
     "secondaryCta": "Buy Now"
   },
+  "HeroShowcase": {
+    "appTitle": "Nextiva App",
+    "messagesTitle": "Messages",
+    "statusOnline": "Online",
+    "inputPlaceholder": "Type a message...",
+    "conversations": {
+      "sarah": {
+        "name": "Sarah Mitchell",
+        "preview": "Appointment confirmed for\u2026",
+        "time": "2m"
+      },
+      "john": {
+        "name": "John Davis",
+        "preview": "Thanks for the quick resp\u2026",
+        "time": "15m"
+      },
+      "salesTeam": {
+        "name": "Sales Team",
+        "preview": "Meeting at 3pm today",
+        "time": "1h"
+      },
+      "alex": {
+        "name": "Alex Rodriguez",
+        "preview": "Can you send the report?",
+        "time": "2h"
+      },
+      "david": {
+        "name": "David Park",
+        "preview": "Great work on the presen\u2026",
+        "time": "3h"
+      }
+    },
+    "chatMessages": {
+      "sent1": "Of course! I have availability tomorrow at 2 PM",
+      "received1": "That works perfectly for me"
+    },
+    "customerInfo": {
+      "title": "Customer Info",
+      "email": "sarah.mitchell@company.com",
+      "tagVip": "VIP",
+      "tagEnterprise": "Enterprise",
+      "recentActivity": "Recent Activity",
+      "activity1": "Call \u2013 12 min",
+      "activity1Time": "Yesterday",
+      "activity2": "Email opened",
+      "activity2Time": "2 days ago",
+      "activity3": "Meeting booked",
+      "activity3Time": "1 week ago",
+      "customerValue": "Customer Value",
+      "lifetimeValue": "$24,500",
+      "lifetimeValueLabel": "Lifetime Value",
+      "interactions": "18",
+      "interactionsLabel": "Interactions",
+      "sentiment": "Sentiment",
+      "sentimentLabel": "Very Positive"
+    },
+    "callCard": {
+      "label": "CALL COMPLETED",
+      "time": "3m 44s",
+      "aiSummary": "AI Summary",
+      "aiBadge": "Answered by XBert AI",
+      "summaryLabel": "Summary",
+      "summaryText": "Sarah Mitchell asked about business hours and scheduled a consultation. Appointment confirmed.",
+      "appointmentLabel": "Appointment",
+      "tomorrow": "Tomorrow",
+      "appointmentBadgeTime": "2:00 PM",
+      "sentimentLabel": "Sentiment",
+      "positive": "Positive",
+      "excited": "Excited",
+      "curious": "Curious",
+      "appointmentScheduled": "APPOINTMENT SCHEDULED",
+      "appointmentConfirmed": "Appointment Confirmed",
+      "appointmentTime": "Tomorrow, 2:00 PM"
+    },
+    "statsCard": {
+      "label": "XBert AI Resolutions",
+      "today": "Today",
+      "callsValue": "592",
+      "callsLabel": "Calls Handled",
+      "apptsValue": "192",
+      "apptsLabel": "Appts Booked",
+      "faqsValue": "558",
+      "faqsLabel": "FAQs Resolved",
+      "satisfactionValue": "94",
+      "satisfactionLabel": "Satisfaction"
+    }
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",
