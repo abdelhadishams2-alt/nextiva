@@ -14,7 +14,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url('/assets/hero-bg.png') center 25% / cover no-repeat;
+  background: url('/assets/hero-bg.png') center 50% / cover no-repeat;
 }
 
 .hero__overlay {

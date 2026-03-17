@@ -1158,6 +1158,7 @@
   font-size: var(--text-micro);
   font-weight: 500;
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 .showcase__stat-trend-up {
