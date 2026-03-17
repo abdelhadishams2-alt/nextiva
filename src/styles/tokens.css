@@ -5,15 +5,19 @@
 :root {
   /* Colors */
   --color-bg: #ffffff;
-  --color-fg: #111111;
+  --color-fg: #12131a;
   --color-muted: #666666;
-  --color-border: #e0e0e0;
-  --color-primary: #0a0a0a;
+  --color-border: #e9e9ec;
+  --color-primary: #12131a;
   --color-primary-fg: #ffffff;
   --color-accent: #3b82f6;
+  --color-dark-bg: #0b1924;
+  --color-dark-fg: #ffffff;
+  --color-dark-muted: rgba(255, 255, 255, 0.8);
+  --color-dark-subtle: rgba(255, 255, 255, 0.5);
 
   /* Typography */
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -36,12 +40,12 @@
   --space-4xl: 6rem;
 
   /* Layout */
-  --container-max: 1200px;
+  --container-max: 1280px;
   --container-padding: 1.5rem;
 
   /* Borders */
   --radius-sm: 4px;
-  --radius-md: 8px;
+  --radius-md: 6px;
   --radius-lg: 12px;
 
   /* Transitions */

@@ -1,20 +1,80 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { HeroParticles } from "./HeroParticles";
+
+function ArrowIcon() {
+  return (
+    <span className="hero__btn-arrow">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <rect x="2" y="7" width="10" height="2" rx="1" />
+        <path d="M9.5 3.5L14 8l-4.5 4.5V3.5z" />
+      </svg>
+    </span>
+  );
+}
 
 export async function Hero() {
   const t = await getTranslations("Hero");
 
   return (
     <section className="hero">
-      <div className="hero__content container">
-        <h1 className="hero__title">{t("title")}</h1>
-        <p className="hero__subtitle">{t("subtitle")}</p>
-        <div className="hero__actions">
-          <a href="#" className="hero__btn hero__btn--primary">
-            {t("primaryCta")}
-          </a>
-          <a href="#" className="hero__btn hero__btn--secondary">
-            {t("secondaryCta")}
-          </a>
+      <div className="hero__bg" />
+      <div className="hero__overlay" />
+      <HeroParticles />
+      <div className="hero__container">
+        <div className="hero__content">
+          <div className="hero__eyebrow">
+            <div className="hero__rating">
+              <div className="hero__stars">
+                <span className="hero__star">★</span>
+                <span className="hero__star">★</span>
+                <span className="hero__star">★</span>
+                <span className="hero__star">★</span>
+                <span className="hero__star hero__star--half">★</span>
+              </div>
+              <span className="hero__rating-badge">{t("ratingScore")}</span>
+              <span className="hero__rating-text">
+                <span className="hero__rating-number">{t("ratingNumber")}</span>
+                <span className="hero__rating-suffix">{t("ratingSuffix")}</span>
+              </span>
+              <div className="hero__trust-badges">
+                <Image
+                  src="/assets/gartner-logo.png"
+                  alt="G2"
+                  width={100}
+                  height={100}
+                  className="hero__trust-badge"
+                />
+                <Image
+                  src="/assets/gartner-badge.webp"
+                  alt="Gartner"
+                  width={300}
+                  height={170}
+                  className="hero__trust-badge hero__trust-badge--wide"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h1 className="hero__title">{t("title")}</h1>
+
+          <div className="hero__description">
+            <p>
+              <strong>{t("subtitleBold")}</strong>
+              {t("subtitleRest")}
+            </p>
+          </div>
+
+          <div className="hero__ctas">
+            <a href="#" className="hero__btn hero__btn--primary">
+              <span className="hero__btn-text">{t("primaryCta")}</span>
+              <ArrowIcon />
+            </a>
+            <a href="#" className="hero__btn hero__btn--ghost">
+              <span className="hero__btn-text">{t("secondaryCta")}</span>
+              <ArrowIcon />
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -4,3 +4,5 @@
    Geist fonts are loaded via next/font in the root layout.
    This file is reserved for any additional @font-face rules.
    ---------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
