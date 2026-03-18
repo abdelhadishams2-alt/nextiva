@@ -12,6 +12,8 @@ export function HeroShowcase() {
   const [showSummary, setShowSummary] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startRef = useRef<number>(0);
+  const showcaseRef = useRef<HTMLDivElement>(null);
+  const [animStarted, setAnimStarted] = useState(false);
 
   // Stats card toggle
   const [statsPeriod, setStatsPeriod] = useState<'today' | 'monthly'>('today');
@@ -60,7 +62,27 @@ export function HeroShowcase() {
     animFrameRef.current = requestAnimationFrame(animate);
   };
 
+  // Start call animation only when component is visible
   useEffect(() => {
+    const el = showcaseRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setAnimStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!animStarted) return;
+
     startRef.current = Date.now();
     timerRef.current = setInterval(() => {
       const elapsed = Math.floor((Date.now() - startRef.current) / 1000);
@@ -69,27 +91,27 @@ export function HeroShowcase() {
       setCallTime(`${mins}:${secs.toString().padStart(2, '0')}`);
     }, 1000);
 
-    // After ~15s, stop timer and show final time
+    // After ~13s, stop timer and show final time
     const endTimer = setTimeout(() => {
       if (timerRef.current) clearInterval(timerRef.current);
       setCallTime('3m 44s');
       setCallLabel('CALL COMPLETED');
-    }, 15000);
+    }, 13000);
 
-    // After ~17s, switch to AI Summary view
+    // After ~16s, switch to AI Summary view
     const summaryTimer = setTimeout(() => {
       setShowSummary(true);
-    }, 17000);
+    }, 16000);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
       clearTimeout(endTimer);
       clearTimeout(summaryTimer);
     };
-  }, []);
+  }, [animStarted]);
 
   return (
-    <div className="showcase">
+    <div className={`showcase${animStarted ? ' showcase--anim-started' : ''}`} ref={showcaseRef}>
       {/* Desktop App Window */}
       <div className="showcase__app-bg">
         <div className="showcase__app-window">

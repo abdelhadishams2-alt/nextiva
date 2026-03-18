@@ -16,6 +16,7 @@
   z-index: 3;
 }
 
+
 /* ----------------------------------------------------------------
    Desktop App Background & Window
    ---------------------------------------------------------------- */
@@ -916,13 +917,16 @@
 }
 
 .showcase__chat-bubble-wrapper {
-  animation: 0.5s ease-out 0s 1 normal forwards running showcaseBubbleAppear;
   display: flex;
   flex-direction: column;
   gap: 4px;
   max-width: 90%;
   opacity: 0;
   transform: translateY(30px);
+}
+
+.showcase--anim-started .showcase__chat-bubble-wrapper {
+  animation: 0.5s ease-out 0s 1 normal forwards running showcaseBubbleAppear;
 }
 
 .showcase__chat-bubble-wrapper--caller {
@@ -999,44 +1003,47 @@
   animation-delay: 0.4s;
 }
 
-/* Typing indicator 1: appear at 2s, disappear at 4s */
-.showcase__typing-indicator--1 {
-  animation: 0.3s ease 2s 1 normal forwards running showcaseBubbleAppear,
-             0.2s ease 4s 1 normal forwards running showcaseTypingHide;
+/* Typing indicator 1: appear at 1s, disappear at 2.8s */
+.showcase--anim-started .showcase__typing-indicator--1 {
+  animation: 0.3s ease 1s 1 normal forwards running showcaseBubbleAppear,
+             0.15s ease 2.8s 1 normal forwards running showcaseTypingHide;
 }
 
-/* Bubble 1: appear at 4s */
-.showcase__chat-bubble-wrapper--1 {
-  animation-delay: 4s;
+/* Bubble 1: appear at 2.6s (overlaps slightly with typing hide) */
+.showcase--anim-started .showcase__chat-bubble-wrapper--1 {
+  animation-delay: 2.6s;
 }
 
-/* Typing indicator 2: appear at 6s, disappear at 8s */
+/* Typing indicator 2: appear at 4.2s, disappear at 6s */
 .showcase__typing-indicator--2 {
   align-self: flex-start;
   border-radius: 16px 16px 16px 4px;
   background: var(--border-subtle);
-  animation: 0.3s ease 6s 1 normal forwards running showcaseBubbleAppear,
-             0.2s ease 8s 1 normal forwards running showcaseTypingHide;
+}
+
+.showcase--anim-started .showcase__typing-indicator--2 {
+  animation: 0.3s ease 4.2s 1 normal forwards running showcaseBubbleAppear,
+             0.15s ease 6s 1 normal forwards running showcaseTypingHide;
 }
 
 .showcase__typing-indicator--2 span {
   background: rgb(150, 150, 150);
 }
 
-/* Bubble 2: appear at 8s */
-.showcase__chat-bubble-wrapper--2 {
-  animation-delay: 8s;
+/* Bubble 2: appear at 5.8s (overlaps slightly with typing hide) */
+.showcase--anim-started .showcase__chat-bubble-wrapper--2 {
+  animation-delay: 5.8s;
 }
 
-/* Typing indicator 3: appear at 10s, disappear at 12s */
-.showcase__typing-indicator--3 {
-  animation: 0.3s ease 10s 1 normal forwards running showcaseBubbleAppear,
-             0.2s ease 12s 1 normal forwards running showcaseTypingHide;
+/* Typing indicator 3: appear at 7.5s, disappear at 9.3s */
+.showcase--anim-started .showcase__typing-indicator--3 {
+  animation: 0.3s ease 7.5s 1 normal forwards running showcaseBubbleAppear,
+             0.15s ease 9.3s 1 normal forwards running showcaseTypingHide;
 }
 
-/* Bubble 3: appear at 12s */
-.showcase__chat-bubble-wrapper--3 {
-  animation-delay: 12s;
+/* Bubble 3: appear at 9.1s (overlaps slightly with typing hide) */
+.showcase--anim-started .showcase__chat-bubble-wrapper--3 {
+  animation-delay: 9.1s;
 }
 
 /* ----------------------------------------------------------------
@@ -1044,7 +1051,6 @@
    ---------------------------------------------------------------- */
 
 .showcase__call-action {
-  animation: 0.4s ease-out 9.5s 1 normal forwards running showcaseFadeInUp;
   background: radial-gradient(150% 120% at 10% 50%, rgba(0, 98, 184, 0.08) 0px, transparent 45%), radial-gradient(100% 100% at 90% 50%, rgba(40, 121, 174, 0.05) 0px, transparent 50%), linear-gradient(135deg, rgb(250, 251, 252), rgb(243, 245, 247));
   background-color: rgb(248, 249, 251);
   border: 1px solid rgba(0, 98, 184, 0.12);
@@ -1059,6 +1065,10 @@
   right: 24px;
   transform: translateY(20px);
   z-index: 10;
+}
+
+.showcase--anim-started .showcase__call-action {
+  animation: 0.4s ease-out 10.8s 1 normal forwards running showcaseFadeInUp;
 }
 
 .showcase__call-action::before {
@@ -1139,11 +1149,14 @@
 }
 
 .showcase__action-progress-bar {
-  animation: 2s ease 10s 1 normal forwards running showcaseProgressFill;
   background: linear-gradient(90deg, var(--brand-blue) 0, #2563eb 100%);
   border-radius: 2px;
   height: 100%;
   width: 0;
+}
+
+.showcase--anim-started .showcase__action-progress-bar {
+  animation: 2s ease 11s 1 normal forwards running showcaseProgressFill;
 }
 
 /* ----------------------------------------------------------------
@@ -1335,6 +1348,12 @@
 }
 
 @keyframes showcaseTypingHide {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
   100% {
     opacity: 0;
     height: 0;
