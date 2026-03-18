@@ -2,18 +2,65 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 type TabId = 'customer-interactions' | 'xbert-ai' | 'customer-experience' | 'connected-tools';
+
+function animateCounter(el: HTMLElement, target: number, suffix: string, format: string) {
+  const duration = 1500;
+  const start = Date.now();
+  const step = () => {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(target * eased);
+    if (format === 'abbrev' && target >= 1_000_000_000) {
+      el.textContent = `${Math.round(current / 1_000_000_000)}B${suffix}`;
+    } else if (target >= 1000) {
+      el.textContent = current.toLocaleString() + suffix;
+    } else {
+      el.textContent = current + suffix;
+    }
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
 
 export function NextPlatform() {
   const t = useTranslations('NextPlatform');
   const [activeTab, setActiveTab] = useState<TabId>('customer-interactions');
+  const sectionRef = useRef<HTMLElement>(null);
+  const hasAnimated = useRef(false);
+
+  const onIntersect = useCallback((entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true;
+        // Add revealed class to reveal elements
+        const reveals = entry.target.querySelectorAll('.next-platform__reveal');
+        reveals.forEach((el) => el.classList.add('next-platform__reveal--visible'));
+        // Animate counters
+        const counters = entry.target.querySelectorAll<HTMLElement>('[data-counter-target]');
+        counters.forEach((el) => {
+          const target = parseInt(el.dataset.counterTarget || '0');
+          const suffix = el.dataset.counterSuffix || '';
+          const format = el.dataset.counterFormat || '';
+          animateCounter(el, target, suffix, format);
+        });
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(onIntersect, { threshold: 0.2 });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [onIntersect]);
 
   return (
-    <section className="next-platform">
+    <section className="next-platform" ref={sectionRef}>
       {/* Header Row */}
-      <div className="next-platform__header">
+      <div className="next-platform__header next-platform__reveal">
         <div className="next-platform__header-left">
           <span className="next-platform__badge">{t('badge')}</span>
           <h2 className="next-platform__heading">{t('title')}</h2>
@@ -25,7 +72,7 @@ export function NextPlatform() {
               <Image src="/assets/stat-icon-1.png" alt="" width={20} height={20} />
             </div>
             <span className="next-platform__stat-title">
-              <span className="next-platform__stat-counter">{t('stat1Value')}</span>
+              <span className="next-platform__stat-counter" data-counter-target="1000000000" data-counter-suffix="+" data-counter-format="abbrev">0</span>
               {' '}{t('stat1Label')}
             </span>
             <span className="next-platform__stat-desc">{t('stat1Desc')}</span>
@@ -35,7 +82,7 @@ export function NextPlatform() {
               <Image src="/assets/stat-icon-2.png" alt="" width={20} height={20} />
             </div>
             <span className="next-platform__stat-title">
-              <span className="next-platform__stat-counter">{t('stat2Value')}</span>
+              <span className="next-platform__stat-counter" data-counter-target="100000" data-counter-suffix="+">0</span>
               {' '}{t('stat2Label')}
             </span>
             <span className="next-platform__stat-desc">{t('stat2Desc')}</span>
@@ -45,7 +92,7 @@ export function NextPlatform() {
               <Image src="/assets/stat-icon-3.png" alt="" width={20} height={20} />
             </div>
             <span className="next-platform__stat-title">
-              <span className="next-platform__stat-counter">{t('stat3Value')}</span>
+              <span className="next-platform__stat-counter" data-counter-target="17" data-counter-suffix="">0</span>
               {' '}{t('stat3Label')}
             </span>
             <span className="next-platform__stat-desc">{t('stat3Desc')}</span>
@@ -54,7 +101,7 @@ export function NextPlatform() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="next-platform__tabs">
+      <div className="next-platform__tabs next-platform__reveal next-platform__reveal--delay-1">
         <button
           className={`next-platform__tab${activeTab === 'customer-interactions' ? ' next-platform__tab--active' : ''}`}
           type="button"
