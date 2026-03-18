@@ -156,6 +156,208 @@ export function NextPlatform() {
           {t('tabConnectedTools')}
         </button>
       </div>
+
+      {/* Tab Content */}
+      {activeTab === 'customer-interactions' && (
+        <div className="next-platform__card">
+          <div className="next-platform__accordion">
+            {/* Left Panel */}
+            <div className="next-platform__content-panel">
+              <span className="next-platform__content-number">{t('ci.number')}</span>
+              <h3 className="next-platform__content-title">{t('ci.title')}</h3>
+              <p className="next-platform__content-desc">{t('ci.description')}</p>
+              <span className="next-platform__content-eyebrow">{t('ci.eyebrow')}</span>
+              <div className="next-platform__links">
+                <a className="next-platform__link-card" href="#">
+                  <span className="next-platform__link-icon"><i className="ri-phone-line" /></span>
+                  <div className="next-platform__link-content">
+                    <span className="next-platform__link-title">{t('ci.link1Title')}</span>
+                    <span className="next-platform__link-desc">{t('ci.link1Desc')}</span>
+                  </div>
+                </a>
+                <a className="next-platform__link-card" href="#">
+                  <span className="next-platform__link-icon"><i className="ri-video-chat-line" /></span>
+                  <div className="next-platform__link-content">
+                    <span className="next-platform__link-title">{t('ci.link2Title')}</span>
+                    <span className="next-platform__link-desc">{t('ci.link2Desc')}</span>
+                  </div>
+                </a>
+                <a className="next-platform__link-card" href="#">
+                  <span className="next-platform__link-icon"><i className="ri-chat-1-line" /></span>
+                  <div className="next-platform__link-content">
+                    <span className="next-platform__link-title">{t('ci.link3Title')}</span>
+                    <span className="next-platform__link-desc">{t('ci.link3Desc')}</span>
+                  </div>
+                </a>
+                <a className="next-platform__link-card" href="#">
+                  <span className="next-platform__link-icon"><i className="ri-mail-line" /></span>
+                  <div className="next-platform__link-content">
+                    <span className="next-platform__link-title">{t('ci.link4Title')}</span>
+                    <span className="next-platform__link-desc">{t('ci.link4Desc')}</span>
+                  </div>
+                </a>
+                <a className="next-platform__link-card" href="#">
+                  <span className="next-platform__link-icon"><i className="ri-star-line" /></span>
+                  <div className="next-platform__link-content">
+                    <span className="next-platform__link-title">{t('ci.link5Title')}</span>
+                    <span className="next-platform__link-desc">{t('ci.link5Desc')}</span>
+                  </div>
+                </a>
+                <a className="next-platform__link-card" href="#">
+                  <span className="next-platform__link-icon"><i className="ri-messenger-line" /></span>
+                  <div className="next-platform__link-content">
+                    <span className="next-platform__link-title">{t('ci.link6Title')}</span>
+                    <span className="next-platform__link-desc">{t('ci.link6Desc')}</span>
+                  </div>
+                </a>
+                <a className="next-platform__link-card" href="#">
+                  <span className="next-platform__link-icon"><i className="ri-message-3-line" /></span>
+                  <div className="next-platform__link-content">
+                    <span className="next-platform__link-title">{t('ci.link7Title')}</span>
+                    <span className="next-platform__link-desc">{t('ci.link7Desc')}</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Panel - Visual */}
+            <div className="next-platform__visual-container">
+              <div className="next-platform__visual">
+                <div className="next-platform__visual-bg" style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(/assets/desert-wildflowers-dusk.png)' }}>
+                  {/* Toast Notifications */}
+                  <div className="next-platform__toast next-platform__toast--1">
+                    <div className="next-platform__toast-icon"><i className="ri-message-3-fill" /></div>
+                    <div className="next-platform__toast-content">
+                      <span className="next-platform__toast-title">SMS Received</span>
+                      <span className="next-platform__toast-desc">John Davis • &quot;See you at 3pm&quot;</span>
+                    </div>
+                  </div>
+                  <div className="next-platform__toast next-platform__toast--2">
+                    <div className="next-platform__toast-icon"><i className="ri-voiceprint-fill" /></div>
+                    <div className="next-platform__toast-content">
+                      <span className="next-platform__toast-title">Voicemail Transcribed</span>
+                      <span className="next-platform__toast-desc">&quot;Hi, calling about the proposal…&quot;</span>
+                    </div>
+                  </div>
+                  <div className="next-platform__toast next-platform__toast--3">
+                    <div className="next-platform__toast-icon"><i className="ri-vidicon-fill" /></div>
+                    <div className="next-platform__toast-content">
+                      <span className="next-platform__toast-title">Meeting Started</span>
+                      <span className="next-platform__toast-desc">Weekly Standup • 4 attendees</span>
+                      <div className="next-platform__toast-avatars">
+                        <Image src="/assets/avatar-bald-beard-glasses.webp" alt="" width={38} height={38} />
+                        <Image src="/assets/avatar-beard.webp" alt="" width={38} height={38} />
+                        <Image src="/assets/avatar-glasses.webp" alt="" width={38} height={38} />
+                        <Image src="/assets/avatar-headset.webp" alt="" width={38} height={38} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Phone Mockup */}
+                  <div className="next-platform__phone">
+                    <div className="next-platform__phone-notch" />
+                    <div className="next-platform__phone-screen">
+                      <div className="next-platform__phone-call">
+                        <div className="next-platform__call-label">Active Call</div>
+                        <div className="next-platform__call-avatar">
+                          <Image src="/assets/avatar-older-male.webp" alt="Caller" width={72} height={72} />
+                        </div>
+                        <div className="next-platform__call-name">David Park</div>
+                        <div className="next-platform__call-timer">04:32</div>
+                        <div className="next-platform__call-wave">
+                          <span /><span /><span /><span /><span />
+                        </div>
+                        <div className="next-platform__call-actions">
+                          <div className="next-platform__call-action"><i className="ri-mic-fill" /></div>
+                          <div className="next-platform__call-action next-platform__call-action--end"><i className="ri-phone-fill" /></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Desktop App */}
+                  <div className="next-platform__desktop-app">
+                    <div className="next-platform__app-window">
+                      <div className="next-platform__app-header">
+                        <span className="next-platform__app-title">Nextiva App</span>
+                        <div className="next-platform__app-icons">
+                          <i className="ri-search-line" />
+                          <i className="ri-settings-3-line" />
+                        </div>
+                      </div>
+                      <div className="next-platform__app-body">
+                        <div className="next-platform__app-sidebar">
+                          <div className="next-platform__sidebar-title">Messages</div>
+                          <div className="next-platform__conversation next-platform__conversation--active">
+                            <div className="next-platform__conv-avatar">
+                              <Image src="/assets/avatar-curly-hair.webp" alt="" width={34} height={34} />
+                              <span className="next-platform__conv-status" />
+                            </div>
+                            <div className="next-platform__conv-info">
+                              <span className="next-platform__conv-name">Sarah Mitchell</span>
+                              <span className="next-platform__conv-preview">Sounds great, see ...</span>
+                            </div>
+                            <span className="next-platform__conv-time">2m</span>
+                          </div>
+                          <div className="next-platform__conversation">
+                            <div className="next-platform__conv-avatar">
+                              <Image src="/assets/avatar-beard.webp" alt="" width={34} height={34} />
+                            </div>
+                            <div className="next-platform__conv-info">
+                              <span className="next-platform__conv-name">John Davis</span>
+                              <span className="next-platform__conv-preview">Thanks for the up...</span>
+                            </div>
+                            <span className="next-platform__conv-time">15m</span>
+                          </div>
+                          <div className="next-platform__conversation">
+                            <div className="next-platform__conv-avatar next-platform__conv-avatar--team">
+                              <i className="ri-team-line" />
+                            </div>
+                            <div className="next-platform__conv-info">
+                              <span className="next-platform__conv-name">Sales Team</span>
+                              <span className="next-platform__conv-preview">Meeting at 3pm tod...</span>
+                            </div>
+                            <span className="next-platform__conv-time">1h</span>
+                          </div>
+                          <div className="next-platform__conversation">
+                            <div className="next-platform__conv-avatar">
+                              <Image src="/assets/avatar-headset.webp" alt="" width={34} height={34} />
+                            </div>
+                            <div className="next-platform__conv-info">
+                              <span className="next-platform__conv-name">Alex Rodriguez</span>
+                              <span className="next-platform__conv-preview">Can you send the r...</span>
+                            </div>
+                            <span className="next-platform__conv-time">2h</span>
+                          </div>
+                        </div>
+                        <div className="next-platform__app-chat">
+                          <div className="next-platform__chat-header">
+                            <span className="next-platform__chat-name">Sarah Mitchell</span>
+                            <div className="next-platform__chat-actions">
+                              <i className="ri-phone-line" />
+                              <i className="ri-vidicon-line" />
+                            </div>
+                          </div>
+                          <div className="next-platform__chat-messages">
+                            <div className="next-platform__msg next-platform__msg--received">Hi, I&apos;d like to schedule a consultation</div>
+                            <div className="next-platform__msg next-platform__msg--sent">Of course! I have availability tomorrow at 2 PM</div>
+                            <div className="next-platform__msg next-platform__msg--received">That works perfectly for me</div>
+                            <div className="next-platform__msg next-platform__msg--sent">Great! I&apos;ll send a calendar invite now</div>
+                          </div>
+                          <div className="next-platform__chat-input">
+                            <span>Type a message…</span>
+                            <i className="ri-send-plane-2-fill" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

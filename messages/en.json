@@ -248,7 +248,27 @@
     "tabXbertAI": "XBert AI",
     "tabXbertAIBadge": "New",
     "tabCustomerExperience": "Customer Experience",
-    "tabConnectedTools": "Connected Tools"
+    "tabConnectedTools": "Connected Tools",
+    "ci": {
+      "number": "01",
+      "title": "Customer Interactions",
+      "description": "Connect with customers across every channel from a single platform. Voice, video, chat, email, and social, all in one place.",
+      "eyebrow": "NEXT Platform Capabilities",
+      "link1Title": "Phone & Texting",
+      "link1Desc": "Business calls and texts from any device.",
+      "link2Title": "Video Meetings",
+      "link2Desc": "Video calls with screen sharing and recording.",
+      "link3Title": "Live Chat",
+      "link3Desc": "Real-time website chat with visitors.",
+      "link4Title": "Email",
+      "link4Desc": "One inbox for all customer emails.",
+      "link5Title": "Social Media & Reviews",
+      "link5Desc": "Respond to reviews and social messages in one place.",
+      "link6Title": "Messenger Apps",
+      "link6Desc": "WhatsApp, Facebook Messenger, and more.",
+      "link7Title": "Team Messaging",
+      "link7Desc": "Real-time chat with channels and threads."
+    }
   },
   "LogoTrustBar": {
     "text": "From local businesses to global brands, over 1 million users trust Nextiva."
