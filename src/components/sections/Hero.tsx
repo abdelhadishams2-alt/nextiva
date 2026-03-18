@@ -19,7 +19,16 @@ export async function Hero() {
 
   return (
     <section className="hero">
-      <div className="hero__bg" />
+      <div className="hero__bg">
+        <Image
+          src="/assets/hero-bg.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover', objectPosition: 'center 50%' }}
+        />
+      </div>
       <div className="hero__overlay" />
       <HeroParticles />
       <div className="hero__container">
@@ -45,6 +54,7 @@ export async function Hero() {
                   width={100}
                   height={100}
                   className="hero__trust-badge"
+                  priority
                 />
                 <Image
                   src="/assets/gartner-badge.webp"
@@ -52,6 +62,7 @@ export async function Hero() {
                   width={300}
                   height={170}
                   className="hero__trust-badge hero__trust-badge--wide"
+                  priority
                 />
               </div>
             </div>

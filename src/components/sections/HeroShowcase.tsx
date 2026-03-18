@@ -123,11 +123,12 @@ export function HeroShowcase() {
                 <div className="showcase__conversation-item showcase__conversation-item--active">
                   <div className="showcase__conversation-avatar">
                     <Image
-                      src="/assets/avatar-curly-hair.png"
+                      src="/assets/avatar-curly-hair.webp"
                       alt={t('conversations.sarah.name')}
                       width={36}
                       height={36}
                       className="showcase__conversation-avatar-img"
+                      priority
                     />
                     <span className="showcase__status-dot showcase__status-dot--online" />
                   </div>
@@ -237,7 +238,7 @@ export function HeroShowcase() {
               <div className="showcase__customer-profile">
                 <div className="showcase__customer-avatar">
                   <Image
-                    src="/assets/avatar-curly-hair.png"
+                    src="/assets/avatar-curly-hair.webp"
                     alt={t('conversations.sarah.name')}
                     width={48}
                     height={48}
@@ -344,7 +345,7 @@ export function HeroShowcase() {
                 <div className="showcase__call-title-row">
                   <div className="showcase__caller-avatar">
                     <Image
-                      src="/assets/avatar-curly-hair.png"
+                      src="/assets/avatar-curly-hair.webp"
                       alt={t('callCard.callerName')}
                       width={44}
                       height={44}
@@ -417,7 +418,7 @@ export function HeroShowcase() {
                 <div className="showcase__call-title-row">
                   <div className="showcase__caller-avatar">
                     <Image
-                      src="/assets/avatar-curly-hair.png"
+                      src="/assets/avatar-curly-hair.webp"
                       alt={t('callCard.callerName')}
                       width={44}
                       height={44}

@@ -223,7 +223,15 @@ export function NextPlatform() {
             {/* Right Panel - Visual */}
             <div className="next-platform__visual-container">
               <div className="next-platform__visual">
-                <div className="next-platform__visual-bg" style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(/assets/desert-wildflowers-dusk.png)' }}>
+                <div className="next-platform__visual-bg">
+                  <Image
+                    src="/assets/desert-wildflowers-dusk.png"
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  />
+                  <div className="next-platform__visual-overlay" />
                   {/* Toast Notifications */}
                   <div className="next-platform__toast next-platform__toast--1">
                     <div className="next-platform__toast-icon"><i className="ri-message-3-fill" /></div>

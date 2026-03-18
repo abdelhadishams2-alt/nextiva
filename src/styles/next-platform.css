@@ -433,8 +433,14 @@
   min-height: 680px;
   overflow: hidden;
   position: relative;
-  background-size: cover;
-  background-position: center;
+}
+
+.next-platform__visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* ----------------------------------------------------------------
@@ -451,6 +457,7 @@
   gap: 12px;
   padding: 14px 18px;
   position: absolute;
+  z-index: 2;
   width: 260px;
 }
 
@@ -703,6 +710,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 2;
 }
 
 @keyframes np-appIn {

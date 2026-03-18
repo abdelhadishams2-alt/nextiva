@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 
 function NewBadge() {
@@ -136,23 +136,9 @@ function ResourcesDropdown() {
 
 export function Navbar({ transparent = false }: { transparent?: boolean }) {
   const t = useTranslations('Navbar');
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const lastScrollY = useRef(0);
   const navRef = useRef<HTMLElement>(null);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 10);
-      setHidden(y > 100 && y > lastScrollY.current);
-      lastScrollY.current = y;
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const openMenu = (menu: string) => {
     if (closeTimeout.current) {
@@ -178,8 +164,6 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
   const navClass = [
     'navbar',
     transparent ? 'navbar--transparent' : '',
-    scrolled ? 'navbar--scrolled' : '',
-    hidden ? 'navbar--hidden' : '',
   ]
     .filter(Boolean)
     .join(' ');
