@@ -217,13 +217,18 @@
     "statsCard": {
       "label": "XBert AI Resolutions",
       "today": "Today",
+      "thirtyDays": "30 Days",
       "callsValue": "592",
+      "callsMonthly": "1284",
       "callsLabel": "Calls Handled",
       "apptsValue": "192",
+      "apptsMonthly": "342",
       "apptsLabel": "Appts Booked",
       "faqsValue": "558",
+      "faqsMonthly": "4127",
       "faqsLabel": "FAQs Resolved",
       "satisfactionValue": "94",
+      "satisfactionMonthly": "96",
       "satisfactionLabel": "Satisfaction"
     }
   },

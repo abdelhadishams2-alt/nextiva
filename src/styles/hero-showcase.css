@@ -1239,6 +1239,10 @@
   transition: transform 0.2s;
 }
 
+.showcase__stats-time-filter[data-period="monthly"] svg {
+  transform: rotate(180deg);
+}
+
 .showcase__stats-grid {
   display: grid;
   gap: 12px;
