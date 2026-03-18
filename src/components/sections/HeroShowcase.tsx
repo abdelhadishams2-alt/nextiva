@@ -6,8 +6,9 @@ import { useEffect, useRef, useState } from 'react';
 
 export function HeroShowcase() {
   const t = useTranslations('HeroShowcase');
+  const callLabelInit = t('callCard.label');
   const [callTime, setCallTime] = useState('0:00');
-  const [callLabel, setCallLabel] = useState(t('callCard.label'));
+  const [callLabel, setCallLabel] = useState(callLabelInit);
   const [showSummary, setShowSummary] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startRef = useRef<number>(0);
