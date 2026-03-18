@@ -58,40 +58,72 @@
      ---------------------------------------------------------------- */
 
   /* Brand Colors */
-  --brand-navy: #0b1924;
+  --brand-navy: #02122c;
   --brand-blue: #0062b8;
-  --brand-cream: #f9f4ef;
+  --brand-cream: #f8f8f6;
+  --brand-white: #fff;
+  --brand-neutral: #b47d7c;
+  --cta-blue: #06f;
+
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4b46;
+  --text-tertiary: #6c6967;
+  --text-placeholder: #a39e9b;
+  --text-white: #fff;
 
   /* Neutral Palette */
-  --neutral-100: #f3f4f6;
-  --neutral-500: #6b7280;
-  --neutral-700: #374151;
+  --neutral-900: #2e2d2c;
+  --neutral-800: #4a4b46;
+  --neutral-700: #6c6967;
+  --neutral-600: #888381;
+  --neutral-500: #a39e9b;
+  --neutral-300: #cdc7c3;
+  --neutral-200: #e1deda;
+  --neutral-100: #f9f4ef;
+  --neutral-50: #f8f8f6;
+  --neutral-25: #fffefc;
+  --neutral-0: #fff;
 
   /* Blue Palette */
-  --blue-200: #93c5fd;
+  --blue-200: #5096b8;
 
   /* Borders */
-  --border-subtle: #e5e7eb;
+  --border-subtle: #e1deda;
+  --border-light: #cdc7c3;
+  --border-dark: #2e2d2c;
 
   /* Font Stack */
   --font-body: var(--font-sans);
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Lora', Georgia, serif;
+
+  /* Arizona Heading Settings */
+  --arizona-heading-weight: 500;
+  --arizona-heading-line-height: 0.98;
+  --arizona-heading-letter-spacing: -0.02em;
 
   /* Typography Scale */
-  --text-micro-xs: 9px;
-  --text-micro-sm: 10px;
-  --text-micro: 11px;
-  --text-caption-sm: 12px;
-  --text-caption: 13px;
-  --text-caption-lg: 14px;
+  --text-micro-xs: 8px;
+  --text-micro-sm: 9px;
+  --text-micro: 10px;
+  --text-caption-sm: 11px;
+  --text-caption: 12px;
+  --text-caption-lg: 13px;
   --text-body-xs: 14px;
   --text-body-sm: 15px;
   --text-body: 16px;
   --text-body-md: 17px;
   --text-body-lg: 18px;
   --text-body-xl: 20px;
-  --text-heading-sm: 22px;
-  --text-section: 48px;
-  --text-display: 72px;
+  --text-heading-sm: 24px;
+  --text-heading-md: 28px;
+  --text-heading-md-lg: 34px;
+  --text-heading-xl: 44px;
+  --text-heading-lg: clamp(36px, 5vw, 56px);
+  --text-section: 52px;
+  --text-display: clamp(56px, 10vw, 120px);
   --text-display-lg: 104px;
+
+  /* Layout */
+  --content-max-width: 1600px;
 }

@@ -232,6 +232,27 @@
       "satisfactionLabel": "Satisfaction"
     }
   },
+  "NextPlatform": {
+    "badge": "NEXT Platform",
+    "title": "Everything to Win Every Customer Conversation",
+    "stat1Value": "1B+",
+    "stat1Label": "Interactions",
+    "stat1Desc": "Handled by our network every year",
+    "stat2Value": "100,000+",
+    "stat2Label": "Businesses",
+    "stat2Desc": "Trust Nextiva for their communications",
+    "stat3Value": "17",
+    "stat3Label": "Years Running",
+    "stat3Desc": "Award-winning customer service",
+    "tabCustomerInteractions": "Customer Interactions",
+    "tabXbertAI": "XBert AI",
+    "tabXbertAIBadge": "New",
+    "tabCustomerExperience": "Customer Experience",
+    "tabConnectedTools": "Connected Tools"
+  },
+  "LogoTrustBar": {
+    "text": "From local businesses to global brands, over 1 million users trust Nextiva."
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",
