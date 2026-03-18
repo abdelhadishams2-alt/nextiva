@@ -704,40 +704,44 @@
 .showcase__sound-wave {
   align-items: center;
   display: flex;
-  gap: 2px;
-  height: 12px;
+  gap: 3px;
+  height: 20px;
 }
 
 .showcase__sound-bar {
-  animation: 1s ease-in-out 0s infinite normal none running showcaseSoundWave;
+  animation: showcaseSoundWave 1s ease-in-out infinite;
   border-radius: 2px;
-  height: 4px;
-  width: 3px;
+  width: 4px;
 }
 
 .showcase__sound-bar:nth-child(1) {
   animation-delay: 0s;
   background: rgb(30, 58, 95);
+  height: 6px;
 }
 
 .showcase__sound-bar:nth-child(2) {
   animation-delay: 0.1s;
   background: var(--brand-blue);
+  height: 12px;
 }
 
 .showcase__sound-bar:nth-child(3) {
   animation-delay: 0.2s;
   background: rgb(122, 158, 126);
+  height: 16px;
 }
 
 .showcase__sound-bar:nth-child(4) {
   animation-delay: 0.3s;
   background: var(--neutral-500);
+  height: 10px;
 }
 
 .showcase__sound-bar:nth-child(5) {
   animation-delay: 0.4s;
   background: rgb(232, 120, 48);
+  height: 6px;
 }
 
 .showcase__call-time {
@@ -995,44 +999,44 @@
   animation-delay: 0.4s;
 }
 
-/* Typing indicator 1: appear at 1s, disappear at 2.5s */
+/* Typing indicator 1: appear at 2s, disappear at 4s */
 .showcase__typing-indicator--1 {
-  animation: 0.3s ease 1s 1 normal forwards running showcaseBubbleAppear,
-             0.2s ease 2.5s 1 normal forwards running showcaseTypingHide;
+  animation: 0.3s ease 2s 1 normal forwards running showcaseBubbleAppear,
+             0.2s ease 4s 1 normal forwards running showcaseTypingHide;
 }
 
-/* Bubble 1: appear at 2.5s */
+/* Bubble 1: appear at 4s */
 .showcase__chat-bubble-wrapper--1 {
-  animation-delay: 2.5s;
+  animation-delay: 4s;
 }
 
-/* Typing indicator 2: appear at 4s, disappear at 5.5s */
+/* Typing indicator 2: appear at 6s, disappear at 8s */
 .showcase__typing-indicator--2 {
   align-self: flex-start;
   border-radius: 16px 16px 16px 4px;
   background: var(--border-subtle);
-  animation: 0.3s ease 4s 1 normal forwards running showcaseBubbleAppear,
-             0.2s ease 5.5s 1 normal forwards running showcaseTypingHide;
+  animation: 0.3s ease 6s 1 normal forwards running showcaseBubbleAppear,
+             0.2s ease 8s 1 normal forwards running showcaseTypingHide;
 }
 
 .showcase__typing-indicator--2 span {
   background: rgb(150, 150, 150);
 }
 
-/* Bubble 2: appear at 5.5s */
+/* Bubble 2: appear at 8s */
 .showcase__chat-bubble-wrapper--2 {
-  animation-delay: 5.5s;
+  animation-delay: 8s;
 }
 
-/* Typing indicator 3: appear at 7s, disappear at 8.5s */
+/* Typing indicator 3: appear at 10s, disappear at 12s */
 .showcase__typing-indicator--3 {
-  animation: 0.3s ease 7s 1 normal forwards running showcaseBubbleAppear,
-             0.2s ease 8.5s 1 normal forwards running showcaseTypingHide;
+  animation: 0.3s ease 10s 1 normal forwards running showcaseBubbleAppear,
+             0.2s ease 12s 1 normal forwards running showcaseTypingHide;
 }
 
-/* Bubble 3: appear at 8.5s */
+/* Bubble 3: appear at 12s */
 .showcase__chat-bubble-wrapper--3 {
-  animation-delay: 8.5s;
+  animation-delay: 12s;
 }
 
 /* ----------------------------------------------------------------
@@ -1307,10 +1311,10 @@
 
 @keyframes showcaseSoundWave {
   0%, 100% {
-    height: 4px;
+    transform: scaleY(1);
   }
   50% {
-    height: 12px;
+    transform: scaleY(1.8);
   }
 }
 

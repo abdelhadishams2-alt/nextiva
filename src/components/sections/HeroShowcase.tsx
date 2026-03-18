@@ -69,17 +69,17 @@ export function HeroShowcase() {
       setCallTime(`${mins}:${secs.toString().padStart(2, '0')}`);
     }, 1000);
 
-    // After ~11s, stop timer and show final time
+    // After ~15s, stop timer and show final time
     const endTimer = setTimeout(() => {
       if (timerRef.current) clearInterval(timerRef.current);
       setCallTime('3m 44s');
       setCallLabel('CALL COMPLETED');
-    }, 11000);
+    }, 15000);
 
-    // After ~13s, switch to AI Summary view
+    // After ~17s, switch to AI Summary view
     const summaryTimer = setTimeout(() => {
       setShowSummary(true);
-    }, 13000);
+    }, 17000);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
