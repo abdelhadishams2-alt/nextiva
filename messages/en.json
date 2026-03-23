@@ -639,8 +639,78 @@
     "salesCta": "Talk to Sales"
   },
   "Footer": {
-    "copy": "\u00a9 2026 Nextiva. All rights reserved.",
-    "privacy": "Privacy",
-    "terms": "Terms"
+    "logoAlt": "Nextiva Logo",
+    "subHeading": "Unified Customer Experience Management Platform",
+    "downloadCta": "Download NextivaONE",
+    "socialFacebook": "Facebook",
+    "socialX": "Twitter (X)",
+    "socialLinkedIn": "LinkedIn",
+    "socialYouTube": "YouTube Videos",
+    "socialReddit": "Reddit",
+    "col1Heading": "Conversational Platform",
+    "col1Links": {
+      "customerComm": "Customer communication",
+      "contactCenter": "AI-powered contact center",
+      "businessVoice": "Business voice",
+      "localNumbers": "Local phone numbers",
+      "analytics": "Customer analytics",
+      "aiReceptionist": "AI receptionist"
+    },
+    "col2Heading": "Helpful Resources",
+    "col2Links": {
+      "resourceCenter": "Resource center",
+      "supportCenter": "Support center",
+      "phones": "Phones & headsets",
+      "contactCenters": "Contact centers",
+      "networkTest": "Network readiness test",
+      "staffingCalc": "Call center staffing calculator",
+      "missedCallsCalc": "Cost of missed calls calculator",
+      "aiCalc": "AI receptionist ROI calculator"
+    },
+    "col3Heading": "Platform Features",
+    "col3Links": {
+      "cloudPhone": "Cloud phone system",
+      "inboundVoice": "Inbound voice contact center",
+      "textMessaging": "Text messaging",
+      "callCenter": "Call center",
+      "cloudPbx": "Cloud PBX",
+      "sipTrunking": "SIP trunking"
+    },
+    "col4Heading": "Company",
+    "col4Links": {
+      "leadership": "Leadership",
+      "board": "Board of Directors",
+      "careers": "Careers",
+      "cares": "Nextiva Cares",
+      "news": "News & media",
+      "status": "Platform status",
+      "contact": "Contact us"
+    },
+    "col5Heading": "Partners",
+    "col5Links": {
+      "channel": "Channel partners",
+      "events": "Events",
+      "affiliates": "Affiliates",
+      "portal": "Partner portal",
+      "integrations": "App integrations"
+    },
+    "blogHeading": "Nextiva Blog",
+    "blogPost1Title": "Best Call Center Software For Your Team",
+    "blogPost2Title": "What Is Unified Customer Experience Management (CXM)?",
+    "goLearn": "Go Learn",
+    "brandText": "nextiva",
+    "slogan": "Crafted with",
+    "sloganHeart": "❤",
+    "sloganLocation": "in Scottsdale, Arizona USA",
+    "copyright": "Copyright © 2026 Nextiva. All Rights Reserved.",
+    "badgeSoc2": "SOC 2 Certified",
+    "badgeHipaa": "HIPAA Compliant",
+    "badgeUptime": "99.999% Uptime",
+    "legalLink": "Legal",
+    "privacyLink": "Privacy Policy",
+    "patentsLink": "Patents",
+    "securityLink": "Security Policy",
+    "accessibilityLink": "Accessibility",
+    "sitemapLink": "Site Map"
   }
 }

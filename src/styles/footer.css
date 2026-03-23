@@ -1,46 +1,516 @@
 /* ----------------------------------------------------------------
-   Footer
+   Footer — Links Section
    ---------------------------------------------------------------- */
 
 .footer {
-  padding-block: var(--space-3xl);
-  border-top: 1px solid var(--color-border);
+  background-color: #fff;
+  font-family: var(--font-body);
+  padding-left: max(100px, (100% - var(--content-max-width)) / 2);
+  padding-right: max(100px, (100% - var(--content-max-width)) / 2);
 }
 
-.footer__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer__copy {
-  font-size: var(--font-size-sm);
-  color: var(--color-muted);
-}
-
-.footer__links {
-  display: flex;
-  gap: var(--space-lg);
-}
-
-.footer__link {
-  font-size: var(--font-size-sm);
-  color: var(--color-muted);
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.footer__link:hover {
-  color: var(--color-fg);
+.footer__wrapper {
+  align-items: start;
+  display: grid;
+  gap: 60px;
+  grid-template-columns: 280px minmax(0, 1fr);
+  margin: 0;
+  max-width: none;
+  padding: 3.5vw 0;
+  width: 100%;
 }
 
 /* ----------------------------------------------------------------
-   Responsive
+   Logo Section (Left)
+   ---------------------------------------------------------------- */
+
+.footer__logo-section {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  justify-content: flex-start;
+}
+
+.footer__logo {
+  text-align: left;
+}
+
+.footer__logo a {
+  display: inline-block;
+  width: 188px;
+}
+
+.footer__logo img {
+  width: 100%;
+  height: auto;
+}
+
+.footer__sub-heading {
+  color: #6c6967;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 10px;
+  max-width: 320px;
+  opacity: 0.8;
+}
+
+/* Download Button */
+.footer__download {
+  background: #fff;
+  border: 1px solid #e1deda;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+.footer__download-btn {
+  align-items: center;
+  color: #1a1a1a;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 8px;
+  line-height: 1;
+  padding: 12px 18px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.footer__download-btn:hover {
+  background-color: #f9f4ef;
+  border-radius: 50px;
+}
+
+/* Social Icons */
+.footer__social {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.footer__social a {
+  align-items: center;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+  transition: opacity 0.2s ease;
+}
+
+.footer__social a:hover {
+  background-color: #f9f4ef;
+}
+
+.footer__social img {
+  filter: grayscale(1) brightness(0.1);
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* ----------------------------------------------------------------
+   Link Columns (Right)
+   ---------------------------------------------------------------- */
+
+.footer__links-wrapper {
+  margin: 0;
+  padding-left: 0;
+}
+
+.footer__links {
+  column-gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 80px;
+}
+
+.footer__links-col {
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.footer__links-heading {
+  border-bottom: 1px solid #e1deda;
+  color: #1a1a1a;
+  display: block;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+}
+
+.footer__links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links-list li {
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 0.625rem;
+  padding: 0;
+}
+
+.footer__links-list li:last-child {
+  margin-bottom: 0;
+}
+
+.footer__links-list a {
+  color: #6c6967;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__links-list a:hover {
+  color: #0b1029;
+}
+
+/* ----------------------------------------------------------------
+   Blog Cards
+   ---------------------------------------------------------------- */
+
+.footer__blog-card {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.footer__blog-card:last-child {
+  margin-bottom: 0;
+}
+
+.footer__blog-card:last-child .footer__blog-link {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.footer__blog-link {
+  border-bottom: 1px solid rgba(11, 16, 41, 0.071);
+  color: #6c6967;
+  display: block;
+  margin: 0;
+  padding: 0 0 20px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__blog-link:hover {
+  color: #0b1029;
+}
+
+.footer__blog-title {
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+}
+
+.footer__blog-go {
+  align-items: center;
+  color: #6c6967;
+  display: flex;
+  font-size: 14px;
+  gap: 4px;
+}
+
+.footer__blog-go p {
+  margin: 0;
+}
+
+.footer__blog-go svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ----------------------------------------------------------------
+   Footer Brand — Giant Text Section
+   ---------------------------------------------------------------- */
+
+.footer-brand {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  padding: 200px 0;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-brand::before {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9) 0,
+    rgba(0, 0, 0, 0.7) 30%,
+    rgba(0, 0, 0, 0.3) 60%,
+    transparent
+  );
+  bottom: 0;
+  content: '';
+  height: 80%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.footer-brand::after {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0, transparent);
+  bottom: 0;
+  content: '';
+  height: 200px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 3;
+}
+
+/* Cactus Overlays */
+.footer-brand__overlay {
+  bottom: 0;
+  max-height: 45%;
+  object-fit: contain;
+  pointer-events: none;
+  position: absolute;
+  width: auto;
+  z-index: 2;
+}
+
+.footer-brand__overlay--left {
+  left: 0;
+}
+
+.footer-brand__overlay--right {
+  right: 0;
+}
+
+/* Scroll Reveal States */
+.footer-brand__reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.85);
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.footer-brand__giant-text.footer-brand__reveal {
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-brand__reveal--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.footer-brand__overlay--left.footer-brand__reveal--visible {
+  transition-delay: 0.5s;
+}
+
+.footer-brand__overlay--right.footer-brand__reveal--visible {
+  transition-delay: 0.7s;
+}
+
+/* Giant Text */
+.footer-brand__giant-text {
+  color: #fff;
+  display: block;
+  font-size: clamp(160px, 26vw, 450px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------
+   Footer Brand — Bottom Bar
+   ---------------------------------------------------------------- */
+
+.footer-brand__bottom {
+  align-items: flex-end;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  left: 0;
+  padding: 30px 60px 40px;
+  position: absolute;
+  right: 0;
+  z-index: 4;
+}
+
+.footer-brand__bottom-left {
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+}
+
+.footer-brand__slogan,
+.footer-brand__copyright {
+  color: #fff;
+  display: block;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-brand__slogan {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.footer-brand__heart {
+  color: #fff;
+  font-style: normal;
+}
+
+.footer-brand__flag {
+  display: inline-block;
+  margin-left: 4px;
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+}
+
+.footer-brand__copyright {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.footer-brand__bottom-center {
+  align-items: center;
+  display: flex;
+}
+
+.footer-brand__badges {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-brand__badge {
+  align-items: center;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+}
+
+.footer-brand__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-brand__legal a {
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-brand__legal a:hover {
+  opacity: 0.8;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .footer__links {
+    gap: 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
    ---------------------------------------------------------------- */
 
 @media (max-width: 768px) {
-  .footer__inner {
-    flex-direction: column;
-    gap: var(--space-md);
+  .footer {
+    padding: 0 40px;
+  }
+
+  .footer__wrapper {
+    gap: 32px;
+    grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .footer__logo-section {
+    align-items: center;
+  }
+
+  .footer__logo {
+    text-align: center;
+  }
+
+  .footer__download {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__links-wrapper {
+    text-align: center;
+  }
+
+  .footer__links {
+    gap: 24px;
+    grid-template-columns: 1fr;
+  }
+
+  .footer__blog-content {
+    align-items: center;
+    gap: 0;
+  }
+
+  /* Brand Section */
+  .footer-brand {
+    padding: 0;
+  }
+
+  .footer-brand__giant-text {
+    font-size: 104px;
+    padding: 60px 0 40px;
+  }
+
+  .footer-brand__overlay {
+    max-height: 35%;
+  }
+
+  .footer-brand__bottom {
+    align-items: center;
+    flex-direction: column;
+    padding: 24px 30px 30px;
+    position: relative;
+    text-align: center;
+  }
+
+  .footer-brand__bottom-left {
+    align-items: center;
+  }
+
+  .footer-brand__badges {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-brand__legal {
+    justify-content: center;
   }
 }
