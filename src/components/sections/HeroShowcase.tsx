@@ -64,7 +64,7 @@ export function HeroShowcase() {
     animFrameRef.current = requestAnimationFrame(animate);
   };
 
-  // Call activity starts 4s after section becomes visible;
+  // Call animation starts 4s after page load (not on scroll);
   // track visibility to pause infinite animations when off-screen
   useEffect(() => {
     const el = showcaseRef.current;
@@ -72,28 +72,22 @@ export function HeroShowcase() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const isIntersecting = entries[0].isIntersecting;
-        setIsVisible(isIntersecting);
-
-        if (isIntersecting && !animDelayRef.current && !animStarted) {
-          animDelayRef.current = setTimeout(() => {
-            setAnimStarted(true);
-          }, 4000);
-        }
-
-        if (!isIntersecting && animDelayRef.current && !animStarted) {
-          clearTimeout(animDelayRef.current);
-          animDelayRef.current = null;
-        }
+        setIsVisible(entries[0].isIntersecting);
       },
       { threshold: 0.1 }
     );
     observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    animDelayRef.current = setTimeout(() => {
+      setAnimStarted(true);
+    }, 4000);
     return () => {
-      observer.disconnect();
       if (animDelayRef.current) clearTimeout(animDelayRef.current);
     };
-  }, [animStarted]);
+  }, []);
 
   useEffect(() => {
     if (!animStarted) return;
