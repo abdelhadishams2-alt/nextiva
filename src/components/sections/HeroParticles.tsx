@@ -14,16 +14,22 @@ export function HeroParticles() {
     if (!container) return;
 
     let intervalId: ReturnType<typeof setInterval> | null = null;
+    let cachedWidth = 0;
+    let cachedHeight = 0;
+
+    function updateSize() {
+      cachedWidth = container!.offsetWidth;
+      cachedHeight = container!.offsetHeight;
+    }
 
     function spawnParticle() {
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
+      if (!container || cachedWidth === 0) return;
 
       const span = document.createElement('span');
       span.className = 'hero__particle';
 
-      const x = rand(0, rect.width);
-      const y = rand(0, rect.height);
+      const x = rand(0, cachedWidth);
+      const y = rand(0, cachedHeight);
       span.style.left = `${x}px`;
       span.style.top = `${y}px`;
 
@@ -75,6 +81,7 @@ export function HeroParticles() {
 
     function startParticles() {
       if (intervalId) return;
+      updateSize();
       intervalId = setInterval(() => {
         const count = Math.round(rand(1, 3));
         for (let i = 0; i < count; i++) {
@@ -91,6 +98,9 @@ export function HeroParticles() {
       container?.querySelectorAll('.hero__particle').forEach((el) => el.remove());
     }
 
+    const resizeObserver = new ResizeObserver(() => { updateSize(); });
+    resizeObserver.observe(container);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -106,12 +116,9 @@ export function HeroParticles() {
 
     observer.observe(container);
 
-    if (container.getBoundingClientRect().top < window.innerHeight) {
-      startParticles();
-    }
-
     return () => {
       observer.disconnect();
+      resizeObserver.disconnect();
       stopParticles();
     };
   }, []);
