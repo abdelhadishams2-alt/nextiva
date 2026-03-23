@@ -285,6 +285,13 @@
       "desc": "From frontline employees to the CEO, everyone sees the same actionable, real-time customer insights. That's true unification."
     }
   },
+  "EndOfBusywork": {
+    "label": "NEXT Platform + XBert AI",
+    "headline": "The End of Busywork.",
+    "tagline": "The next era for business is built with AI employees.",
+    "desc": "The shift is already happening. AI employees are handling customer conversations, resolving real issues, closing real deals. The businesses that ride this shift will be impossible to compete with.",
+    "cta": "See the New Workforce"
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",

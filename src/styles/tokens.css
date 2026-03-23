@@ -122,7 +122,13 @@
   --text-heading-lg: clamp(36px, 5vw, 56px);
   --text-section: 52px;
   --text-display: clamp(56px, 10vw, 120px);
+  --text-display-sm: clamp(64px, 8vw, 96px);
   --text-display-lg: 104px;
+
+  /* Arizona Hero Settings */
+  --arizona-hero-weight: 500;
+  --arizona-hero-line-height: 0.84;
+  --arizona-hero-letter-spacing: -0.02em;
 
   /* Layout */
   --content-max-width: 1600px;

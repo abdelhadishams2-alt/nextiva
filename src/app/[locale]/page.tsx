@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { LogoTrustBar } from "@/components/sections/LogoTrustBar";
 import { NextPlatform } from "@/components/sections/NextPlatform";
 import { FeatureCards } from "@/components/sections/FeatureCards";
+import { EndOfBusywork } from "@/components/sections/EndOfBusywork";
 import { Footer } from "@/components/sections/Footer";
 
 export default async function HomePage() {
@@ -14,6 +15,7 @@ export default async function HomePage() {
       <LogoTrustBar />
       <NextPlatform />
       <FeatureCards />
+      <EndOfBusywork />
       <Footer />
     </>
   );

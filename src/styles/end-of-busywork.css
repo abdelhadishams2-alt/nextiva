@@ -1,0 +1,349 @@
+/* ----------------------------------------------------------------
+   End of Busywork — Split Showcase
+   ---------------------------------------------------------------- */
+
+.busywork {
+  background: var(--brand-white);
+  padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
+}
+
+/* ----------------------------------------------------------------
+   Card (split layout)
+   ---------------------------------------------------------------- */
+
+.busywork__card {
+  background: var(--brand-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 550px;
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------------------
+   Content (left side)
+   ---------------------------------------------------------------- */
+
+.busywork__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 600px;
+  padding: 80px 60px 80px 80px;
+}
+
+.busywork__top {
+  flex-shrink: 0;
+}
+
+.busywork__label {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  padding: 8px 14px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.busywork__headline {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--text-display-sm);
+  font-weight: 700;
+  letter-spacing: var(--arizona-hero-letter-spacing);
+  line-height: var(--arizona-hero-line-height);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------
+   Bottom (tagline + desc + CTA)
+   ---------------------------------------------------------------- */
+
+.busywork__bottom {
+  margin-top: auto;
+  padding-top: 120px;
+}
+
+.busywork__tagline {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 24px;
+  max-width: 490px;
+}
+
+.busywork__desc {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* ----------------------------------------------------------------
+   CTA Button
+   ---------------------------------------------------------------- */
+
+.busywork__cta {
+  align-items: center;
+  background-color: var(--cta-blue);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  gap: 1.5rem;
+  margin-top: 32px;
+  overflow: hidden;
+  padding: 0.625rem 0.625rem 0.625rem 1.25rem;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.busywork__cta::before {
+  animation: busyworkShine 3s ease-in-out 1s infinite;
+  background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.3) 50%, transparent);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-100%);
+  width: 100%;
+  will-change: transform;
+}
+
+.busywork__cta-text {
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.busywork__cta-arrow {
+  align-items: center;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.busywork__cta-arrow svg {
+  display: block;
+  flex-shrink: 0;
+  height: 16px;
+  width: 16px;
+}
+
+.busywork__cta:hover {
+  background-color: #0052cc;
+  transform: translateY(-2px);
+}
+
+.busywork__cta:hover .busywork__cta-arrow {
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+@keyframes busyworkShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  20% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Visual (right side — background image)
+   ---------------------------------------------------------------- */
+
+.busywork__visual {
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  position: relative;
+}
+
+/* ----------------------------------------------------------------
+   Atom Animation
+   ---------------------------------------------------------------- */
+
+.busywork__atom {
+  height: 320px;
+  position: relative;
+  width: 320px;
+}
+
+.busywork__nucleus {
+  animation: busyworkNucleusPulse 2s ease-in-out infinite;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 20px hsla(0, 0%, 100%, 0.9),
+    0 0 40px hsla(0, 0%, 100%, 0.6),
+    0 0 60px hsla(0, 0%, 100%, 0.4),
+    0 0 100px hsla(0, 0%, 100%, 0.2);
+  height: 16px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  z-index: 10;
+}
+
+@keyframes busyworkNucleusPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsla(0, 0%, 100%, 0.9),
+      0 0 40px hsla(0, 0%, 100%, 0.6),
+      0 0 60px hsla(0, 0%, 100%, 0.4),
+      0 0 100px hsla(0, 0%, 100%, 0.2);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 30px #fff,
+      0 0 60px hsla(0, 0%, 100%, 0.8),
+      0 0 90px hsla(0, 0%, 100%, 0.5),
+      0 0 140px hsla(0, 0%, 100%, 0.3);
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.busywork__orbit {
+  border: 2px solid hsla(0, 0%, 100%, 0.3);
+  border-radius: 50%;
+  height: 80px;
+  left: 50%;
+  margin-left: -120px;
+  margin-top: -40px;
+  position: absolute;
+  top: 50%;
+  width: 240px;
+}
+
+.busywork__orbit--1 {
+  animation: busyworkOrbit1 8s linear infinite;
+}
+
+.busywork__orbit--2 {
+  animation: busyworkOrbit2 8s linear infinite;
+}
+
+.busywork__orbit--3 {
+  animation: busyworkOrbit3 8s linear infinite;
+}
+
+@keyframes busyworkOrbit1 {
+  0%  { transform: rotate(60deg) rotateX(70deg) rotate(0deg); }
+  100% { transform: rotate(60deg) rotateX(70deg) rotate(360deg); }
+}
+
+@keyframes busyworkOrbit2 {
+  0%  { transform: rotate(-60deg) rotateX(70deg) rotate(0deg); }
+  100% { transform: rotate(-60deg) rotateX(70deg) rotate(360deg); }
+}
+
+@keyframes busyworkOrbit3 {
+  0%  { transform: rotate(0deg) rotateX(80deg) rotate(0deg); }
+  100% { transform: rotate(0deg) rotateX(80deg) rotate(360deg); }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets (max-width: 1024px)
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .busywork {
+    padding: 60px 40px;
+  }
+
+  .busywork__card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .busywork__content {
+    min-height: auto;
+    padding: 48px 40px;
+  }
+
+  .busywork__bottom {
+    padding-top: 48px;
+  }
+
+  .busywork__tagline {
+    font-size: var(--text-heading-sm);
+  }
+
+  .busywork__visual {
+    min-height: 350px;
+    order: -1;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones (max-width: 768px)
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .busywork {
+    padding: 60px 20px;
+  }
+
+  .busywork__card {
+    border-radius: 16px;
+  }
+
+  .busywork__content {
+    padding: 32px 24px;
+  }
+
+  .busywork__bottom {
+    padding-top: 32px;
+  }
+
+  .busywork__tagline {
+    font-size: var(--text-body-xl);
+  }
+
+  .busywork__visual {
+    min-height: 250px;
+  }
+
+  .busywork__atom {
+    height: 200px;
+    width: 200px;
+  }
+
+  .busywork__orbit {
+    height: 50px;
+    margin-left: -75px;
+    margin-top: -25px;
+    width: 150px;
+  }
+}
