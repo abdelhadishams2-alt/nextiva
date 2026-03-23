@@ -85,6 +85,9 @@
   --neutral-25: #fffefc;
   --neutral-0: #fff;
 
+  /* Rating */
+  --rating-star: #f5a623;
+
   /* Blue Palette */
   --blue-200: #5096b8;
 
@@ -124,6 +127,7 @@
   --text-display: clamp(56px, 10vw, 120px);
   --text-display-sm: clamp(64px, 8vw, 96px);
   --text-display-lg: 104px;
+  --text-metric: 48px;
 
   /* Arizona Hero Settings */
   --arizona-hero-weight: 500;

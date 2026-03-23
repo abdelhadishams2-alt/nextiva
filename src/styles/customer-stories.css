@@ -1,0 +1,351 @@
+/* ----------------------------------------------------------------
+   Customer Stories — Social Proof Grid
+   ---------------------------------------------------------------- */
+
+.customer-stories {
+  background: var(--brand-cream);
+  padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
+  padding-bottom: 48px;
+  position: relative;
+}
+
+.customer-stories__container {
+  margin: 0 auto;
+  max-width: none;
+}
+
+/* ----------------------------------------------------------------
+   Header Row
+   ---------------------------------------------------------------- */
+
+.customer-stories__header-row {
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  gap: 48px;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+}
+
+.customer-stories__header {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.customer-stories__eyebrow {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  text-transform: uppercase;
+}
+
+.customer-stories__title {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--text-section);
+  font-weight: var(--arizona-heading-weight);
+  letter-spacing: var(--arizona-heading-letter-spacing);
+  line-height: var(--arizona-heading-line-height);
+  margin-bottom: 0;
+  white-space: pre-line;
+}
+
+/* ----------------------------------------------------------------
+   Trust Badges
+   ---------------------------------------------------------------- */
+
+.customer-stories__trust-badges {
+  align-items: flex-end;
+  display: flex;
+  gap: 0;
+  padding-bottom: 8px;
+}
+
+.customer-stories__badge-item {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 32px;
+  position: relative;
+}
+
+.customer-stories__badge-item:first-child {
+  padding-left: 0;
+}
+
+.customer-stories__badge-item:last-child {
+  padding-right: 0;
+}
+
+.customer-stories__badge-item:not(:last-child)::after {
+  background: var(--border-light);
+  bottom: 0;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+}
+
+.customer-stories__badge-logo {
+  filter: grayscale(100%);
+  height: 22px !important;
+  margin-bottom: 6px;
+  object-fit: contain;
+  opacity: 0.8;
+  width: auto !important;
+}
+
+.customer-stories__badge-logo--gartner {
+  height: 34px !important;
+  position: relative;
+  top: 6px;
+}
+
+.customer-stories__stars {
+  color: var(--rating-star);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.customer-stories__rating {
+  color: var(--neutral-700);
+  font-family: var(--font-body);
+  font-size: var(--text-caption-lg);
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 180px;
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------
+   Cards Grid
+   ---------------------------------------------------------------- */
+
+.customer-stories__cards {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ----------------------------------------------------------------
+   Card
+   ---------------------------------------------------------------- */
+
+.customer-stories__card {
+  background: var(--brand-white);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+.customer-stories__card-header {
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+}
+
+.customer-stories__card-logo {
+  align-items: center;
+  display: flex;
+  height: 32px;
+  justify-content: flex-start;
+}
+
+.customer-stories__card-logo img {
+  height: 100%;
+  max-width: 120px;
+  object-fit: contain;
+  width: auto;
+}
+
+.customer-stories__card-metric {
+  align-items: center;
+  background: var(--brand-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  gap: 6px;
+  padding: 8px 12px;
+}
+
+.customer-stories__metric-icon {
+  color: var(--text-primary);
+  flex-shrink: 0;
+  height: 14px;
+  width: 14px;
+}
+
+.customer-stories__card-text {
+  color: var(--text-primary);
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+/* ----------------------------------------------------------------
+   Card Footer
+   ---------------------------------------------------------------- */
+
+.customer-stories__card-footer {
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.customer-stories__card-stars {
+  color: var(--rating-star);
+  font-size: var(--text-body-sm);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.customer-stories__card-author {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.customer-stories__card-name {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+}
+
+.customer-stories__card-role {
+  color: var(--neutral-700);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 400;
+}
+
+.customer-stories__card-company {
+  color: var(--neutral-500);
+  font-family: var(--font-body);
+  font-size: var(--text-caption-lg);
+  font-weight: 400;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablet
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .customer-stories {
+    padding: 60px 40px;
+  }
+
+  .customer-stories__header-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .customer-stories__trust-badges {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .customer-stories__title {
+    font-size: var(--text-heading-xl);
+  }
+
+  .customer-stories__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phone
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .customer-stories {
+    padding: 60px 20px;
+  }
+
+  .customer-stories__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-stories__header-row {
+    border-bottom: none;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 0;
+  }
+
+  .customer-stories__trust-badges {
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+  }
+
+  .customer-stories__badge-item {
+    align-items: flex-start;
+    flex: 1;
+    gap: 4px;
+    padding: 0 12px;
+  }
+
+  .customer-stories__badge-item:first-child {
+    padding-left: 0;
+  }
+
+  .customer-stories__badge-item:last-child {
+    padding-right: 0;
+  }
+
+  .customer-stories__badge-logo {
+    height: 18px !important;
+    margin-bottom: 4px;
+  }
+
+  .customer-stories__badge-logo--gartner {
+    height: 28px !important;
+  }
+
+  .customer-stories__stars {
+    font-size: var(--text-body-xs);
+  }
+
+  .customer-stories__rating {
+    font-size: var(--text-caption);
+  }
+
+  .customer-stories__card {
+    padding: 24px;
+  }
+
+  .customer-stories__title {
+    font-size: var(--text-heading-lg);
+  }
+}

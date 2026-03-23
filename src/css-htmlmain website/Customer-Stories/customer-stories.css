@@ -1,0 +1,454 @@
+.design-v2 .section-social-proof-grid {
+    background: var(--brand-cream);
+    padding: 100px max(100px,(100% - var(--content-max-width))/2);
+    padding-bottom: 48px;
+    position: relative
+}
+
+.design-v2 .section-social-proof-grid--white {
+    background: var(--bg-white)
+}
+
+.design-v2 .social-proof-grid-container {
+    margin: 0 auto;
+    max-width: none
+}
+
+.design-v2 .social-proof-grid-header-row {
+    align-items: flex-end;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    gap: 48px;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    padding-bottom: 40px
+}
+
+.design-v2 .social-proof-grid-header {
+    margin-bottom: 0;
+    text-align: left
+}
+
+.design-v2 .social-proof-grid-eyebrow {
+    background: rgba(0,0,0,.06);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: .08em;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    text-transform: uppercase
+}
+
+.design-v2 .social-proof-grid-title {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-size: var(--text-section);
+    font-weight: var(--arizona-heading-weight);
+    letter-spacing: var(--arizona-heading-letter-spacing);
+    line-height: var(--arizona-heading-line-height);
+    margin-bottom: 0
+}
+
+.design-v2 .social-proof-grid-trust-badges {
+    align-items: flex-end;
+    display: flex;
+    gap: 0;
+    padding-bottom: 8px
+}
+
+.design-v2 .social-proof-grid-badge-item {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 32px;
+    position: relative
+}
+
+.design-v2 .social-proof-grid-badge-item:first-child {
+    padding-left: 0
+}
+
+.design-v2 .social-proof-grid-badge-item:last-child {
+    padding-right: 0
+}
+
+.design-v2 .social-proof-grid-badge-item:not(:last-child):after {
+    background: var(--border-light);
+    bottom: 0;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px
+}
+
+.design-v2 .social-proof-grid-badge-logo {
+    filter: grayscale(100%);
+    height: 22px;
+    margin-bottom: 6px;
+    object-fit: contain;
+    opacity: .8;
+    width: auto
+}
+
+.design-v2 .social-proof-grid-badge-logo.gartner-logo {
+    height: 34px;
+    position: relative;
+    top: 6px
+}
+
+.design-v2 .social-proof-grid-stars {
+    color: var(--rating-star);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    line-height: 1
+}
+
+.design-v2 .social-proof-grid-rating-number {
+    color: var(--neutral-700);
+    font-family: var(--font-body);
+    font-size: var(--text-caption-lg);
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 180px;
+    white-space: nowrap
+}
+
+.design-v2 .social-proof-grid-cards {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(3,1fr)
+}
+
+.design-v2 .social-proof-grid-show-all {
+    display: none
+}
+
+.design-v2 .social-proof-grid-show-all .btn-arrow {
+    transition: transform .3s ease
+}
+
+.design-v2 .social-proof-grid-card {
+    background: var(--brand-white);
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    display: flex;
+    flex-direction: column;
+    padding: 32px
+}
+
+.design-v2 .social-proof-grid-card--image {
+    min-height: 320px;
+    overflow: hidden;
+    padding: 0
+}
+
+.design-v2 .social-proof-grid-card--image img {
+    border-radius: 16px;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%
+}
+
+.design-v2 .section-social-proof-grid--white .social-proof-grid-card {
+    border: 1px solid var(--border-light)
+}
+
+.design-v2 .social-proof-grid-card-header {
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px
+}
+
+.design-v2 .social-proof-grid-card-header--no-logo {
+    justify-content: flex-start
+}
+
+.design-v2 .social-proof-grid-card-logo {
+    align-items: center;
+    display: flex;
+    height: 32px;
+    justify-content: flex-start
+}
+
+.design-v2 .social-proof-grid-card-logo img {
+    height: 100%;
+    max-width: 120px;
+    object-fit: contain;
+    width: auto
+}
+
+.design-v2 .social-proof-grid-card-logo img.logo-invert {
+    filter: invert(1)
+}
+
+.design-v2 .social-proof-grid-card-logo span {
+    color: var(--neutral-500);
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: .05em
+}
+
+.design-v2 .social-proof-grid-card-metric {
+    align-items: center;
+    background: var(--brand-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    color: var(--text-primary);
+    display: inline-flex;
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    gap: 6px;
+    padding: 8px 12px
+}
+
+.design-v2 .social-proof-grid-card-metric .metric-icon {
+    color: var(--text-primary);
+    flex-shrink: 0;
+    height: 14px;
+    width: 14px
+}
+
+.design-v2 .social-proof-grid-card-text {
+    color: var(--text-primary);
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0 0 24px
+}
+
+.design-v2 .social-proof-grid-card-footer {
+    border-top: 1px solid var(--border-subtle);
+    margin-top: auto;
+    padding-top: 20px
+}
+
+.design-v2 .social-proof-grid-card-stars {
+    color: var(--rating-star);
+    font-size: var(--text-body-sm);
+    letter-spacing: -.02em;
+    margin-bottom: 12px
+}
+
+.design-v2 .social-proof-grid-card-author {
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+}
+
+.design-v2 .social-proof-grid-card-name {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 600
+}
+
+.design-v2 .social-proof-grid-card-role {
+    color: var(--neutral-700);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 400
+}
+
+.design-v2 .social-proof-grid-card-company {
+    color: var(--neutral-500);
+    font-family: var(--font-body);
+    font-size: var(--text-caption-lg);
+    font-weight: 400
+}
+
+.design-v2 .social-proof-grid-card-source {
+    color: var(--brand-blue);
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 500
+}
+
+.design-v2 .partner-video-placeholder {
+    border-radius: 20px;
+    margin-bottom: 48px;
+    overflow: hidden
+}
+
+.design-v2 .partner-video-placeholder wistia-player {
+    border-radius: 20px;
+    display: block;
+    overflow: hidden
+}
+
+.design-v2 .partner-video-placeholder .video-embed {
+    border-radius: 20px;
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative
+}
+
+.design-v2 .partner-video-placeholder .video-embed iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.design-v2 .social-proof-grid-card-avatar {
+    border-radius: 50%;
+    flex-shrink: 0;
+    height: 48px;
+    overflow: hidden;
+    width: 48px
+}
+
+.design-v2 .social-proof-grid-card-avatar img,.design-v2 .social-proof-grid-card-avatar-img {
+    border-radius: 50%;
+    height: 100%;
+    object-fit: cover;
+    width: 100%
+}
+
+@media(max-width: 1200px) {
+    .design-v2 .social-proof-grid-cards {
+        grid-template-columns:repeat(2,1fr)
+    }
+}
+
+@media(max-width: 1024px) {
+    .design-v2 .section-social-proof-grid {
+        padding:60px 40px
+    }
+
+    .design-v2 .social-proof-grid-header-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 32px
+    }
+
+    .design-v2 .social-proof-grid-trust-badges {
+        justify-content: flex-start;
+        width: 100%
+    }
+
+    .design-v2 .social-proof-grid-title {
+        font-size: var(--text-heading-xl)
+    }
+}
+
+@media(max-width: 768px) {
+    .design-v2 .partner-video-placeholder {
+        margin-bottom:32px
+    }
+
+    .design-v2 .social-proof-grid-cards {
+        grid-template-columns: 1fr
+    }
+
+    .design-v2 .social-proof-grid-card:nth-child(n+4) {
+        display: none
+    }
+
+    .design-v2 .section-social-proof-grid--show-all-cards .social-proof-grid-card:nth-child(n+4),.design-v2 .social-proof-grid-cards.expanded .social-proof-grid-card:nth-child(n+4) {
+        display: flex
+    }
+
+    .design-v2 .social-proof-grid-show-all {
+        display: inline-flex;
+        justify-content: space-between;
+        margin-top: 24px;
+        width: 100%
+    }
+
+    .design-v2 .social-proof-grid-show-all .show-less-text,.design-v2 .social-proof-grid-show-all[aria-expanded=true] .show-all-text {
+        display: none
+    }
+
+    .design-v2 .social-proof-grid-show-all[aria-expanded=true] .show-less-text {
+        display: inline
+    }
+
+    .design-v2 .social-proof-grid-show-all[aria-expanded=true] .btn-arrow {
+        transform: rotate(180deg)
+    }
+
+    .design-v2 .social-proof-grid-header-row {
+        border-bottom: none;
+        gap: 24px;
+        margin-bottom: 32px;
+        padding-bottom: 0
+    }
+
+    .design-v2 .social-proof-grid-trust-badges {
+        flex-direction: row;
+        gap: 0;
+        width: 100%
+    }
+
+    .design-v2 .social-proof-grid-badge-item {
+        align-items: flex-start;
+        flex: 1;
+        gap: 4px;
+        padding: 0 12px;
+        text-align: center
+    }
+
+    .design-v2 .social-proof-grid-badge-item:first-child {
+        padding-left: 0
+    }
+
+    .design-v2 .social-proof-grid-badge-item:last-child {
+        padding-right: 0
+    }
+
+    .design-v2 .social-proof-grid-badge-item:not(:last-child):after {
+        display: block
+    }
+
+    .design-v2 .social-proof-grid-badge-logo {
+        height: 18px;
+        margin-bottom: 4px
+    }
+
+    .design-v2 .social-proof-grid-badge-logo.gartner-logo {
+        height: 28px
+    }
+
+    .design-v2 .social-proof-grid-stars {
+        font-size: var(--text-body-xs)
+    }
+
+    .design-v2 .social-proof-grid-rating-number {
+        font-size: var(--text-caption)
+    }
+}
+
+@media(max-width: 640px) {
+    .design-v2 .section-social-proof-grid {
+        padding:60px 20px
+    }
+
+    .design-v2 .social-proof-grid-title {
+        font-size: var(--text-heading-lg)
+    }
+
+    .design-v2 .social-proof-grid-card {
+        padding: 24px
+    }
+}

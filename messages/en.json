@@ -323,6 +323,57 @@
       "constellationLabel": "NEXT"
     }
   },
+  "CustomerStories": {
+    "eyebrow": "Customer Stories",
+    "title": "Trusted by 100,000+\nBusinesses Worldwide",
+    "badges": {
+      "trustpilot": "4.8/5 on Trustpilot",
+      "g2": "4.5/5 on G2",
+      "gartner": "4.7/5 on Gartner"
+    },
+    "card1": {
+      "metric": "98% Faster Response",
+      "text": "\"An incredible 98% improvement in customer response time and an 11% increase in positive reviews.\"",
+      "name": "Hyundai",
+      "role": "968 Dealerships",
+      "company": "Global Automotive"
+    },
+    "card2": {
+      "metric": "10K+ Interactions / Quarter",
+      "text": "\"With all social channels unified into one inbox, we reduced response times to under 2 hours across LinkedIn, Twitter, Facebook, and Instagram.\"",
+      "name": "DHL",
+      "role": "Global Logistics",
+      "company": "220+ Countries & Territories"
+    },
+    "card3": {
+      "metric": "270+ Franchise Locations",
+      "text": "\"Our bakery owners are busy and don't have time for complicated systems. The interface and the Nextiva Support team were a big selling point.\"",
+      "name": "Vinny Torregrossa",
+      "role": "IT Manager",
+      "company": "Nothing Bundt Cakes"
+    },
+    "card4": {
+      "metric": "+30% Annual Revenue Growth",
+      "text": "\"Since adopting Nextiva, we've achieved 30% annual revenue growth. We now provide cloud communications to 325 employees across six locations with 99.999% uptime.\"",
+      "name": "Franklin Street",
+      "role": "325 Employees, 6 Locations",
+      "company": "Commercial Real Estate"
+    },
+    "card5": {
+      "metric": "+60% Cost Savings",
+      "text": "\"Nextiva's VoIP phone system has helped us realize an estimated 60% cost savings over our previous system, and our customers never receive a busy signal.\"",
+      "name": "Tabarka Studio",
+      "role": "Tile & Stone Manufacturer",
+      "company": "Scottsdale, AZ"
+    },
+    "card6": {
+      "metric": "+50% Cost Reduction",
+      "text": "\"We were due for a complete overhaul. Moving to Nextiva gave us an all-in-one cloud-based solution that was easier to manage, more reliable, and cut our communications costs by more than 50%.\"",
+      "name": "Rich Sparkman",
+      "role": "Director of Technology",
+      "company": "Shelby American"
+    }
+  },
   "SpotlightHero": {
     "card1": {
       "title": "XBert learns your business.",
@@ -341,6 +392,106 @@
       "desc": "When needed, XBert transfers complex requests and urgent needs to your team. No awkward pauses or frustrated customers.",
       "badge1": "Smart handoff",
       "badge2": "Never lose a customer"
+    }
+  },
+  "ProvenResults": {
+    "title": "Proven results across industries",
+    "prevLabel": "Previous",
+    "nextLabel": "Next",
+    "readCaseStudy": "Read Case Study",
+    "card1": {
+      "badge": "Financial Services",
+      "metric": "471%",
+      "metricLabel": "Productivity Boost",
+      "company": "Cedar Financial",
+      "desc": "Transformed customer communications and dramatically improved team productivity.",
+      "link": "/customer-story/cedar-financial"
+    },
+    "card2": {
+      "badge": "Healthcare",
+      "metric": "20%",
+      "metricLabel": "Improved Answer Ratios",
+      "company": "NEBA",
+      "desc": "Improved answer ratios by 20% with Nextiva Contact Center for better patient care.",
+      "link": "/customer-story/neba-case-study"
+    },
+    "card3": {
+      "badge": "Contact Center",
+      "metric": "154%",
+      "metricLabel": "Voice Efficiency",
+      "company": "Emergia",
+      "desc": "High-volume call center boosted voice channel efficiency by 154% with Nextiva.",
+      "link": "/customer-story/emergia-customer-story"
+    },
+    "card4": {
+      "badge": "Real Estate",
+      "metric": "30%",
+      "metricLabel": "Revenue Growth",
+      "company": "Franklin Street",
+      "desc": "325 employees across six locations communicate seamlessly with 99.999% uptime.",
+      "link": "/customer-story/franklin-street-case-study"
+    },
+    "card5": {
+      "badge": "Education",
+      "metric": "3x",
+      "metricLabel": "Student Engagement",
+      "company": "Jersey College",
+      "desc": "Recruit and educate more students on budget with unified communications.",
+      "link": "/customer-story/jersey-college-case-study"
+    },
+    "card6": {
+      "badge": "Retail",
+      "metric": "60%",
+      "metricLabel": "Cost Savings",
+      "company": "Tabarka Studio",
+      "desc": "Reduced communication costs by 60% while customers never receive a busy signal.",
+      "link": "/download/Nextiva-Tabarka_CaseStudy.pdf"
+    },
+    "card7": {
+      "badge": "Automotive",
+      "metric": "50%",
+      "metricLabel": "Cost Reduction",
+      "company": "Shelby American",
+      "desc": "The iconic brand relies on rock-solid operations, cutting costs in half.",
+      "link": "/customer-story/shelby-american-case-study"
+    },
+    "card8": {
+      "badge": "Sports",
+      "metric": "100%",
+      "metricLabel": "Member Satisfaction",
+      "company": "San Antonio Spurs",
+      "desc": "365-day fan engagement with exceptional season ticket member experiences.",
+      "link": "/customer-story/spurs-case-study"
+    },
+    "card9": {
+      "badge": "Media",
+      "metric": "40%",
+      "metricLabel": "Cost Reduction",
+      "company": "Tata Play",
+      "desc": "1M+ messages per month with AI-powered bots on WhatsApp.",
+      "link": "/customer-story/tata-play-broadcasting"
+    },
+    "card10": {
+      "badge": "Nonprofit",
+      "metric": "24/7",
+      "metricLabel": "Reliable Operations",
+      "company": "Orange County Rescue",
+      "desc": "Dependable communications serving at-risk citizens every day of the year.",
+      "link": "/customer-story/orange-county-rescue-mission-case-study"
+    }
+  },
+  "ContactCenter": {
+    "card1": {
+      "label": "Award-Winning",
+      "title": "AI-Powered Contact Center",
+      "desc": "Handle inbound and outbound customer interactions across voice, chat, email, and SMS with intelligent routing and real-time analytics.",
+      "link": "Learn more"
+    },
+    "card2": {
+      "label": "Award-Winning",
+      "title": "AI-Powered Business Phone",
+      "desc": "Reliable business phone service with unlimited calling, video meetings, and team messaging on any device. Set up in minutes, not weeks.",
+      "link": "Learn more"
     }
   },
   "Footer": {
