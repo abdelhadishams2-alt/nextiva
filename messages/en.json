@@ -323,6 +323,26 @@
       "constellationLabel": "NEXT"
     }
   },
+  "SpotlightHero": {
+    "card1": {
+      "title": "XBert learns your business.",
+      "desc": "XBert learns your services, policies, business hours, and FAQs. It's not guessing. It's an expert that knows your business inside and out.",
+      "badge1": "No guessing",
+      "badge2": "Uses facts"
+    },
+    "card2": {
+      "title": "You have full control.",
+      "desc": "Set guardrails and customize what the AI can handle. Calls are recorded and transcribed so you always know what happened.",
+      "badge1": "Calls recorded",
+      "badge2": "Everything is transcribed"
+    },
+    "card3": {
+      "title": "Intelligent handoff.",
+      "desc": "When needed, XBert transfers complex requests and urgent needs to your team. No awkward pauses or frustrated customers.",
+      "badge1": "Smart handoff",
+      "badge2": "Never lose a customer"
+    }
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",

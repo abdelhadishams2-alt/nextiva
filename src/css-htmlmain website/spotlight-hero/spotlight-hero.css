@@ -1,0 +1,466 @@
+.design-v2 .section-spotlight-hero-trust {
+    background: var(--brand-white);
+    padding: 100px max(100px,(100% - var(--content-max-width))/2)
+}
+
+.design-v2 .spotlight-hero-trust-container {
+    width: 100%
+}
+
+.design-v2 .spotlight-hero-trust-card {
+    background-position: 50%;
+    background-size: cover;
+    border: 1px solid var(--text-primary);
+    border-radius: 24px;
+    min-height: 650px;
+    overflow: hidden;
+    position: relative
+}
+
+.design-v2 .spotlight-hero-trust-overlay {
+    background: linear-gradient(90deg,rgba(0,140,255,.85),rgba(0,140,255,.6) 40%,rgba(0,140,255,.2));
+    inset: 0;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1
+}
+
+.design-v2 .floating-particles {
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2
+}
+
+.design-v2 .spotlight-hero-trust-content {
+    display: flex;
+    flex-direction: column;
+    inset: 0;
+    justify-content: space-between;
+    padding: 48px 80px 72px;
+    position: absolute;
+    z-index: 3
+}
+
+.design-v2 .spotlight-hero-trust-content--centered {
+    justify-content: center
+}
+
+.design-v2 .spotlight-hero-trust-top {
+    flex-shrink: 0
+}
+
+.design-v2 .spotlight-hero-trust-bottom {
+    margin-top: auto
+}
+
+.design-v2 .spotlight-hero-trust-logo-row {
+    align-items: center;
+    display: flex;
+    gap: 12px
+}
+
+.design-v2 .section-spotlight-hero-trust .new-pill {
+    background: var(--brand-blue);
+    border-radius: 100px;
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: var(--text-micro-sm);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    line-height: 1;
+    margin-left: 0;
+    padding: 4px 8px 3px;
+    text-transform: uppercase;
+    white-space: nowrap
+}
+
+.design-v2 .section-spotlight-hero-trust .new-pill-white {
+    background: var(--brand-white);
+    color: var(--text-primary)
+}
+
+.design-v2 .spotlight-hero-trust-logo {
+    display: block;
+    height: auto;
+    margin-bottom: 8px;
+    max-width: 120px;
+    width: 120px;
+    fill: var(--text-white)
+}
+
+.design-v2 .spotlight-hero-trust-logo path,.design-v2 .spotlight-hero-trust-logo polygon {
+    fill: var(--text-white)
+}
+
+.design-v2 .spotlight-hero-trust-logo .xbert-star {
+    fill: var(--text-white);
+    animation: xbertStarSpin 8s ease-in-out infinite;
+    transform-origin: 9.44px 4.15px
+}
+
+@keyframes xbertStarSpin {
+    0%,to {
+        transform: rotate(0deg) scale(1)
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.15)
+    }
+}
+
+.design-v2 .spotlight-hero-trust-logo-large {
+    margin-bottom: 24px;
+    max-width: 160px;
+    width: 160px
+}
+
+.design-v2 .spotlight-hero-trust-name {
+    color: var(--text-white);
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--text-caption-lg);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    text-transform: uppercase
+}
+
+.design-v2 .spotlight-hero-trust-headline {
+    color: var(--text-white);
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-size: var(--text-display-sm);
+    font-weight: var(--arizona-hero-weight);
+    letter-spacing: var(--arizona-hero-letter-spacing);
+    line-height: var(--arizona-hero-line-height);
+    margin: 0 0 40px;
+    max-width: 680px
+}
+
+.design-v2 .spotlight-hero-trust-subhead {
+    color: hsla(0,0%,100%,.9);
+    font-family: var(--font-body);
+    font-size: var(--text-body-md);
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0 0 36px;
+    max-width: 480px
+}
+
+.design-v2 .spotlight-hero-trust-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem
+}
+
+.design-v2 .spotlight-hero-trust-card .btn-secondary {
+    border-color: hsla(0,0%,100%,.4);
+    color: var(--text-white)
+}
+
+.design-v2 .spotlight-hero-trust-card .btn-secondary .btn-arrow {
+    background-color: hsla(0,0%,100%,.1);
+    color: var(--text-white)
+}
+
+.design-v2 .spotlight-hero-trust-card .btn-secondary:hover {
+    background-color: hsla(0,0%,100%,.1);
+    border-color: hsla(0,0%,100%,.6)
+}
+
+.design-v2 .section-spotlight-hero-trust .platform-showcase-header {
+    margin-bottom: 60px;
+    max-width: 800px
+}
+
+.design-v2 .section-spotlight-hero-trust .platform-showcase-header .platform-badge {
+    background: rgba(0,0,0,.06);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: .08em;
+    margin-bottom: 24px;
+    padding: 8px 14px;
+    text-transform: uppercase
+}
+
+.design-v2 .section-spotlight-hero-trust .showcase-section-title {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-size: var(--text-section-sm);
+    font-weight: var(--arizona-heading-weight);
+    letter-spacing: var(--arizona-heading-letter-spacing);
+    line-height: var(--arizona-heading-line-height);
+    margin: 0 0 40px
+}
+
+.design-v2 .section-spotlight-hero-trust .showcase-section-description {
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: var(--text-body-lg);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 640px
+}
+
+.design-v2 .spotlight-hero-trust-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 16px
+}
+
+.design-v2 .spotlight-hero-trust-trustcard {
+    background: var(--brand-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0
+}
+
+.design-v2 .spotlight-hero-trust-icon {
+    align-items: center;
+    background: var(--text-primary);
+    border-radius: 8px;
+    color: var(--text-white);
+    display: flex;
+    flex-shrink: 0;
+    font-size: var(--text-body-lg);
+    height: 36px;
+    justify-content: center;
+    margin: 64px 64px 20px;
+    width: 36px
+}
+
+.design-v2 .spotlight-hero-trust-icon-img {
+    filter: brightness(0) invert(1);
+    height: 20px;
+    object-fit: contain;
+    transform: translateY(-1px);
+    width: 20px
+}
+
+.design-v2 .spotlight-hero-trust-icon .xbert-icon {
+    color: var(--text-white);
+    display: block;
+    flex-shrink: 0;
+    height: auto;
+    height: 20px;
+    margin-top: -2px;
+    width: 20px
+}
+
+.design-v2 .spotlight-hero-trust-body {
+    flex: 1
+}
+
+.design-v2 .spotlight-hero-trust-body h3 {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-heading-md);
+    font-weight: 600;
+    line-height: 1;
+    margin: 0 64px 20px
+}
+
+.design-v2 .spotlight-hero-trust-body p {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0 64px 20px
+}
+
+.design-v2 .spotlight-hero-trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 64px 64px
+}
+
+.design-v2 .spotlight-hero-trust-badge {
+    align-items: center;
+    background: var(--neutral-100);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--text-primary);
+    display: inline-flex;
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: .04em;
+    padding: 6px 10px;
+    text-transform: uppercase;
+    white-space: nowrap
+}
+
+@media(max-width: 1024px) {
+    .design-v2 .section-spotlight-hero-trust {
+        padding:60px 40px
+    }
+
+    .design-v2 .spotlight-hero-trust-content {
+        padding: 40px
+    }
+
+    .design-v2 .section-spotlight-hero-trust .platform-showcase-header {
+        margin-bottom: 40px
+    }
+
+    .design-v2 .spotlight-hero-trust-grid {
+        grid-template-columns: 1fr
+    }
+}
+
+@media(max-width: 640px) {
+    .design-v2 .section-spotlight-hero-trust {
+        padding:60px 20px
+    }
+
+    .design-v2 .spotlight-hero-trust-card {
+        min-height: auto
+    }
+
+    .design-v2 .spotlight-hero-trust-content {
+        inset: auto;
+        padding: 32px 24px 40px;
+        position: relative
+    }
+
+    .design-v2 .spotlight-hero-trust-cta .btn {
+        justify-content: space-between;
+        width: 100%
+    }
+
+    .design-v2 .spotlight-hero-trust-name {
+        font-size: var(--text-caption-sm)
+    }
+
+    .design-v2 .spotlight-hero-trust-headline {
+        margin-top: 24px
+    }
+
+    .design-v2 .spotlight-hero-trust-logo {
+        width: 100px
+    }
+
+    .design-v2 .spotlight-hero-trust-logo-large {
+        margin-bottom: 16px;
+        width: 120px
+    }
+
+    .design-v2 .spotlight-hero-trust-trustcard {
+        border-radius: 16px
+    }
+
+    .design-v2 .spotlight-hero-trust-icon {
+        margin: 24px 24px 16px
+    }
+
+    .design-v2 .spotlight-hero-trust-body h3 {
+        margin: 0 24px 12px
+    }
+
+    .design-v2 .spotlight-hero-trust-body p {
+        margin: 0 24px 20px
+    }
+
+    .design-v2 .spotlight-hero-trust-badges {
+        margin: 0 24px 24px
+    }
+
+    .design-v2 .spotlight-hero-trust-grid {
+        grid-template-columns: 1fr
+    }
+}
+
+.design-v2 .section-spotlight-hero-trust--badge-subtle .spotlight-hero-trust-badge {
+    border-radius: 4px;
+    font-size: var(--text-micro);
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase
+}
+
+.design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-card {
+    background-position: center 70%
+}
+
+.design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-headline {
+    font-size: var(--text-section-sm);
+    max-width: 780px
+}
+
+@media(max-width: 1024px) {
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-grid {
+        grid-template-columns:1fr
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-icon {
+        margin: 32px 32px 16px
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-body h3 {
+        margin: 0 32px 12px
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-body p {
+        margin: 0 32px 16px
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-badges {
+        margin: 0 32px 32px
+    }
+}
+
+@media(max-width: 640px) {
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-trustcard {
+        border-radius:12px
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-icon {
+        margin: 20px 20px 12px
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-body h3 {
+        margin: 0 20px 8px
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-body p {
+        margin: 0 20px 16px
+    }
+
+    .design-v2 .section-spotlight-hero-trust--content-compact .spotlight-hero-trust-badges {
+        margin: 0 20px 20px
+    }
+}
+
+.design-v2 .section-spotlight-hero-trust--hero-badge-subtle .new-pill,.design-v2 .section-spotlight-hero-trust--hero-badge-subtle .new-pill-white {
+    background: hsla(0,0%,100%,.15);
+    border: 1px solid hsla(0,0%,100%,.25);
+    border-radius: 4px;
+    color: var(--text-white);
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: .08em;
+    margin-bottom: 20px;
+    padding: 8px 14px;
+    text-transform: uppercase
+}
+
+.design-v2 .section-spotlight-hero-trust--overlay-dark .spotlight-hero-trust-overlay {
+    background: linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.55) 40%,rgba(0,0,0,.2))
+}

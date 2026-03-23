@@ -6,6 +6,7 @@ import { FeatureCards } from "@/components/sections/FeatureCards";
 import { EndOfBusywork } from "@/components/sections/EndOfBusywork";
 import { SplitShowcase } from "@/components/sections/SplitShowcase";
 import { MoreImpact } from "@/components/sections/MoreImpact";
+import { SpotlightHero } from "@/components/sections/SpotlightHero";
 import { Footer } from "@/components/sections/Footer";
 
 export default async function HomePage() {
@@ -20,6 +21,7 @@ export default async function HomePage() {
       <EndOfBusywork />
       <SplitShowcase />
       <MoreImpact />
+      <SpotlightHero />
       <Footer />
     </>
   );
