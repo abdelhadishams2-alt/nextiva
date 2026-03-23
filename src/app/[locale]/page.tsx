@@ -10,6 +10,7 @@ import { SpotlightHero } from "@/components/sections/SpotlightHero";
 import { ProvenResults } from "@/components/sections/ProvenResults";
 import { CustomerStories } from "@/components/sections/CustomerStories";
 import { ContactCenter } from "@/components/sections/ContactCenter";
+import { FromTheFounder } from "@/components/sections/FromTheFounder";
 import { Pricing } from "@/components/sections/Pricing";
 import { Footer } from "@/components/sections/Footer";
 
@@ -28,9 +29,9 @@ export default async function HomePage() {
       <SpotlightHero />
        <CustomerStories />
       <ProvenResults />
-     
-      <ContactCenter />
+     <ContactCenter />
       <Pricing />
+      <FromTheFounder />
       <Footer />
     </>
   );

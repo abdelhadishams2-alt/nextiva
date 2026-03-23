@@ -618,6 +618,20 @@
       "link": "Learn more"
     }
   },
+  "FromTheFounder": {
+    "eyebrow": "From the Founder",
+    "title": "Leading the Conversation on AI",
+    "avatarAlt": "Tomas Gorny",
+    "name": "Tomas Gorny",
+    "role": "Founder & CEO, Nextiva",
+    "cardTitle": "Don't Wait for AI to Be Perfect. It's Already Doing Work.",
+    "cardDesc": "AI learns through action, not hesitation. The companies seeing real results started imperfect and improved along the way.",
+    "readArticle": "Read Full Article",
+    "onLinkedIn": "On LinkedIn",
+    "linkedInPost": "There's a false expectation that AI should be flawless out of the gate. That it can go from 0-60 in 0.001 seconds. The truth is, AI needs context. Just like teaching a friend a new skill, you start small, test, and adjust. You build that context over time. Mistakes will happen and they're part of how the system gets smarter. The businesses that will win with AI aren't waiting for perfection…",
+    "followers": "73,000+ followers",
+    "viewOnLinkedIn": "View on LinkedIn"
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",
