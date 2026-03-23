@@ -1,0 +1,207 @@
+/* ----------------------------------------------------------------
+   Call to Action Hero
+   ---------------------------------------------------------------- */
+
+.cta-hero {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-hero__bg {
+  background-position: 50%;
+  background-size: cover;
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------
+   Content
+   ---------------------------------------------------------------- */
+
+.cta-hero__content {
+  max-width: 1200px;
+  padding: 80px 60px;
+  position: relative;
+  text-align: center;
+  z-index: 3;
+}
+
+.cta-hero__headline {
+  color: var(--text-white);
+  font-family: var(--font-display);
+  font-feature-settings: 'liga' 1, 'calt' 1, 'case' 1;
+  font-optical-sizing: auto;
+  font-size: var(--text-display-lg);
+  font-variant-ligatures: common-ligatures;
+  font-weight: var(--arizona-hero-weight);
+  letter-spacing: var(--arizona-hero-letter-spacing);
+  line-height: var(--arizona-hero-line-height);
+  margin: 0 0 2.5rem;
+  white-space: pre-line;
+}
+
+.cta-hero__subhead {
+  color: hsla(0, 0%, 100%, 0.9);
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 auto 3.5rem;
+  max-width: 700px;
+  text-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------------------------------
+   CTA Buttons
+   ---------------------------------------------------------------- */
+
+.cta-hero__cta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cta-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 10px 10px 10px 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-hero__btn-text {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.cta-hero__btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.cta-hero__btn-arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Primary */
+.cta-hero__btn--primary {
+  color: #fff;
+  background-color: #0066ff;
+}
+
+.cta-hero__btn--primary .cta-hero__btn-arrow {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cta-hero__btn--primary:hover {
+  background-color: #0055dd;
+  transform: translateY(-1px);
+}
+
+.cta-hero__btn--primary:hover .cta-hero__btn-arrow {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Shine animation */
+.cta-hero__btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  z-index: 1;
+  animation: cta-btn-shine 3s ease-in-out 1s infinite;
+}
+
+@keyframes cta-btn-shine {
+  0% { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(200%); }
+}
+
+/* Ghost */
+.cta-hero__btn--ghost {
+  color: var(--text-white);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: hsla(0, 0%, 100%, 0.1);
+  border: none;
+  box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, 0.4);
+}
+
+.cta-hero__btn--ghost .cta-hero__btn-arrow {
+  background-color: hsla(0, 0%, 100%, 0.15);
+  color: var(--text-white);
+}
+
+.cta-hero__btn--ghost:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
+  box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, 0.6);
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .cta-hero__headline {
+    font-size: var(--text-display-sm);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .cta-hero {
+    min-height: 60vh;
+  }
+
+  .cta-hero__content {
+    padding: 60px 24px;
+  }
+
+  .cta-hero__headline {
+    font-size: clamp(48px, 12vw, 52px);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-hero__subhead {
+    font-size: var(--text-body);
+    margin-bottom: 2rem;
+  }
+
+  .cta-hero__cta {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cta-hero__btn {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

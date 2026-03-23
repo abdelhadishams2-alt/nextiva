@@ -632,6 +632,12 @@
     "followers": "73,000+ followers",
     "viewOnLinkedIn": "View on LinkedIn"
   },
+  "CallToAction": {
+    "headline": "The End of Busywork\nStarts Here",
+    "subhead": "Join 100,000+ businesses that trust Nextiva to manage their customer experience. Set up in minutes, see results quickly.",
+    "demoCta": "See Product Demos",
+    "salesCta": "Talk to Sales"
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",
