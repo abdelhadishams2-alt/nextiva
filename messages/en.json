@@ -480,6 +480,130 @@
       "link": "/customer-story/orange-county-rescue-mission-case-study"
     }
   },
+  "Pricing": {
+    "eyebrow": "Plans & Pricing",
+    "title": "Choose Your Plan",
+    "subtitle": "Every plan includes business phone and team messaging. Add AI when you're ready. Pick the one that fits how your team works.",
+    "toggleSmallBusiness": "Small business",
+    "toggleEnterprise": "Enterprise",
+    "toggleMonthly": "Monthly",
+    "toggleAnnually": "Annually",
+    "saveBadge": "Save up to 50%",
+    "footerNote": "All plans include 24/7 customer support • No credit card required for demo • Cancel anytime",
+    "perUserMo": "/user/mo",
+    "perAgentMo": "/agent/mo",
+    "from": "From",
+    "contactSales": "Contact Sales",
+    "getStarted": "Get Started",
+    "getADemo": "Get a Demo",
+    "addonLabel": "Add-On:",
+    "addonText": "XBert AI Receptionist",
+    "smallBusiness": {
+      "core": {
+        "badge": "Starter",
+        "name": "Core",
+        "tagline": "Connect your team & customers",
+        "priceMonthly": "23",
+        "priceAnnually": "15",
+        "originalMonthly": "",
+        "originalAnnually": "$23",
+        "savingsMonthly": "",
+        "savingsAnnually": "Save 35%",
+        "description": "Reliably run your business with unified voice, video, SMS, and digital channels with instant setup.",
+        "features": {
+          "f1": "Inbound & Outbound Voice",
+          "f2": "Business SMS",
+          "f3": "Video Meetings",
+          "f4": "Screen & File Sharing",
+          "f5": "Call Routing",
+          "f6": "Team Chat",
+          "f7": "Mobile App"
+        }
+      },
+      "engage": {
+        "badge": "Most Popular",
+        "name": "Engage",
+        "tagline": "Manage interactions at scale",
+        "priceMonthly": "50",
+        "priceAnnually": "25",
+        "originalMonthly": "",
+        "originalAnnually": "$50",
+        "savingsMonthly": "",
+        "savingsAnnually": "Save 50%",
+        "description": "Equip your teams with automation, advanced tools, and intelligent routing for personalized experiences at scale.",
+        "includes": "Everything in Core, plus:",
+        "features": {
+          "f1": "Customer-to-Team SMS",
+          "f2": "Toll-Free Number & Minutes",
+          "f3": "Advanced Reporting",
+          "f4": "Inbound Call Center",
+          "f5": "Live Chat & Chatbot"
+        }
+      },
+      "powerSuite": {
+        "badge": "Professional",
+        "name": "Power Suite CX",
+        "tagline": "Get everything in one package",
+        "priceMonthly": "75",
+        "priceAnnually": "75",
+        "agentLimit": "Up to 100 Agents",
+        "description": "Blended inbound/outbound calls, AI call summaries, and chatbots, all in one place.",
+        "includes": "Full Customer Experience Platform:",
+        "features": {
+          "f1": "Voice & Web Chat",
+          "f2": "Blended Inbound & Outbound",
+          "f3": "AI Transcription & Summary",
+          "f4": "Skills-Based Routing",
+          "f5": "Journey Orchestration"
+        }
+      }
+    },
+    "enterprise": {
+      "essential": {
+        "badge": "Starter",
+        "name": "Essential",
+        "tagline": "Start your contact center here",
+        "price": "75",
+        "description": "Empower your team to deliver exceptional support across voice and web chat with built-in journey orchestration, smart automations, and intelligent routing.",
+        "includes": "Core features:",
+        "features": {
+          "f1": "Omnichannel Capabilities",
+          "f2": "Journey Orchestration",
+          "f3": "AI Transcription & Summary",
+          "f4": "Skills-Based Routing",
+          "f5": "Voice & Web Chat"
+        }
+      },
+      "professional": {
+        "badge": "Most Popular",
+        "name": "Professional",
+        "tagline": "For teams ready for more",
+        "description": "Built on everything in Essential with support for more channels, dynamic scripting, intelligent routing, and self-service powered by easy-to-build workflows.",
+        "includes": "Everything in Essential, plus:",
+        "features": {
+          "f1": "Advanced Self-Service",
+          "f2": "Real-Time Supervisor Support",
+          "f3": "Secure Payment (PCI-DSS)",
+          "f4": "Progressive & Predictive Dialing",
+          "f5": "More Channels Supported"
+        }
+      },
+      "premium": {
+        "badge": "Enterprise",
+        "name": "Premium",
+        "tagline": "Premium support without limits",
+        "description": "Unlock unlimited channels, limitless intelligent routing, and secure in-conversation payments. Everything your team needs for fast, secure, and seamless experiences at scale.",
+        "includes": "Everything in Professional, plus:",
+        "features": {
+          "f1": "Workforce Management",
+          "f2": "Unlimited Skills-Based Routing",
+          "f3": "Advanced Analytics",
+          "f4": "Unlimited Channels",
+          "f5": "In-Conversation Payments"
+        }
+      }
+    }
+  },
   "ContactCenter": {
     "card1": {
       "label": "Award-Winning",
