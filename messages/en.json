@@ -273,6 +273,18 @@
   "LogoTrustBar": {
     "text": "From local businesses to global brands, over 1 million users trust Nextiva."
   },
+  "FeatureCards": {
+    "card1": {
+      "label": "Any Size Business",
+      "title": "Scale Without Limits",
+      "desc": "Built for businesses of any size, from startup to enterprise. Grow your communications without growing complexity."
+    },
+    "card2": {
+      "label": "Unified Visibility",
+      "title": "One View for Everyone",
+      "desc": "From frontline employees to the CEO, everyone sees the same actionable, real-time customer insights. That's true unification."
+    }
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",
