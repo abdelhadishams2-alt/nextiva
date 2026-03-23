@@ -1,4 +1,4 @@
----
+y---
 name: website-replicator
 description: >
   Use when the user provides a website URL and wants to replicate it in their current Next.js project.
