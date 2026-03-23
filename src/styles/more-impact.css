@@ -1,0 +1,250 @@
+/* ----------------------------------------------------------------
+   More Impact — Spotlight Hero Card
+   ---------------------------------------------------------------- */
+
+.more-impact {
+  background: var(--brand-white);
+  padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
+}
+
+.more-impact__card {
+  background-image: url('/assets/butte-star-trails-blue.webp');
+  background-position: 50%;
+  background-size: cover;
+  border: 1px solid var(--text-primary);
+  border-radius: 24px;
+  min-height: 650px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ----------------------------------------------------------------
+   Overlay
+   ---------------------------------------------------------------- */
+
+.more-impact__overlay {
+  background: linear-gradient(90deg, rgba(0, 140, 255, 0.85), rgba(0, 140, 255, 0.6) 40%, rgba(0, 140, 255, 0.2));
+  inset: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------
+   Floating Particles
+   ---------------------------------------------------------------- */
+
+.more-impact__particles {
+  contain: strict;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.more-impact__particle {
+  border-radius: 50%;
+  pointer-events: none;
+  position: absolute;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------
+   Content
+   ---------------------------------------------------------------- */
+
+.more-impact__content {
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: space-between;
+  padding: 48px 80px 72px;
+  position: absolute;
+  z-index: 3;
+}
+
+.more-impact__top {
+  flex-shrink: 0;
+}
+
+.more-impact__bottom {
+  margin-top: auto;
+}
+
+.more-impact__logo-row {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+/* ----------------------------------------------------------------
+   Pill
+   ---------------------------------------------------------------- */
+
+.more-impact__pill {
+  background: var(--brand-white);
+  border-radius: 100px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-micro-sm);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  padding: 4px 8px 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------
+   Headline & Subhead
+   ---------------------------------------------------------------- */
+
+.more-impact__headline {
+  color: var(--text-white);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--text-display-sm);
+  font-weight: var(--arizona-hero-weight);
+  letter-spacing: var(--arizona-hero-letter-spacing);
+  line-height: var(--arizona-hero-line-height);
+  margin: 0 0 40px;
+  max-width: 680px;
+  white-space: pre-line;
+}
+
+.more-impact__subhead {
+  color: hsla(0, 0%, 100%, 0.9);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0 0 36px;
+  max-width: 480px;
+}
+
+/* ----------------------------------------------------------------
+   CTA Button
+   ---------------------------------------------------------------- */
+
+.more-impact__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.more-impact__btn {
+  align-items: center;
+  background-color: var(--cta-blue);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  gap: 1.5rem;
+  overflow: hidden;
+  padding: 0.625rem 0.625rem 0.625rem 1.25rem;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.more-impact__btn::before {
+  animation: moreImpactShine 3s ease-in-out 1s infinite;
+  background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.3) 50%, transparent);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-100%);
+  width: 100%;
+  will-change: transform;
+}
+
+.more-impact__btn-text {
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.more-impact__btn-arrow {
+  align-items: center;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.more-impact__btn-arrow svg {
+  display: block;
+  flex-shrink: 0;
+  height: 16px;
+  width: 16px;
+}
+
+.more-impact__btn:hover {
+  background-color: #0052cc;
+  transform: translateY(-2px);
+}
+
+.more-impact__btn:hover .more-impact__btn-arrow {
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+@keyframes moreImpactShine {
+  0%  { transform: translateX(-100%); }
+  20% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .more-impact {
+    padding: 60px 40px;
+  }
+
+  .more-impact__content {
+    padding: 40px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .more-impact {
+    padding: 60px 20px;
+  }
+
+  .more-impact__card {
+    min-height: auto;
+  }
+
+  .more-impact__content {
+    inset: auto;
+    padding: 32px 24px 40px;
+    position: relative;
+  }
+
+  .more-impact__headline {
+    margin-top: 24px;
+  }
+
+  .more-impact__cta .more-impact__btn {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
