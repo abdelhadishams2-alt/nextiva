@@ -4,6 +4,7 @@ import { LogoTrustBar } from "@/components/sections/LogoTrustBar";
 import { NextPlatform } from "@/components/sections/NextPlatform";
 import { FeatureCards } from "@/components/sections/FeatureCards";
 import { EndOfBusywork } from "@/components/sections/EndOfBusywork";
+import { SplitShowcase } from "@/components/sections/SplitShowcase";
 import { Footer } from "@/components/sections/Footer";
 
 export default async function HomePage() {
@@ -16,6 +17,7 @@ export default async function HomePage() {
       <NextPlatform />
       <FeatureCards />
       <EndOfBusywork />
+      <SplitShowcase />
       <Footer />
     </>
   );

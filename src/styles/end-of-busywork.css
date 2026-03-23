@@ -5,6 +5,7 @@
 .busywork {
   background: var(--brand-white);
   padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
+  padding-bottom: 0px;
 }
 
 /* ----------------------------------------------------------------

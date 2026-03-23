@@ -292,6 +292,31 @@
     "desc": "The shift is already happening. AI employees are handling customer conversations, resolving real issues, closing real deals. The businesses that ride this shift will be impossible to compete with.",
     "cta": "See the New Workforce"
   },
+  "SplitShowcase": {
+    "card1": {
+      "title": "Your AI employee handles the busywork.",
+      "desc": "XBert is agentic AI that handles the busywork autonomously, from first touch to resolution, so your team can focus on work that actually matters.",
+      "faceLabel": "AI Employee",
+      "task1": "Answered call",
+      "task2": "Sent text reply",
+      "task3": "Scheduled appt",
+      "task4": "Routed to human",
+      "task5": "Email responded"
+    },
+    "card2": {
+      "title": "Your team can focus on what humans do best.",
+      "desc": "Complex problems, high-stakes conversations, relationship building. The moments that earn loyalty and close deals stay with your people.",
+      "faceLabel": "Your Team",
+      "benefit1": "Less busywork",
+      "benefit2": "More time",
+      "benefit3": "Less burnout"
+    },
+    "card3": {
+      "title": "The NEXT Platform brings it all together.",
+      "desc": "Every tool, channel, and conversation, unified with AI. Full visibility into your customer experience, with smart AI that helps you grow.",
+      "constellationLabel": "NEXT"
+    }
+  },
   "Footer": {
     "copy": "\u00a9 2026 Nextiva. All rights reserved.",
     "privacy": "Privacy",
