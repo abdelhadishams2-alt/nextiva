@@ -14,6 +14,8 @@ export function HeroShowcase() {
   const startRef = useRef<number>(0);
   const showcaseRef = useRef<HTMLDivElement>(null);
   const [animStarted, setAnimStarted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const animDelayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Stats card toggle
   const [statsPeriod, setStatsPeriod] = useState<'today' | 'monthly'>('today');
@@ -62,23 +64,36 @@ export function HeroShowcase() {
     animFrameRef.current = requestAnimationFrame(animate);
   };
 
-  // Start call animation only when component is visible
+  // Call activity starts 4s after section becomes visible;
+  // track visibility to pause infinite animations when off-screen
   useEffect(() => {
     const el = showcaseRef.current;
     if (!el) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setAnimStarted(true);
-          observer.disconnect();
+        const isIntersecting = entries[0].isIntersecting;
+        setIsVisible(isIntersecting);
+
+        if (isIntersecting && !animDelayRef.current && !animStarted) {
+          animDelayRef.current = setTimeout(() => {
+            setAnimStarted(true);
+          }, 4000);
+        }
+
+        if (!isIntersecting && animDelayRef.current && !animStarted) {
+          clearTimeout(animDelayRef.current);
+          animDelayRef.current = null;
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observer.disconnect();
+      if (animDelayRef.current) clearTimeout(animDelayRef.current);
+    };
+  }, [animStarted]);
 
   useEffect(() => {
     if (!animStarted) return;
@@ -111,7 +126,7 @@ export function HeroShowcase() {
   }, [animStarted]);
 
   return (
-    <div className={`showcase${animStarted ? ' showcase--anim-started' : ''}`} ref={showcaseRef}>
+    <div className={`showcase${animStarted ? ' showcase--anim-started' : ''}${!isVisible ? ' showcase--offscreen' : ''}`} ref={showcaseRef}>
       {/* Desktop App Window */}
       <div className="showcase__app-bg">
         <div className="showcase__app-window">

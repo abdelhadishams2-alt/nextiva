@@ -4,6 +4,8 @@
 
 .next-platform {
   background: var(--brand-cream);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
   padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
 }
 

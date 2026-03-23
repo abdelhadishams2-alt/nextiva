@@ -37,7 +37,6 @@ export function HeroParticles() {
         r = Math.round(200 + 40 * Math.random());
         g = Math.round(210 + 35 * Math.random());
         b = Math.round(240 + 15 * Math.random());
-        span.style.boxShadow = '0 0 6px rgba(100, 160, 255, 0.7)';
       } else if (roll < 0.75) {
         r = Math.round(10 + 20 * Math.random());
         g = Math.round(80 + 40 * Math.random());
@@ -77,11 +76,11 @@ export function HeroParticles() {
     function startParticles() {
       if (intervalId) return;
       intervalId = setInterval(() => {
-        const count = Math.round(rand(3, 7));
+        const count = Math.round(rand(1, 3));
         for (let i = 0; i < count; i++) {
           spawnParticle();
         }
-      }, 200);
+      }, 500);
     }
 
     function stopParticles() {

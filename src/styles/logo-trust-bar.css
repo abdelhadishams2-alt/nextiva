@@ -73,9 +73,7 @@
   backface-visibility: hidden;
   display: inline-flex;
   gap: 4rem;
-  perspective: 1000px;
   transform: translateZ(0);
-  will-change: transform;
 }
 
 .logo-trust-bar__item {

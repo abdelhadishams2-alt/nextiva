@@ -313,8 +313,6 @@
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  will-change: transform;
-  transform: translateZ(0);
 }
 
 /* ----------------------------------------------------------------

@@ -31,18 +31,19 @@
   right: -15%;
   top: auto;
   translate: 20%;
+  will-change: translate;
 }
 
 .showcase__app-window {
-  backdrop-filter: blur(24px);
-  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
   box-shadow:
     rgba(100, 116, 139, 0.15) 0px 25px 80px -12px,
     rgba(255, 255, 255, 0.4) 0px 0px 0px 1px,
-    rgba(255, 255, 255, 0.5) 0px 1px 0px inset,
-    rgba(0, 0, 0, 0.4) 0px 25px 80px -20px,
-    rgba(0, 0, 0, 0.3) 0px 10px 30px -10px;
+    rgba(0, 0, 0, 0.25) 0px 20px 60px -20px;
+  contain: layout style paint;
+  transform: translateZ(0);
   display: flex;
   flex-direction: column;
   height: 720px;
@@ -348,16 +349,14 @@
 
 .showcase__message--received {
   align-self: flex-start;
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.5);
   border-bottom-left-radius: 4px;
   color: rgb(26, 26, 26);
 }
 
 .showcase__message--sent {
   align-self: flex-end;
-  backdrop-filter: blur(8px);
-  background: rgba(30, 30, 30, 0.7);
+  background: rgba(30, 30, 30, 0.8);
   border-bottom-right-radius: 4px;
   color: rgb(255, 255, 255);
 }
@@ -422,7 +421,6 @@
    ---------------------------------------------------------------- */
 
 .showcase__customer-panel {
-  backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.08);
   border-left: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
@@ -650,7 +648,6 @@
    ---------------------------------------------------------------- */
 
 .showcase__call-card {
-  animation: 0.7s ease-out 0.6s 1 normal forwards running showcaseCardEntranceUp;
   border-radius: 20px;
   box-shadow:
     rgba(100, 116, 139, 0.18) 0px 25px 80px -12px,
@@ -667,10 +664,18 @@
 
 .showcase__call-card,
 .showcase__stats-card {
-  backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.97);
   opacity: 0;
   width: 380px;
+  will-change: transform, opacity;
+}
+
+.showcase__call-card {
+  animation: 0.7s ease-out 0.6s 1 normal forwards running showcaseCardEntranceUp;
+}
+
+.showcase__stats-card {
+  animation: 0.7s ease-out 0.7s 1 normal forwards running showcaseCardEntranceUp;
 }
 
 .showcase__call-card-header {
@@ -710,9 +715,12 @@
 }
 
 .showcase__sound-bar {
-  animation: showcaseSoundWave 1s ease-in-out infinite;
   border-radius: 2px;
   width: 4px;
+}
+
+.showcase--anim-started .showcase__sound-bar {
+  animation: showcaseSoundWave 1s ease-in-out infinite;
 }
 
 .showcase__sound-bar:nth-child(1) {
@@ -988,11 +996,14 @@
 }
 
 .showcase__typing-indicator span {
-  animation: 1.4s ease-in-out 0s infinite normal none running showcaseTypingBounce;
   background: var(--blue-200);
   border-radius: 50%;
   height: 6px;
   width: 6px;
+}
+
+.showcase--anim-started .showcase__typing-indicator span {
+  animation: 1.4s ease-in-out 0s infinite normal none running showcaseTypingBounce;
 }
 
 .showcase__typing-indicator span:nth-child(2) {
@@ -1072,12 +1083,15 @@
 }
 
 .showcase__call-action::before {
-  animation: 2s ease-in-out 0s infinite normal none running showcaseActionGlow;
   background: radial-gradient(circle at 5% 50%, rgba(0, 98, 184, 0.06) 0px, transparent 40%);
   inset: 0;
   content: "";
   pointer-events: none;
   position: absolute;
+}
+
+.showcase--anim-started .showcase__call-action::before {
+  animation: 2s ease-in-out 0s infinite normal none running showcaseActionGlow;
 }
 
 
@@ -1164,7 +1178,6 @@
    ---------------------------------------------------------------- */
 
 .showcase__stats-card {
-  animation: 0.7s ease-out 0.7s 1 normal forwards running showcaseCardEntranceUp;
   border-radius: 16px;
   box-shadow:
     rgba(100, 116, 139, 0.15) 0px 15px 50px -10px,
@@ -1203,21 +1216,30 @@
 }
 
 .showcase__gyro-ring--outer {
-  animation: 4s linear 0s infinite normal none running showcaseSpinCw;
   height: 16px;
   width: 16px;
 }
 
 .showcase__gyro-ring--middle {
-  animation: 3s linear 0s infinite normal none running showcaseSpinCcw;
   height: 11px;
   width: 11px;
 }
 
 .showcase__gyro-ring--inner {
-  animation: 2s linear 0s infinite normal none running showcaseSpinCw;
   height: 6px;
   width: 6px;
+}
+
+.showcase__gyro-ring--outer {
+  animation: 4s linear 0s infinite normal none running showcaseSpinCw;
+}
+
+.showcase__gyro-ring--middle {
+  animation: 3s linear 0s infinite normal none running showcaseSpinCcw;
+}
+
+.showcase__gyro-ring--inner {
+  animation: 2s linear 0s infinite normal none running showcaseSpinCw;
 }
 
 .showcase__stats-label {
@@ -1405,6 +1427,19 @@
   100% {
     transform: rotate(-1turn);
   }
+}
+
+/* ----------------------------------------------------------------
+   Off-screen — pause infinite animations to free GPU
+   ---------------------------------------------------------------- */
+
+.showcase--offscreen .showcase__sound-bar,
+.showcase--offscreen .showcase__typing-indicator span,
+.showcase--offscreen .showcase__call-action::before,
+.showcase--offscreen .showcase__gyro-ring--outer,
+.showcase--offscreen .showcase__gyro-ring--middle,
+.showcase--offscreen .showcase__gyro-ring--inner {
+  animation-play-state: paused !important;
 }
 
 /* ----------------------------------------------------------------
