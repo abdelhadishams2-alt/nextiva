@@ -568,6 +568,47 @@
     "demoCta": "See Product Demos",
     "salesCta": "Talk to Sales"
   },
+  "HowWeReview": {
+    "eyebrow": "Our Process",
+    "title": "Every tool tested, inside and out.",
+    "steps": {
+      "step1": {
+        "label": "Research",
+        "name": "Deep Dive",
+        "outcome": "We understand the full landscape before testing.",
+        "pills": ["Market analysis", "Feature mapping", "Pricing research"],
+        "image": "/assets/review-step-research.jpg"
+      },
+      "step2": {
+        "label": "Hands-On Testing",
+        "name": "Real Usage",
+        "outcome": "We use every tool like a real customer would.",
+        "pills": ["Account setup", "Core features", "Support quality"],
+        "image": "/assets/review-step-testing.jpg"
+      },
+      "step3": {
+        "label": "Benchmarking",
+        "name": "Performance",
+        "outcome": "Hard numbers, not opinions.",
+        "pills": ["Speed tests", "Uptime monitoring", "Load testing"],
+        "image": "/assets/review-step-benchmarking.jpg"
+      },
+      "step4": {
+        "label": "Comparison",
+        "name": "Side by Side",
+        "outcome": "Honest comparisons across every category.",
+        "pills": ["Feature comparison", "Pricing breakdown", "Use case fit"],
+        "image": "/assets/review-step-comparison.jpg"
+      },
+      "step5": {
+        "label": "Final Verdict",
+        "name": "The Review",
+        "outcome": "Clear recommendations you can trust.",
+        "pills": ["Expert scoring", "Pros & cons", "Who it's best for"],
+        "image": "/assets/review-step-verdict.jpg"
+      }
+    }
+  },
   "FeaturedStories": {
     "eyebrow": "Featured Stories",
     "title": "Expert Reviews to Help You Choose the Right Tools",

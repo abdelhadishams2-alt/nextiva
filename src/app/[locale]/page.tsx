@@ -9,6 +9,7 @@ import { MoreImpact } from "@/components/sections/MoreImpact";
 import { SpotlightHero } from "@/components/sections/SpotlightHero";
 import { ProvenResults } from "@/components/sections/ProvenResults";
 import { FeaturedStories } from "@/components/sections/FeaturedStories";
+import { HowWeReview } from "@/components/sections/HowWeReview";
 import { CustomerStories } from "@/components/sections/CustomerStories";
 import { ContactCenter } from "@/components/sections/ContactCenter";
 import { FromTheFounder } from "@/components/sections/FromTheFounder";
@@ -24,6 +25,7 @@ export default async function HomePage() {
       <Hero />
       <LogoTrustBar />
         <FeaturedStories />
+      <HowWeReview />
       <NextPlatform />
       <FeatureCards />
       <EndOfBusywork />
