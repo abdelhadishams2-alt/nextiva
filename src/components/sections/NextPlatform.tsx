@@ -287,7 +287,7 @@ export function NextPlatform() {
                   <div className="next-platform__desktop-app">
                     <div className="next-platform__app-window">
                       <div className="next-platform__app-header">
-                        <span className="next-platform__app-title">Nextiva App</span>
+                        <span className="next-platform__app-title">Mansati</span>
                         <div className="next-platform__app-icons">
                           <i className="ri-search-line" />
                           <i className="ri-settings-3-line" />

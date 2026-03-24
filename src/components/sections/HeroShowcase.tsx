@@ -313,33 +313,26 @@ export function HeroShowcase() {
                   </div>
                 </div>
               </div>
-              {/* Customer Value */}
-              <div className="showcase__customer-section">
-                <div className="showcase__customer-section-title">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3H5V21H3V3ZM7 3H9V21H7V3ZM11 3H13V21H11V3ZM15 3H17V21H15V3ZM19 3H21V21H19V3Z" /></svg>
-                  {t('customerInfo.customerValue')}
-                </div>
-                <div className="showcase__customer-stats-grid">
+              {/* Value & Sentiment merged */}
+              <div className="showcase__customer-section showcase__customer-section--merged">
+                <div className="showcase__customer-merged-row">
                   <div className="showcase__customer-stat">
                     <span className="showcase__customer-stat-value">{t('customerInfo.lifetimeValue')}</span>
                     <span className="showcase__customer-stat-label">{t('customerInfo.lifetimeValueLabel')}</span>
+                  </div>
+                  <div className="showcase__customer-sentiment-ring">
+                    <svg viewBox="0 0 52 52" className="showcase__sentiment-ring-svg">
+                      <circle cx="26" cy="26" r="22" className="showcase__sentiment-ring-bg" />
+                      <circle cx="26" cy="26" r="22" className="showcase__sentiment-ring-fill" style={{ strokeDasharray: '138', strokeDashoffset: '21' }} />
+                    </svg>
+                    <span className="showcase__sentiment-ring-label">85%</span>
                   </div>
                   <div className="showcase__customer-stat">
                     <span className="showcase__customer-stat-value">{t('customerInfo.interactions')}</span>
                     <span className="showcase__customer-stat-label">{t('customerInfo.interactionsLabel')}</span>
                   </div>
                 </div>
-              </div>
-              {/* Sentiment */}
-              <div className="showcase__customer-section">
-                <div className="showcase__customer-section-title">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM8 13H16C16 15.2091 14.2091 17 12 17C9.79086 17 8 15.2091 8 13ZM8 11C7.17157 11 6.5 10.3284 6.5 9.5C6.5 8.67157 7.17157 8 8 8C8.82843 8 9.5 8.67157 9.5 9.5C9.5 10.3284 8.82843 11 8 11ZM16 11C15.1716 11 14.5 10.3284 14.5 9.5C14.5 8.67157 15.1716 8 16 8C16.8284 8 17.5 8.67157 17.5 9.5C17.5 10.3284 16.8284 11 16 11Z" /></svg>
-                  {t('customerInfo.sentiment')}
-                </div>
-                <div className="showcase__customer-sentiment">
-                  <div className="showcase__sentiment-bar">
-                    <div className="showcase__sentiment-fill" style={{ width: '85%' }} />
-                  </div>
+                <div className="showcase__customer-merged-footer">
                   <span className="showcase__sentiment-label">{t('customerInfo.sentimentLabel')}</span>
                 </div>
               </div>
@@ -360,12 +353,10 @@ export function HeroShowcase() {
                 <svg className="showcase__call-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.5906 14.5049 21 14.9389 21 15.4525V19.9525C21 20.4084 20.6744 20.8013 20.2216 20.8649C19.5633 20.9565 18.8917 21.0037 18.2093 21.0037C9.52649 21.0037 2.50244 13.9797 2.50244 5.29688C2.50244 4.61449 2.54964 3.9429 2.64117 3.28455C2.70484 2.83175 3.09768 2.50613 3.5536 2.50613H8.05355C8.5671 2.50613 9.00107 2.91555 9.04229 3.42733C9.17069 5.04907 9.63772 6.60378 10.4062 8.01058C10.6487 8.45459 10.5215 9.00977 10.1099 9.30381L8.87168 10.1883L9.36556 10.6821Z" /></svg>
               )}
               <span className="showcase__call-label">{callLabel}</span>
-              <div className="showcase__sound-wave">
-                <span className="showcase__sound-bar" />
-                <span className="showcase__sound-bar" />
-                <span className="showcase__sound-bar" />
-                <span className="showcase__sound-bar" />
-                <span className="showcase__sound-bar" />
+              <div className="showcase__pulse-dots">
+                <span className="showcase__pulse-dot" />
+                <span className="showcase__pulse-dot" />
+                <span className="showcase__pulse-dot" />
               </div>
             </div>
             <span className="showcase__call-time">{callTime}</span>
@@ -397,7 +388,7 @@ export function HeroShowcase() {
                 <div className="showcase__chat-bubble-wrapper showcase__chat-bubble-wrapper--xbert showcase__chat-bubble-wrapper--1">
                   <div className="showcase__chat-bubble-label">
                     <span className="showcase__chat-bubble-label-icon">&#10022;</span>
-                    XBert AI
+                    Mansati AI
                   </div>
                   <div className="showcase__chat-bubble showcase__chat-bubble--xbert">
                     {t('callCard.xbertBubble1')}
@@ -417,7 +408,7 @@ export function HeroShowcase() {
                 <div className="showcase__chat-bubble-wrapper showcase__chat-bubble-wrapper--xbert showcase__chat-bubble-wrapper--3">
                   <div className="showcase__chat-bubble-label">
                     <span className="showcase__chat-bubble-label-icon">&#10022;</span>
-                    XBert AI
+                    Mansati AI
                   </div>
                   <div className="showcase__chat-bubble showcase__chat-bubble--xbert">
                     {t('callCard.xbertBubble2')}
@@ -463,14 +454,21 @@ export function HeroShowcase() {
                   </div>
                 </div>
               </div>
-              <div className="showcase__call-conversation">
-                <div className="showcase__summary-card">
-                  <div className="showcase__summary-card-label">{t('callCard.summaryLabel')}</div>
-                  <div className="showcase__summary-card-text">{t('callCard.summaryText')}</div>
+              <div className="showcase__summary-columns">
+                <div className="showcase__summary-col">
+                  <div className="showcase__summary-col-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5.76282 17H20V19H2V4H4V14.2L9.70282 8.49718L14 12.7944L20.4 6.39436L21.8142 7.80858L14 15.6228L9.70282 11.3256L5.76282 17Z" /></svg>
+                  </div>
+                  <div className="showcase__summary-col-label">{t('callCard.summaryLabel')}</div>
+                  <div className="showcase__summary-col-text">{t('callCard.summaryText')}</div>
                 </div>
-                <div className="showcase__summary-card">
-                  <div className="showcase__summary-card-label">{t('callCard.appointmentLabel')}</div>
-                  <div className="showcase__summary-card-text">
+                <div className="showcase__summary-divider" />
+                <div className="showcase__summary-col">
+                  <div className="showcase__summary-col-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 10H4V19H20V10ZM15.0355 11.136L16.4497 12.5503L11.5 17.5L7.96447 13.9645L9.37868 12.5503L11.5 14.6716L15.0355 11.136ZM7 5H4V8H20V5H17V6H15V5H9V6H7V5Z" /></svg>
+                  </div>
+                  <div className="showcase__summary-col-label">{t('callCard.appointmentLabel')}</div>
+                  <div className="showcase__summary-col-badges">
                     <span className="showcase__summary-badge">{t('callCard.tomorrow')}</span>
                     <span className="showcase__summary-badge">{t('callCard.appointmentBadgeTime')}</span>
                     <span className="showcase__summary-badge showcase__summary-badge--success">
@@ -478,9 +476,13 @@ export function HeroShowcase() {
                     </span>
                   </div>
                 </div>
-                <div className="showcase__summary-card">
-                  <div className="showcase__summary-card-label">{t('callCard.sentimentLabel')}</div>
-                  <div className="showcase__summary-card-text">
+                <div className="showcase__summary-divider" />
+                <div className="showcase__summary-col">
+                  <div className="showcase__summary-col-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM8 13H16C16 15.2091 14.2091 17 12 17C9.79086 17 8 15.2091 8 13ZM8 11C7.17157 11 6.5 10.3284 6.5 9.5C6.5 8.67157 7.17157 8 8 8C8.82843 8 9.5 8.67157 9.5 9.5C9.5 10.3284 8.82843 11 8 11ZM16 11C15.1716 11 14.5 10.3284 14.5 9.5C14.5 8.67157 15.1716 8 16 8C16.8284 8 17.5 8.67157 17.5 9.5C17.5 10.3284 16.8284 11 16 11Z" /></svg>
+                  </div>
+                  <div className="showcase__summary-col-label">{t('callCard.sentimentLabel')}</div>
+                  <div className="showcase__summary-col-badges">
                     <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.positive')}</span>
                     <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.excited')}</span>
                     <span className="showcase__summary-badge showcase__summary-badge--positive">{t('callCard.curious')}</span>
@@ -495,11 +497,7 @@ export function HeroShowcase() {
         <div className="showcase__stats-card">
           <div className="showcase__stats-header">
             <div className="showcase__stats-header-left">
-              <div className="showcase__gyroscope-icon">
-                <div className="showcase__gyro-ring showcase__gyro-ring--outer" />
-                <div className="showcase__gyro-ring showcase__gyro-ring--middle" />
-                <div className="showcase__gyro-ring showcase__gyro-ring--inner" />
-              </div>
+              <span className="showcase__stats-sparkle">&#10022;</span>
               <span className="showcase__stats-label">{t('statsCard.label')}</span>
             </div>
             <button
@@ -516,21 +514,44 @@ export function HeroShowcase() {
           </div>
           <div className="showcase__stats-grid">
             <div className="showcase__stat-item">
-              <div className="showcase__stat-value">{displayStats.calls}</div>
+              <div className="showcase__stat-ring">
+                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill" style={{ strokeDasharray: '157', strokeDashoffset: '31' }} />
+                </svg>
+                <div className="showcase__stat-value">{displayStats.calls}</div>
+              </div>
               <div className="showcase__stat-label">{t('statsCard.callsLabel')}</div>
             </div>
             <div className="showcase__stat-item">
-              <div className="showcase__stat-value">{displayStats.appts}</div>
+              <div className="showcase__stat-ring">
+                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill showcase__ring-fill--secondary" style={{ strokeDasharray: '157', strokeDashoffset: '86' }} />
+                </svg>
+                <div className="showcase__stat-value">{displayStats.appts}</div>
+              </div>
               <div className="showcase__stat-label">{t('statsCard.apptsLabel')}</div>
             </div>
             <div className="showcase__stat-item">
-              <div className="showcase__stat-value">{displayStats.faqs}</div>
+              <div className="showcase__stat-ring">
+                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill showcase__ring-fill--tertiary" style={{ strokeDasharray: '157', strokeDashoffset: '24' }} />
+                </svg>
+                <div className="showcase__stat-value">{displayStats.faqs}</div>
+              </div>
               <div className="showcase__stat-label">{t('statsCard.faqsLabel')}</div>
             </div>
-            <div className="showcase__stat-item showcase__stat-item--trend">
-              <div className="showcase__stat-value showcase__stat-trend-up">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8L18 14H6L12 8Z" /></svg>
-                <span>{displayStats.satisfaction}</span>%
+            <div className="showcase__stat-item">
+              <div className="showcase__stat-ring showcase__stat-ring--accent">
+                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
+                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill showcase__ring-fill--accent" style={{ strokeDasharray: '157', strokeDashoffset: '9' }} />
+                </svg>
+                <div className="showcase__stat-value showcase__stat-trend-up">
+                  <span>{displayStats.satisfaction}</span>%
+                </div>
               </div>
               <div className="showcase__stat-label">{t('statsCard.satisfactionLabel')}</div>
             </div>

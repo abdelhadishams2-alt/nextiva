@@ -238,7 +238,7 @@
 /* Primary button */
 .hero__btn--primary {
   color: #fff;
-  background-color: #0066ff;
+  background-color: var(--brand-primary, #1a6b8a);
 }
 
 .hero__btn--primary .hero__btn-arrow {
@@ -246,7 +246,7 @@
 }
 
 .hero__btn--primary:hover {
-  background-color: #0055dd;
+  background-color: var(--brand-primary-hover, #145a75);
   transform: translateY(-1px);
 }
 
