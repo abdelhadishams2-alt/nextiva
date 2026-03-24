@@ -60,7 +60,7 @@
   /* Brand Colors */
   --brand-navy: #02122c;
   --brand-blue: #0062b8;
-  --brand-cream: #f8f8f6;
+  --brand-cream: #ffffff;
   --brand-white: #fff;
   --brand-neutral: #b47d7c;
   --cta-blue: #06f;
@@ -80,8 +80,8 @@
   --neutral-500: #a39e9b;
   --neutral-300: #cdc7c3;
   --neutral-200: #e1deda;
-  --neutral-100: #f9f4ef;
-  --neutral-50: #f8f8f6;
+  --neutral-100: #ffffff;
+  --neutral-50: #ffffff;
   --neutral-25: #fffefc;
   --neutral-0: #fff;
 

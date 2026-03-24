@@ -852,7 +852,7 @@
 
 .showcase__summary-columns {
   animation: 0.3s ease 0s 1 normal forwards running showcaseFadeInUp;
-  background: linear-gradient(135deg, rgb(248, 249, 251), rgb(240, 242, 245));
+  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 14px;
   display: flex;
@@ -1097,7 +1097,7 @@
    ---------------------------------------------------------------- */
 
 .showcase__call-action {
-  background: linear-gradient(135deg, rgb(250, 251, 252), rgb(244, 245, 247));
+  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 14px;
   bottom: 24px;
