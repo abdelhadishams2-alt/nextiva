@@ -24,20 +24,20 @@ export default async function HomePage() {
       <Navbar transparent />
       <Hero />
       <LogoTrustBar />
-        <FeaturedStories />
+      <FeaturedStories />
       <HowWeReview />
-      <NextPlatform />
-      <FeatureCards />
       <EndOfBusywork />
       <SplitShowcase />
-      <MoreImpact />
-      <SpotlightHero />
-       <CustomerStories />
-      <ProvenResults />
-    
-     <ContactCenter />
-      <Pricing />
-      <FromTheFounder />
+      {/* <NextPlatform /> */}
+      {/* <FeatureCards /> */}
+      
+      {/* <MoreImpact /> */}
+      {/* <SpotlightHero /> */}
+      {/* <CustomerStories /> */}
+      {/* <ProvenResults /> */}
+      {/* <ContactCenter /> */}
+      {/* <Pricing /> */}
+      {/* <FromTheFounder /> */}
       <CallToAction />
       <Footer />
     </>

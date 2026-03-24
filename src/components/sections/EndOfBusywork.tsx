@@ -18,7 +18,7 @@ export async function EndOfBusywork() {
               {t('tagline')}
             </h3>
             <p className="busywork__desc">{t('desc')}</p>
-            <a className="busywork__cta" href="/products/next-platform">
+            <a className="busywork__cta" href="/methodology">
               <span className="busywork__cta-text">{t('cta')}</span>
               <span className="busywork__cta-arrow">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
@@ -30,18 +30,11 @@ export async function EndOfBusywork() {
           </div>
         </div>
 
-        {/* Right — Visual with atom animation */}
+        {/* Right — Visual */}
         <div
           className="busywork__visual"
-          style={{ backgroundImage: 'url(/assets/busywork-desert.webp)' }}
-        >
-          <div className="busywork__atom">
-            <div className="busywork__nucleus" />
-            <div className="busywork__orbit busywork__orbit--1" />
-            <div className="busywork__orbit busywork__orbit--2" />
-            <div className="busywork__orbit busywork__orbit--3" />
-          </div>
-        </div>
+          style={{ backgroundImage: 'url(/assets/why-trust-mansati.jpg)' }}
+        />
       </div>
     </section>
   );

@@ -216,11 +216,11 @@
     }
   },
   "EndOfBusywork": {
-    "label": "NEXT Platform + XBert AI",
-    "headline": "The End of Busywork.",
-    "tagline": "The next era for business is built with AI employees.",
-    "desc": "The shift is already happening. AI employees are handling customer conversations, resolving real issues, closing real deals. The businesses that ride this shift will be impossible to compete with.",
-    "cta": "See the New Workforce"
+    "label": "Why Trust Us",
+    "headline": "Reviews You Can Actually Trust.",
+    "tagline": "Independent testing. No sponsored content. Ever.",
+    "desc": "We buy every tool with our own money, test it for weeks, and publish honest results. No affiliate pressure, no paid placements — just real reviews from real testing, built for the Middle East market.",
+    "cta": "Read Our Methodology"
   },
   "MoreImpact": {
     "pill": "NEW FROM NEXTIVA",
@@ -230,27 +230,27 @@
   },
   "SplitShowcase": {
     "card1": {
-      "title": "Your AI employee handles the busywork.",
-      "desc": "XBert is agentic AI that handles the busywork autonomously, from first touch to resolution, so your team can focus on work that actually matters.",
-      "faceLabel": "AI Employee",
-      "task1": "Answered call",
-      "task2": "Sent text reply",
-      "task3": "Scheduled appt",
-      "task4": "Routed to human",
-      "task5": "Email responded"
+      "title": "We buy and test every tool ourselves.",
+      "desc": "No vendor demos or press kits. We sign up, pay, and use each tool for weeks — just like you would. Real testing, real results.",
+      "faceLabel": "Testing",
+      "task1": "Account created",
+      "task2": "Features tested",
+      "task3": "Support contacted",
+      "task4": "Speed benchmarked",
+      "task5": "Review published"
     },
     "card2": {
-      "title": "Your team can focus on what humans do best.",
-      "desc": "Complex problems, high-stakes conversations, relationship building. The moments that earn loyalty and close deals stay with your people.",
-      "faceLabel": "Your Team",
-      "benefit1": "Less busywork",
-      "benefit2": "More time",
-      "benefit3": "Less burnout"
+      "title": "No sponsored reviews. No affiliate bias.",
+      "desc": "Our recommendations are based on testing, not payments. We disclose all affiliate links transparently. Your trust is our priority.",
+      "faceLabel": "Honest",
+      "benefit1": "No sponsorships",
+      "benefit2": "Full transparency",
+      "benefit3": "Honest scores"
     },
     "card3": {
-      "title": "The NEXT Platform brings it all together.",
-      "desc": "Every tool, channel, and conversation, unified with AI. Full visibility into your customer experience, with smart AI that helps you grow.",
-      "constellationLabel": "NEXT"
+      "title": "Built for the Middle East market.",
+      "desc": "Payment gateways, RTL support, local hosting, Arabic language tools — we test what matters for businesses in the MENA region.",
+      "constellationLabel": "MENA"
     }
   },
   "CustomerStories": {
@@ -563,10 +563,10 @@
     "viewOnLinkedIn": "View on LinkedIn"
   },
   "CallToAction": {
-    "headline": "The End of Busywork\nStarts Here",
-    "subhead": "Join 100,000+ businesses that trust Nextiva to manage their customer experience. Set up in minutes, see results quickly.",
-    "demoCta": "See Product Demos",
-    "salesCta": "Talk to Sales"
+    "headline": "Never Pick the\nWrong Tool Again.",
+    "subhead": "Get weekly expert recommendations, honest comparisons, and exclusive guides — tailored for the Middle East market.",
+    "demoCta": "Explore Tools",
+    "salesCta": "Subscribe Free"
   },
   "HowWeReview": {
     "eyebrow": "Our Process",
@@ -651,78 +651,57 @@
     }
   },
   "Footer": {
-    "logoAlt": "Nextiva Logo",
-    "subHeading": "Unified Customer Experience Management Platform",
-    "downloadCta": "Download NextivaONE",
-    "socialFacebook": "Facebook",
+    "logoAlt": "Mansati Logo",
+    "subHeading": "Honest Tool Reviews for the Middle East",
     "socialX": "Twitter (X)",
     "socialLinkedIn": "LinkedIn",
-    "socialYouTube": "YouTube Videos",
-    "socialReddit": "Reddit",
-    "col1Heading": "Conversational Platform",
+    "socialYouTube": "YouTube",
+    "col1Heading": "Tool Reviews",
     "col1Links": {
-      "customerComm": "Customer communication",
-      "contactCenter": "AI-powered contact center",
-      "businessVoice": "Business voice",
-      "localNumbers": "Local phone numbers",
-      "analytics": "Customer analytics",
-      "aiReceptionist": "AI receptionist"
+      "websiteBuilders": "Website builders",
+      "emailMarketing": "Email marketing tools",
+      "ecommerce": "E-commerce platforms",
+      "hosting": "Web hosting",
+      "crm": "CRM software",
+      "projectMgmt": "Project management"
     },
-    "col2Heading": "Helpful Resources",
+    "col2Heading": "Resources",
     "col2Links": {
-      "resourceCenter": "Resource center",
-      "supportCenter": "Support center",
-      "phones": "Phones & headsets",
-      "contactCenters": "Contact centers",
-      "networkTest": "Network readiness test",
-      "staffingCalc": "Call center staffing calculator",
-      "missedCallsCalc": "Cost of missed calls calculator",
-      "aiCalc": "AI receptionist ROI calculator"
+      "guides": "How-to guides",
+      "comparisons": "Tool comparisons",
+      "bestOf": "Best of lists",
+      "pricing": "Pricing breakdowns",
+      "tutorials": "Tutorials",
+      "glossary": "Glossary"
     },
-    "col3Heading": "Platform Features",
+    "col3Heading": "Categories",
     "col3Links": {
-      "cloudPhone": "Cloud phone system",
-      "inboundVoice": "Inbound voice contact center",
-      "textMessaging": "Text messaging",
-      "callCenter": "Call center",
-      "cloudPbx": "Cloud PBX",
-      "sipTrunking": "SIP trunking"
+      "marketing": "Marketing tools",
+      "analytics": "Analytics platforms",
+      "design": "Design software",
+      "ai": "AI tools",
+      "communication": "Communication tools",
+      "accounting": "Accounting software"
     },
     "col4Heading": "Company",
     "col4Links": {
-      "leadership": "Leadership",
-      "board": "Board of Directors",
+      "about": "About Mansati",
+      "methodology": "Our methodology",
       "careers": "Careers",
-      "cares": "Nextiva Cares",
-      "news": "News & media",
-      "status": "Platform status",
-      "contact": "Contact us"
+      "contact": "Contact us",
+      "advertise": "Advertise with us"
     },
-    "col5Heading": "Partners",
-    "col5Links": {
-      "channel": "Channel partners",
-      "events": "Events",
-      "affiliates": "Affiliates",
-      "portal": "Partner portal",
-      "integrations": "App integrations"
-    },
-    "blogHeading": "Nextiva Blog",
-    "blogPost1Title": "Best Call Center Software For Your Team",
-    "blogPost2Title": "What Is Unified Customer Experience Management (CXM)?",
-    "goLearn": "Go Learn",
-    "brandText": "nextiva",
-    "slogan": "Crafted with",
+    "blogHeading": "Latest Articles",
+    "blogPost1Title": "Best Website Builders for Small Businesses in 2025",
+    "blogPost2Title": "Top Email Marketing Tools Compared: A Complete Guide",
+    "goLearn": "Read More",
+    "brandText": "mansati",
+    "slogan": "Built with",
     "sloganHeart": "❤",
-    "sloganLocation": "in Scottsdale, Arizona USA",
-    "copyright": "Copyright © 2026 Nextiva. All Rights Reserved.",
-    "badgeSoc2": "SOC 2 Certified",
-    "badgeHipaa": "HIPAA Compliant",
-    "badgeUptime": "99.999% Uptime",
-    "legalLink": "Legal",
+    "sloganLocation": "for the Middle East",
+    "copyright": "© 2025 Mansati. All Rights Reserved.",
+    "legalLink": "Terms",
     "privacyLink": "Privacy Policy",
-    "patentsLink": "Patents",
-    "securityLink": "Security Policy",
-    "accessibilityLink": "Accessibility",
     "sitemapLink": "Site Map"
   }
 }
