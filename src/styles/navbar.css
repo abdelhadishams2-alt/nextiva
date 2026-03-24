@@ -24,6 +24,7 @@
   align-items: center;
   height: 72px;
   max-width: 1700px;
+  z-index: 1002;
 }
 
 /* ----------------------------------------------------------------
@@ -307,6 +308,34 @@
 }
 
 /* ----------------------------------------------------------------
+   Mobile Menu
+   ---------------------------------------------------------------- */
+
+.navbar__mobile-menu {
+  display: none;
+}
+
+/* ----------------------------------------------------------------
+   Hamburger Animation
+   ---------------------------------------------------------------- */
+
+.navbar__hamburger-line {
+  transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+
+.navbar__hamburger--open .navbar__hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__hamburger--open .navbar__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger--open .navbar__hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ----------------------------------------------------------------
    Responsive — Tablets (max-width: 1024px)
    ---------------------------------------------------------------- */
 
@@ -322,6 +351,146 @@
   .navbar__hamburger {
     display: flex;
     margin-left: auto;
+  }
+
+  .navbar--mobile-open .navbar__logo-text {
+    color: var(--color-fg);
+  }
+
+  .navbar--mobile-open .navbar__hamburger-line {
+    background-color: var(--color-fg);
+  }
+
+  .navbar--mobile-open .navbar__hamburger {
+    z-index: 1002;
+  }
+
+  .navbar__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--color-bg, #fff);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    padding-top: 72px;
+  }
+
+  .navbar__mobile-menu--open {
+    transform: translateX(0);
+  }
+
+  .navbar__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    flex: 1;
+  }
+
+  .navbar__mobile-link {
+    display: block;
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    transition: color 0.2s;
+  }
+
+  .navbar__mobile-link:last-child {
+    border-bottom: none;
+  }
+
+  .navbar__mobile-link:hover {
+    color: var(--brand-primary, #1a6b8a);
+  }
+
+  .navbar__mobile-cta {
+    display: block;
+    margin: auto 24px 40px;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--brand-primary, #1a6b8a);
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .navbar__mobile-cta:hover {
+    background-color: var(--brand-primary-hover, #145a75);
+  }
+
+  /* Mobile Accordion — Categories */
+  .navbar__mobile-accordion {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .navbar__mobile-link--accordion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .navbar__mobile-chevron {
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .navbar__mobile-link--expanded .navbar__mobile-chevron {
+    transform: rotate(180deg);
+  }
+
+  .navbar__mobile-categories {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .navbar__mobile-categories--open {
+    max-height: 800px;
+  }
+
+  .navbar__mobile-cat-group {
+    padding: 0 0 12px 16px;
+  }
+
+  .navbar__mobile-cat-heading {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brand-primary, #1a6b8a);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 8px 0 4px;
+  }
+
+  .navbar__mobile-cat-item {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-fg);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .navbar__mobile-cat-item:hover {
+    color: var(--brand-primary, #1a6b8a);
   }
 }
 
@@ -343,5 +512,14 @@
 
   .navbar__logo-text {
     font-size: 20px;
+  }
+
+  .navbar__mobile-menu {
+    padding-top: 56px;
+  }
+
+  .navbar__mobile-link {
+    font-size: 16px;
+    padding: 12px 0;
   }
 }

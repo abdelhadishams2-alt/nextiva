@@ -52,6 +52,8 @@ function CategoriesDropdown() {
 export function Navbar({ transparent = false }: { transparent?: boolean }) {
   const t = useTranslations('Navbar');
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -76,9 +78,12 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
     }
   };
 
+  const toggleMobile = () => setMobileOpen((prev) => !prev);
+
   const navClass = [
     'navbar',
     transparent ? 'navbar--transparent' : '',
+    mobileOpen ? 'navbar--mobile-open' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -138,11 +143,77 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
           </a>
         </div>
 
-        <button className="navbar__hamburger" type="button" aria-label="Toggle navigation">
+        <button
+          className={`navbar__hamburger ${mobileOpen ? 'navbar__hamburger--open' : ''}`}
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded={mobileOpen}
+          onClick={toggleMobile}
+        >
           <span className="navbar__hamburger-line" />
           <span className="navbar__hamburger-line" />
           <span className="navbar__hamburger-line" />
         </button>
+      </div>
+
+      <div className={`navbar__mobile-menu ${mobileOpen ? 'navbar__mobile-menu--open' : ''}`}>
+        <nav className="navbar__mobile-nav">
+          <a href="/reviews" className="navbar__mobile-link" onClick={() => setMobileOpen(false)}>
+            {t('reviews')}
+          </a>
+
+          <div className="navbar__mobile-accordion">
+            <button
+              className={`navbar__mobile-link navbar__mobile-link--accordion ${mobileCategoriesOpen ? 'navbar__mobile-link--expanded' : ''}`}
+              type="button"
+              onClick={() => setMobileCategoriesOpen((prev) => !prev)}
+            >
+              {t('categories')}
+              <svg className="navbar__mobile-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <div className={`navbar__mobile-categories ${mobileCategoriesOpen ? 'navbar__mobile-categories--open' : ''}`}>
+              <div className="navbar__mobile-cat-group">
+                <span className="navbar__mobile-cat-heading">{t('categoriesMenu.websiteBuilders')}</span>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.wordpress')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.wix')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.squarespace')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.shopify')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.webflow')}</a>
+              </div>
+              <div className="navbar__mobile-cat-group">
+                <span className="navbar__mobile-cat-heading">{t('categoriesMenu.hosting')}</span>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.cloudways')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.siteground')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.bluehost')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.hostinger')}</a>
+              </div>
+              <div className="navbar__mobile-cat-group">
+                <span className="navbar__mobile-cat-heading">{t('categoriesMenu.ecommerce')}</span>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.shopify')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.woocommerce')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.bigcommerce')}</a>
+              </div>
+              <div className="navbar__mobile-cat-group">
+                <span className="navbar__mobile-cat-heading">{t('categoriesMenu.marketing')}</span>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.mailchimp')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.hubspot')}</a>
+                <a href="#" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.semrush')}</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/compare" className="navbar__mobile-link" onClick={() => setMobileOpen(false)}>
+            {t('compare')}
+          </a>
+          <a href="/about" className="navbar__mobile-link" onClick={() => setMobileOpen(false)}>
+            {t('about')}
+          </a>
+        </nav>
+        <a href="/newsletter" className="navbar__mobile-cta" onClick={() => setMobileOpen(false)}>
+          {t('newsletter')}
+        </a>
       </div>
     </header>
   );
