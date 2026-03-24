@@ -8,6 +8,7 @@ import { SplitShowcase } from "@/components/sections/SplitShowcase";
 import { MoreImpact } from "@/components/sections/MoreImpact";
 import { SpotlightHero } from "@/components/sections/SpotlightHero";
 import { ProvenResults } from "@/components/sections/ProvenResults";
+import { FeaturedStories } from "@/components/sections/FeaturedStories";
 import { CustomerStories } from "@/components/sections/CustomerStories";
 import { ContactCenter } from "@/components/sections/ContactCenter";
 import { FromTheFounder } from "@/components/sections/FromTheFounder";
@@ -22,6 +23,7 @@ export default async function HomePage() {
       <Navbar transparent />
       <Hero />
       <LogoTrustBar />
+        <FeaturedStories />
       <NextPlatform />
       <FeatureCards />
       <EndOfBusywork />
@@ -30,6 +32,7 @@ export default async function HomePage() {
       <SpotlightHero />
        <CustomerStories />
       <ProvenResults />
+    
      <ContactCenter />
       <Pricing />
       <FromTheFounder />

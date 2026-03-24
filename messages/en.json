@@ -568,6 +568,47 @@
     "demoCta": "See Product Demos",
     "salesCta": "Talk to Sales"
   },
+  "FeaturedStories": {
+    "eyebrow": "Featured Stories",
+    "title": "Expert Reviews to Help You Choose the Right Tools",
+    "readArticle": "Read Article",
+    "card1": {
+      "badge": "Website Builders",
+      "metric": "4.7",
+      "metricLabel": "Average Rating",
+      "company": "Best Website Builders in 2025",
+      "desc": "We tested 15 website builders head-to-head. Here are the top picks for every type of business in the Middle East.",
+      "image": "/assets/story-website-builders.jpg",
+      "link": "/reviews/best-website-builders"
+    },
+    "card2": {
+      "badge": "E-Commerce",
+      "metric": "12",
+      "metricLabel": "Platforms Compared",
+      "company": "Shopify vs WooCommerce: Full Comparison",
+      "desc": "Which e-commerce platform is right for your online store? We break down pricing, features, and ease of use.",
+      "image": "/assets/story-ecommerce.jpg",
+      "link": "/reviews/shopify-vs-woocommerce"
+    },
+    "card3": {
+      "badge": "Marketing",
+      "metric": "8",
+      "metricLabel": "Tools Tested",
+      "company": "Best Email Marketing Tools for Small Business",
+      "desc": "From Mailchimp to HubSpot — we tested the top email marketing platforms to find the best value for growing businesses.",
+      "image": "/assets/story-marketing.jpg",
+      "link": "/reviews/best-email-marketing"
+    },
+    "card4": {
+      "badge": "Hosting",
+      "metric": "99.9%",
+      "metricLabel": "Uptime Tested",
+      "company": "Best Web Hosting Providers Reviewed",
+      "desc": "We monitored uptime, tested support, and benchmarked speed across 10 hosting providers over 6 months.",
+      "image": "/assets/story-hosting.jpg",
+      "link": "/reviews/best-web-hosting"
+    }
+  },
   "Footer": {
     "logoAlt": "Nextiva Logo",
     "subHeading": "Unified Customer Experience Management Platform",

@@ -1,0 +1,389 @@
+.design-v2 .section-social-proof-grid {
+    background: var(--brand-cream);
+    padding: 100px max(100px,(100% - var(--content-max-width))/2);
+    position: relative
+}
+
+.design-v2 .section-social-proof-grid--white {
+    background: var(--bg-white)
+}
+
+.design-v2 .section-social-proof-grid .platform-badge {
+    border-radius: 4px;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: .08em;
+    padding: 8px 14px;
+    text-transform: uppercase
+}
+
+.design-v2 .section-social-proof-grid .platform-showcase-header {
+    margin-bottom: 60px;
+    max-width: 800px
+}
+
+.design-v2 .section-social-proof-grid .platform-showcase-header .platform-badge {
+    background: rgba(0,0,0,.06);
+    color: var(--text-secondary);
+    margin-bottom: 24px
+}
+
+.design-v2 .section-social-proof-grid .showcase-section-title {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-size: var(--text-section-sm);
+    font-weight: var(--arizona-heading-weight);
+    letter-spacing: var(--arizona-heading-letter-spacing);
+    line-height: var(--arizona-heading-line-height);
+    margin-bottom: 0
+}
+
+.design-v2 .section-social-proof-grid .showcase-section-title--narrow {
+    max-width: 540px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry {
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 64px;
+    padding-top: 48px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-title {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: var(--text-heading-md);
+    font-weight: var(--arizona-heading-weight);
+    letter-spacing: var(--arizona-heading-letter-spacing);
+    line-height: 1.2;
+    margin: 0
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-carousel {
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    margin: 0 -100px;
+    padding: 10px 100px 20px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-carousel:active {
+    cursor: grabbing
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-carousel::-webkit-scrollbar {
+    display: none
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-carousel.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-carousel.dragging .social-proof-grid-industry-card {
+    pointer-events: none
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-track {
+    display: flex;
+    gap: 16px;
+    width: max-content
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card {
+    background: var(--brand-white);
+    border: 1px solid transparent;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    display: flex;
+    flex: 0 0 320px;
+    flex-direction: column;
+    padding: 28px;
+    transition: border-color .2s ease,box-shadow .2s ease
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card:hover {
+    border-color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08)
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card.no-link:hover {
+    border-color: transparent;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04)
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card-header {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-badge {
+    background: rgba(0,0,0,.06);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 600;
+    letter-spacing: .04em;
+    padding: 6px 10px;
+    text-transform: uppercase
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-stats {
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 20px;
+    padding-bottom: 20px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-metric {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: var(--text-metric);
+    font-weight: var(--arizona-heading-weight);
+    line-height: 1;
+    margin-bottom: 4px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-metric-label {
+    color: var(--neutral-700);
+    font-family: var(--font-body);
+    font-size: var(--text-caption-lg);
+    font-weight: 500
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-company {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-body-md);
+    font-weight: 600;
+    margin: 0 0 8px
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-desc {
+    color: var(--neutral-700);
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-link {
+    align-items: center;
+    color: var(--text-primary);
+    display: inline-flex;
+    font-family: var(--font-body);
+    font-size: var(--text-caption-lg);
+    font-weight: 500;
+    gap: 6px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: opacity .2s ease
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-link:hover {
+    opacity: .7
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card-image {
+    aspect-ratio: 1/1;
+    background: linear-gradient(135deg,var(--neutral-100) 0,var(--border-subtle) 100%);
+    overflow: hidden;
+    position: relative;
+    width: 100%
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card-image:after {
+    background: linear-gradient(0deg,rgba(0,0,0,.45) 0,transparent);
+    bottom: 0;
+    content: "";
+    height: 50%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    z-index: 1
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card-image>img:first-child {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%
+}
+
+.design-v2 .section-social-proof-grid .social-proof-grid-industry-card-logo {
+    bottom: 28px;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,.3));
+    height: 30px;
+    left: 28px;
+    max-width: 60%;
+    object-fit: contain;
+    position: absolute;
+    width: auto;
+    z-index: 2
+}
+
+.design-v2 .section-social-proof-grid svg.social-proof-grid-industry-card-logo {
+    color: var(--brand-white)
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry {
+    margin-top: 48px
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-carousel {
+    cursor: default;
+    margin: 0;
+    overflow: visible;
+    padding: 10px 0 0
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-track {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(4,1fr);
+    width: auto
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-card {
+    border: 1px solid var(--border-light);
+    flex: none;
+    overflow: hidden;
+    padding: 0
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-card.no-link:hover,.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-card:hover {
+    border-color: var(--border-light);
+    box-shadow: 0 1px 3px rgba(0,0,0,.04)
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-card-header,.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-company,.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-desc,.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-stats {
+    padding-left: 28px;
+    padding-right: 28px
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-card-header {
+    padding-top: 24px
+}
+
+.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-desc {
+    padding-bottom: 28px
+}
+
+@media(max-width: 1024px) {
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-carousel {
+        margin:0 -40px;
+        padding: 10px 40px 20px
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-title {
+        font-size: var(--text-heading-sm)
+    }
+
+    .design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-track {
+        grid-template-columns: repeat(2,1fr)
+    }
+}
+
+@media(max-width: 768px) {
+    .design-v2 .section-social-proof-grid .platform-showcase-header {
+        margin-bottom:40px
+    }
+
+    .design-v2 .section-social-proof-grid .showcase-section-title {
+        font-size: var(--text-heading-lg)
+    }
+
+    .design-v2 .section-social-proof-grid .showcase-section-title br {
+        display: none
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry {
+        margin-top: 48px;
+        padding-top: 40px
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-header {
+        margin-bottom: 24px
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-title {
+        font-size: var(--text-body-xl)
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-carousel {
+        margin: 0 -20px;
+        padding: 10px 20px 20px
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-card {
+        flex: 0 0 280px;
+        padding: 24px
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-metric {
+        font-size: var(--text-heading-xl)
+    }
+}
+
+@media(max-width: 640px) {
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-title {
+        font-size:var(--text-body-xl)
+    }
+
+    .design-v2 .section-social-proof-grid .social-proof-grid-industry-card {
+        flex: 0 0 260px
+    }
+
+    .design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-track {
+        grid-template-columns: 1fr
+    }
+
+    .design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-card-header,.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-company,.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-desc,.design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-stats {
+        padding-left: 20px;
+        padding-right: 20px
+    }
+
+    .design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-card-logo {
+        bottom: 20px;
+        left: 20px
+    }
+
+    .design-v2 .section-social-proof-grid.section-industry-proof-grid--static .social-proof-grid-industry-desc {
+        padding-bottom: 20px
+    }
+}
+
+@media(max-width: 1024px) {
+    .design-v2 .section-social-proof-grid {
+        padding:60px 40px
+    }
+}
+
+@media(max-width: 640px) {
+    .design-v2 .section-social-proof-grid {
+        padding:60px 20px
+    }
+}
+
+.editor-styles-wrapper .section-social-proof-grid .social-proof-grid-industry-carousel {
+    margin: 0;
+    padding: 10px 0 20px
+}
