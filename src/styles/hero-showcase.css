@@ -384,13 +384,18 @@
   margin-bottom: 4px;
 }
 
-.showcase__comparison-header-row .showcase__comparison-feature,
+.showcase__comparison-header-row .showcase__comparison-feature {
+  visibility: hidden;
+  font-size: 0;
+}
+
 .showcase__comparison-header-row .showcase__comparison-tool {
   font-size: 9px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: rgba(0, 0, 0, 0.45);
+  text-align: center;
 }
 
 .showcase__comparison-row {
@@ -421,6 +426,7 @@
   color: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3px;
 }
 
@@ -843,20 +849,12 @@
   position: relative;
 }
 
-.showcase__call-card,
-.showcase__stats-card {
+.showcase__call-card {
   background: rgba(255, 255, 255, 0.97);
   opacity: 0;
   width: 380px;
   will-change: transform, opacity;
-}
-
-.showcase__call-card {
   animation: 0.7s ease-out 0.6s 1 normal forwards running showcaseCardEntranceUp;
-}
-
-.showcase__stats-card {
-  animation: 0.7s ease-out 0.7s 1 normal forwards running showcaseCardEntranceUp;
 }
 
 .showcase__call-card-header {
@@ -1355,160 +1353,6 @@
   animation: 2s ease 11s 1 normal forwards running showcaseProgressFill;
 }
 
-/* ----------------------------------------------------------------
-   Stats Card
-   ---------------------------------------------------------------- */
-
-.showcase__stats-card {
-  border-radius: 20px;
-  box-shadow:
-    rgba(100, 116, 139, 0.15) 0px 15px 50px -10px,
-    rgba(100, 116, 139, 0.08) 0px 8px 25px -5px,
-    rgba(255, 255, 255, 0.8) 0px 0px 0px 1px;
-  padding: 16px 20px;
-}
-
-.showcase__stats-header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-
-.showcase__stats-header-left {
-  align-items: center;
-  display: flex;
-  gap: 6px;
-}
-
-.showcase__stats-sparkle {
-  color: rgb(26, 26, 26);
-  font-size: 14px;
-  line-height: 1;
-}
-
-.showcase__stats-label {
-  color: rgb(26, 26, 26);
-  font-family: var(--font-body);
-  font-size: var(--text-caption);
-  font-weight: 600;
-}
-
-.showcase__stats-time-filter {
-  align-items: center;
-  background: var(--neutral-100);
-  border: none;
-  border-radius: 6px;
-  color: rgb(55, 65, 81);
-  cursor: pointer;
-  display: flex;
-  font-family: var(--font-body);
-  font-size: var(--text-caption-sm);
-  font-weight: 500;
-  gap: 2px;
-  padding: 5px 10px;
-  transition: 0.2s;
-}
-
-.showcase__stats-time-filter:hover {
-  background: var(--border-subtle);
-}
-
-.showcase__stats-time-filter:active {
-  transform: scale(0.96);
-}
-
-.showcase__stats-time-filter svg {
-  color: var(--neutral-700);
-  transition: transform 0.2s;
-}
-
-.showcase__stats-time-filter[data-period="monthly"] svg {
-  transform: rotate(180deg);
-}
-
-.showcase__stats-grid {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr 1fr;
-}
-
-.showcase__stat-item {
-  text-align: center;
-}
-
-.showcase__stat-ring {
-  align-items: center;
-  display: flex;
-  height: 56px;
-  justify-content: center;
-  margin: 0 auto;
-  position: relative;
-  width: 56px;
-}
-
-.showcase__ring-svg {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: rotate(-90deg);
-  width: 100%;
-}
-
-.showcase__ring-bg {
-  fill: none;
-  stroke: rgba(0, 0, 0, 0.06);
-  stroke-width: 4;
-}
-
-.showcase__ring-fill {
-  fill: none;
-  stroke: rgb(26, 26, 26);
-  stroke-linecap: round;
-  stroke-width: 4;
-  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.showcase__ring-fill--secondary {
-  stroke: rgba(0, 0, 0, 0.45);
-}
-
-.showcase__ring-fill--tertiary {
-  stroke: rgba(0, 0, 0, 0.7);
-}
-
-.showcase__ring-fill--accent {
-  stroke: rgb(26, 26, 26);
-}
-
-.showcase__stat-value {
-  color: rgb(26, 26, 26);
-  font-family: var(--font-body);
-  font-size: var(--text-caption);
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
-  line-height: 1;
-  position: relative;
-  z-index: 1;
-}
-
-.showcase__stat-label {
-  color: rgb(75, 85, 99);
-  font-family: var(--font-body);
-  font-size: var(--text-micro);
-  font-weight: 500;
-  margin-top: 4px;
-  white-space: nowrap;
-}
-
-.showcase__stat-trend-up {
-  align-items: center;
-  color: rgb(26, 26, 26);
-  display: flex;
-  gap: 1px;
-  justify-content: center;
-}
 
 /* ----------------------------------------------------------------
    Keyframe Animations
@@ -1644,10 +1488,6 @@
   .showcase__app-bg,
   .showcase__ui {
     display: none;
-  }
-
-  .showcase__stats-card {
-    width: 320px;
   }
 
   .showcase__call-card {

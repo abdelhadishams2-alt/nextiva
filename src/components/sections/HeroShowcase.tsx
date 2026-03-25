@@ -82,51 +82,6 @@ export function HeroShowcase() {
   const [isVisible, setIsVisible] = useState(false);
   const animDelayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Stats card toggle
-  const [statsPeriod, setStatsPeriod] = useState<'today' | 'monthly'>('today');
-  const [displayStats, setDisplayStats] = useState({
-    calls: parseInt(t('statsCard.callsValue')),
-    appts: parseInt(t('statsCard.apptsValue')),
-    faqs: parseInt(t('statsCard.faqsValue')),
-    satisfaction: parseInt(t('statsCard.satisfactionValue')),
-  });
-  const animFrameRef = useRef<number | null>(null);
-
-  const handleStatsToggle = () => {
-    const newPeriod = statsPeriod === 'today' ? 'monthly' : 'today';
-    setStatsPeriod(newPeriod);
-
-    const targetStats = {
-      calls: parseInt(newPeriod === 'today' ? t('statsCard.callsValue') : t('statsCard.callsMonthly')),
-      appts: parseInt(newPeriod === 'today' ? t('statsCard.apptsValue') : t('statsCard.apptsMonthly')),
-      faqs: parseInt(newPeriod === 'today' ? t('statsCard.faqsValue') : t('statsCard.faqsMonthly')),
-      satisfaction: parseInt(newPeriod === 'today' ? t('statsCard.satisfactionValue') : t('statsCard.satisfactionMonthly')),
-    };
-
-    const startStats = { ...displayStats };
-    const duration = 800;
-    const startTime = Date.now();
-
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-
-      setDisplayStats({
-        calls: Math.round(startStats.calls + (targetStats.calls - startStats.calls) * eased),
-        appts: Math.round(startStats.appts + (targetStats.appts - startStats.appts) * eased),
-        faqs: Math.round(startStats.faqs + (targetStats.faqs - startStats.faqs) * eased),
-        satisfaction: Math.round(startStats.satisfaction + (targetStats.satisfaction - startStats.satisfaction) * eased),
-      });
-
-      if (progress < 1) {
-        animFrameRef.current = requestAnimationFrame(animate);
-      }
-    };
-
-    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    animFrameRef.current = requestAnimationFrame(animate);
-  };
 
   useEffect(() => {
     const el = showcaseRef.current;
@@ -384,7 +339,7 @@ export function HeroShowcase() {
 
       {/* Floating UI Showcase */}
       <div className="showcase__ui">
-        {/* Analysis Card (replaces Call Card) */}
+        {/* Analysis Card */}
         <div className="showcase__call-card">
           <div className="showcase__call-card-header">
             <div className="showcase__call-header-left">
@@ -520,71 +475,6 @@ export function HeroShowcase() {
               </div>
             </div>
           )}
-        </div>
-
-        {/* Stats Card */}
-        <div className="showcase__stats-card">
-          <div className="showcase__stats-header">
-            <div className="showcase__stats-header-left">
-              <span className="showcase__stats-sparkle">&#10022;</span>
-              <span className="showcase__stats-label">{t('statsCard.label')}</span>
-            </div>
-            <button
-              className="showcase__stats-time-filter"
-              data-period={statsPeriod}
-              type="button"
-              onClick={handleStatsToggle}
-            >
-              <span className="showcase__stats-time-label">
-                {statsPeriod === 'today' ? t('statsCard.today') : t('statsCard.thirtyDays')}
-              </span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13.1722L16.95 8.22217L18.3642 9.63638L12 16.0006L5.63604 9.63638L7.05025 8.22217L12 13.1722Z" /></svg>
-            </button>
-          </div>
-          <div className="showcase__stats-grid">
-            <div className="showcase__stat-item">
-              <div className="showcase__stat-ring">
-                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill" style={{ strokeDasharray: '157', strokeDashoffset: '31' }} />
-                </svg>
-                <div className="showcase__stat-value">{displayStats.calls}</div>
-              </div>
-              <div className="showcase__stat-label">{t('statsCard.callsLabel')}</div>
-            </div>
-            <div className="showcase__stat-item">
-              <div className="showcase__stat-ring">
-                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill showcase__ring-fill--secondary" style={{ strokeDasharray: '157', strokeDashoffset: '86' }} />
-                </svg>
-                <div className="showcase__stat-value">{displayStats.appts}</div>
-              </div>
-              <div className="showcase__stat-label">{t('statsCard.apptsLabel')}</div>
-            </div>
-            <div className="showcase__stat-item">
-              <div className="showcase__stat-ring">
-                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill showcase__ring-fill--tertiary" style={{ strokeDasharray: '157', strokeDashoffset: '24' }} />
-                </svg>
-                <div className="showcase__stat-value">{displayStats.faqs}</div>
-              </div>
-              <div className="showcase__stat-label">{t('statsCard.faqsLabel')}</div>
-            </div>
-            <div className="showcase__stat-item">
-              <div className="showcase__stat-ring showcase__stat-ring--accent">
-                <svg viewBox="0 0 60 60" className="showcase__ring-svg">
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-bg" />
-                  <circle cx="30" cy="30" r="25" className="showcase__ring-fill showcase__ring-fill--accent" style={{ strokeDasharray: '157', strokeDashoffset: '9' }} />
-                </svg>
-                <div className="showcase__stat-value showcase__stat-trend-up">
-                  <span>{displayStats.satisfaction}</span>%
-                </div>
-              </div>
-              <div className="showcase__stat-label">{t('statsCard.satisfactionLabel')}</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
