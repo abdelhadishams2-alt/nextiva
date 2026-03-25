@@ -30,7 +30,7 @@ export default async function HomePage() {
       <SplitShowcase />
       {/* <NextPlatform /> */}
       {/* <FeatureCards /> */}
-      
+
       {/* <MoreImpact /> */}
       {/* <SpotlightHero /> */}
       {/* <CustomerStories /> */}
