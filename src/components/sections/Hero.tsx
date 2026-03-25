@@ -21,15 +21,17 @@ export async function Hero() {
     <section className="hero">
       <div className="hero__bg">
         <Image
-          src="/assets/hero-option-3-redsea.jpg"
+          src="/assets/hero-backgrounds/hero-option-12-desert-wide-4x3.jpg"
           alt=""
           fill
           priority
+          quality={100}
           sizes="100vw"
-          style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
         />
       </div>
       <div className="hero__overlay" />
+      <div className="hero__blur-bottom" />
       <HeroParticles />
       <div className="hero__container">
         <div className="hero__content">

@@ -99,7 +99,7 @@
 
 .busywork__cta {
   align-items: center;
-  background-color: var(--cta-blue);
+  background-color: var(--brand-primary, #1a6b8a);
   border-radius: 6px;
   color: #fff;
   cursor: pointer;

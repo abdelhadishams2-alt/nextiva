@@ -22,11 +22,31 @@
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(10, 15, 30, 0.4),
-    rgba(10, 15, 30, 0.2) 40%,
-    rgba(10, 15, 30, 0.1) 70%,
+    rgba(10, 15, 30, 0.35),
+    rgba(10, 15, 30, 0.15) 40%,
+    rgba(10, 15, 30, 0.05) 70%,
     transparent
   );
+}
+
+.hero__blur-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(180, 120, 60, 0.3) 30%,
+    rgba(180, 120, 60, 0.7) 70%,
+    rgba(180, 120, 60, 1)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  mask-image: linear-gradient(to bottom, transparent, black 30%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%);
 }
 
 /* ----------------------------------------------------------------
