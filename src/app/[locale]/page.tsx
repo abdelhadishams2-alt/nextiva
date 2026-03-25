@@ -12,7 +12,7 @@ import { FeaturedStories } from "@/components/sections/FeaturedStories";
 import { HowWeReview } from "@/components/sections/HowWeReview";
 import { CustomerStories } from "@/components/sections/CustomerStories";
 import { ContactCenter } from "@/components/sections/ContactCenter";
-import { FromTheFounder } from "@/components/sections/FromTheFounder";
+import { EditorsPick } from "@/components/sections/EditorsPick";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Pricing } from "@/components/sections/Pricing";
 import { Footer } from "@/components/sections/Footer";
@@ -37,7 +37,7 @@ export default async function HomePage() {
       {/* <ProvenResults /> */}
       {/* <ContactCenter /> */}
       {/* <Pricing /> */}
-      {/* <FromTheFounder /> */}
+      <EditorsPick />
       <CallToAction />
       <Footer />
     </>

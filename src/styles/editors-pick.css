@@ -1,0 +1,521 @@
+/* ----------------------------------------------------------------
+   Editor's Pick
+   ---------------------------------------------------------------- */
+
+.editors-pick {
+  background: #fff;
+  padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
+  position: relative;
+}
+
+.editors-pick__container {
+  margin: 0 auto;
+  max-width: none;
+}
+
+/* ----------------------------------------------------------------
+   Header
+   ---------------------------------------------------------------- */
+
+.editors-pick__header {
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.editors-pick__eyebrow {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  text-transform: uppercase;
+}
+
+.editors-pick__title {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--text-section);
+  font-weight: var(--arizona-heading-weight);
+  letter-spacing: var(--arizona-heading-letter-spacing);
+  line-height: var(--arizona-heading-line-height);
+  margin-bottom: 20px;
+}
+
+/* ----------------------------------------------------------------
+   Row Layout
+   ---------------------------------------------------------------- */
+
+.editors-pick__row {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 2fr 1fr;
+  margin-top: 24px;
+}
+
+/* ----------------------------------------------------------------
+   Animations — Image card-swap (exit left, enter from right)
+   ---------------------------------------------------------------- */
+
+.editors-pick__card-primary {
+  overflow: hidden;
+}
+
+/* Image transitions */
+.editors-pick__card-primary .editors-pick__card-image {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+
+/* Idle: image centered, fully visible */
+.editors-pick--idle .editors-pick__card-image {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Exit: old image slides out to the left */
+.editors-pick--exit .editors-pick__card-image {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+/* Enter: new image starts off-screen right, NO transition */
+.editors-pick--enter .editors-pick__card-image {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: none;
+}
+
+/* Card text content */
+.editors-pick__card-primary .editors-pick__card-content {
+  transition: opacity 0.4s ease;
+}
+
+.editors-pick--idle .editors-pick__card-content {
+  opacity: 1;
+}
+
+.editors-pick--exit .editors-pick__card-content {
+  opacity: 0;
+}
+
+.editors-pick--enter .editors-pick__card-content {
+  opacity: 0;
+  transition: none;
+}
+
+/* ----------------------------------------------------------------
+   Sidebar fade (3-phase)
+   ---------------------------------------------------------------- */
+
+/* Sidebar: fade */
+.editors-pick__sidebar .editors-pick__sidebar-inner {
+  transition: opacity 0.4s ease;
+}
+
+.editors-pick--fade-in .editors-pick__sidebar-inner {
+  opacity: 1;
+}
+
+.editors-pick--fade-out .editors-pick__sidebar-inner {
+  opacity: 0;
+}
+
+.editors-pick--fade-enter .editors-pick__sidebar-inner {
+  opacity: 0;
+  transition: none;
+}
+
+/* ----------------------------------------------------------------
+   Dot Indicators
+   ---------------------------------------------------------------- */
+
+.editors-pick__dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.editors-pick__dot {
+  background: var(--border-subtle);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 10px;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+  width: 10px;
+}
+
+.editors-pick__dot:hover {
+  background: var(--neutral-500);
+  transform: scale(1.2);
+}
+
+.editors-pick__dot--active {
+  background: var(--text-primary);
+  transform: scale(1.2);
+}
+
+/* ----------------------------------------------------------------
+   Primary Card (Featured Tool)
+   ---------------------------------------------------------------- */
+
+.editors-pick__card-primary {
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  display: flex;
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+}
+
+.editors-pick__card-image {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.editors-pick__card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.editors-pick__card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 32px;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.editors-pick__card-top {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.editors-pick__card-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  padding: 6px 14px;
+}
+
+.editors-pick__card-rating {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
+  color: var(--text-white);
+  display: flex;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+  gap: 6px;
+  padding: 6px 14px;
+}
+
+.editors-pick__card-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.editors-pick__card-category {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.editors-pick__card-title {
+  color: var(--text-white);
+  font-family: var(--font-display);
+  font-size: var(--text-heading-md);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  max-width: 65%;
+}
+
+.editors-pick__card-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  margin: 0 0 24px;
+  max-width: 480px;
+}
+
+.editors-pick__card-link {
+  align-items: center;
+  color: var(--text-white);
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  gap: 8px;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.editors-pick__card-link:hover {
+  gap: 12px;
+}
+
+.editors-pick__card-link svg {
+  fill: currentColor;
+  height: 16px;
+  transition: transform 0.3s ease;
+  width: 16px;
+}
+
+.editors-pick__card-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ----------------------------------------------------------------
+   Sidebar (Quick Verdict)
+   ---------------------------------------------------------------- */
+
+.editors-pick__sidebar {
+  background: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+}
+
+.editors-pick__sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 32px;
+}
+
+.editors-pick__sidebar-header {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.editors-pick__sidebar-icon {
+  color: var(--text-white);
+}
+
+.editors-pick__sidebar-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------------
+   Pros & Cons
+   ---------------------------------------------------------------- */
+
+.editors-pick__pros,
+.editors-pick__cons {
+  margin-bottom: 20px;
+}
+
+.editors-pick__pros-title {
+  color: #4ade80;
+  font-family: var(--font-body);
+  font-size: var(--text-caption-lg);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.editors-pick__cons-title {
+  color: #f87171;
+  font-family: var(--font-body);
+  font-size: var(--text-caption-lg);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.editors-pick__pros-list,
+.editors-pick__cons-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.editors-pick__pros-list li,
+.editors-pick__cons-list li {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: var(--text-body-xs);
+  line-height: 1.5;
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+
+.editors-pick__pros-list li::before {
+  color: #4ade80;
+  content: '✓';
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+}
+
+.editors-pick__cons-list li::before {
+  color: #f87171;
+  content: '✕';
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+}
+
+/* ----------------------------------------------------------------
+   Sidebar Footer (Price)
+   ---------------------------------------------------------------- */
+
+.editors-pick__sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.editors-pick__price-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.editors-pick__price-value {
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+}
+
+.editors-pick__sidebar-link {
+  align-items: center;
+  color: var(--text-white);
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  gap: 8px;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.editors-pick__sidebar-link:hover {
+  gap: 12px;
+}
+
+.editors-pick__sidebar-link svg {
+  fill: currentColor;
+  height: 16px;
+  transition: transform 0.3s ease;
+  width: 16px;
+}
+
+.editors-pick__sidebar-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .editors-pick {
+    padding: 60px 40px;
+  }
+
+  .editors-pick__title {
+    font-size: var(--text-heading-xl);
+  }
+
+  .editors-pick__card-title {
+    max-width: 80%;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .editors-pick {
+    padding: 60px 20px;
+  }
+
+  .editors-pick__row {
+    gap: 16px;
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+  }
+
+  .editors-pick__card-primary,
+  .editors-pick__sidebar {
+    border-radius: 16px;
+    min-height: 360px;
+  }
+
+  .editors-pick__title {
+    font-size: var(--text-heading-lg);
+  }
+
+  .editors-pick__card-content {
+    padding: 24px;
+  }
+
+  .editors-pick__card-title {
+    font-size: var(--text-body-xl);
+    max-width: 100%;
+  }
+
+  .editors-pick__card-desc {
+    font-size: var(--text-body-sm);
+  }
+
+  .editors-pick__sidebar-inner {
+    padding: 24px;
+  }
+
+  .editors-pick__sidebar {
+    min-height: auto;
+  }
+}

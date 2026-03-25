@@ -548,19 +548,77 @@
       "link": "Learn more"
     }
   },
-  "FromTheFounder": {
-    "eyebrow": "From the Founder",
-    "title": "Leading the Conversation on AI",
-    "avatarAlt": "Tomas Gorny",
-    "name": "Tomas Gorny",
-    "role": "Founder & CEO, Nextiva",
-    "cardTitle": "Don't Wait for AI to Be Perfect. It's Already Doing Work.",
-    "cardDesc": "AI learns through action, not hesitation. The companies seeing real results started imperfect and improved along the way.",
-    "readArticle": "Read Full Article",
-    "onLinkedIn": "On LinkedIn",
-    "linkedInPost": "There's a false expectation that AI should be flawless out of the gate. That it can go from 0-60 in 0.001 seconds. The truth is, AI needs context. Just like teaching a friend a new skill, you start small, test, and adjust. You build that context over time. Mistakes will happen and they're part of how the system gets smarter. The businesses that will win with AI aren't waiting for perfection…",
-    "followers": "73,000+ followers",
-    "viewOnLinkedIn": "View on LinkedIn"
+  "EditorsPick": {
+    "eyebrow": "Editor's Pick",
+    "title": "This Month's Top Tools",
+    "readReview": "Read Full Review",
+    "quickVerdict": "Quick Verdict",
+    "prosTitle": "What We Loved",
+    "consTitle": "Watch Out For",
+    "priceLabel": "Starting Price",
+    "fullReview": "See Full Review",
+    "tools": {
+      "notion": {
+        "image": "/assets/tool-notion.jpg",
+        "imageAlt": "Notion productivity tool illustration",
+        "badge": "March 2026",
+        "rating": "4.8 / 5",
+        "category": "Productivity & Project Management",
+        "name": "Notion — The All-in-One Workspace",
+        "desc": "Notion combines notes, docs, databases, and project boards in a single tool. Perfect for MENA teams who want to replace multiple apps with one flexible platform.",
+        "pro1": "Incredibly flexible — adapts to any workflow",
+        "pro2": "Great Arabic text support and RTL layout",
+        "pro3": "Generous free tier for small teams",
+        "con1": "Steep learning curve for beginners",
+        "con2": "Offline mode still limited",
+        "price": "Free / $8 per user/mo"
+      },
+      "zoom": {
+        "image": "/assets/tool-zoom.jpg",
+        "imageAlt": "Zoom communication tool illustration",
+        "badge": "March 2026",
+        "rating": "4.6 / 5",
+        "category": "Video Conferencing & Communication",
+        "name": "Zoom — Connect Teams Across the Region",
+        "desc": "Zoom remains the go-to video platform for MENA businesses. Reliable calls, Arabic interface support, and deep integrations make it a daily essential.",
+        "pro1": "Rock-solid video and audio quality",
+        "pro2": "Arabic UI and regional data centers",
+        "pro3": "Excellent webinar and event tools",
+        "con1": "Free plan limited to 40 minutes",
+        "con2": "AI features still catching up to rivals",
+        "price": "Free / $13.33 per user/mo"
+      },
+      "hubspot": {
+        "image": "/assets/tool-hubspot.jpg",
+        "imageAlt": "HubSpot CRM tool illustration",
+        "badge": "March 2026",
+        "rating": "4.7 / 5",
+        "category": "CRM & Sales Automation",
+        "name": "HubSpot — CRM Built for Growth",
+        "desc": "HubSpot gives growing MENA businesses a powerful CRM with marketing, sales, and service tools in one platform. No coding required.",
+        "pro1": "All-in-one marketing, sales, and support",
+        "pro2": "Powerful free CRM with no expiry",
+        "pro3": "Easy setup — no developer needed",
+        "con1": "Premium tiers get expensive fast",
+        "con2": "Limited Arabic localization in some modules",
+        "price": "Free / $20 per user/mo"
+      },
+      "canva": {
+        "image": "/assets/tool-canva.jpg",
+        "imageAlt": "Canva design tool illustration",
+        "badge": "March 2026",
+        "rating": "4.9 / 5",
+        "category": "Design & Visual Content",
+        "name": "Canva — Design Without Designers",
+        "desc": "Canva empowers anyone to create stunning visuals. With Arabic templates, RTL support, and an AI-powered toolkit, it's a must-have for MENA content teams.",
+        "pro1": "Thousands of Arabic-ready templates",
+        "pro2": "AI-powered design suggestions",
+        "pro3": "Real-time team collaboration",
+        "con1": "Advanced features locked behind Pro",
+        "con2": "Export quality can vary on free plan",
+        "price": "Free / $12.99 per user/mo"
+      }
+    }
   },
   "CallToAction": {
     "headline": "Never Pick the\nWrong Tool Again.",
