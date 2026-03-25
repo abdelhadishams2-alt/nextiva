@@ -67,82 +67,74 @@
   },
   "HeroShowcase": {
     "appTitle": "Mansati",
-    "messagesTitle": "Reviews",
-    "statusOnline": "Online",
-    "inputPlaceholder": "Ask about any tool...",
-    "conversations": {
-      "sarah": {
-        "name": "Ahmed Al-Rashid",
-        "preview": "Which CRM works best for\u2026",
-        "time": "2m"
-      },
-      "john": {
-        "name": "Fatima Hassan",
-        "preview": "Thanks for the Shopify vs\u2026",
-        "time": "15m"
-      },
-      "salesTeam": {
-        "name": "Editorial Team",
-        "preview": "New review draft ready",
-        "time": "1h"
-      },
-      "alex": {
-        "name": "Omar Khalil",
-        "preview": "Can you compare Wix and\u2026",
-        "time": "2h"
-      },
-      "david": {
-        "name": "Layla Mansour",
-        "preview": "Great breakdown on the h\u2026",
-        "time": "3h"
-      }
+    "categoriesTitle": "Categories",
+    "toolsLabel": "tools",
+    "inputPlaceholder": "Compare any tool...",
+    "categories": {
+      "crm": "CRM Software",
+      "hosting": "Web Hosting",
+      "ecommerce": "E-Commerce",
+      "projectMgmt": "Project Mgmt",
+      "email": "Email Marketing"
     },
-    "chatMessages": {
-      "sent1": "We just published the 2025 hosting comparison for the MENA region",
-      "received1": "Perfect, I was looking for exactly this"
+    "comparison": {
+      "title": "Shopify vs WooCommerce",
+      "subtitle": "AI-powered comparison",
+      "feature": "Feature",
+      "tool1": "Shopify",
+      "tool2": "WooCommerce",
+      "row1": "Arabic Support",
+      "row1val1": "Full RTL",
+      "row1val2": "Via Plugin",
+      "row2": "Pricing (SAR/mo)",
+      "row2val1": "112 SAR",
+      "row2val2": "Free + Host",
+      "row3": "MENA Payments",
+      "row3val1": "Built-in",
+      "row3val2": "Limited",
+      "row4": "Ease of Use",
+      "row4val1": "Beginner",
+      "row4val2": "Technical",
+      "row5": "Mansati Score"
     },
-    "customerInfo": {
-      "title": "Reader Profile",
-      "email": "ahmed@techstartup.sa",
-      "tagVip": "Pro",
-      "tagEnterprise": "MENA",
-      "recentActivity": "Recent Activity",
-      "activity1": "Read \u2013 CRM Guide",
-      "activity1Time": "Yesterday",
-      "activity2": "Compared 3 tools",
-      "activity2Time": "2 days ago",
-      "activity3": "Saved hosting review",
-      "activity3Time": "1 week ago",
-      "customerValue": "Reader Value",
-      "lifetimeValue": "47",
-      "lifetimeValueLabel": "Reviews Read",
-      "interactions": "12",
-      "interactionsLabel": "Tools Compared",
-      "sentiment": "Engagement",
-      "sentimentLabel": "Highly Engaged"
+    "toolDetail": {
+      "title": "Tool Details",
+      "toolName": "Shopify",
+      "toolType": "E-Commerce Platform",
+      "tagBest": "Best Value",
+      "tagMena": "MENA Ready",
+      "prosConsTitle": "Highlights",
+      "pro1": "Full Arabic & RTL support",
+      "pro2": "Mada & STC Pay built-in",
+      "con1": "Higher monthly cost",
+      "price": "112",
+      "priceLabel": "SAR / month",
+      "reviewCount": "248",
+      "reviewLabel": "Reviews",
+      "verdict": "Editor's Choice"
     },
-    "callCard": {
-      "label": "NEW REVIEW",
-      "time": "0:08",
-      "callerName": "Ahmed Al-Rashid",
-      "aiBadge": "Mansati AI Assist",
-      "xbertBubble1": "Based on your needs, I recommend comparing these 3 hosting providers.",
-      "callerBubble1": "That's really helpful, thanks!",
-      "xbertBubble2": "Here's your personalized comparison report.",
-      "appointmentScheduled": "COMPARISON READY",
-      "appointmentConfirmed": "Report Generated",
-      "appointmentTime": "3 tools compared",
-      "summaryTitle": "AI Review",
+    "analysisCard": {
+      "label": "ANALYZING TOOLS",
+      "labelComplete": "ANALYSIS COMPLETE",
+      "toolComparison": "CRM Comparison",
+      "aiBadge": "Mansati AI",
+      "aiBubble1": "I found 5 CRM tools with Arabic support and MENA-region pricing.",
+      "userBubble1": "Which one fits a startup in Saudi?",
+      "aiBubble2": "Based on pricing & features, here are your top 3 picks.",
+      "reportReady": "REPORT READY",
+      "reportGenerated": "Comparison Report",
+      "reportDetails": "5 tools analyzed, 3 recommended",
+      "summaryTitle": "AI Analysis",
       "summaryBadge": "Powered by Mansati AI",
-      "summaryLabel": "SUMMARY",
-      "summaryText": "Ahmed compared hosting providers for his e-commerce startup. Personalized report generated with MENA-specific pricing.",
-      "appointmentLabel": "RECOMMENDATION",
-      "tomorrow": "Best Value",
-      "appointmentBadgeTime": "Top Pick",
-      "sentimentLabel": "READER MOOD",
-      "positive": "Satisfied",
-      "excited": "Informed",
-      "curious": "Curious"
+      "summaryLabel": "INSIGHTS",
+      "summaryText": "Analyzed 5 CRM tools for Saudi startups. Ranked by Arabic support, local payment integration, and MENA pricing.",
+      "topPickLabel": "TOP PICK",
+      "topPick": "Zoho CRM",
+      "topPickScore": "4.8 / 5",
+      "fitLabel": "FIT SCORE",
+      "fitBudget": "Budget Friendly",
+      "fitMena": "MENA Native",
+      "fitScale": "Scalable"
     },
     "statsCard": {
       "label": "Mansati Insights",
