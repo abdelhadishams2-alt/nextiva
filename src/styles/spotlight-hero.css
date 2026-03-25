@@ -1,0 +1,175 @@
+/* ----------------------------------------------------------------
+   Spotlight Hero — Trust Grid
+   ---------------------------------------------------------------- */
+
+.spotlight-hero {
+  background: var(--brand-white);
+  padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
+  padding-top: 20px;
+}
+
+.spotlight-hero__container {
+  width: 100%;
+}
+
+/* ----------------------------------------------------------------
+   Trust Grid
+   ---------------------------------------------------------------- */
+
+.spotlight-hero__grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 16px;
+}
+
+/* ----------------------------------------------------------------
+   Trust Card
+   ---------------------------------------------------------------- */
+
+.spotlight-hero__card {
+  background: var(--brand-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+.spotlight-hero__icon {
+  align-items: center;
+  background: var(--text-primary);
+  border-radius: 8px;
+  color: var(--text-white);
+  display: flex;
+  flex-shrink: 0;
+  font-size: var(--text-body-lg);
+  height: 36px;
+  justify-content: center;
+  margin: 64px 64px 20px;
+  width: 36px;
+}
+
+.spotlight-hero__xbert-icon {
+  color: var(--text-white);
+  display: block;
+  flex-shrink: 0;
+  height: 20px;
+  margin-top: -2px;
+  width: 20px;
+}
+
+.spotlight-hero__body {
+  flex: 1;
+}
+
+.spotlight-hero__card-title {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-heading-md);
+  font-weight: 600;
+  line-height: 1;
+  margin: 0 64px 20px;
+}
+
+.spotlight-hero__card-desc {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 64px 20px;
+}
+
+/* ----------------------------------------------------------------
+   Badges
+   ---------------------------------------------------------------- */
+
+.spotlight-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 64px 64px;
+}
+
+.spotlight-hero__badge-tag {
+  align-items: center;
+  background: var(--neutral-100);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-primary);
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablet
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .spotlight-hero {
+    padding: 60px 40px;
+  }
+
+  .spotlight-hero__header {
+    margin-bottom: 40px;
+  }
+
+  .spotlight-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight-hero__icon {
+    margin: 32px 32px 16px;
+  }
+
+  .spotlight-hero__card-title {
+    margin: 0 32px 12px;
+  }
+
+  .spotlight-hero__card-desc {
+    margin: 0 32px 16px;
+  }
+
+  .spotlight-hero__badges {
+    margin: 0 32px 32px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phone
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .spotlight-hero {
+    padding: 60px 20px;
+  }
+
+  .spotlight-hero__card {
+    border-radius: 12px;
+  }
+
+  .spotlight-hero__icon {
+    margin: 20px 20px 12px;
+  }
+
+  .spotlight-hero__card-title {
+    margin: 0 20px 8px;
+  }
+
+  .spotlight-hero__card-desc {
+    margin: 0 20px 16px;
+  }
+
+  .spotlight-hero__badges {
+    margin: 0 20px 20px;
+  }
+}

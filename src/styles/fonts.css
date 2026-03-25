@@ -1,0 +1,8 @@
+/* ----------------------------------------------------------------
+   Font Declarations
+   ----------------------------------------------------------------
+   Geist fonts are loaded via next/font in the root layout.
+   This file is reserved for any additional @font-face rules.
+   ---------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');

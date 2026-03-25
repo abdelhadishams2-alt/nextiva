@@ -1,0 +1,642 @@
+.design-v2 .section-product-anchor {
+    background: var(--brand-cream);
+    padding: 0 max(100px,(100% - var(--content-max-width))/2);
+    padding-bottom: 100px
+}
+
+.design-v2 .section-product-anchor--white {
+    background: var(--bg-white)
+}
+
+.design-v2 .section-product-anchor .feature-cards-row {
+    margin-top: 0
+}
+
+.design-v2 .section-product-anchor .feature-card-image:before {
+    background: linear-gradient(0deg,rgba(0,0,0,.5) 0,rgba(0,0,0,.05) 35%,transparent 60%)
+}
+
+.design-v2 .section-product-anchor .feature-card-blue-overlay:before {
+    background: linear-gradient(0deg,rgba(10,25,60,.6) 0,rgba(15,40,80,.25) 30%,transparent 65%)
+}
+
+.design-v2 .section-product-anchor .feature-cards-row {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 2fr 1fr
+}
+
+.design-v2 .section-product-anchor .feature-card-image {
+    align-items: flex-end;
+    background-position: 50%;
+    background-size: cover;
+    border: 1px solid var(--text-primary);
+    border-radius: 24px;
+    display: flex;
+    min-height: 520px;
+    overflow: hidden;
+    position: relative
+}
+
+.design-v2 .section-product-anchor .feature-card-image:before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: 1
+}
+
+.design-v2 .section-product-anchor .feature-card-blue-overlay:before {
+    mix-blend-mode: multiply
+}
+
+.design-v2 .section-product-anchor .feature-card-overlay {
+    padding: 32px;
+    position: relative;
+    width: 100%;
+    z-index: 2
+}
+
+.design-v2 .section-product-anchor .feature-card-label {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: hsla(0,0%,100%,.15);
+    border-radius: 6px;
+    color: var(--text-white);
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 600;
+    letter-spacing: .08em;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    text-transform: uppercase
+}
+
+.design-v2 .section-product-anchor .feature-card-title {
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: var(--text-heading-md);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 12px
+}
+
+.design-v2 .section-product-anchor .feature-card-desc {
+    color: hsla(0,0%,100%,.8);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    line-height: 1.6;
+    margin: 0 0 20px;
+    max-width: 380px
+}
+
+.design-v2 .section-product-anchor .feature-card-link {
+    align-items: center;
+    color: var(--text-white);
+    display: inline-flex;
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    gap: 8px;
+    text-decoration: none;
+    transition: gap .3s ease
+}
+
+.design-v2 .section-product-anchor .feature-card-link:hover {
+    gap: 12px
+}
+
+.design-v2 .section-product-anchor .feature-card-link-arrow {
+    align-items: center;
+    display: inline-flex;
+    transition: transform .3s ease
+}
+
+.design-v2 .section-product-anchor .feature-card-link:hover .feature-card-link-arrow {
+    transform: translateX(4px)
+}
+
+.design-v2 .section-product-anchor .feature-card-link-arrow svg {
+    height: 16px;
+    width: 16px;
+    fill: currentColor
+}
+
+.design-v2 .section-product-anchor .dust-particles {
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1
+}
+
+.design-v2 .section-product-anchor .eye-radiate {
+    height: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    z-index: 1
+}
+
+.design-v2 .section-product-anchor .eye-radiate-ring {
+    animation: eyeRadiateProductAnchor 8s ease-out infinite;
+    border: 1px solid hsla(0,0%,100%,.45);
+    border-radius: 50%;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    will-change: transform,opacity
+}
+
+.design-v2 .section-product-anchor .eye-radiate-ring:first-child {
+    animation-delay: 0s
+}
+
+.design-v2 .section-product-anchor .eye-radiate-ring:nth-child(2) {
+    animation-delay: 1.6s
+}
+
+.design-v2 .section-product-anchor .eye-radiate-ring:nth-child(3) {
+    animation-delay: 3.2s
+}
+
+.design-v2 .section-product-anchor .eye-radiate-ring:nth-child(4) {
+    animation-delay: 4.8s
+}
+
+.design-v2 .section-product-anchor .eye-radiate-ring:nth-child(5) {
+    animation-delay: 6.4s
+}
+
+@keyframes eyeRadiateProductAnchor {
+    0% {
+        opacity: 0;
+        transform: scale(.5)
+    }
+
+    3% {
+        opacity: .5
+    }
+
+    40% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(10)
+    }
+}
+
+@media(max-width: 1024px) {
+    .design-v2 .section-product-anchor {
+        padding:0 40px 60px
+    }
+}
+
+@media(max-width: 900px) {
+    .design-v2 .section-product-anchor .feature-cards-row {
+        grid-template-columns:1fr
+    }
+
+    .design-v2 .section-product-anchor .feature-card-image {
+        min-height: 400px
+    }
+}
+
+@media(max-width: 640px) {
+    .design-v2 .section-product-anchor {
+        padding:0 20px 60px
+    }
+
+    .design-v2 .section-product-anchor .feature-cards-row {
+        gap: 16px
+    }
+
+    .design-v2 .section-product-anchor .feature-card-image {
+        border-radius: 16px;
+        min-height: 360px
+    }
+
+    .design-v2 .section-product-anchor .feature-card-overlay {
+        padding: 24px
+    }
+
+    .design-v2 .section-product-anchor .feature-card-title {
+        font-size: var(--text-body-xl)
+    }
+
+    .design-v2 .section-product-anchor .feature-card-desc {
+        font-size: var(--text-body-sm)
+    }
+}
+
+.design-v2.section-authority-spotlight {
+    background: var(--bg-white);
+    padding: 100px max(100px,(100% - var(--content-max-width))/2);
+    position: relative
+}
+
+.design-v2.section-authority-spotlight--cream {
+    background: var(--brand-cream)
+}
+
+.design-v2 .authority-spotlight-container {
+    margin: 0 auto;
+    max-width: none
+}
+
+.design-v2 .authority-spotlight-header {
+    margin-bottom: 32px;
+    text-align: left
+}
+
+.design-v2 .authority-spotlight-eyebrow {
+    background: rgba(0,0,0,.06);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    letter-spacing: .08em;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    text-transform: uppercase
+}
+
+.design-v2 .authority-spotlight-title {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-size: var(--text-section);
+    font-weight: var(--arizona-heading-weight);
+    letter-spacing: var(--arizona-heading-letter-spacing);
+    line-height: var(--arizona-heading-line-height);
+    margin-bottom: 20px
+}
+
+.design-v2 .authority-spotlight-row {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 24px
+}
+
+.design-v2 .authority-spotlight-card-primary {
+    align-items: stretch;
+    background-position: 50%;
+    background-size: cover;
+    border: 1px solid var(--text-primary);
+    border-radius: 24px;
+    display: flex;
+    min-height: 520px;
+    overflow: hidden;
+    position: relative
+}
+
+.design-v2 .authority-spotlight-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 32px;
+    position: relative;
+    width: 100%;
+    z-index: 2
+}
+
+.design-v2 .authority-spotlight-card-meta {
+    align-items: center;
+    display: flex;
+    gap: 12px
+}
+
+.design-v2 .authority-spotlight-avatar {
+    border: 2px solid hsla(0,0%,100%,.3);
+    border-radius: 50%;
+    height: 56px;
+    overflow: hidden;
+    width: 56px
+}
+
+.design-v2 .authority-spotlight-avatar img {
+    height: 125%;
+    margin-top: -5%;
+    object-fit: cover;
+    object-position: center top;
+    width: 125%
+}
+
+.design-v2 .authority-spotlight-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px
+}
+
+.design-v2 .authority-spotlight-name {
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 600
+}
+
+.design-v2 .authority-spotlight-role {
+    color: hsla(0,0%,100%,.7);
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 400
+}
+
+.design-v2 .authority-spotlight-card-title {
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: var(--text-heading-md);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    max-width: 50%
+}
+
+.design-v2 .authority-spotlight-card-desc {
+    color: hsla(0,0%,100%,.8);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    line-height: 1.6;
+    margin: 0 0 48px;
+    max-width: 380px
+}
+
+.design-v2 .authority-spotlight-card-link {
+    align-items: center;
+    color: var(--text-white);
+    display: inline-flex;
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    gap: 8px;
+    text-decoration: none;
+    transition: gap .3s ease
+}
+
+.design-v2 .authority-spotlight-card-link:hover {
+    gap: 12px
+}
+
+.design-v2 .authority-spotlight-card-link svg {
+    height: 16px;
+    width: 16px;
+    fill: currentColor;
+    transition: transform .3s ease
+}
+
+.design-v2 .authority-spotlight-card-link:hover svg {
+    transform: translateX(4px)
+}
+
+.design-v2 .authority-spotlight-card-primary .dust-particles,.design-v2 .section-authority-spotlight .dust-particles {
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1
+}
+
+.design-v2 .authority-spotlight-card-primary .eye-radiate,.design-v2 .section-authority-spotlight .eye-radiate {
+    height: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    z-index: 1
+}
+
+.design-v2 .authority-spotlight-card-primary .eye-radiate-ring,.design-v2 .section-authority-spotlight .eye-radiate-ring {
+    animation: eyeRadiateProductAnchor 8s ease-out infinite;
+    border: 1px solid hsla(0,0%,100%,.45);
+    border-radius: 50%;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    will-change: transform,opacity
+}
+
+.design-v2 .section-authority-spotlight .eye-radiate-ring:first-child {
+    animation-delay: 0s
+}
+
+.design-v2 .section-authority-spotlight .eye-radiate-ring:nth-child(2) {
+    animation-delay: 1.6s
+}
+
+.design-v2 .section-authority-spotlight .eye-radiate-ring:nth-child(3) {
+    animation-delay: 3.2s
+}
+
+.design-v2 .section-authority-spotlight .eye-radiate-ring:nth-child(4) {
+    animation-delay: 4.8s
+}
+
+.design-v2 .section-authority-spotlight .eye-radiate-ring:nth-child(5) {
+    animation-delay: 6.4s
+}
+
+.design-v2 .authority-spotlight-card-linkedin {
+    background: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 520px;
+    overflow: hidden;
+    position: relative
+}
+
+.design-v2 .linkedin-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 32px
+}
+
+.design-v2 .linkedin-card-header {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px
+}
+
+.design-v2 .linkedin-icon {
+    height: 24px;
+    width: 24px;
+    fill: var(--text-white)
+}
+
+.design-v2 .linkedin-label {
+    color: hsla(0,0%,100%,.85);
+    font-family: var(--font-body);
+    font-size: var(--text-micro);
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.design-v2 .linkedin-post-preview {
+    display: flex;
+    flex: 1;
+    flex-direction: column
+}
+
+.design-v2 .linkedin-post-text {
+    color: var(--text-white);
+    display: -webkit-box;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0 0 auto;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden
+}
+
+.design-v2 .linkedin-card-footer {
+    align-items: center;
+    border-top: 1px solid hsla(0,0%,100%,.15);
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px
+}
+
+.design-v2 .authority-spotlight-mini-avatar {
+    border-radius: 50%;
+    height: 32px;
+    overflow: hidden;
+    width: 32px
+}
+
+.design-v2 .authority-spotlight-mini-avatar img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%
+}
+
+.design-v2 .linkedin-author {
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 600
+}
+
+.design-v2 .linkedin-followers-badge {
+    background: var(--brand-white);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 600;
+    margin-left: auto;
+    padding: 6px 12px
+}
+
+.design-v2 .linkedin-card-link {
+    align-items: center;
+    color: var(--text-white);
+    display: inline-flex;
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    gap: 8px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: gap .3s ease
+}
+
+.design-v2 .linkedin-card-link:hover {
+    gap: 12px
+}
+
+.design-v2 .linkedin-card-link svg {
+    height: 16px;
+    width: 16px;
+    fill: currentColor;
+    transition: transform .3s ease
+}
+
+.design-v2 .linkedin-card-link:hover svg {
+    transform: translateX(4px)
+}
+
+@media(max-width: 1024px) {
+    .design-v2.section-authority-spotlight {
+        padding:60px 40px
+    }
+
+    .design-v2 .authority-spotlight-title {
+        font-size: var(--text-heading-xl)
+    }
+}
+
+@media(max-width: 900px) {
+    .design-v2 .authority-spotlight-row {
+        grid-template-columns:1fr
+    }
+
+    .design-v2 .authority-spotlight-card-linkedin,.design-v2 .authority-spotlight-card-primary {
+        min-height: 400px
+    }
+
+    .design-v2 .authority-spotlight-card-title {
+        max-width: 100%
+    }
+}
+
+@media(max-width: 640px) {
+    .design-v2.section-authority-spotlight {
+        padding:60px 20px
+    }
+
+    .design-v2 .authority-spotlight-title {
+        font-size: var(--text-heading-lg)
+    }
+
+    .design-v2 .authority-spotlight-card-linkedin,.design-v2 .authority-spotlight-card-primary {
+        border-radius: 16px;
+        min-height: 360px
+    }
+
+    .design-v2 .authority-spotlight-row {
+        gap: 16px;
+        margin-top: 16px
+    }
+
+    .design-v2 .authority-spotlight-card-content {
+        padding: 24px
+    }
+
+    .design-v2 .authority-spotlight-card-title {
+        font-size: var(--text-body-xl)
+    }
+
+    .design-v2 .authority-spotlight-card-desc {
+        font-size: var(--text-body-sm)
+    }
+
+    .design-v2 .linkedin-card-inner {
+        padding: 24px
+    }
+
+    .design-v2 .linkedin-post-text {
+        font-size: var(--text-body)
+    }
+}

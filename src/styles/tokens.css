@@ -1,0 +1,140 @@
+/* ----------------------------------------------------------------
+   Design Tokens
+   ---------------------------------------------------------------- */
+
+:root {
+  /* Colors */
+  --color-bg: #ffffff;
+  --color-fg: #12131a;
+  --color-muted: #666666;
+  --color-border: #e9e9ec;
+  --color-primary: #12131a;
+  --color-primary-fg: #ffffff;
+  --color-accent: #3b82f6;
+  --color-dark-bg: #0b1924;
+  --color-dark-fg: #ffffff;
+  --color-dark-muted: rgba(255, 255, 255, 0.8);
+  --color-dark-subtle: rgba(255, 255, 255, 0.5);
+
+  /* Typography */
+  --font-sans: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3.5rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-padding: 1.5rem;
+
+  /* Borders */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+
+  /* ----------------------------------------------------------------
+     Nextiva Design System Tokens (from nextiva.com)
+     ---------------------------------------------------------------- */
+
+  /* Brand Colors */
+  --brand-navy: #02122c;
+  --brand-blue: #0062b8;
+  --brand-cream: #f8f8f6;
+  --brand-white: #fff;
+  --brand-neutral: #b47d7c;
+  --cta-blue: #06f;
+
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4b46;
+  --text-tertiary: #6c6967;
+  --text-placeholder: #a39e9b;
+  --text-white: #fff;
+
+  /* Neutral Palette */
+  --neutral-900: #2e2d2c;
+  --neutral-800: #4a4b46;
+  --neutral-700: #6c6967;
+  --neutral-600: #888381;
+  --neutral-500: #a39e9b;
+  --neutral-300: #cdc7c3;
+  --neutral-200: #e1deda;
+  --neutral-100: #f9f4ef;
+  --neutral-50: #f8f8f6;
+  --neutral-25: #fffefc;
+  --neutral-0: #fff;
+
+  /* Rating */
+  --rating-star: #f5a623;
+
+  /* Blue Palette */
+  --blue-200: #5096b8;
+
+  /* Borders */
+  --border-subtle: #e1deda;
+  --border-light: #cdc7c3;
+  --border-dark: #2e2d2c;
+
+  /* Font Stack */
+  --font-body: var(--font-sans);
+  --font-display: 'Lora', Georgia, serif;
+
+  /* Arizona Heading Settings */
+  --arizona-heading-weight: 500;
+  --arizona-heading-line-height: 0.98;
+  --arizona-heading-letter-spacing: -0.02em;
+
+  /* Typography Scale */
+  --text-micro-xs: 8px;
+  --text-micro-sm: 9px;
+  --text-micro: 10px;
+  --text-caption-sm: 11px;
+  --text-caption: 12px;
+  --text-caption-lg: 13px;
+  --text-body-xs: 14px;
+  --text-body-sm: 15px;
+  --text-body: 16px;
+  --text-body-md: 17px;
+  --text-body-lg: 18px;
+  --text-body-xl: 20px;
+  --text-heading-sm: 24px;
+  --text-heading-md: 28px;
+  --text-heading-md-lg: 34px;
+  --text-heading-xl: 44px;
+  --text-heading-lg: clamp(36px, 5vw, 56px);
+  --text-section: 52px;
+  --text-display: clamp(56px, 10vw, 120px);
+  --text-display-sm: clamp(64px, 8vw, 96px);
+  --text-display-lg: 104px;
+  --text-metric: 48px;
+  --text-price: 56px;
+
+  /* Arizona Hero Settings */
+  --arizona-hero-weight: 500;
+  --arizona-hero-line-height: 0.84;
+  --arizona-hero-letter-spacing: -0.02em;
+
+  /* Layout */
+  --content-max-width: 1600px;
+}
