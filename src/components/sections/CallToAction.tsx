@@ -7,7 +7,7 @@ export async function CallToAction() {
     <section className="cta-hero">
       <div
         className="cta-hero__bg"
-        style={{ backgroundImage: "url('/assets/desert-wildflowers-dusk.png')" }}
+        style={{ backgroundImage: "url('/assets/cta-bg-mansati.jpg')" }}
       />
 
       <div className="cta-hero__content">
@@ -15,7 +15,7 @@ export async function CallToAction() {
         <p className="cta-hero__subhead">{t('subhead')}</p>
 
         <div className="cta-hero__cta">
-          <a className="cta-hero__btn cta-hero__btn--primary" href="/demo-center">
+          <a className="cta-hero__btn cta-hero__btn--primary" href="/reviews">
             <span className="cta-hero__btn-text">{t('demoCta')}</span>
             <span className="cta-hero__btn-arrow">
               <svg
@@ -32,7 +32,7 @@ export async function CallToAction() {
             </span>
           </a>
 
-          <a className="cta-hero__btn cta-hero__btn--ghost" href="#cta-popup">
+          <a className="cta-hero__btn cta-hero__btn--ghost" href="/newsletter">
             <span className="cta-hero__btn-text">{t('salesCta')}</span>
             <span className="cta-hero__btn-arrow">
               <svg

@@ -4,232 +4,154 @@
     "description": "Built with Next.js"
   },
   "Navbar": {
-    "logo": "nextiva",
-    "products": "Products",
-    "solutions": "Solutions",
-    "resources": "Resources",
-    "pricing": "Pricing",
-    "salesPhone": "Sales 800-799-0600",
-    "support": "Support",
-    "logIn": "Log In",
-    "getADemo": "Get a Demo",
-    "productsMenu": {
-      "product": "Product",
-      "aiCapabilities": "AI Capabilities",
-      "channels": "Channels",
-      "advanced": "Advanced",
-      "nextPlatform": "NEXT Platform",
-      "nextPlatformDesc": "Unified communications and CX solution.",
-      "xbert": "XBert",
-      "xbertDesc": "AI employee for customer conversations.",
-      "contactCenter": "Contact Center",
-      "contactCenterDesc": "Omnichannel customer experience platform.",
-      "businessPhone": "Business Phone",
-      "businessPhoneDesc": "Phone service for any size business.",
-      "aiEmployee": "AI Employee",
-      "aiEmployeeDesc": "Works tasks start to finish.",
-      "agentAssist": "Agent Assist",
-      "agentAssistDesc": "Real-time agent guidance.",
-      "aiReceptionist": "AI Receptionist",
-      "aiReceptionistDesc": "Handle incoming calls 24/7.",
-      "voiceTexting": "Voice & Texting",
-      "voiceTextingDesc": "Phone calls and texting.",
-      "liveChat": "Live Chat",
-      "liveChatDesc": "Interact with website visitors.",
-      "messenger": "Messenger",
-      "messengerDesc": "Help customers on every channel.",
-      "email": "Email",
-      "emailDesc": "Unified customer inbox.",
-      "socialReviews": "Social & Reviews",
-      "socialReviewsDesc": "Manage all social channels.",
-      "videoMeetings": "Video Meetings",
-      "videoMeetingsDesc": "Instant virtual meetings.",
-      "integrations": "Integrations",
-      "integrationsDesc": "Apps and integrations.",
-      "analyticsReporting": "Analytics & Reporting",
-      "analyticsReportingDesc": "Insights and dashboards.",
-      "workforceEngagement": "Workforce Engagement",
-      "workforceEngagementDesc": "Scale your contact center.",
-      "journeyOrchestration": "Journey Orchestration",
-      "journeyOrchestrationDesc": "End-to-end customer engagement.",
-      "meetXbert": "Meet XBert",
-      "meetXbertDesc": "Your AI employee that handles customer conversations"
-    },
-    "solutionsMenu": {
-      "industries": "Industries",
-      "solutions": "Solutions",
-      "healthcare": "Healthcare",
-      "healthcareDesc": "Streamline patient operations.",
-      "accounting": "Accounting",
-      "accountingDesc": "Deliver secure, reliable service.",
-      "realEstate": "Real Estate",
-      "realEstateDesc": "Close deals faster.",
-      "retail": "Retail",
-      "retailDesc": "Increase sales and loyalty.",
-      "automotive": "Automotive",
-      "automotiveDesc": "Drive service revenue.",
-      "legal": "Legal",
-      "legalDesc": "Win more clients.",
-      "insurance": "Insurance",
-      "insuranceDesc": "Resolve claims faster.",
-      "logistics": "Logistics",
-      "logisticsDesc": "Keep deliveries on track.",
-      "restaurants": "Restaurants",
-      "restaurantsDesc": "Fill more tables.",
-      "nonprofit": "Nonprofit",
-      "nonprofitDesc": "Inspire more giving.",
-      "education": "Education",
-      "educationDesc": "Engage every student.",
-      "government": "Government",
-      "governmentDesc": "Serve your community.",
-      "smallBusiness": "Small Business",
-      "smallBusinessDesc": "Solutions for growing businesses.",
-      "midMarketEnterprise": "Mid Market & Enterprise",
-      "midMarketEnterpriseDesc": "Scale with advanced capabilities.",
-      "partners": "Partners",
-      "partnersDesc": "Join our partner network."
-    },
-    "resourcesMenu": {
-      "company": "Company",
-      "helpfulAssets": "Helpful Assets",
-      "highlightsInsights": "Highlights & Insights",
-      "leadership": "Leadership",
-      "leadershipDesc": "Meet our executive team.",
-      "boardOfDirectors": "Board of Directors",
-      "boardOfDirectorsDesc": "Our board members.",
-      "careers": "Careers",
-      "careersDesc": "Join our team.",
-      "trustReliability": "Trust & Reliability",
-      "trustReliabilityDesc": "Security and compliance.",
-      "contactUs": "Contact Us",
-      "contactUsDesc": "We're here to help.",
-      "downloadNextiva": "Download Nextiva",
-      "downloadNextivaDesc": "Get Nextiva on any device.",
-      "resourceCenter": "Resource Center",
-      "resourceCenterDesc": "Your business toolkit.",
-      "blog": "Blog",
-      "blogDesc": "Practical advice. Real results.",
-      "demoCenter": "Demo Center",
-      "demoCenterDesc": "See Nextiva in action.",
-      "serviceDelivery": "Service Delivery",
-      "serviceDeliveryDesc": "Service that keeps you moving.",
-      "customerStories": "Customer Stories",
-      "customerStoriesDesc": "See how customers succeed.",
-      "news": "News",
-      "newsDesc": "Latest company updates.",
-      "awards": "Awards",
-      "awardsDesc": "Recognition and accolades.",
-      "amazingService": "Amazing Service",
-      "amazingServiceDesc": "Our commitment to customers.",
-      "events": "Events",
-      "eventsDesc": "Webinars and conferences."
+    "logo": "Mansati",
+    "reviews": "Reviews",
+    "categories": "Categories",
+    "compare": "Compare",
+    "about": "About",
+    "newsletter": "Get Updates",
+    "categoriesMenu": {
+      "websiteBuilders": "Website Builders",
+      "hosting": "Hosting",
+      "ecommerce": "E-Commerce",
+      "marketing": "Marketing",
+      "websiteBuildersItems": {
+        "wordpress": "WordPress",
+        "wordpressDesc": "The world's most popular CMS.",
+        "wix": "Wix",
+        "wixDesc": "Drag-and-drop site builder.",
+        "squarespace": "Squarespace",
+        "squarespaceDesc": "Beautiful templates for creatives.",
+        "shopify": "Shopify",
+        "shopifyDesc": "Leading e-commerce platform.",
+        "webflow": "Webflow",
+        "webflowDesc": "Visual development platform."
+      },
+      "hostingItems": {
+        "cloudways": "Cloudways",
+        "cloudwaysDesc": "Managed cloud hosting.",
+        "siteground": "SiteGround",
+        "sitegroundDesc": "Reliable shared hosting.",
+        "bluehost": "Bluehost",
+        "bluehostDesc": "Budget-friendly web hosting.",
+        "hostinger": "Hostinger",
+        "hostingerDesc": "Affordable high-speed hosting."
+      },
+      "ecommerceItems": {
+        "shopify": "Shopify",
+        "shopifyDesc": "All-in-one online store.",
+        "woocommerce": "WooCommerce",
+        "woocommerceDesc": "WordPress e-commerce plugin.",
+        "bigcommerce": "BigCommerce",
+        "bigcommerceDesc": "Scalable enterprise commerce."
+      },
+      "marketingItems": {
+        "mailchimp": "Mailchimp",
+        "mailchimpDesc": "Email marketing & automation.",
+        "hubspot": "HubSpot",
+        "hubspotDesc": "CRM and inbound marketing.",
+        "semrush": "Semrush",
+        "semrushDesc": "SEO and competitive analysis."
+      }
     }
   },
   "Hero": {
-    "ratingScore": "4.5",
-    "ratingNumber": "20,000",
-    "ratingSuffix": "+ Business Reviews",
-    "title": "A New Dawn\nin Customer Experience",
-    "subtitleBold": "The complete customer experience platform.",
-    "subtitleRest": " Win every conversation, measure every interaction, and use AI to optimize every customer journey. Grow your business without working harder.",
-    "primaryCta": "Get a Demo",
-    "secondaryCta": "Buy Now"
+    "ratingScore": "4.8",
+    "ratingNumber": "150",
+    "ratingSuffix": "+ Tools Reviewed",
+    "title": "Find the Right Tool\nfor Your Business",
+    "subtitleBold": "Honest reviews. Real comparisons. No guesswork.",
+    "subtitleRest": " We test every website builder, hosting service, and online tool so you don't have to. Get expert recommendations tailored for the Middle East market.",
+    "primaryCta": "Explore Tools",
+    "secondaryCta": "Read Reviews"
   },
   "HeroShowcase": {
-    "appTitle": "Nextiva App",
-    "messagesTitle": "Messages",
-    "statusOnline": "Online",
-    "inputPlaceholder": "Type a message...",
-    "conversations": {
-      "sarah": {
-        "name": "Sarah Mitchell",
-        "preview": "Appointment confirmed for…",
-        "time": "2m"
-      },
-      "john": {
-        "name": "John Davis",
-        "preview": "Thanks for the quick resp…",
-        "time": "15m"
-      },
-      "salesTeam": {
-        "name": "Sales Team",
-        "preview": "Meeting at 3pm today",
-        "time": "1h"
-      },
-      "alex": {
-        "name": "Alex Rodriguez",
-        "preview": "Can you send the report?",
-        "time": "2h"
-      },
-      "david": {
-        "name": "David Park",
-        "preview": "Great work on the presen…",
-        "time": "3h"
-      }
+    "appTitle": "Mansati",
+    "categoriesTitle": "Categories",
+    "toolsLabel": "tools",
+    "inputPlaceholder": "Compare any tool...",
+    "categories": {
+      "crm": "CRM Software",
+      "hosting": "Web Hosting",
+      "ecommerce": "E-Commerce",
+      "projectMgmt": "Project Mgmt",
+      "email": "Email Marketing"
     },
-    "chatMessages": {
-      "sent1": "Of course! I have availability tomorrow at 2 PM",
-      "received1": "That works perfectly for me"
+    "comparison": {
+      "title": "Shopify vs WooCommerce",
+      "subtitle": "AI-powered comparison",
+      "feature": "Feature",
+      "tool1": "Shopify",
+      "tool2": "WooCommerce",
+      "row1": "Arabic Support",
+      "row1val1": "Full RTL",
+      "row1val2": "Via Plugin",
+      "row2": "Pricing (SAR/mo)",
+      "row2val1": "112 SAR",
+      "row2val2": "Free + Host",
+      "row3": "MENA Payments",
+      "row3val1": "Built-in",
+      "row3val2": "Limited",
+      "row4": "Ease of Use",
+      "row4val1": "Beginner",
+      "row4val2": "Technical",
+      "row5": "Mansati Score"
     },
-    "customerInfo": {
-      "title": "Customer Info",
-      "email": "sarah.mitchell@company.com",
-      "tagVip": "VIP",
-      "tagEnterprise": "Enterprise",
-      "recentActivity": "Recent Activity",
-      "activity1": "Call – 12 min",
-      "activity1Time": "Yesterday",
-      "activity2": "Email opened",
-      "activity2Time": "2 days ago",
-      "activity3": "Meeting booked",
-      "activity3Time": "1 week ago",
-      "customerValue": "Customer Value",
-      "lifetimeValue": "$24,500",
-      "lifetimeValueLabel": "Lifetime Value",
-      "interactions": "18",
-      "interactionsLabel": "Interactions",
-      "sentiment": "Sentiment",
-      "sentimentLabel": "Very Positive"
+    "toolDetail": {
+      "title": "Tool Details",
+      "toolName": "Shopify",
+      "toolType": "E-Commerce Platform",
+      "tagBest": "Best Value",
+      "tagMena": "MENA Ready",
+      "prosConsTitle": "Highlights",
+      "pro1": "Full Arabic & RTL support",
+      "pro2": "Mada & STC Pay built-in",
+      "con1": "Higher monthly cost",
+      "price": "112",
+      "priceLabel": "SAR / month",
+      "reviewCount": "248",
+      "reviewLabel": "Reviews",
+      "verdict": "Editor's Choice"
     },
-    "callCard": {
-      "label": "INCOMING CALL",
-      "time": "0:08",
-      "callerName": "Sarah Mitchell",
-      "aiBadge": "XBert AI Speaking",
-      "xbertBubble1": "I have 2:00 PM available tomorrow. Would that work?",
-      "callerBubble1": "Yes, that's perfect!",
-      "xbertBubble2": "You're confirmed for tomorrow at 2 PM.",
-      "appointmentScheduled": "APPOINTMENT SCHEDULED",
-      "appointmentConfirmed": "Appointment Confirmed",
-      "appointmentTime": "Tomorrow, 2:00 PM",
-      "summaryTitle": "AI Summary",
-      "summaryBadge": "Answered by XBert AI",
-      "summaryLabel": "SUMMARY",
-      "summaryText": "Sarah Mitchell asked about business hours and scheduled a consultation. Appointment confirmed.",
-      "appointmentLabel": "APPOINTMENT",
-      "tomorrow": "Tomorrow",
-      "appointmentBadgeTime": "2:00 PM",
-      "sentimentLabel": "SENTIMENT",
-      "positive": "Positive",
-      "excited": "Excited",
-      "curious": "Curious"
+    "analysisCard": {
+      "label": "ANALYZING TOOLS",
+      "labelComplete": "ANALYSIS COMPLETE",
+      "toolComparison": "CRM Comparison",
+      "aiBadge": "Mansati AI",
+      "aiBubble1": "I found 5 CRM tools with Arabic support and MENA-region pricing.",
+      "userBubble1": "Which one fits a startup in Saudi?",
+      "aiBubble2": "Based on pricing & features, here are your top 3 picks.",
+      "reportReady": "REPORT READY",
+      "reportGenerated": "Comparison Report",
+      "reportDetails": "5 tools analyzed, 3 recommended",
+      "summaryTitle": "AI Analysis",
+      "summaryBadge": "Powered by Mansati AI",
+      "summaryLabel": "INSIGHTS",
+      "summaryText": "Analyzed 5 CRM tools for Saudi startups. Ranked by Arabic support, local payment integration, and MENA pricing.",
+      "topPickLabel": "TOP PICK",
+      "topPick": "Zoho CRM",
+      "topPickScore": "4.8 / 5",
+      "fitLabel": "FIT SCORE",
+      "fitBudget": "Budget Friendly",
+      "fitMena": "MENA Native",
+      "fitScale": "Scalable"
     },
     "statsCard": {
-      "label": "XBert AI Resolutions",
+      "label": "Mansati Insights",
       "today": "Today",
       "thirtyDays": "30 Days",
-      "callsValue": "592",
-      "callsMonthly": "1284",
-      "callsLabel": "Calls Handled",
-      "apptsValue": "192",
-      "apptsMonthly": "342",
-      "apptsLabel": "Appts Booked",
-      "faqsValue": "558",
-      "faqsMonthly": "4127",
-      "faqsLabel": "FAQs Resolved",
-      "satisfactionValue": "94",
+      "callsValue": "1248",
+      "callsMonthly": "38500",
+      "callsLabel": "Reviews Read",
+      "apptsValue": "324",
+      "apptsMonthly": "8740",
+      "apptsLabel": "Tools Compared",
+      "faqsValue": "156",
+      "faqsMonthly": "4890",
+      "faqsLabel": "Guides Viewed",
+      "satisfactionValue": "97",
       "satisfactionMonthly": "96",
-      "satisfactionLabel": "Satisfaction"
+      "satisfactionLabel": "Helpful"
     }
   },
   "NextPlatform": {
@@ -271,7 +193,7 @@
     }
   },
   "LogoTrustBar": {
-    "text": "From local businesses to global brands, over 1 million users trust Nextiva."
+    "text": "Trusted by leading companies worldwide"
   },
   "FeatureCards": {
     "card1": {
@@ -286,11 +208,11 @@
     }
   },
   "EndOfBusywork": {
-    "label": "NEXT Platform + XBert AI",
-    "headline": "The End of Busywork.",
-    "tagline": "The next era for business is built with AI employees.",
-    "desc": "The shift is already happening. AI employees are handling customer conversations, resolving real issues, closing real deals. The businesses that ride this shift will be impossible to compete with.",
-    "cta": "See the New Workforce"
+    "label": "Why Trust Us",
+    "headline": "Reviews You Can Actually Trust.",
+    "tagline": "Independent testing. No sponsored content. Ever.",
+    "desc": "We buy every tool with our own money, test it for weeks, and publish honest results. No affiliate pressure, no paid placements — just real reviews from real testing, built for the Middle East market.",
+    "cta": "Read Our Methodology"
   },
   "MoreImpact": {
     "pill": "NEW FROM NEXTIVA",
@@ -300,27 +222,27 @@
   },
   "SplitShowcase": {
     "card1": {
-      "title": "Your AI employee handles the busywork.",
-      "desc": "XBert is agentic AI that handles the busywork autonomously, from first touch to resolution, so your team can focus on work that actually matters.",
-      "faceLabel": "AI Employee",
-      "task1": "Answered call",
-      "task2": "Sent text reply",
-      "task3": "Scheduled appt",
-      "task4": "Routed to human",
-      "task5": "Email responded"
+      "title": "We buy and test every tool ourselves.",
+      "desc": "No vendor demos or press kits. We sign up, pay, and use each tool for weeks — just like you would. Real testing, real results.",
+      "faceLabel": "Testing",
+      "task1": "Account created",
+      "task2": "Features tested",
+      "task3": "Support contacted",
+      "task4": "Speed benchmarked",
+      "task5": "Review published"
     },
     "card2": {
-      "title": "Your team can focus on what humans do best.",
-      "desc": "Complex problems, high-stakes conversations, relationship building. The moments that earn loyalty and close deals stay with your people.",
-      "faceLabel": "Your Team",
-      "benefit1": "Less busywork",
-      "benefit2": "More time",
-      "benefit3": "Less burnout"
+      "title": "No sponsored reviews. No affiliate bias.",
+      "desc": "Our recommendations are based on testing, not payments. We disclose all affiliate links transparently. Your trust is our priority.",
+      "faceLabel": "Honest",
+      "benefit1": "No sponsorships",
+      "benefit2": "Full transparency",
+      "benefit3": "Honest scores"
     },
     "card3": {
-      "title": "The NEXT Platform brings it all together.",
-      "desc": "Every tool, channel, and conversation, unified with AI. Full visibility into your customer experience, with smart AI that helps you grow.",
-      "constellationLabel": "NEXT"
+      "title": "Built for the Middle East market.",
+      "desc": "Payment gateways, RTL support, local hosting, Arabic language tools — we test what matters for businesses in the MENA region.",
+      "constellationLabel": "MENA"
     }
   },
   "CustomerStories": {
@@ -376,22 +298,22 @@
   },
   "SpotlightHero": {
     "card1": {
-      "title": "XBert learns your business.",
-      "desc": "XBert learns your services, policies, business hours, and FAQs. It's not guessing. It's an expert that knows your business inside and out.",
-      "badge1": "No guessing",
-      "badge2": "Uses facts"
+      "title": "Honest, in-depth reviews.",
+      "desc": "We spend weeks testing each tool — from setup to daily use. Our reviews cover pricing, features, ease of use, and support quality with real screenshots.",
+      "badge1": "Hands-on testing",
+      "badge2": "No paid placements"
     },
     "card2": {
-      "title": "You have full control.",
-      "desc": "Set guardrails and customize what the AI can handle. Calls are recorded and transcribed so you always know what happened.",
-      "badge1": "Calls recorded",
-      "badge2": "Everything is transcribed"
+      "title": "Side-by-side comparisons.",
+      "desc": "Not sure which tool to pick? Our comparison tables break down features, pricing, and performance so you can see exactly what fits your needs.",
+      "badge1": "Feature breakdowns",
+      "badge2": "Clear winner picks"
     },
     "card3": {
-      "title": "Intelligent handoff.",
-      "desc": "When needed, XBert transfers complex requests and urgent needs to your team. No awkward pauses or frustrated customers.",
-      "badge1": "Smart handoff",
-      "badge2": "Never lose a customer"
+      "title": "Expert tested, reader trusted.",
+      "desc": "Our editorial team has tested over 150 tools. We combine expert analysis with real user feedback to deliver recommendations you can count on.",
+      "badge1": "150+ tools tested",
+      "badge2": "Updated monthly"
     }
   },
   "ProvenResults": {
@@ -633,84 +555,63 @@
     "viewOnLinkedIn": "View on LinkedIn"
   },
   "CallToAction": {
-    "headline": "The End of Busywork\nStarts Here",
-    "subhead": "Join 100,000+ businesses that trust Nextiva to manage their customer experience. Set up in minutes, see results quickly.",
-    "demoCta": "See Product Demos",
-    "salesCta": "Talk to Sales"
+    "headline": "Never Pick the\nWrong Tool Again.",
+    "subhead": "Get weekly expert recommendations, honest comparisons, and exclusive guides — tailored for the Middle East market.",
+    "demoCta": "Explore Tools",
+    "salesCta": "Subscribe Free"
   },
   "Footer": {
-    "logoAlt": "Nextiva Logo",
-    "subHeading": "Unified Customer Experience Management Platform",
-    "downloadCta": "Download NextivaONE",
-    "socialFacebook": "Facebook",
+    "logoAlt": "Mansati Logo",
+    "subHeading": "Honest Tool Reviews for the Middle East",
     "socialX": "Twitter (X)",
     "socialLinkedIn": "LinkedIn",
-    "socialYouTube": "YouTube Videos",
-    "socialReddit": "Reddit",
-    "col1Heading": "Conversational Platform",
+    "socialYouTube": "YouTube",
+    "col1Heading": "Tool Reviews",
     "col1Links": {
-      "customerComm": "Customer communication",
-      "contactCenter": "AI-powered contact center",
-      "businessVoice": "Business voice",
-      "localNumbers": "Local phone numbers",
-      "analytics": "Customer analytics",
-      "aiReceptionist": "AI receptionist"
+      "websiteBuilders": "Website builders",
+      "emailMarketing": "Email marketing tools",
+      "ecommerce": "E-commerce platforms",
+      "hosting": "Web hosting",
+      "crm": "CRM software",
+      "projectMgmt": "Project management"
     },
-    "col2Heading": "Helpful Resources",
+    "col2Heading": "Resources",
     "col2Links": {
-      "resourceCenter": "Resource center",
-      "supportCenter": "Support center",
-      "phones": "Phones & headsets",
-      "contactCenters": "Contact centers",
-      "networkTest": "Network readiness test",
-      "staffingCalc": "Call center staffing calculator",
-      "missedCallsCalc": "Cost of missed calls calculator",
-      "aiCalc": "AI receptionist ROI calculator"
+      "guides": "How-to guides",
+      "comparisons": "Tool comparisons",
+      "bestOf": "Best of lists",
+      "pricing": "Pricing breakdowns",
+      "tutorials": "Tutorials",
+      "glossary": "Glossary"
     },
-    "col3Heading": "Platform Features",
+    "col3Heading": "Categories",
     "col3Links": {
-      "cloudPhone": "Cloud phone system",
-      "inboundVoice": "Inbound voice contact center",
-      "textMessaging": "Text messaging",
-      "callCenter": "Call center",
-      "cloudPbx": "Cloud PBX",
-      "sipTrunking": "SIP trunking"
+      "marketing": "Marketing tools",
+      "analytics": "Analytics platforms",
+      "design": "Design software",
+      "ai": "AI tools",
+      "communication": "Communication tools",
+      "accounting": "Accounting software"
     },
     "col4Heading": "Company",
     "col4Links": {
-      "leadership": "Leadership",
-      "board": "Board of Directors",
+      "about": "About Mansati",
+      "methodology": "Our methodology",
       "careers": "Careers",
-      "cares": "Nextiva Cares",
-      "news": "News & media",
-      "status": "Platform status",
-      "contact": "Contact us"
+      "contact": "Contact us",
+      "advertise": "Advertise with us"
     },
-    "col5Heading": "Partners",
-    "col5Links": {
-      "channel": "Channel partners",
-      "events": "Events",
-      "affiliates": "Affiliates",
-      "portal": "Partner portal",
-      "integrations": "App integrations"
-    },
-    "blogHeading": "Nextiva Blog",
-    "blogPost1Title": "Best Call Center Software For Your Team",
-    "blogPost2Title": "What Is Unified Customer Experience Management (CXM)?",
-    "goLearn": "Go Learn",
-    "brandText": "nextiva",
-    "slogan": "Crafted with",
+    "blogHeading": "Latest Articles",
+    "blogPost1Title": "Best Website Builders for Small Businesses in 2025",
+    "blogPost2Title": "Top Email Marketing Tools Compared: A Complete Guide",
+    "goLearn": "Read More",
+    "brandText": "mansati",
+    "slogan": "Built with",
     "sloganHeart": "❤",
-    "sloganLocation": "in Scottsdale, Arizona USA",
-    "copyright": "Copyright © 2026 Nextiva. All Rights Reserved.",
-    "badgeSoc2": "SOC 2 Certified",
-    "badgeHipaa": "HIPAA Compliant",
-    "badgeUptime": "99.999% Uptime",
-    "legalLink": "Legal",
+    "sloganLocation": "for the Middle East",
+    "copyright": "© 2026 Mansati. All Rights Reserved.",
+    "legalLink": "Terms",
     "privacyLink": "Privacy Policy",
-    "patentsLink": "Patents",
-    "securityLink": "Security Policy",
-    "accessibilityLink": "Accessibility",
     "sitemapLink": "Site Map"
   },
   "Articles": {
@@ -4184,5 +4085,179 @@
     "newsletterPlaceholder": "Enter your email address",
     "newsletterBtn": "Subscribe Now",
     "newsletterDisclaimer": "By subscribing, you agree to our Terms of Service and Privacy Policy. No spam, we promise."
+  },
+  "EditorsPick": {
+    "eyebrow": "Editor's Pick",
+    "title": "This Month's Top Tools",
+    "readReview": "Read Full Review",
+    "quickVerdict": "Quick Verdict",
+    "prosTitle": "What We Loved",
+    "consTitle": "Watch Out For",
+    "priceLabel": "Starting Price",
+    "fullReview": "See Full Review",
+    "tools": {
+      "notion": {
+        "image": "/assets/tool-notion.jpg",
+        "imageAlt": "Notion productivity tool illustration",
+        "badge": "March 2026",
+        "rating": "4.8 / 5",
+        "category": "Productivity & Project Management",
+        "name": "Notion — The All-in-One Workspace",
+        "desc": "Notion combines notes, docs, databases, and project boards in a single tool. Perfect for MENA teams who want to replace multiple apps with one flexible platform.",
+        "pro1": "Incredibly flexible — adapts to any workflow",
+        "pro2": "Great Arabic text support and RTL layout",
+        "pro3": "Generous free tier for small teams",
+        "con1": "Steep learning curve for beginners",
+        "con2": "Offline mode still limited",
+        "price": "Free / $8 per user/mo"
+      },
+      "zoom": {
+        "image": "/assets/tool-zoom.jpg",
+        "imageAlt": "Zoom communication tool illustration",
+        "badge": "March 2026",
+        "rating": "4.6 / 5",
+        "category": "Video Conferencing & Communication",
+        "name": "Zoom — Connect Teams Across the Region",
+        "desc": "Zoom remains the go-to video platform for MENA businesses. Reliable calls, Arabic interface support, and deep integrations make it a daily essential.",
+        "pro1": "Rock-solid video and audio quality",
+        "pro2": "Arabic UI and regional data centers",
+        "pro3": "Excellent webinar and event tools",
+        "con1": "Free plan limited to 40 minutes",
+        "con2": "AI features still catching up to rivals",
+        "price": "Free / $13.33 per user/mo"
+      },
+      "hubspot": {
+        "image": "/assets/tool-hubspot.jpg",
+        "imageAlt": "HubSpot CRM tool illustration",
+        "badge": "March 2026",
+        "rating": "4.7 / 5",
+        "category": "CRM & Sales Automation",
+        "name": "HubSpot — CRM Built for Growth",
+        "desc": "HubSpot gives growing MENA businesses a powerful CRM with marketing, sales, and service tools in one platform. No coding required.",
+        "pro1": "All-in-one marketing, sales, and support",
+        "pro2": "Powerful free CRM with no expiry",
+        "pro3": "Easy setup — no developer needed",
+        "con1": "Premium tiers get expensive fast",
+        "con2": "Limited Arabic localization in some modules",
+        "price": "Free / $20 per user/mo"
+      },
+      "canva": {
+        "image": "/assets/tool-canva.jpg",
+        "imageAlt": "Canva design tool illustration",
+        "badge": "March 2026",
+        "rating": "4.9 / 5",
+        "category": "Design & Visual Content",
+        "name": "Canva — Design Without Designers",
+        "desc": "Canva empowers anyone to create stunning visuals. With Arabic templates, RTL support, and an AI-powered toolkit, it's a must-have for MENA content teams.",
+        "pro1": "Thousands of Arabic-ready templates",
+        "pro2": "AI-powered design suggestions",
+        "pro3": "Real-time team collaboration",
+        "con1": "Advanced features locked behind Pro",
+        "con2": "Export quality can vary on free plan",
+        "price": "Free / $12.99 per user/mo"
+      }
+    }
+  },
+  "HowWeReview": {
+    "eyebrow": "Our Process",
+    "title": "Every tool tested, inside and out.",
+    "steps": {
+      "step1": {
+        "label": "Research",
+        "name": "Deep Dive",
+        "outcome": "We understand the full landscape before testing.",
+        "pills": [
+          "Market analysis",
+          "Feature mapping",
+          "Pricing research"
+        ],
+        "image": "/assets/review-step-research.jpg"
+      },
+      "step2": {
+        "label": "Hands-On Testing",
+        "name": "Real Usage",
+        "outcome": "We use every tool like a real customer would.",
+        "pills": [
+          "Account setup",
+          "Core features",
+          "Support quality"
+        ],
+        "image": "/assets/review-step-testing.jpg"
+      },
+      "step3": {
+        "label": "Benchmarking",
+        "name": "Performance",
+        "outcome": "Hard numbers, not opinions.",
+        "pills": [
+          "Speed tests",
+          "Uptime monitoring",
+          "Load testing"
+        ],
+        "image": "/assets/review-step-benchmarking.jpg"
+      },
+      "step4": {
+        "label": "Comparison",
+        "name": "Side by Side",
+        "outcome": "Honest comparisons across every category.",
+        "pills": [
+          "Feature comparison",
+          "Pricing breakdown",
+          "Use case fit"
+        ],
+        "image": "/assets/review-step-comparison.jpg"
+      },
+      "step5": {
+        "label": "Final Verdict",
+        "name": "The Review",
+        "outcome": "Clear recommendations you can trust.",
+        "pills": [
+          "Expert scoring",
+          "Pros & cons",
+          "Who it's best for"
+        ],
+        "image": "/assets/review-step-verdict.jpg"
+      }
+    }
+  },
+  "FeaturedStories": {
+    "eyebrow": "Featured Stories",
+    "title": "Expert Reviews to Help You Choose the Right Tools",
+    "readArticle": "Read Article",
+    "card1": {
+      "badge": "Website Builders",
+      "metric": "4.7",
+      "metricLabel": "Average Rating",
+      "company": "Best Website Builders in 2025",
+      "desc": "We tested 15 website builders head-to-head. Here are the top picks for every type of business in the Middle East.",
+      "image": "/assets/story-website-builders.jpg",
+      "link": "/reviews/best-website-builders"
+    },
+    "card2": {
+      "badge": "E-Commerce",
+      "metric": "12",
+      "metricLabel": "Platforms Compared",
+      "company": "Shopify vs WooCommerce: Full Comparison",
+      "desc": "Which e-commerce platform is right for your online store? We break down pricing, features, and ease of use.",
+      "image": "/assets/story-ecommerce.jpg",
+      "link": "/reviews/shopify-vs-woocommerce"
+    },
+    "card3": {
+      "badge": "Marketing",
+      "metric": "8",
+      "metricLabel": "Tools Tested",
+      "company": "Best Email Marketing Tools for Small Business",
+      "desc": "From Mailchimp to HubSpot — we tested the top email marketing platforms to find the best value for growing businesses.",
+      "image": "/assets/story-marketing.jpg",
+      "link": "/reviews/best-email-marketing"
+    },
+    "card4": {
+      "badge": "Hosting",
+      "metric": "99.9%",
+      "metricLabel": "Uptime Tested",
+      "company": "Best Web Hosting Providers Reviewed",
+      "desc": "We monitored uptime, tested support, and benchmarked speed across 10 hosting providers over 6 months.",
+      "image": "/assets/story-hosting.jpg",
+      "link": "/reviews/best-web-hosting"
+    }
   }
 }

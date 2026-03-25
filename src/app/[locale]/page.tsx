@@ -8,9 +8,11 @@ import { SplitShowcase } from "@/components/sections/SplitShowcase";
 import { MoreImpact } from "@/components/sections/MoreImpact";
 import { SpotlightHero } from "@/components/sections/SpotlightHero";
 import { ProvenResults } from "@/components/sections/ProvenResults";
+import { FeaturedStories } from "@/components/sections/FeaturedStories";
+import { HowWeReview } from "@/components/sections/HowWeReview";
 import { CustomerStories } from "@/components/sections/CustomerStories";
 import { ContactCenter } from "@/components/sections/ContactCenter";
-import { FromTheFounder } from "@/components/sections/FromTheFounder";
+import { EditorsPick } from "@/components/sections/EditorsPick";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Pricing } from "@/components/sections/Pricing";
 import { Footer } from "@/components/sections/Footer";
@@ -22,17 +24,20 @@ export default async function HomePage() {
       <Navbar transparent />
       <Hero />
       <LogoTrustBar />
-      <NextPlatform />
-      <FeatureCards />
+      <FeaturedStories />
+      <HowWeReview />
       <EndOfBusywork />
       <SplitShowcase />
-      <MoreImpact />
-      <SpotlightHero />
-       <CustomerStories />
-      <ProvenResults />
-     <ContactCenter />
-      <Pricing />
-      <FromTheFounder />
+      {/* <NextPlatform /> */}
+      {/* <FeatureCards /> */}
+
+      {/* <MoreImpact /> */}
+      {/* <SpotlightHero /> */}
+      {/* <CustomerStories /> */}
+      {/* <ProvenResults /> */}
+      {/* <ContactCenter /> */}
+      {/* <Pricing /> */}
+      <EditorsPick />
       <CallToAction />
       <Footer />
     </>

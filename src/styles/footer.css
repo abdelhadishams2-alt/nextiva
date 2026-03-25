@@ -77,7 +77,7 @@
 }
 
 .footer__download-btn:hover {
-  background-color: #f9f4ef;
+  background-color: #ffffff;
   border-radius: 50px;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .footer__social a:hover {
-  background-color: #f9f4ef;
+  background-color: #ffffff;
 }
 
 .footer__social img {
@@ -272,25 +272,6 @@
   z-index: 3;
 }
 
-/* Cactus Overlays */
-.footer-brand__overlay {
-  bottom: 0;
-  max-height: 45%;
-  object-fit: contain;
-  pointer-events: none;
-  position: absolute;
-  width: auto;
-  z-index: 2;
-}
-
-.footer-brand__overlay--left {
-  left: 0;
-}
-
-.footer-brand__overlay--right {
-  right: 0;
-}
-
 /* Scroll Reveal States */
 .footer-brand__reveal {
   opacity: 0;
@@ -308,14 +289,6 @@
 .footer-brand__reveal--visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-
-.footer-brand__overlay--left.footer-brand__reveal--visible {
-  transition-delay: 0.5s;
-}
-
-.footer-brand__overlay--right.footer-brand__reveal--visible {
-  transition-delay: 0.7s;
 }
 
 /* Giant Text */

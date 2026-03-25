@@ -191,7 +191,7 @@ export function SplitShowcase() {
               decoding="async"
               width={1024}
               height={1024}
-              src="/assets/portrait-woman-glasses-sunset.webp"
+              src="/assets/trust-testing.jpg"
               className="split-showcase__img"
               alt=""
             />
@@ -213,7 +213,10 @@ export function SplitShowcase() {
           </div>
 
           <div className="split-showcase__card-icon">
-            <XBertIcon />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
           </div>
           <h3 className="split-showcase__card-title">{t('card1.title')}</h3>
           <p className="split-showcase__card-desc">{t('card1.desc')}</p>
@@ -227,7 +230,7 @@ export function SplitShowcase() {
               decoding="async"
               width={1024}
               height={771}
-              src="/assets/portrait-receptionist-office-teal.webp"
+              src="/assets/trust-no-bias.jpg"
               className="split-showcase__img"
               alt=""
             />
@@ -249,7 +252,9 @@ export function SplitShowcase() {
           </div>
 
           <div className="split-showcase__card-icon">
-            <i className="ri-team-fill" aria-hidden="true"></i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
           </div>
           <h3 className="split-showcase__card-title">{t('card2.title')}</h3>
           <p className="split-showcase__card-desc">{t('card2.desc')}</p>
@@ -263,7 +268,7 @@ export function SplitShowcase() {
               decoding="async"
               width={847}
               height={1024}
-              src="/assets/desert-grasses-crescent-moon.webp"
+              src="/assets/trust-mena.jpg"
               className="split-showcase__img"
               alt=""
             />
@@ -276,7 +281,11 @@ export function SplitShowcase() {
           </div>
 
           <div className="split-showcase__card-icon">
-            <i className="ri-stack-fill" aria-hidden="true"></i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
           </div>
           <h3 className="split-showcase__card-title">{t('card3.title')}</h3>
           <p className="split-showcase__card-desc">{t('card3.desc')}</p>

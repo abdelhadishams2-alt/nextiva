@@ -21,15 +21,17 @@ export async function Hero() {
     <section className="hero">
       <div className="hero__bg">
         <Image
-          src="/assets/hero-bg.png"
+          src="/assets/hero-backgrounds/hero-option-12-desert-wide-4x3.jpg"
           alt=""
           fill
           priority
+          quality={100}
           sizes="100vw"
-          style={{ objectFit: 'cover', objectPosition: 'center 50%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
         />
       </div>
       <div className="hero__overlay" />
+      <div className="hero__blur-bottom" />
       <HeroParticles />
       <div className="hero__container">
         <div className="hero__content">
@@ -47,24 +49,6 @@ export async function Hero() {
                 <span className="hero__rating-number">{t("ratingNumber")}</span>
                 <span className="hero__rating-suffix">{t("ratingSuffix")}</span>
               </span>
-              <div className="hero__trust-badges">
-                <Image
-                  src="/assets/gartner-logo.png"
-                  alt="G2"
-                  width={100}
-                  height={100}
-                  className="hero__trust-badge"
-                  priority
-                />
-                <Image
-                  src="/assets/gartner-badge.webp"
-                  alt="Gartner"
-                  width={300}
-                  height={170}
-                  className="hero__trust-badge hero__trust-badge--wide"
-                  priority
-                />
-              </div>
             </div>
           </div>
 
