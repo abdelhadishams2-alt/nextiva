@@ -39,10 +39,6 @@ export function FooterBrand() {
 
       <div className="footer-brand__bottom">
         <div className="footer-brand__bottom-left">
-          <span className="footer-brand__slogan">
-            {t('slogan')} <span className="footer-brand__heart">{t('sloganHeart')}</span>{' '}
-            {t('sloganLocation')}
-          </span>
           <span className="footer-brand__copyright">{t('copyright')}</span>
         </div>
 

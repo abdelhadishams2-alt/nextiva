@@ -105,6 +105,7 @@
    ---------------------------------------------------------------- */
 
 .how-we-review__phase {
+  --txt-fill: 0%;
   cursor: pointer;
   display: flex;
 }
@@ -127,11 +128,13 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
+/* ---- Number ---- */
+
 .how-we-review__phase-number {
   align-items: center;
   background: var(--brand-cream, #f8f8f6);
   border-radius: 8px;
-  color: var(--neutral-600, #888381);
+  color: var(--neutral-400, #c5c0bc);
   display: flex;
   font-family: var(--font-display);
   font-size: var(--text-body-sm, 15px);
@@ -139,14 +142,17 @@
   height: 32px;
   justify-content: center;
   min-width: 32px;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
   width: 32px;
 }
 
-.how-we-review__phase--active .how-we-review__phase-number {
+.how-we-review__phase--active .how-we-review__phase-number,
+.how-we-review__phase--done .how-we-review__phase-number {
   background: var(--text-primary);
   color: #fff;
 }
+
+/* ---- Text ---- */
 
 .how-we-review__phase-text {
   flex: 1;
@@ -154,7 +160,14 @@
 }
 
 .how-we-review__phase-label {
-  color: var(--neutral-500, #a39e9b);
+  background: linear-gradient(
+    90deg,
+    var(--text-primary, #1b1b18) var(--txt-fill),
+    var(--neutral-400, #c5c0bc) var(--txt-fill)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: var(--font-body);
   font-size: var(--text-micro, 10px);
   font-weight: 600;
@@ -164,7 +177,14 @@
 }
 
 .how-we-review__phase-name {
-  color: var(--text-primary);
+  background: linear-gradient(
+    90deg,
+    var(--text-primary, #1b1b18) var(--txt-fill),
+    var(--neutral-400, #c5c0bc) var(--txt-fill)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: var(--font-body);
   font-size: var(--text-body, 16px);
   font-weight: 600;

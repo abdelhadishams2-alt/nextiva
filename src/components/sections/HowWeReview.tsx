@@ -2,14 +2,53 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 const STEP_KEYS = ['step1', 'step2', 'step3', 'step4', 'step5'] as const;
+const AUTOPLAY_DURATION = 4000;
 
 export function HowWeReview() {
   const t = useTranslations('HowWeReview');
   const [activeStep, setActiveStep] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const rafRef = useRef<number>(0);
+  const startTimeRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (!isAutoPlaying) {
+      cancelAnimationFrame(rafRef.current);
+      return;
+    }
+
+    startTimeRef.current = 0;
+
+    const tick = (timestamp: number) => {
+      if (!startTimeRef.current) startTimeRef.current = timestamp;
+      const elapsed = timestamp - startTimeRef.current;
+      const pct = Math.min(elapsed / AUTOPLAY_DURATION, 1);
+      setProgress(pct);
+
+      if (pct >= 1) {
+        startTimeRef.current = timestamp;
+        setActiveStep((prev) => (prev + 1) % STEP_KEYS.length);
+        setProgress(0);
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [isAutoPlaying]);
+
+  const handleStepClick = (index: number) => {
+    setActiveStep(index);
+    setProgress(0);
+    startTimeRef.current = 0;
+    setIsAutoPlaying(true);
+  };
 
   const steps = STEP_KEYS.map((key, i) => ({
     key,
@@ -41,21 +80,33 @@ export function HowWeReview() {
             </svg>
           </div>
           <div className="how-we-review__phases">
-            {steps.map((step) => (
-              <div
-                key={step.key}
-                className={`how-we-review__phase${activeStep === step.index ? ' how-we-review__phase--active' : ''}`}
-                onClick={() => setActiveStep(step.index)}
-              >
-                <div className="how-we-review__phase-card">
-                  <span className="how-we-review__phase-number">{step.index + 1}</span>
-                  <div className="how-we-review__phase-text">
-                    <div className="how-we-review__phase-label">{step.label}</div>
-                    <h3 className="how-we-review__phase-name">{step.name}</h3>
+            {steps.map((step) => {
+              const isActive = step.index === activeStep;
+              const isDone = step.index < activeStep;
+              const txtFill = isDone ? 100 : isActive ? progress * 100 : 0;
+              const phaseClass = [
+                'how-we-review__phase',
+                isActive && 'how-we-review__phase--active',
+                isDone && 'how-we-review__phase--done',
+              ].filter(Boolean).join(' ');
+
+              return (
+                <div
+                  key={step.key}
+                  className={phaseClass}
+                  onClick={() => handleStepClick(step.index)}
+                  style={{ '--txt-fill': `${txtFill}%` } as React.CSSProperties}
+                >
+                  <div className="how-we-review__phase-card">
+                    <span className="how-we-review__phase-number">{step.index + 1}</span>
+                    <div className="how-we-review__phase-text">
+                      <div className="how-we-review__phase-label">{step.label}</div>
+                      <h3 className="how-we-review__phase-name">{step.name}</h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
