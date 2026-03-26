@@ -4,7 +4,7 @@ export async function EndOfBusywork() {
   const t = await getTranslations('EndOfBusywork');
 
   return (
-    <section className="busywork">
+    <section className="busywork" id="features">
       <div className="busywork__card">
         {/* Left — Text content */}
         <div className="busywork__content">
@@ -18,7 +18,7 @@ export async function EndOfBusywork() {
               {t('tagline')}
             </h3>
             <p className="busywork__desc">{t('desc')}</p>
-            <a className="busywork__cta" href="/methodology">
+            <a className="busywork__cta" href="/#reviews">
               <span className="busywork__cta-text">{t('cta')}</span>
               <span className="busywork__cta-arrow">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">

@@ -9,31 +9,31 @@ import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
 
 const tocItems = [
-  { id: 'section-2', label: 'المشهد السعودي' },
-  { id: 'section-3', label: 'المتطلبات الأساسية' },
-  { id: 'section-4', label: 'إنشاء المتجر' },
-  { id: 'section-5', label: 'بوابات الدفع' },
-  { id: 'section-6', label: 'الشحن واللوجستيات' },
-  { id: 'section-7', label: 'ZATCA والضريبة' },
-  { id: 'section-8', label: 'تحسين ما قبل الإطلاق' },
-  { id: 'section-9', label: 'أخطاء شائعة' },
-  { id: 'section-10', label: 'استراتيجيات النمو' },
-  { id: 'section-11', label: 'ملخص النقاط' },
-  { id: 'section-12', label: 'ابدأ الآن' },
+  { id: 'section-2', label: 'Saudi Market' },
+  { id: 'section-3', label: 'Prerequisites' },
+  { id: 'section-4', label: 'Store Setup' },
+  { id: 'section-5', label: 'Payment Gateways' },
+  { id: 'section-6', label: 'Shipping & Logistics' },
+  { id: 'section-7', label: 'ZATCA & VAT' },
+  { id: 'section-8', label: 'Pre-Launch Checklist' },
+  { id: 'section-9', label: 'Common Mistakes' },
+  { id: 'section-10', label: 'Growth Strategies' },
+  { id: 'section-11', label: 'Key Takeaways' },
+  { id: 'section-12', label: 'Get Started' },
 ];
 
 const tocItemsFull = [
-  { id: 'section-2', label: 'المشهد السعودي للتجارة الإلكترونية — لماذا الآن؟' },
-  { id: 'section-3', label: 'المتطلبات الأساسية قبل البدء' },
-  { id: 'section-4', label: 'إنشاء متجر شوبيفاي وضبط العربية والـ RTL' },
-  { id: 'section-5', label: 'تفعيل بوابات الدفع السعودية' },
-  { id: 'section-6', label: 'إعداد الشحن والخدمات اللوجستية' },
-  { id: 'section-7', label: 'الامتثال لهيئة الزكاة (ZATCA) وإعداد ضريبة القيمة المضافة' },
-  { id: 'section-8', label: 'تحسين المتجر قبل الإطلاق' },
-  { id: 'section-9', label: 'أخطاء شائعة يجب تجنبها عند إطلاق متجرك' },
-  { id: 'section-10', label: 'استراتيجيات النمو بعد الإطلاق' },
-  { id: 'section-11', label: 'ملخص النقاط الرئيسية' },
-  { id: 'section-12', label: 'ابدأ رحلتك الآن' },
+  { id: 'section-2', label: 'The Saudi E-Commerce Landscape — Why Now?' },
+  { id: 'section-3', label: 'Essential Prerequisites Before You Start' },
+  { id: 'section-4', label: 'Setting Up Your Shopify Store for Saudi Arabia' },
+  { id: 'section-5', label: 'Activating Saudi Payment Gateways' },
+  { id: 'section-6', label: 'Configuring Shipping & Logistics' },
+  { id: 'section-7', label: 'ZATCA Compliance & VAT Configuration' },
+  { id: 'section-8', label: 'Pre-Launch Optimization Checklist' },
+  { id: 'section-9', label: 'Common Mistakes to Avoid When Launching' },
+  { id: 'section-10', label: 'Post-Launch Growth Strategies' },
+  { id: 'section-11', label: 'Key Takeaways' },
+  { id: 'section-12', label: 'Start Your Journey Now' },
 ];
 
 export async function generateMetadata() {
@@ -41,7 +41,7 @@ export async function generateMetadata() {
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
-    keywords: 'شوبيفاي السعودية, متجر إلكتروني, التجارة الإلكترونية, بوابات الدفع السعودية, مدى, Shopify KSA, تجارة إلكترونية سعودية',
+    keywords: 'Shopify Saudi Arabia, ecommerce KSA, Saudi payment gateways, mada payments, Shopify store setup, ZATCA compliance, Saudi online store',
   };
 }
 
@@ -54,22 +54,22 @@ export default async function ArticleShopifySaudiPage() {
       <FadeUpObserver />
       <Navbar transparent />
 
-      <main dir="rtl">
+      <main>
         {/* HERO */}
         <section id="section-1" className="article-section">
-          <div className="hero-outer">
-            <div className="hero-inner">
-              <img className="hero-bg" src="/assets/articles/article-shopify-saudi-1.jpeg" alt={t('heroImageAlt')} />
-              <div className="hero-overlay" />
-              <div className="hero-content">
-                <span className="hero-tag">{t('heroBadge')}</span>
+          <div className="article-hero-outer">
+            <div className="article-hero-inner">
+              <img className="article-hero-bg" src="/assets/articles/article-shopify-saudi-1.jpeg" alt={t('heroImageAlt')} />
+              <div className="article-hero-overlay" />
+              <div className="article-hero-content">
+                <span className="article-hero-tag">{t('heroBadge')}</span>
                 <h1>{t('heroTitle')}</h1>
-                <div className="hero-meta">
-                  <span className="hero-meta-item">
+                <div className="article-hero-meta">
+                  <span className="article-hero-meta-item">
                     <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                     {t('heroReadTime')}
                   </span>
-                  <span className="hero-meta-item">
+                  <span className="article-hero-meta-item">
                     <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
                     {t('heroDate')}
                   </span>

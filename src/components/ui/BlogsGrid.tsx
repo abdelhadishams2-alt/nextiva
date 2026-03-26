@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 interface Article {
@@ -30,9 +31,17 @@ const PER_PAGE = 6;
 
 export default function BlogsGrid({ articles, filters, searchPlaceholder }: BlogsGridProps) {
   const t = useTranslations('Blogs');
+  const searchParams = useSearchParams();
   const [activeFilter, setActiveFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    const category = searchParams.get('category');
+    if (category && filters.some((f) => f.key === category)) {
+      setActiveFilter(category);
+    }
+  }, [searchParams, filters]);
 
   const filtered = articles.filter((article) => {
     const matchesCategory = activeFilter === 'all' || article.category === activeFilter;

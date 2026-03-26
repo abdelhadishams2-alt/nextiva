@@ -31,9 +31,9 @@ export function HowWeReview() {
       setProgress(pct);
 
       if (pct >= 1) {
-        startTimeRef.current = timestamp;
+        /* Advance start time instead of resetting — seamless transition */
+        startTimeRef.current += AUTOPLAY_DURATION;
         setActiveStep((prev) => (prev + 1) % STEP_KEYS.length);
-        setProgress(0);
       }
 
       rafRef.current = requestAnimationFrame(tick);
@@ -63,7 +63,7 @@ export function HowWeReview() {
   const active = steps[activeStep];
 
   return (
-    <section className="how-we-review">
+    <section className="how-we-review" id="reviews">
       <div className="how-we-review__inner">
         {/* Header */}
         <div className="how-we-review__header">
@@ -137,7 +137,7 @@ export function HowWeReview() {
         </div>
 
         {/* Detail Strip */}
-        <div className="how-we-review__detail-strip" key={activeStep}>
+        <div className="how-we-review__detail-strip">
           <span className="how-we-review__strip-outcome">{active.outcome}</span>
           <div className="how-we-review__strip-items">
             {active.pills.map((pill) => (
@@ -146,18 +146,23 @@ export function HowWeReview() {
           </div>
         </div>
 
-        {/* Mockup Panel */}
+        {/* Mockup Panel — all images stacked, only active one visible */}
         <div className="how-we-review__mockup-area">
-          <div className="how-we-review__mockup-panel" key={`mockup-${activeStep}`}>
-            <Image
-              src={active.image}
-              alt={`${active.label} — ${active.name}`}
-              width={1440}
-              height={810}
-              className="how-we-review__mockup-img"
-              priority={activeStep === 0}
-            />
-          </div>
+          {steps.map((step) => (
+            <div
+              key={step.key}
+              className={`how-we-review__mockup-panel${step.index === activeStep ? ' how-we-review__mockup-panel--active' : ''}`}
+            >
+              <Image
+                src={step.image}
+                alt={`${step.label} — ${step.name}`}
+                width={1440}
+                height={810}
+                className="how-we-review__mockup-img"
+                priority={step.index === 0}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

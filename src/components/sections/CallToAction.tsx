@@ -4,7 +4,7 @@ export async function CallToAction() {
   const t = await getTranslations('CallToAction');
 
   return (
-    <section className="cta-hero">
+    <section className="cta-hero" id="contact">
       <div
         className="cta-hero__bg"
         style={{ backgroundImage: "url('/assets/cta-bg-mansati.jpg')" }}
@@ -15,7 +15,7 @@ export async function CallToAction() {
         <p className="cta-hero__subhead">{t('subhead')}</p>
 
         <div className="cta-hero__cta">
-          <a className="cta-hero__btn cta-hero__btn--primary" href="/reviews">
+          <a className="cta-hero__btn cta-hero__btn--primary" href="/blogs">
             <span className="cta-hero__btn-text">{t('demoCta')}</span>
             <span className="cta-hero__btn-arrow">
               <svg
@@ -32,7 +32,8 @@ export async function CallToAction() {
             </span>
           </a>
 
-          <a className="cta-hero__btn cta-hero__btn--ghost" href="/newsletter">
+          {/* Subscribe button — uncomment when ready
+          <a className="cta-hero__btn cta-hero__btn--ghost" href="/#featured">
             <span className="cta-hero__btn-text">{t('salesCta')}</span>
             <span className="cta-hero__btn-arrow">
               <svg
@@ -48,6 +49,7 @@ export async function CallToAction() {
               </svg>
             </span>
           </a>
+          */}
         </div>
       </div>
     </section>

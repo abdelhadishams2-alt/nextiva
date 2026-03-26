@@ -18,6 +18,11 @@ html {
   background-color: var(--color-bg);
 }
 
+/* Offset anchors for fixed navbar (used by GSAP offsetY and fallback native scroll) */
+[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   font-family: var(--font-sans);
   font-size: var(--font-size-base);

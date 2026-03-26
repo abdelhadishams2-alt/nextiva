@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
+import { FeaturedStoriesAnimation } from './FeaturedStoriesAnimation';
 
 const CARD_KEYS = ['card1', 'card2', 'card3', 'card4'] as const;
 
@@ -7,7 +8,8 @@ export async function FeaturedStories() {
   const t = await getTranslations('FeaturedStories');
 
   return (
-    <section className="featured-stories">
+    <section className="featured-stories" id="featured">
+      <FeaturedStoriesAnimation />
       <div className="featured-stories__container">
         <div className="featured-stories__header">
           <span className="featured-stories__eyebrow">{t('eyebrow')}</span>

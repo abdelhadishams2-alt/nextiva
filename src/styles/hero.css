@@ -8,6 +8,13 @@
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+  z-index: 0;
+}
+
+/* Sections after hero stack above it so parallax content stays behind */
+.hero ~ * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__bg {
@@ -71,6 +78,48 @@
   max-width: 1200px;
   color: #fff;
   text-align: center;
+}
+
+/* ----------------------------------------------------------------
+   Entrance Animation — initial hidden states
+   ---------------------------------------------------------------- */
+
+.hero__eyebrow,
+.hero__title,
+.hero__description,
+.hero__btn,
+.hero__showcase {
+  opacity: 0;
+}
+
+.hero__bg img {
+  will-change: transform;
+}
+
+/* ----------------------------------------------------------------
+   Title shimmer — decorative gradient sweep
+   ---------------------------------------------------------------- */
+
+.hero__title {
+  background-image: linear-gradient(
+    90deg,
+    #fff 0%,
+    #fff 40%,
+    rgba(180, 220, 255, 0.9) 50%,
+    #fff 60%,
+    #fff 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hero-title-shimmer 4s ease-in-out 2s infinite;
+}
+
+@keyframes hero-title-shimmer {
+  0% { background-position: 100% 0; }
+  40% { background-position: -100% 0; }
+  100% { background-position: -100% 0; }
 }
 
 /* ----------------------------------------------------------------
@@ -192,8 +241,7 @@
   color: #fff;
   white-space: pre-line;
   margin-bottom: 2.5rem;
-  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.3);
-  -webkit-text-stroke: 0.5px #fff;
+  filter: drop-shadow(0 2px 40px rgba(0, 0, 0, 0.3));
 }
 
 /* ----------------------------------------------------------------

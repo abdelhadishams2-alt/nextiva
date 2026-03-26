@@ -27,7 +27,7 @@ export async function ContactCenter() {
             <span className="contact-center__label">{t('card1.label')}</span>
             <h3 className="contact-center__title">{t('card1.title')}</h3>
             <p className="contact-center__desc">{t('card1.desc')}</p>
-            <a href="/products/contact-center-solutions" className="contact-center__link">
+            <a href="/blogs" className="contact-center__link">
               {t('card1.link')}
               <ArrowIcon />
             </a>
@@ -46,7 +46,7 @@ export async function ContactCenter() {
             <span className="contact-center__label">{t('card2.label')}</span>
             <h3 className="contact-center__title">{t('card2.title')}</h3>
             <p className="contact-center__desc">{t('card2.desc')}</p>
-            <a href="/products/small-business-voip" className="contact-center__link">
+            <a href="/blogs" className="contact-center__link">
               {t('card2.link')}
               <ArrowIcon />
             </a>

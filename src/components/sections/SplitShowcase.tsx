@@ -181,7 +181,7 @@ export function SplitShowcase() {
   }, []);
 
   return (
-    <section className="split-showcase" ref={sectionRef}>
+    <section className="split-showcase" id="showcase" ref={sectionRef}>
       <div className="split-showcase__grid">
         {/* Card 1 — XBert AI */}
         <div className="split-showcase__card">

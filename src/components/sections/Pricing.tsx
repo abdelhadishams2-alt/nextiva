@@ -199,7 +199,7 @@ function PlanCard({
       </div>
 
       <div className="pricing__card-footer">
-        <a href="#" className={`pricing__cta pricing__cta--${ctaStyle}`}>
+        <a href="/blogs" className={`pricing__cta pricing__cta--${ctaStyle}`}>
           <span className="pricing__btn-text">{ctaText}</span>
           <ArrowIcon />
         </a>

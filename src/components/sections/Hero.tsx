@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { HeroParticles } from "./HeroParticles";
 import { HeroShowcase } from "./HeroShowcase";
+import { HeroAnimation } from "./HeroAnimation";
 
 function ArrowIcon() {
   return (
@@ -18,7 +19,7 @@ export async function Hero() {
   const t = await getTranslations("Hero");
 
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <div className="hero__bg">
         <Image
           src="/assets/hero-backgrounds/hero-option-12-desert-wide-4x3.jpg"
@@ -33,6 +34,7 @@ export async function Hero() {
       <div className="hero__overlay" />
       <div className="hero__blur-bottom" />
       <HeroParticles />
+      <HeroAnimation />
       <div className="hero__container">
         <div className="hero__content">
           <div className="hero__eyebrow">
@@ -62,11 +64,11 @@ export async function Hero() {
           </div>
 
           <div className="hero__ctas">
-            <a href="#" className="hero__btn hero__btn--primary">
+            <a href="/blogs" className="hero__btn hero__btn--primary">
               <span className="hero__btn-text">{t("primaryCta")}</span>
               <ArrowIcon />
             </a>
-            <a href="#" className="hero__btn hero__btn--ghost">
+            <a href="/#reviews" className="hero__btn hero__btn--ghost">
               <span className="hero__btn-text">{t("secondaryCta")}</span>
               <ArrowIcon />
             </a>

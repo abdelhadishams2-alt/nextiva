@@ -168,49 +168,49 @@ export function NextPlatform() {
               <p className="next-platform__content-desc">{t('ci.description')}</p>
               <span className="next-platform__content-eyebrow">{t('ci.eyebrow')}</span>
               <div className="next-platform__links">
-                <a className="next-platform__link-card" href="#">
+                <a className="next-platform__link-card" href="/blogs">
                   <span className="next-platform__link-icon"><i className="ri-phone-line" /></span>
                   <div className="next-platform__link-content">
                     <span className="next-platform__link-title">{t('ci.link1Title')}</span>
                     <span className="next-platform__link-desc">{t('ci.link1Desc')}</span>
                   </div>
                 </a>
-                <a className="next-platform__link-card" href="#">
+                <a className="next-platform__link-card" href="/blogs">
                   <span className="next-platform__link-icon"><i className="ri-video-chat-line" /></span>
                   <div className="next-platform__link-content">
                     <span className="next-platform__link-title">{t('ci.link2Title')}</span>
                     <span className="next-platform__link-desc">{t('ci.link2Desc')}</span>
                   </div>
                 </a>
-                <a className="next-platform__link-card" href="#">
+                <a className="next-platform__link-card" href="/blogs">
                   <span className="next-platform__link-icon"><i className="ri-chat-1-line" /></span>
                   <div className="next-platform__link-content">
                     <span className="next-platform__link-title">{t('ci.link3Title')}</span>
                     <span className="next-platform__link-desc">{t('ci.link3Desc')}</span>
                   </div>
                 </a>
-                <a className="next-platform__link-card" href="#">
+                <a className="next-platform__link-card" href="/blogs">
                   <span className="next-platform__link-icon"><i className="ri-mail-line" /></span>
                   <div className="next-platform__link-content">
                     <span className="next-platform__link-title">{t('ci.link4Title')}</span>
                     <span className="next-platform__link-desc">{t('ci.link4Desc')}</span>
                   </div>
                 </a>
-                <a className="next-platform__link-card" href="#">
+                <a className="next-platform__link-card" href="/blogs">
                   <span className="next-platform__link-icon"><i className="ri-star-line" /></span>
                   <div className="next-platform__link-content">
                     <span className="next-platform__link-title">{t('ci.link5Title')}</span>
                     <span className="next-platform__link-desc">{t('ci.link5Desc')}</span>
                   </div>
                 </a>
-                <a className="next-platform__link-card" href="#">
+                <a className="next-platform__link-card" href="/blogs">
                   <span className="next-platform__link-icon"><i className="ri-messenger-line" /></span>
                   <div className="next-platform__link-content">
                     <span className="next-platform__link-title">{t('ci.link6Title')}</span>
                     <span className="next-platform__link-desc">{t('ci.link6Desc')}</span>
                   </div>
                 </a>
-                <a className="next-platform__link-card" href="#">
+                <a className="next-platform__link-card" href="/blogs">
                   <span className="next-platform__link-icon"><i className="ri-message-3-line" /></span>
                   <div className="next-platform__link-content">
                     <span className="next-platform__link-title">{t('ci.link7Title')}</span>

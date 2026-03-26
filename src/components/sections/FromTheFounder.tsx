@@ -37,7 +37,7 @@ export async function FromTheFounder() {
               <div className="from-founder__card-bottom">
                 <h3 className="from-founder__card-title">{t('cardTitle')}</h3>
                 <p className="from-founder__card-desc">{t('cardDesc')}</p>
-                <a href="/thought-leadership" className="from-founder__card-link">
+                <a href="/blogs" className="from-founder__card-link">
                   {t('readArticle')}
                   <svg
                     width="16"

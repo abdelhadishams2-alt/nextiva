@@ -101,7 +101,7 @@ export function MoreImpact() {
             <h2 className="more-impact__headline">{t('headline')}</h2>
             <p className="more-impact__subhead">{t('subhead')}</p>
             <div className="more-impact__cta">
-              <a className="more-impact__btn" href="/products/xbert">
+              <a className="more-impact__btn" href="/blogs">
                 <span className="more-impact__btn-text">{t('cta')}</span>
                 <span className="more-impact__btn-arrow">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

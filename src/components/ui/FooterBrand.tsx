@@ -43,9 +43,9 @@ export function FooterBrand() {
         </div>
 
         <div className="footer-brand__legal">
-          <a href="/privacy">{t('privacyLink')}</a>
-          <a href="/terms">{t('legalLink')}</a>
-          <a href="/sitemap">{t('sitemapLink')}</a>
+          <a href="/#features">{t('privacyLink')}</a>
+          <a href="/#features">{t('legalLink')}</a>
+          <a href="/blogs">{t('sitemapLink')}</a>
         </div>
       </div>
     </div>

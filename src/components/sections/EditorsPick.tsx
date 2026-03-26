@@ -44,7 +44,7 @@ export function EditorsPick() {
   const key = TOOL_KEYS[activeIndex];
 
   return (
-    <section className="editors-pick">
+    <section className="editors-pick" id="editors-pick">
       <div className="editors-pick__container">
         <div className="editors-pick__header">
           <span className="editors-pick__eyebrow">{t('eyebrow')}</span>
@@ -87,7 +87,7 @@ export function EditorsPick() {
                 <span className="editors-pick__card-category">{t(`tools.${key}.category`)}</span>
                 <h3 className="editors-pick__card-title">{t(`tools.${key}.name`)}</h3>
                 <p className="editors-pick__card-desc">{t(`tools.${key}.desc`)}</p>
-                <a href="/reviews/featured" className="editors-pick__card-link">
+                <a href={t(`tools.${key}.link`)} className="editors-pick__card-link">
                   {t('readReview')}
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                     <rect x="2" y="7" width="10" height="2" rx="1" />
@@ -131,7 +131,7 @@ export function EditorsPick() {
                 <div className="editors-pick__price-value">{t(`tools.${key}.price`)}</div>
               </div>
 
-              <a href="/reviews/featured" className="editors-pick__sidebar-link">
+              <a href={t(`tools.${key}.link`)} className="editors-pick__sidebar-link">
                 {t('fullReview')}
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                   <rect x="2" y="7" width="10" height="2" rx="1" />

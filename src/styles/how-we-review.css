@@ -146,10 +146,14 @@
   width: 32px;
 }
 
-.how-we-review__phase--active .how-we-review__phase-number,
-.how-we-review__phase--done .how-we-review__phase-number {
+.how-we-review__phase--active .how-we-review__phase-number {
   background: var(--text-primary);
   color: #fff;
+}
+
+.how-we-review__phase--done .how-we-review__phase-number {
+  background: var(--neutral-200, #e5e2df);
+  color: var(--neutral-500, #9e9a96);
 }
 
 /* ---- Text ---- */
@@ -197,7 +201,6 @@
 
 .how-we-review__detail-strip {
   align-items: center;
-  animation: howWeReviewStripFadeIn 0.35s ease-out;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -256,9 +259,22 @@
 }
 
 .how-we-review__mockup-panel {
-  animation: howWeReviewMockupFadeIn 0.45s ease-out;
   overflow: hidden;
   border-radius: 16px;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.how-we-review__mockup-panel:first-child {
+  position: relative;
+}
+
+.how-we-review__mockup-panel--active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .how-we-review__mockup-img {
