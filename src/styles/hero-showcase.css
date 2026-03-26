@@ -35,15 +35,14 @@
 }
 
 .showcase__app-window {
-  backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: 28px;
+  background: #ffffff;
+  border-radius: 20px;
   box-shadow:
-    rgba(0, 0, 0, 0.08) 0px 30px 90px -16px,
-    rgba(255, 255, 255, 0.5) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.15) 0px 16px 50px -20px;
-  contain: layout style paint;
-  transform: translateZ(0);
+    0 25px 80px -12px rgba(100, 116, 139, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 25px 80px -20px rgba(0, 0, 0, 0.4),
+    0 10px 30px -10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   height: 720px;
@@ -835,22 +834,21 @@
    ---------------------------------------------------------------- */
 
 .showcase__call-card {
-  border-radius: 24px;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 1);
+  border-radius: 20px;
   box-shadow:
-    rgba(100, 116, 139, 0.18) 0px 25px 80px -12px,
-    rgba(100, 116, 139, 0.12) 0px 12px 40px -8px,
-    rgba(255, 255, 255, 0.8) 0px 0px 0px 1px,
-    rgba(255, 255, 255, 0.9) 0px 1px 0px inset;
+    0 25px 80px -12px rgba(100, 116, 139, 0.18),
+    0 12px 40px -8px rgba(100, 116, 139, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
   height: auto;
   overflow: hidden;
   padding: 20px 24px 24px;
   position: relative;
-}
-
-.showcase__call-card {
-  background: rgba(255, 255, 255, 0.97);
   opacity: 0;
   width: 380px;
   will-change: transform, opacity;

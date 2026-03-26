@@ -43,6 +43,7 @@
   bottom: 0;
   height: 30%;
   z-index: 1;
+  pointer-events: none;
   background: linear-gradient(
     to bottom,
     transparent,
