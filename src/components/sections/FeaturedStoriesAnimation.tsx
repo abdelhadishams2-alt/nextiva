@@ -106,5 +106,73 @@ export function FeaturedStoriesAnimation() {
     return () => ctx.revert();
   }, []);
 
+  /* Mobile: infinite loop — reorder only after touch ends and momentum settles */
+  useEffect(() => {
+    if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+    const grid = document.querySelector<HTMLElement>('.featured-stories__grid');
+    if (!grid) return;
+
+    const GAP = 12;
+    let polling: ReturnType<typeof setInterval>;
+
+    const reorder = () => {
+      const cards = Array.from(grid.children) as HTMLElement[];
+      const count = cards.length;
+      if (count < 3) return;
+      const max = grid.scrollWidth - grid.clientWidth;
+
+      /* At right edge → move first half of cards to the end */
+      if (grid.scrollLeft >= max - 5) {
+        const toMove = Math.floor(count / 2);
+        let shift = 0;
+        for (let i = 0; i < toMove; i++) {
+          const card = grid.children[0] as HTMLElement;
+          shift += card.offsetWidth + GAP;
+          grid.appendChild(card);
+        }
+        grid.scrollLeft -= shift;
+      }
+      /* At left edge → move last half of cards to the start */
+      else if (grid.scrollLeft <= 5) {
+        const toMove = Math.floor(count / 2);
+        let shift = 0;
+        for (let i = 0; i < toMove; i++) {
+          const card = grid.children[grid.children.length - 1] as HTMLElement;
+          shift += card.offsetWidth + GAP;
+          grid.insertBefore(card, grid.children[0]);
+        }
+        grid.scrollLeft += shift;
+      }
+    };
+
+    /* After finger lifts, poll until scroll velocity hits zero, then reorder */
+    const onTouchEnd = () => {
+      let lastPos = grid.scrollLeft;
+      let stableCount = 0;
+
+      clearInterval(polling);
+      polling = setInterval(() => {
+        if (Math.abs(grid.scrollLeft - lastPos) < 1) {
+          stableCount++;
+          if (stableCount >= 2) {
+            clearInterval(polling);
+            reorder();
+          }
+        } else {
+          stableCount = 0;
+        }
+        lastPos = grid.scrollLeft;
+      }, 100);
+    };
+
+    grid.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    return () => {
+      grid.removeEventListener('touchend', onTouchEnd);
+      clearInterval(polling);
+    };
+  }, []);
+
   return null;
 }
