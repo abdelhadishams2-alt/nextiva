@@ -8,6 +8,22 @@
   padding-bottom: 0px;
 }
 
+/* Section header — mobile only, hidden on desktop */
+.busywork__section-header {
+  display: none;
+}
+
+.busywork__section-title {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--text-body-xl, 24px);
+  font-weight: var(--arizona-heading-weight);
+  letter-spacing: var(--arizona-heading-letter-spacing);
+  line-height: var(--arizona-heading-line-height);
+  margin: 0;
+}
+
 /* ----------------------------------------------------------------
    Card (split layout)
    ---------------------------------------------------------------- */
@@ -293,6 +309,10 @@
     padding: 48px 40px;
   }
 
+  .busywork__headline {
+    font-size: var(--text-section, 52px);
+  }
+
   .busywork__bottom {
     padding-top: 48px;
   }
@@ -313,7 +333,19 @@
 
 @media (max-width: 768px) {
   .busywork {
-    padding: 60px 20px;
+    padding: 48px 20px;
+    padding-bottom: 0;
+  }
+
+  /* Show section header above card on mobile */
+  .busywork__section-header {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  /* Hide in-card label + headline on mobile (shown in section header instead) */
+  .busywork__top {
+    display: none;
   }
 
   .busywork__card {
@@ -321,19 +353,30 @@
   }
 
   .busywork__content {
-    padding: 32px 24px;
+    padding: 24px 20px;
   }
 
   .busywork__bottom {
-    padding-top: 32px;
+    padding-top: 0;
   }
 
   .busywork__tagline {
-    font-size: var(--text-body-xl);
+    font-size: var(--text-body-md, 17px);
+    margin-bottom: 12px;
+  }
+
+  .busywork__desc {
+    font-size: var(--text-body-sm, 15px);
+  }
+
+  .busywork__cta {
+    font-size: var(--text-body-sm, 15px);
+    margin-top: 20px;
   }
 
   .busywork__visual {
-    min-height: 250px;
+    min-height: 240px;
+    order: -1;
   }
 
   .busywork__atom {

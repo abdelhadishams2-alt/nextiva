@@ -5,11 +5,16 @@ export async function EndOfBusywork() {
 
   return (
     <section className="busywork" id="features">
+      <div className="busywork__section-header">
+        <span className="busywork__label">{t('label')}</span>
+        <h2 className="busywork__section-title">{t('headline')}</h2>
+      </div>
+
       <div className="busywork__card">
         {/* Left — Text content */}
         <div className="busywork__content">
           <div className="busywork__top">
-            <span className="busywork__label">{t('label')}</span>
+            <span className="busywork__label busywork__label--desktop">{t('label')}</span>
             <h2 className="busywork__headline">{t('headline')}</h2>
           </div>
 

@@ -582,78 +582,47 @@
 
 @media (max-width: 768px) {
   .split-showcase {
-    padding: 60px 20px;
+    padding: 48px 20px;
+    padding-top: 10px;
+  }
+
+  .split-showcase__grid {
+    gap: 12px;
   }
 
   .split-showcase__card {
     border-radius: 12px;
   }
 
+  .split-showcase__card-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .split-showcase__overlay {
+    background: transparent;
+    transform: scale(0.65);
+    transform-origin: center center;
+  }
+
   .split-showcase__card-icon {
-    margin: 20px 20px 12px;
+    margin: 16px 20px 8px;
+    height: 28px;
+    width: 28px;
+  }
+
+  .split-showcase__card-icon svg {
+    width: 16px;
+    height: 16px;
   }
 
   .split-showcase__card-title {
-    margin: 0 20px 8px;
+    font-size: var(--text-body-md, 17px);
+    line-height: 1.25;
+    margin: 0 20px 6px;
   }
 
   .split-showcase__card-desc {
-    margin: 0 20px 20px;
+    font-size: var(--text-caption-lg, 13px);
+    line-height: 1.5;
+    margin: 0 20px 16px;
   }
-
-  .split-showcase__face-box--ai {
-    width: 44%;
-  }
-
-  .split-showcase__face-label {
-    font-size: var(--text-micro-xs);
-    padding: 4px 8px;
-  }
-
-  .split-showcase__task-dial {
-    left: calc(59% + 10px);
-    top: calc(66% - 110px);
-  }
-
-  .split-showcase__task-text {
-    font-size: var(--text-micro);
-  }
-
-  .split-showcase__task-check {
-    height: 12px;
-    width: 12px;
-  }
-
-  .split-showcase__task-check svg {
-    height: 10px;
-    width: 10px;
-  }
-
-  .split-showcase__face-box--team {
-    width: 28%;
-  }
-
-  .split-showcase__face-box--team .split-showcase__face-label {
-    font-size: var(--text-micro-xs);
-    padding: 3px 6px;
-  }
-
-  .split-showcase__benefits-list {
-    right: calc(45% + 8px);
-    top: 46%;
-  }
-
-  .split-showcase__benefit-text {
-    font-size: var(--text-micro);
-  }
-
-  .split-showcase__benefit-check {
-    height: 12px;
-    width: 12px;
-  }
-
-  .split-showcase__benefit-check svg {
-    height: 10px;
-    width: 10px;
-  }
-}
