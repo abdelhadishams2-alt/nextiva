@@ -14,7 +14,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overscroll-behavior: none;
   background-color: var(--color-bg);
 }
 
@@ -30,7 +29,6 @@ body {
   color: var(--color-fg);
   background-color: #ffffff;
   overflow-x: hidden;
-  overscroll-behavior: none;
 }
 
 img,

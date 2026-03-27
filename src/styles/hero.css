@@ -11,10 +11,12 @@
   z-index: 0;
 }
 
-/* Sections after hero stack above it so parallax content stays behind */
-.hero ~ * {
-  position: relative;
-  z-index: 1;
+/* Sections after hero stack above it so parallax content stays behind (desktop only) */
+@media (min-width: 769px) {
+  .hero ~ * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .hero__bg {

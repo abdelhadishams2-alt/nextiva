@@ -72,17 +72,19 @@ export function HeroAnimation() {
         delay: 2,
       });
 
-      /* Parallax on scroll — using ScrollTrigger (won't conflict with ScrollToPlugin) */
-      gsap.to('.hero__bg img', {
-        y: 150,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
+      /* Parallax on scroll — desktop only (breaks pull-to-refresh & feels janky on mobile) */
+      if (window.innerWidth > 768) {
+        gsap.to('.hero__bg img', {
+          y: 150,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        });
+      }
 
     });
 
