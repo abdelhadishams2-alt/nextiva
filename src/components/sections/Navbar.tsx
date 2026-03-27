@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
@@ -115,6 +115,16 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
   };
 
   const toggleMobile = () => setMobileOpen((prev) => !prev);
+
+  /* Lock body scroll when mobile menu is open */
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
   const mobileSmooth = (e: React.MouseEvent<HTMLAnchorElement>) => {
     setMobileOpen(false);
