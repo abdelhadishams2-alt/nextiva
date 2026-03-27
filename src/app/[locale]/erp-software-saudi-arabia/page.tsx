@@ -63,7 +63,7 @@ export default async function ErpSoftwareSaudiArabiaPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-erp-saudi-framework-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-erp-saudi-framework-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -160,7 +160,7 @@ export default async function ErpSoftwareSaudiArabiaPage() {
                   ))}
                 </div>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-erp-saudi-framework-2.jpeg" alt={t('s4ImageAlt')} />
+                  <img src="/assets/articles/article-erp-saudi-framework-2.webp" alt={t('s4ImageAlt')} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
               </section>
@@ -195,7 +195,7 @@ export default async function ErpSoftwareSaudiArabiaPage() {
                   </table>
                 </div>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-erp-saudi-framework-3.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-erp-saudi-framework-3.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
                 <div className="sources-block">
@@ -321,7 +321,7 @@ export default async function ErpSoftwareSaudiArabiaPage() {
                   desc: t(`s9Step${n}Desc`),
                 }))} />
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-erp-saudi-framework-4.jpeg" alt={t('s9ImageAlt')} />
+                  <img src="/assets/articles/article-erp-saudi-framework-4.webp" alt={t('s9ImageAlt')} />
                   <figcaption>{t('s9ImageCaption')}</figcaption>
                 </figure>
               </section>
@@ -358,7 +358,7 @@ export default async function ErpSoftwareSaudiArabiaPage() {
                   ))}
                 </div>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-erp-saudi-framework-5.jpeg" alt={t('s10ImageAlt')} />
+                  <img src="/assets/articles/article-erp-saudi-framework-5.webp" alt={t('s10ImageAlt')} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
               </section>

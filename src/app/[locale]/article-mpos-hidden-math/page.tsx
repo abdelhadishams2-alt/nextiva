@@ -57,7 +57,7 @@ export default async function ArticleMposHiddenMathPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-mpos-hidden-math-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-mpos-hidden-math-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -99,7 +99,7 @@ export default async function ArticleMposHiddenMathPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-mpos-hidden-math-2.jpeg" alt={t('s3ImageAlt')} />
+                  <img src="/assets/articles/article-mpos-hidden-math-2.webp" alt={t('s3ImageAlt')} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-table-wrap">
@@ -187,7 +187,7 @@ export default async function ArticleMposHiddenMathPage() {
                 <h2>{t('s6Title')}</h2>
                 <p>{t('s6Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-mpos-hidden-math-3.jpeg" alt={t('s6ImageAlt')} />
+                  <img src="/assets/articles/article-mpos-hidden-math-3.webp" alt={t('s6ImageAlt')} />
                   <figcaption>{t('s6ImageCaption')}</figcaption>
                 </figure>
                 <ArticleTabs tabs={(['sumup', 'shopify', 'clover', 'square', 'toast'] as const).map((key) => ({
@@ -260,7 +260,7 @@ export default async function ArticleMposHiddenMathPage() {
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-mpos-hidden-math-4.jpeg" alt={t('s8ImageAlt')} />
+                  <img src="/assets/articles/article-mpos-hidden-math-4.webp" alt={t('s8ImageAlt')} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="feature-grid">
@@ -336,7 +336,7 @@ export default async function ArticleMposHiddenMathPage() {
                 <p>{t('s11P1')}</p>
                 <p>{t('s11P2')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-mpos-hidden-math-5.jpeg" alt={t('s11ImageAlt')} />
+                  <img src="/assets/articles/article-mpos-hidden-math-5.webp" alt={t('s11ImageAlt')} />
                   <figcaption>{t('s11ImageCaption')}</figcaption>
                 </figure>
                 <ShareButtons shareText={t('shareText')} />

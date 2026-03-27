@@ -55,7 +55,7 @@ export default async function OdooSaudiArabiaPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-odoo-zatca-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-odoo-zatca-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -105,7 +105,7 @@ export default async function OdooSaudiArabiaPage() {
                 </div>
 
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-odoo-zatca-2.jpeg" alt={t('s2ImageAlt')} />
+                  <img src="/assets/articles/article-odoo-zatca-2.webp" alt={t('s2ImageAlt')} />
                   <figcaption>{t('s2ImageCaption')}</figcaption>
                 </figure>
 
@@ -150,7 +150,7 @@ export default async function OdooSaudiArabiaPage() {
                 <p>{t('s4Intro')}</p>
 
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-odoo-zatca-3.jpeg" alt={t('s4ImageAlt')} />
+                  <img src="/assets/articles/article-odoo-zatca-3.webp" alt={t('s4ImageAlt')} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
 
@@ -180,7 +180,7 @@ export default async function OdooSaudiArabiaPage() {
                 <p>{t('s5Intro')}</p>
 
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-odoo-zatca-4.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-odoo-zatca-4.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
 
@@ -235,7 +235,7 @@ export default async function OdooSaudiArabiaPage() {
                 <p>{t('s7Intro')}</p>
 
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-odoo-zatca-5.jpeg" alt={t('s7ImageAlt')} />
+                  <img src="/assets/articles/article-odoo-zatca-5.webp" alt={t('s7ImageAlt')} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
 

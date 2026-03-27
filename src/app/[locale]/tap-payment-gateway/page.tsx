@@ -57,7 +57,7 @@ export default async function TapPaymentGatewayPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-tap-regulatory-moat-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-tap-regulatory-moat-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -105,7 +105,7 @@ export default async function TapPaymentGatewayPage() {
                 <p>{t('s3Intro')}</p>
 
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-tap-regulatory-moat-2.jpeg" alt={t('s3ImageAlt')} />
+                  <img src="/assets/articles/article-tap-regulatory-moat-2.webp" alt={t('s3ImageAlt')} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
 
@@ -229,7 +229,7 @@ export default async function TapPaymentGatewayPage() {
                 <p>{t('s6Intro')}</p>
 
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-tap-regulatory-moat-3.jpeg" alt={t('s6ImageAlt')} />
+                  <img src="/assets/articles/article-tap-regulatory-moat-3.webp" alt={t('s6ImageAlt')} />
                   <figcaption>{t('s6ImageCaption')}</figcaption>
                 </figure>
 
@@ -252,7 +252,7 @@ export default async function TapPaymentGatewayPage() {
                 <p>{t('s7Intro')}</p>
 
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-tap-regulatory-moat-4.jpeg" alt={t('s7ImageAlt')} />
+                  <img src="/assets/articles/article-tap-regulatory-moat-4.webp" alt={t('s7ImageAlt')} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
 
@@ -307,7 +307,7 @@ export default async function TapPaymentGatewayPage() {
                 <h2>{t('s9Title')}</h2>
 
                 <figure className="article-image article-image--editorial">
-                  <img src="/assets/articles/article-tap-regulatory-moat-5.jpeg" alt={t('s9ImageAlt')} />
+                  <img src="/assets/articles/article-tap-regulatory-moat-5.webp" alt={t('s9ImageAlt')} />
                   <figcaption>{t('s9ImageCaption')}</figcaption>
                 </figure>
 

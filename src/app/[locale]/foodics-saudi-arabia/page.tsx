@@ -58,7 +58,7 @@ export default async function FoodicsSaudiArabiaPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-foodics-superplatform-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-foodics-superplatform-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -180,7 +180,7 @@ export default async function FoodicsSaudiArabiaPage() {
                 <h2>{t('s5Title')}</h2>
                 <p className="map-infographic__subtitle">{t('s5Subtitle')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-foodics-superplatform-2.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-foodics-superplatform-2.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
                 <div className="map-infographic__regions">
@@ -255,7 +255,7 @@ export default async function FoodicsSaudiArabiaPage() {
                   </div>
                 </div>
                 <figure className="article-image article-image--atmospheric" style={{ marginTop: '28px' }}>
-                  <img src="/assets/articles/article-foodics-superplatform-3.jpeg" alt={t('s7ImageAlt')} />
+                  <img src="/assets/articles/article-foodics-superplatform-3.webp" alt={t('s7ImageAlt')} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
                 <div className="section-body" style={{ marginTop: '24px' }}>
@@ -269,7 +269,7 @@ export default async function FoodicsSaudiArabiaPage() {
                 <h2>{t('s8Title')}</h2>
                 <p className="bar-chart-section__subtitle">{t('s8Subtitle')}</p>
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-foodics-superplatform-4.jpeg" alt={t('s8ImageAlt')} />
+                  <img src="/assets/articles/article-foodics-superplatform-4.webp" alt={t('s8ImageAlt')} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="bar-chart" style={{ marginTop: '48px' }}>
@@ -358,7 +358,7 @@ export default async function FoodicsSaudiArabiaPage() {
                   <div className="bordered-quote__attribution">{t('s12QuoteAttribution')}</div>
                 </div>
                 <figure className="article-image article-image--contextual" style={{ marginTop: '28px' }}>
-                  <img src="/assets/articles/article-foodics-superplatform-5.jpeg" alt={t('s12ImageAlt')} />
+                  <img src="/assets/articles/article-foodics-superplatform-5.webp" alt={t('s12ImageAlt')} />
                   <figcaption>{t('s12ImageCaption')}</figcaption>
                 </figure>
                 <div className="section-body" style={{ marginTop: '24px' }}>

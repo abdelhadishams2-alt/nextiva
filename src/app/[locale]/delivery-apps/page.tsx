@@ -57,7 +57,7 @@ export default async function DeliveryAppsPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-super-app-race-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-super-app-race-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -108,7 +108,7 @@ export default async function DeliveryAppsPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-super-app-race-2.jpeg" alt={t('s3ImageAlt')} />
+                  <img src="/assets/articles/article-super-app-race-2.webp" alt={t('s3ImageAlt')} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <ol className="numbered-list">
@@ -128,7 +128,7 @@ export default async function DeliveryAppsPage() {
                 <h2>{t('s4Title')}</h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-super-app-race-3.jpeg" alt={t('s4ImageAlt')} />
+                  <img src="/assets/articles/article-super-app-race-3.webp" alt={t('s4ImageAlt')} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
                 <div className="comparison-table-wrap">
@@ -159,7 +159,7 @@ export default async function DeliveryAppsPage() {
                 <h2>{t('s5Title')}</h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-super-app-race-4.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-super-app-race-4.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
                 <div className="feature-grid">
@@ -268,7 +268,7 @@ export default async function DeliveryAppsPage() {
                 <h2>{t('s10Title')}</h2>
                 <p>{t('s10Intro')}</p>
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-super-app-race-5.jpeg" alt={t('s10ImageAlt')} />
+                  <img src="/assets/articles/article-super-app-race-5.webp" alt={t('s10ImageAlt')} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
                 <div className="timeline-container">

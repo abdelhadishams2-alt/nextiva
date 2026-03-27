@@ -60,7 +60,7 @@ export default async function RestaurantInventoryManagementSystemPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-restaurant-inventory-leak-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-restaurant-inventory-leak-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -130,7 +130,7 @@ export default async function RestaurantInventoryManagementSystemPage() {
                 <p>{t('s4Intro')}</p>
 
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-restaurant-inventory-leak-2.jpeg" alt={t('s4ImageAlt')} />
+                  <img src="/assets/articles/article-restaurant-inventory-leak-2.webp" alt={t('s4ImageAlt')} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
 
@@ -204,7 +204,7 @@ export default async function RestaurantInventoryManagementSystemPage() {
                     <div className="stat-ba__desc">{t('s6WithoutDesc')}</div>
                   </div>
                   <figure className="stat-ba__image">
-                    <img src="/assets/articles/article-restaurant-inventory-leak-3.jpeg" alt={t('s6ImageAlt')} />
+                    <img src="/assets/articles/article-restaurant-inventory-leak-3.webp" alt={t('s6ImageAlt')} />
                     <figcaption>{t('s6ImageCaption')}</figcaption>
                   </figure>
                 </div>
@@ -255,7 +255,7 @@ export default async function RestaurantInventoryManagementSystemPage() {
                 <p>{t('s8Intro')}</p>
 
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-restaurant-inventory-leak-4.jpeg" alt={t('s8ImageAlt')} />
+                  <img src="/assets/articles/article-restaurant-inventory-leak-4.webp" alt={t('s8ImageAlt')} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
 
@@ -319,7 +319,7 @@ export default async function RestaurantInventoryManagementSystemPage() {
                 </div>
 
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-restaurant-inventory-leak-5.jpeg" alt={t('s10ImageAlt')} />
+                  <img src="/assets/articles/article-restaurant-inventory-leak-5.webp" alt={t('s10ImageAlt')} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
 

@@ -191,7 +191,7 @@ export function SplitShowcase() {
               decoding="async"
               width={1024}
               height={1024}
-              src="/assets/trust-testing.jpg"
+              src="/assets/trust-testing.webp"
               className="split-showcase__img"
               alt=""
             />
@@ -230,7 +230,7 @@ export function SplitShowcase() {
               decoding="async"
               width={1024}
               height={771}
-              src="/assets/trust-no-bias.jpg"
+              src="/assets/trust-no-bias.webp"
               className="split-showcase__img"
               alt=""
             />
@@ -268,7 +268,7 @@ export function SplitShowcase() {
               decoding="async"
               width={847}
               height={1024}
-              src="/assets/trust-mena.jpg"
+              src="/assets/trust-mena.webp"
               className="split-showcase__img"
               alt=""
             />

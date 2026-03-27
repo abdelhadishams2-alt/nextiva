@@ -59,7 +59,7 @@ export default async function OnlineInventoryManagementSystemPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-inventory-moat-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-inventory-moat-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -155,7 +155,7 @@ export default async function OnlineInventoryManagementSystemPage() {
                     <p>{t('s4Intro')}</p>
                   </div>
                   <figure className="article-image article-image--contextual">
-                    <img src="/assets/articles/article-inventory-moat-2.jpeg" alt={t('s4ImageAlt')} />
+                    <img src="/assets/articles/article-inventory-moat-2.webp" alt={t('s4ImageAlt')} />
                     <figcaption>{t('s4ImageCaption')}</figcaption>
                   </figure>
                   <div className="two-track__grid">
@@ -231,7 +231,7 @@ export default async function OnlineInventoryManagementSystemPage() {
                   <h2 className="process-grid__heading">{t('s6Title')}</h2>
                   <p className="process-grid__intro">{t('s6Intro')}</p>
                   <figure className="article-image article-image--contextual">
-                    <img src="/assets/articles/article-inventory-moat-3.jpeg" alt={t('s6ImageAlt')} />
+                    <img src="/assets/articles/article-inventory-moat-3.webp" alt={t('s6ImageAlt')} />
                     <figcaption>{t('s6ImageCaption')}</figcaption>
                   </figure>
                   <div className="process-grid__cards">
@@ -268,7 +268,7 @@ export default async function OnlineInventoryManagementSystemPage() {
                   <h2 className="par-section__heading">{t('s8Title')}</h2>
                   <p className="par-section__intro">{t('s8Intro')}</p>
                   <figure className="article-image article-image--supporting">
-                    <img src="/assets/articles/article-inventory-moat-4.jpeg" alt={t('s8ImageAlt')} />
+                    <img src="/assets/articles/article-inventory-moat-4.webp" alt={t('s8ImageAlt')} />
                     <figcaption>{t('s8ImageCaption')}</figcaption>
                   </figure>
                   <div className="par-section__grid">
@@ -355,7 +355,7 @@ export default async function OnlineInventoryManagementSystemPage() {
                     <p>{t('s10Intro')}</p>
                   </div>
                   <figure className="article-image article-image--atmospheric">
-                    <img src="/assets/articles/article-inventory-moat-5.jpeg" alt={t('s10ImageAlt')} />
+                    <img src="/assets/articles/article-inventory-moat-5.webp" alt={t('s10ImageAlt')} />
                     <figcaption>{t('s10ImageCaption')}</figcaption>
                   </figure>
                   <div className="two-col-text__grid">

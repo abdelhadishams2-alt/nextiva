@@ -59,7 +59,7 @@ export default async function ArticleShopifySaudiPage() {
         <section id="section-1" className="article-section">
           <div className="article-hero-outer">
             <div className="article-hero-inner">
-              <img className="article-hero-bg" src="/assets/articles/article-shopify-saudi-1.jpeg" alt={t('heroImageAlt')} />
+              <img className="article-hero-bg" src="/assets/articles/article-shopify-saudi-1.webp" alt={t('heroImageAlt')} />
               <div className="article-hero-overlay" />
               <div className="article-hero-content">
                 <span className="article-hero-tag">{t('heroBadge')}</span>
@@ -101,7 +101,7 @@ export default async function ArticleShopifySaudiPage() {
                 <p className="lead">{t('s2Lead')}</p>
                 <p>{t('s2P1')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-shopify-saudi-2.jpeg" alt={t('s2ImageAlt')} />
+                  <img src="/assets/articles/article-shopify-saudi-2.webp" alt={t('s2ImageAlt')} />
                   <figcaption>{t('s2ImageCaption')}</figcaption>
                 </figure>
                 <div className="progress-bars-grid">
@@ -150,7 +150,7 @@ export default async function ArticleShopifySaudiPage() {
                 <h2>{t('s4Title')}</h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-shopify-saudi-3.jpeg" alt={t('s4ImageAlt')} />
+                  <img src="/assets/articles/article-shopify-saudi-3.webp" alt={t('s4ImageAlt')} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
                 <div className="step-process">
@@ -196,7 +196,7 @@ export default async function ArticleShopifySaudiPage() {
                 <h2>{t('s6Title')}</h2>
                 <p>{t('s6Intro')}</p>
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-shopify-saudi-4.jpeg" alt={t('s6ImageAlt')} />
+                  <img src="/assets/articles/article-shopify-saudi-4.webp" alt={t('s6ImageAlt')} />
                 </figure>
                 <p>{t('s6Aramex')}</p>
                 <p>{t('s6SMSA')}</p>
@@ -233,7 +233,7 @@ export default async function ArticleShopifySaudiPage() {
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-shopify-saudi-5.jpeg" alt={t('s8ImageAlt')} />
+                  <img src="/assets/articles/article-shopify-saudi-5.webp" alt={t('s8ImageAlt')} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="before-after">

@@ -56,7 +56,7 @@ export default async function ArticleSaudiFoodDeliveryPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-saudi-food-delivery-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-saudi-food-delivery-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -125,7 +125,7 @@ export default async function ArticleSaudiFoodDeliveryPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-saudi-food-delivery-2.jpeg" alt={t('s3ImageAlt')} />
+                  <img src="/assets/articles/article-saudi-food-delivery-2.webp" alt={t('s3ImageAlt')} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="timeline-container">
@@ -171,7 +171,7 @@ export default async function ArticleSaudiFoodDeliveryPage() {
                 <h2>{t('s5Title')}</h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-saudi-food-delivery-3.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-saudi-food-delivery-3.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-bars-container">
@@ -205,7 +205,7 @@ export default async function ArticleSaudiFoodDeliveryPage() {
                 <h2>{t('s6Title')}</h2>
                 <p>{t('s6Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-saudi-food-delivery-4.jpeg" alt={t('s6ImageAlt')} />
+                  <img src="/assets/articles/article-saudi-food-delivery-4.webp" alt={t('s6ImageAlt')} />
                   <figcaption>{t('s6ImageCaption')}</figcaption>
                 </figure>
                 <div className="stats-row">
@@ -269,7 +269,7 @@ export default async function ArticleSaudiFoodDeliveryPage() {
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-saudi-food-delivery-5.jpeg" alt={t('s8ImageAlt')} />
+                  <img src="/assets/articles/article-saudi-food-delivery-5.webp" alt={t('s8ImageAlt')} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="feature-grid">

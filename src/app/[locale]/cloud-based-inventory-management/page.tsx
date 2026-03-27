@@ -58,7 +58,7 @@ export default async function CloudBasedInventoryManagementPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-cloud-security-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-cloud-security-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -207,7 +207,7 @@ export default async function CloudBasedInventoryManagementPage() {
                   ))}
                 </div>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-cloud-security-2.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-cloud-security-2.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
               </section>
@@ -231,7 +231,7 @@ export default async function CloudBasedInventoryManagementPage() {
                 <h2>{t('s7Title')}</h2>
                 <p>{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-cloud-security-3.jpeg" alt={t('s7ImageAlt')} />
+                  <img src="/assets/articles/article-cloud-security-3.webp" alt={t('s7ImageAlt')} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-table-wrap">
@@ -294,7 +294,7 @@ export default async function CloudBasedInventoryManagementPage() {
                 <h2>{t('s9Title')}</h2>
                 <p>{t('s9Intro')}</p>
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-cloud-security-4.jpeg" alt={t('s9ImageAlt')} />
+                  <img src="/assets/articles/article-cloud-security-4.webp" alt={t('s9ImageAlt')} />
                   <figcaption>{t('s9ImageCaption')}</figcaption>
                 </figure>
                 <p>{t('s9TransitionP')}</p>
@@ -353,7 +353,7 @@ export default async function CloudBasedInventoryManagementPage() {
               {/* SECTION 12 — Impact Highlight + Share */}
               <section id="section-12" className="fade-up article-section">
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-cloud-security-5.jpeg" alt={t('s12ImageAlt')} />
+                  <img src="/assets/articles/article-cloud-security-5.webp" alt={t('s12ImageAlt')} />
                   <figcaption>{t('s12ImageCaption')}</figcaption>
                 </figure>
                 <ShareButtons shareText={t('shareText')} />

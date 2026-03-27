@@ -60,7 +60,7 @@ export default async function ArticleEcommerceTcoPage() {
           <div className="article-hero-outer">
             <div className="article-hero-inner">
               <div className="article-hero-bg">
-                <img src="/assets/articles/article-ecommerce-tco-1.jpeg" alt={t('heroImageAlt')} />
+                <img src="/assets/articles/article-ecommerce-tco-1.webp" alt={t('heroImageAlt')} />
               </div>
               <div className="article-hero-overlay" />
               <div className="article-hero-content">
@@ -143,7 +143,7 @@ export default async function ArticleEcommerceTcoPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-ecommerce-tco-2.jpeg" alt={t('s3ImageAlt')} />
+                  <img src="/assets/articles/article-ecommerce-tco-2.webp" alt={t('s3ImageAlt')} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <p>{t('s3P1')}</p>
@@ -220,7 +220,7 @@ export default async function ArticleEcommerceTcoPage() {
                 <h2>{t('s6Title')}</h2>
                 <p>{t('s6Intro')}</p>
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-ecommerce-tco-3.jpeg" alt={t('s6ImageAlt')} />
+                  <img src="/assets/articles/article-ecommerce-tco-3.webp" alt={t('s6ImageAlt')} />
                   <figcaption>{t('s6ImageCaption')}</figcaption>
                 </figure>
                 <p>{t('s6P1')}</p>
@@ -290,7 +290,7 @@ export default async function ArticleEcommerceTcoPage() {
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-ecommerce-tco-4.jpeg" alt={t('s8ImageAlt')} />
+                  <img src="/assets/articles/article-ecommerce-tco-4.webp" alt={t('s8ImageAlt')} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="stacked-chart-container">
@@ -354,7 +354,7 @@ export default async function ArticleEcommerceTcoPage() {
                 <h2>{t('s10Title')}</h2>
                 <p>{t('s10Intro')}</p>
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-ecommerce-tco-5.jpeg" alt={t('s10ImageAlt')} />
+                  <img src="/assets/articles/article-ecommerce-tco-5.webp" alt={t('s10ImageAlt')} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
                 <div className="two-col-grid">

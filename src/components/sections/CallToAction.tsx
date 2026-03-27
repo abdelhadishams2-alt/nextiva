@@ -7,7 +7,7 @@ export async function CallToAction() {
     <section className="cta-hero" id="contact">
       <div
         className="cta-hero__bg"
-        style={{ backgroundImage: "url('/assets/cta-bg-mansati.jpg')" }}
+        style={{ backgroundImage: "url('/assets/cta-bg-mansati.webp')" }}
       />
 
       <div className="cta-hero__content">

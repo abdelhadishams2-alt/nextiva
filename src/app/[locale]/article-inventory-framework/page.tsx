@@ -58,7 +58,7 @@ export default async function ArticleInventoryFrameworkPage() {
         <section id="section-1" className="article-section">
           <div className="hero-outer">
             <div className="hero-inner">
-              <img className="hero-bg" src="/assets/articles/article-inventory-framework-1.jpeg" alt={t('heroImageAlt')} />
+              <img className="hero-bg" src="/assets/articles/article-inventory-framework-1.webp" alt={t('heroImageAlt')} />
               <div className="hero-overlay" />
               <div className="hero-content">
                 <span className="hero-tag">{t('heroBadge')}</span>
@@ -131,7 +131,7 @@ export default async function ArticleInventoryFrameworkPage() {
                 </div>
 
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-inventory-framework-2.jpeg" alt={t('s3ImageAlt')} />
+                  <img src="/assets/articles/article-inventory-framework-2.webp" alt={t('s3ImageAlt')} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
 
@@ -178,7 +178,7 @@ export default async function ArticleInventoryFrameworkPage() {
                 </div>
 
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-inventory-framework-3.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-inventory-framework-3.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
 
@@ -223,7 +223,7 @@ export default async function ArticleInventoryFrameworkPage() {
                 <h2>{t('s7Title')}</h2>
 
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-inventory-framework-4.jpeg" alt={t('s7ImageAlt')} />
+                  <img src="/assets/articles/article-inventory-framework-4.webp" alt={t('s7ImageAlt')} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
 
@@ -274,7 +274,7 @@ export default async function ArticleInventoryFrameworkPage() {
                 <p>{t('s9Intro')}</p>
 
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-inventory-framework-5.jpeg" alt={t('s9ImageAlt')} />
+                  <img src="/assets/articles/article-inventory-framework-5.webp" alt={t('s9ImageAlt')} />
                   <figcaption>{t('s9ImageCaption')}</figcaption>
                 </figure>
 

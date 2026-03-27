@@ -38,7 +38,7 @@ export async function EndOfBusywork() {
         {/* Right — Visual */}
         <div
           className="busywork__visual"
-          style={{ backgroundImage: 'url(/assets/why-trust-mansati.jpg)' }}
+          style={{ backgroundImage: 'url(/assets/why-trust-mansati.webp)' }}
         />
       </div>
     </section>

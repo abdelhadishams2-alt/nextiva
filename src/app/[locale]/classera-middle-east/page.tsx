@@ -56,7 +56,7 @@ export default async function ClasseraMiddleEastPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-classera-education-os-1.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-classera-education-os-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -129,7 +129,7 @@ export default async function ClasseraMiddleEastPage() {
                 <h2>{t('s4Title')}</h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-classera-education-os-2.jpeg" alt={t('s4ImageAlt')} />
+                  <img src="/assets/articles/article-classera-education-os-2.webp" alt={t('s4ImageAlt')} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
                 <div className="milestones-track">
@@ -150,7 +150,7 @@ export default async function ClasseraMiddleEastPage() {
                 <p>{t('s5Intro')}</p>
                 <div className="image-feature-layout">
                   <figure className="article-image" style={{ margin: 0 }}>
-                    <img src="/assets/articles/article-classera-education-os-3.jpeg" alt={t('s5ImageAlt')} />
+                    <img src="/assets/articles/article-classera-education-os-3.webp" alt={t('s5ImageAlt')} />
                     <figcaption>{t('s5ImageCaption')}</figcaption>
                   </figure>
                   <ul className="feature-list">
@@ -198,7 +198,7 @@ export default async function ClasseraMiddleEastPage() {
               <section id="section-7" className="fade-up article-section article-prose">
                 <h2>{t('s7Title')}</h2>
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-classera-education-os-4.jpeg" alt={t('s7ImageAlt')} />
+                  <img src="/assets/articles/article-classera-education-os-4.webp" alt={t('s7ImageAlt')} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
                 <div className="blockquote-highlight" style={{ borderLeft: 'none' }}>
@@ -283,7 +283,7 @@ export default async function ClasseraMiddleEastPage() {
                 <h2>{t('s10Title')}</h2>
                 <p>{t('s10Intro')}</p>
                 <figure className="article-image article-image--supporting">
-                  <img src="/assets/articles/article-classera-education-os-5.jpeg" alt={t('s10ImageAlt')} />
+                  <img src="/assets/articles/article-classera-education-os-5.webp" alt={t('s10ImageAlt')} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
                 <div className="signals-grid">

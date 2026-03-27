@@ -57,7 +57,7 @@ export default async function InventoryManagementSoftwarePage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/article-ai-inventory-hero.jpeg" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/article-ai-inventory-hero.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -105,7 +105,7 @@ export default async function InventoryManagementSoftwarePage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-ai-inventory-dashboard.jpeg" alt={t('s3ImageAlt')} />
+                  <img src="/assets/articles/article-ai-inventory-dashboard.webp" alt={t('s3ImageAlt')} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="bar-chart">
@@ -172,7 +172,7 @@ export default async function InventoryManagementSoftwarePage() {
                 <h2>{t('s5Title')}</h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/article-ai-inventory-hype-reality.jpeg" alt={t('s5ImageAlt')} />
+                  <img src="/assets/articles/article-ai-inventory-hype-reality.webp" alt={t('s5ImageAlt')} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
                 <div className="capability-grid">
@@ -224,7 +224,7 @@ export default async function InventoryManagementSoftwarePage() {
                 <h2>{t('s7Title')}</h2>
                 <p>{t('s7Intro')}</p>
                 <figure className="article-image article-image--atmospheric">
-                  <img src="/assets/articles/article-ai-inventory-network.jpeg" alt={t('s7ImageAlt')} />
+                  <img src="/assets/articles/article-ai-inventory-network.webp" alt={t('s7ImageAlt')} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
                 <div className="donut-grid">
@@ -255,7 +255,7 @@ export default async function InventoryManagementSoftwarePage() {
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <div className="image-callout">
-                  <img src="/assets/articles/article-ai-inventory-contrast.jpeg" alt={t('s8ImageAlt')} />
+                  <img src="/assets/articles/article-ai-inventory-contrast.webp" alt={t('s8ImageAlt')} />
                   <div className="image-callout__box">
                     <h4>{t('s8CalloutTitle')}</h4>
                     <p>{t('s8CalloutDesc')}</p>

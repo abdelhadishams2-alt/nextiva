@@ -31,7 +31,7 @@ export function FooterBrand() {
     <div
       className="footer-brand"
       ref={containerRef}
-      style={{ backgroundImage: "url('/assets/footer-bg-mansati.jpg')" }}
+      style={{ backgroundImage: "url('/assets/footer-bg-mansati.webp')" }}
     >
       <span className="footer-brand__giant-text footer-brand__reveal">
         {t('brandText')}

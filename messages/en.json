@@ -4098,7 +4098,7 @@
     "fullReview": "See Full Review",
     "tools": {
       "notion": {
-        "image": "/assets/articles/article-ecommerce-tco-1.jpeg",
+        "image": "/assets/articles/article-ecommerce-tco-1.webp",
         "imageAlt": "Ecommerce platform cost comparison analysis",
         "badge": "March 2026",
         "rating": "4.8 / 5",
@@ -4114,7 +4114,7 @@
         "price": "Shopify: $39/mo | WooCommerce: Free + hosting"
       },
       "zoom": {
-        "image": "/assets/articles/article-tap-regulatory-moat-1.jpeg",
+        "image": "/assets/articles/article-tap-regulatory-moat-1.webp",
         "imageAlt": "Tap Payments GCC regulatory analysis",
         "badge": "March 2026",
         "rating": "4.9 / 5",
@@ -4130,7 +4130,7 @@
         "price": "2.75% + SAR 1 per transaction"
       },
       "hubspot": {
-        "image": "/assets/articles/article-mpos-hidden-math-1.jpeg",
+        "image": "/assets/articles/article-mpos-hidden-math-1.webp",
         "imageAlt": "Mobile POS systems cost comparison",
         "badge": "Updated March 2026",
         "rating": "4.7 / 5",
@@ -4146,7 +4146,7 @@
         "price": "Square: 2.6% | Toast: 2.49% | Clover: 2.3%"
       },
       "canva": {
-        "image": "/assets/articles/article-foodics-superplatform-1.jpeg",
+        "image": "/assets/articles/article-foodics-superplatform-1.webp",
         "imageAlt": "Foodics restaurant super-platform analysis",
         "badge": "March 2026",
         "rating": "4.8 / 5",
@@ -4176,7 +4176,7 @@
           "Feature mapping",
           "Pricing research"
         ],
-        "image": "/assets/review-step-research.jpg"
+        "image": "/assets/review-step-research.webp"
       },
       "step2": {
         "label": "Hands-On Testing",
@@ -4187,7 +4187,7 @@
           "Core features",
           "Support quality"
         ],
-        "image": "/assets/review-step-testing.jpg"
+        "image": "/assets/review-step-testing.webp"
       },
       "step3": {
         "label": "Benchmarking",
@@ -4198,7 +4198,7 @@
           "Uptime monitoring",
           "Load testing"
         ],
-        "image": "/assets/review-step-benchmarking.jpg"
+        "image": "/assets/review-step-benchmarking.webp"
       },
       "step4": {
         "label": "Comparison",
@@ -4209,7 +4209,7 @@
           "Pricing breakdown",
           "Use case fit"
         ],
-        "image": "/assets/review-step-comparison.jpg"
+        "image": "/assets/review-step-comparison.webp"
       },
       "step5": {
         "label": "Final Verdict",
@@ -4220,7 +4220,7 @@
           "Pros & cons",
           "Who it's best for"
         ],
-        "image": "/assets/review-step-verdict.jpg"
+        "image": "/assets/review-step-verdict.webp"
       }
     }
   },
@@ -4234,7 +4234,7 @@
       "metricLabel": "Platforms Compared",
       "company": "The True Cost of Your Ecommerce Platform",
       "desc": "Compare the real total cost of ownership for Shopify, WooCommerce, BigCommerce, and Adobe Commerce across three revenue tiers.",
-      "image": "/assets/articles/article-ecommerce-tco-1.jpeg",
+      "image": "/assets/articles/article-ecommerce-tco-1.webp",
       "link": "/article-ecommerce-tco"
     },
     "card2": {
@@ -4243,7 +4243,7 @@
       "metricLabel": "GCC Licenses",
       "company": "How Tap Payments Locked Down All 6 GCC Licenses",
       "desc": "Tap Payments is the only fintech holding all six GCC payment licenses. Explore what each license unlocks and why it matters for MENA merchants.",
-      "image": "/assets/articles/article-tap-regulatory-moat-1.jpeg",
+      "image": "/assets/articles/article-tap-regulatory-moat-1.webp",
       "link": "/tap-payment-gateway"
     },
     "card3": {
@@ -4252,7 +4252,7 @@
       "metricLabel": "POS Systems Tested",
       "company": "The Hidden Math of Mobile POS Fees",
       "desc": "Compare the true 3-year TCO for Square, Clover, SumUp, Toast, and Shopify POS. Hardware, SaaS fees, and markups decoded.",
-      "image": "/assets/articles/article-mpos-hidden-math-1.jpeg",
+      "image": "/assets/articles/article-mpos-hidden-math-1.webp",
       "link": "/article-mpos-hidden-math"
     },
     "card4": {
@@ -4261,7 +4261,7 @@
       "metricLabel": "Countries Covered",
       "company": "From POS to Payroll: The Foodics Super-Platform",
       "desc": "How Foodics evolved from a Saudi POS startup into a super-platform spanning payments, lending, and AI across 35+ countries.",
-      "image": "/assets/articles/article-foodics-superplatform-1.jpeg",
+      "image": "/assets/articles/article-foodics-superplatform-1.webp",
       "link": "/foodics-saudi-arabia"
     }
   }
