@@ -10,7 +10,7 @@
     "compare": "Editor's Pick",
     "about": "How We Review",
     "blog": "Blog",
-    "newsletter": "Contact Us",
+    "newsletter": "Browse Reviews",
     "categoriesMenu": {
       "websiteBuilders": "Technology",
       "hosting": "Saudi Arabia",
@@ -558,7 +558,7 @@
   "CallToAction": {
     "headline": "Never Pick the\nWrong Tool Again.",
     "subhead": "Get weekly expert recommendations, honest comparisons, and exclusive guides — tailored for the Middle East market.",
-    "demoCta": "Explore Tools",
+    "demoCta": "Browse All Reviews",
     "salesCta": "Subscribe Free"
   },
   "Footer": {
