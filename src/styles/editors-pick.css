@@ -479,43 +479,138 @@
 
 @media (max-width: 768px) {
   .editors-pick {
-    padding: 60px 20px;
+    padding: 48px 20px;
   }
 
-  .editors-pick__row {
-    gap: 16px;
-    grid-template-columns: 1fr;
-    margin-top: 16px;
+  .editors-pick__header {
+    margin-bottom: 20px;
   }
 
-  .editors-pick__card-primary,
-  .editors-pick__sidebar {
-    border-radius: 16px;
-    min-height: 360px;
+  .editors-pick__eyebrow {
+    font-size: var(--text-micro);
+    margin-bottom: 10px;
+    padding: 6px 10px;
   }
 
   .editors-pick__title {
-    font-size: var(--text-heading-lg);
+    font-size: var(--text-heading-sm);
+    margin-bottom: 12px;
+  }
+
+  .editors-pick__dots {
+    gap: 8px;
+  }
+
+  .editors-pick__dot {
+    height: 8px;
+    width: 8px;
+  }
+
+  .editors-pick__row {
+    gap: 14px;
+    grid-template-columns: 1fr;
+    margin-top: 14px;
+  }
+
+  .editors-pick__card-primary {
+    border-radius: 16px;
+    min-height: 280px;
   }
 
   .editors-pick__card-content {
-    padding: 24px;
+    padding: 18px;
+  }
+
+  .editors-pick__card-badge {
+    font-size: var(--text-micro);
+    padding: 4px 10px;
+  }
+
+  .editors-pick__card-rating {
+    font-size: var(--text-caption);
+    padding: 4px 10px;
+  }
+
+  .editors-pick__card-rating svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .editors-pick__card-category {
+    font-size: var(--text-micro);
+    margin-bottom: 4px;
   }
 
   .editors-pick__card-title {
-    font-size: var(--text-body-xl);
+    font-size: var(--text-body-lg);
+    margin: 0 0 8px;
     max-width: 100%;
   }
 
   .editors-pick__card-desc {
-    font-size: var(--text-body-sm);
+    font-size: var(--text-caption-lg);
+    line-height: 1.5;
+    margin: 0 0 16px;
+  }
+
+  .editors-pick__card-link {
+    font-size: var(--text-caption-lg);
+  }
+
+  /* Sidebar */
+  .editors-pick__sidebar {
+    border-radius: 16px;
+    min-height: auto;
   }
 
   .editors-pick__sidebar-inner {
-    padding: 24px;
+    padding: 20px;
   }
 
-  .editors-pick__sidebar {
-    min-height: auto;
+  .editors-pick__sidebar-header {
+    margin-bottom: 16px;
+  }
+
+  .editors-pick__sidebar-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .editors-pick__sidebar-label {
+    font-size: var(--text-micro-sm);
+  }
+
+  .editors-pick__pros,
+  .editors-pick__cons {
+    margin-bottom: 14px;
+  }
+
+  .editors-pick__pros-title,
+  .editors-pick__cons-title {
+    font-size: var(--text-caption);
+    margin: 0 0 6px;
+  }
+
+  .editors-pick__pros-list li,
+  .editors-pick__cons-list li {
+    font-size: var(--text-caption-lg);
+    padding: 3px 0 3px 18px;
+  }
+
+  .editors-pick__sidebar-footer {
+    padding-top: 14px;
+  }
+
+  .editors-pick__price-label {
+    font-size: var(--text-micro);
+  }
+
+  .editors-pick__price-value {
+    font-size: var(--text-body);
+  }
+
+  .editors-pick__sidebar-link {
+    font-size: var(--text-caption-lg);
+    margin-top: 14px;
   }
 }
