@@ -84,16 +84,6 @@ export function HeroAnimation() {
         },
       });
 
-      gsap.to('.hero__content', {
-        opacity: 0.3,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
     });
 
     return () => ctx.revert();
