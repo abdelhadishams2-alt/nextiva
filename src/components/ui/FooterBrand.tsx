@@ -38,15 +38,7 @@ export function FooterBrand() {
       </span>
 
       <div className="footer-brand__bottom">
-        <div className="footer-brand__bottom-left">
-          <span className="footer-brand__copyright">{t('copyright')}</span>
-        </div>
-
-        <div className="footer-brand__legal">
-          <a href="/#features">{t('privacyLink')}</a>
-          <a href="/#features">{t('legalLink')}</a>
-          <a href="/blogs">{t('sitemapLink')}</a>
-        </div>
+        <span className="footer-brand__copyright">{t('copyright')}</span>
       </div>
     </div>
   );
