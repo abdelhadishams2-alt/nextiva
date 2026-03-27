@@ -215,7 +215,7 @@
   }
 
   .featured-stories__title {
-    font-size: var(--text-heading-sm);
+    font-size: var(--text-heading-xl);
   }
 }
 
@@ -238,7 +238,7 @@
   }
 
   .featured-stories__title {
-    font-size: var(--text-body-xl);
+    font-size: var(--text-heading-sm);
   }
 
   /* Simple horizontal scroll — natural touch, no snap, no JS */

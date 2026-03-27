@@ -400,6 +400,10 @@
     padding: 60px 40px;
   }
 
+  .how-we-review__title {
+    font-size: var(--text-heading-xl);
+  }
+
   .how-we-review__phases {
     gap: 12px;
   }
@@ -438,7 +442,7 @@
   }
 
   .how-we-review__title {
-    font-size: var(--text-heading-md, 28px);
+    font-size: var(--text-heading-sm);
   }
 
   .how-we-review__timeline {

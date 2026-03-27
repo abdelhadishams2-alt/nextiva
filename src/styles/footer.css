@@ -314,7 +314,7 @@
   padding: 30px 60px 40px;
   position: absolute;
   right: 0;
-  text-align: center;
+  text-align: left;
   z-index: 4;
 }
 
@@ -425,6 +425,7 @@
   .footer-brand__bottom {
     padding: 16px 20px 20px;
     position: relative;
+    text-align: center;
   }
 
   .footer-brand__copyright {

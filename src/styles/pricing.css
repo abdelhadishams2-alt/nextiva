@@ -61,7 +61,7 @@
 .pricing__subtitle {
   color: var(--neutral-700);
   font-family: var(--font-body);
-  font-size: var(--text-body-lg);
+  font-size: var(--text-body-sm);
   font-weight: 400;
   line-height: 1.6;
   margin: 0 0 40px;
@@ -751,11 +751,11 @@
 
 @media (max-width: 768px) {
   .pricing {
-    padding: 60px 20px;
+    padding: 48px 20px;
   }
 
   .pricing__title {
-    font-size: var(--text-heading-lg);
+    font-size: var(--text-heading-sm);
   }
 
   .pricing__subtitle {

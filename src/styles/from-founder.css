@@ -337,7 +337,7 @@
 
 @media (max-width: 768px) {
   .from-founder {
-    padding: 60px 20px;
+    padding: 48px 20px;
   }
 
   .from-founder__row {
@@ -353,7 +353,7 @@
   }
 
   .from-founder__title {
-    font-size: var(--text-heading-lg);
+    font-size: var(--text-heading-sm);
   }
 
   .from-founder__card-content {

@@ -39,20 +39,20 @@ export async function Footer() {
           {/* Right Column — Link Columns */}
           <div className="footer__links-wrapper">
             <div className="footer__links">
-              {/* Column 1 */}
+              {/* Column 1 — Tool Reviews */}
               <div className="footer__links-col">
                 <span className="footer__links-heading">{t('col1Heading')}</span>
                 <ul className="footer__links-list">
-                  <li><a href="/blogs?category=technology">{t('col1Links.websiteBuilders')}</a></li>
-                  <li><a href="/blogs?category=technology">{t('col1Links.emailMarketing')}</a></li>
-                  <li><a href="/blogs?category=technology">{t('col1Links.ecommerce')}</a></li>
-                  <li><a href="/blogs?category=technology">{t('col1Links.hosting')}</a></li>
-                  <li><a href="/blogs?category=enterprise">{t('col1Links.crm')}</a></li>
-                  <li><a href="/blogs?category=enterprise">{t('col1Links.projectMgmt')}</a></li>
+                  <li><a href="/tap-payment-gateway">{t('col1Links.websiteBuilders')}</a></li>
+                  <li><a href="/erp-software-saudi-arabia">{t('col1Links.ecommerce')}</a></li>
+                  <li><a href="/odoo-saudi-arabia">{t('col1Links.crm')}</a></li>
+                  <li><a href="/project-management-companies-in-saudi-arabia">{t('col1Links.projectMgmt')}</a></li>
+                  <li><a href="/foodics-saudi-arabia">{t('col1Links.hosting')}</a></li>
+                  <li><a href="/classera-middle-east">{t('col1Links.emailMarketing')}</a></li>
                 </ul>
               </div>
 
-              {/* Column 2 */}
+              {/* Column 2 — Resources */}
               <div className="footer__links-col">
                 <span className="footer__links-heading">{t('col2Heading')}</span>
                 <ul className="footer__links-list">
@@ -60,33 +60,28 @@ export async function Footer() {
                   <li><a href="/#editors-pick">{t('col2Links.comparisons')}</a></li>
                   <li><a href="/#featured">{t('col2Links.bestOf')}</a></li>
                   <li><a href="/#reviews">{t('col2Links.pricing')}</a></li>
-                  <li><a href="/blogs">{t('col2Links.tutorials')}</a></li>
-                  <li><a href="/blogs">{t('col2Links.glossary')}</a></li>
                 </ul>
               </div>
 
-              {/* Column 3 */}
+              {/* Column 3 — Categories */}
               <div className="footer__links-col">
                 <span className="footer__links-heading">{t('col3Heading')}</span>
                 <ul className="footer__links-list">
-                  <li><a href="/blogs?category=technology">{t('col3Links.marketing')}</a></li>
-                  <li><a href="/blogs?category=technology">{t('col3Links.analytics')}</a></li>
-                  <li><a href="/blogs?category=technology">{t('col3Links.design')}</a></li>
-                  <li><a href="/blogs?category=technology">{t('col3Links.ai')}</a></li>
-                  <li><a href="/blogs?category=enterprise">{t('col3Links.communication')}</a></li>
-                  <li><a href="/blogs?category=enterprise">{t('col3Links.accounting')}</a></li>
+                  <li><a href="/delivery-apps">{t('col3Links.marketing')}</a></li>
+                  <li><a href="/inventory-management-software">{t('col3Links.analytics')}</a></li>
+                  <li><a href="/cloud-based-inventory-management">{t('col3Links.design')}</a></li>
+                  <li><a href="/online-inventory-management-system">{t('col3Links.ai')}</a></li>
+                  <li><a href="/restaurant-inventory-management-system">{t('col3Links.communication')}</a></li>
                 </ul>
               </div>
 
-              {/* Column 4 */}
+              {/* Column 4 — Company */}
               <div className="footer__links-col">
                 <span className="footer__links-heading">{t('col4Heading')}</span>
                 <ul className="footer__links-list">
                   <li><a href="/#features">{t('col4Links.about')}</a></li>
                   <li><a href="/#reviews">{t('col4Links.methodology')}</a></li>
-                  <li><a href="/#contact">{t('col4Links.careers')}</a></li>
                   <li><a href="/#contact">{t('col4Links.contact')}</a></li>
-                  <li><a href="/#contact">{t('col4Links.advertise')}</a></li>
                 </ul>
               </div>
 
@@ -95,7 +90,7 @@ export async function Footer() {
                 <span className="footer__links-heading">{t('blogHeading')}</span>
                 <ul className="footer__links-list footer__links-list--blog">
                   <li className="footer__blog-card">
-                    <a className="footer__blog-link" href="/blogs?category=technology">
+                    <a className="footer__blog-link" href="/article-shopify-saudi">
                       <div className="footer__blog-content">
                         <div className="footer__blog-title">{t('blogPost1Title')}</div>
                         <div className="footer__blog-go">
@@ -108,7 +103,7 @@ export async function Footer() {
                     </a>
                   </li>
                   <li className="footer__blog-card">
-                    <a className="footer__blog-link" href="/blogs?category=technology">
+                    <a className="footer__blog-link" href="/article-ecommerce-tco">
                       <div className="footer__blog-content">
                         <div className="footer__blog-title">{t('blogPost2Title')}</div>
                         <div className="footer__blog-go">

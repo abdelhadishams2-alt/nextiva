@@ -17,7 +17,7 @@
   color: var(--text-primary);
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-size: var(--text-body-xl, 24px);
+  font-size: var(--text-heading-sm);
   font-weight: var(--arizona-heading-weight);
   letter-spacing: var(--arizona-heading-letter-spacing);
   line-height: var(--arizona-heading-line-height);

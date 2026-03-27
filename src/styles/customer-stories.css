@@ -203,7 +203,7 @@
   color: var(--text-primary);
   flex: 1;
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  font-size: var(--text-body-sm);
   font-style: normal;
   font-weight: 400;
   line-height: 1.7;
@@ -289,7 +289,7 @@
 
 @media (max-width: 768px) {
   .customer-stories {
-    padding: 60px 20px;
+    padding: 48px 20px;
   }
 
   .customer-stories__cards {
@@ -346,6 +346,6 @@
   }
 
   .customer-stories__title {
-    font-size: var(--text-heading-lg);
+    font-size: var(--text-heading-sm);
   }
 }
