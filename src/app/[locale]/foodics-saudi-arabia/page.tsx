@@ -7,6 +7,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'Super-Platform Thesis' },
@@ -83,7 +88,9 @@ export default async function FoodicsSaudiArabiaPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="foodics" title="Foodics Super-Platform" buttonText="Try Foodics Free" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -96,6 +103,9 @@ export default async function FoodicsSaudiArabiaPage() {
                   <span className="last-updated">{t('authorUpdated')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — The Super-Platform Thesis */}
               <section id="section-2" className="fade-up article-section">
@@ -264,6 +274,14 @@ export default async function FoodicsSaudiArabiaPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="foodics"
+                heading="Experience the Super-Platform"
+                description="POS, payments, lending, and AI analytics — all in one place."
+                buttonText="Try Foodics Free"
+              />
+
               {/* SECTION 8 — The Saudi F&B Tailwind */}
               <section id="section-8" className="fade-up article-section bar-chart-section">
                 <h2>{t('s8Title')}</h2>
@@ -365,6 +383,10 @@ export default async function FoodicsSaudiArabiaPage() {
                   <p>{t('s12P1')}</p>
                   <p>{t('s12P2')}</p>
                 </div>
+                <AffiliateLink partner="foodics">
+                  Try Foodics Free
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -374,6 +396,7 @@ export default async function FoodicsSaudiArabiaPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="foodics" buttonText="Try Foodics Free" />
     </>
   );
 }

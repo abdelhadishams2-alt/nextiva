@@ -8,6 +8,11 @@ import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
 import ArticleFaq from '@/components/ui/ArticleFaq';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'Wave 24 Explained' },
@@ -76,7 +81,9 @@ export default async function OdooSaudiArabiaPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="odoo" title="Odoo for Saudi Arabia" buttonText="Try Odoo Free" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -89,6 +96,9 @@ export default async function OdooSaudiArabiaPage() {
                   <span className="last-updated">{t('authorUpdated')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — The Wave 24 Wake-Up Call */}
               <section id="section-2" className="fade-up article-section article-prose">
@@ -229,6 +239,14 @@ export default async function OdooSaudiArabiaPage() {
                 <p>{t('s6P2')}</p>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="odoo"
+                heading="Get ZATCA Compliant"
+                description="Don't wait for the deadline. Start your Odoo implementation today."
+                buttonText="Try Odoo Free"
+              />
+
               {/* SECTION 7 — 90-Day Roadmap */}
               <section id="section-7" className="fade-up article-section article-prose">
                 <h2>{t('s7Title')}</h2>
@@ -321,6 +339,10 @@ export default async function OdooSaudiArabiaPage() {
                   </ol>
                 </div>
 
+                <AffiliateLink partner="odoo">
+                  Try Odoo Free
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -330,6 +352,7 @@ export default async function OdooSaudiArabiaPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="odoo" buttonText="Try Odoo Free" />
     </>
   );
 }

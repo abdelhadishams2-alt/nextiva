@@ -7,6 +7,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'The Uncomfortable Truth' },
@@ -83,7 +88,9 @@ export default async function CloudBasedInventoryManagementPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="shopify" title="Inventory Management" buttonText="Compare Solutions" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -100,6 +107,9 @@ export default async function CloudBasedInventoryManagementPage() {
                   {t('heroReadTime')}
                 </span>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — Introduction */}
               <section id="section-2" className="fade-up article-section article-prose section-heading">
@@ -264,6 +274,14 @@ export default async function CloudBasedInventoryManagementPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="shopify"
+                heading="Secure Your Inventory"
+                description="Compare cloud inventory solutions with enterprise-grade security."
+                buttonText="Compare Solutions"
+              />
+
               {/* SECTION 8 — Before / After */}
               <section id="section-8" className="fade-up article-section">
                 <h2>{t('s8Title')}</h2>
@@ -356,6 +374,10 @@ export default async function CloudBasedInventoryManagementPage() {
                   <img src="/assets/articles/article-cloud-security-5.webp" alt={t('s12ImageAlt')} />
                   <figcaption>{t('s12ImageCaption')}</figcaption>
                 </figure>
+                <AffiliateLink partner="shopify">
+                  Compare Solutions
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -365,6 +387,7 @@ export default async function CloudBasedInventoryManagementPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="shopify" buttonText="Compare Solutions" />
     </>
   );
 }

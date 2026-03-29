@@ -8,6 +8,11 @@ import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
 import ArticleFaq from '@/components/ui/ArticleFaq';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'The Six-License Achievement' },
@@ -78,7 +83,9 @@ export default async function TapPaymentGatewayPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="tap" title="GCC Payment Gateway" buttonText="Visit Tap Payments" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -97,6 +104,9 @@ export default async function TapPaymentGatewayPage() {
                     <span className="author-meta">{t('authorMeta')}</span>
                   </div>
                 </div>
+
+                {/* Affiliate Disclosure */}
+                <AffiliateDisclosure />
               </section>
 
               {/* SECTION 3 — GCC Regulatory Landscape */}
@@ -246,6 +256,14 @@ export default async function TapPaymentGatewayPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="tap"
+                heading="Ready to Accept GCC Payments?"
+                description="One integration. Six markets. 25+ payment methods including mada, KNET, and Apple Pay."
+                buttonText="Visit Tap Payments"
+              />
+
               {/* SECTION 7 — MENA Market Trajectory */}
               <section id="section-7" className="fade-up article-section article-prose">
                 <h2>{t('s7Title')}</h2>
@@ -362,6 +380,10 @@ export default async function TapPaymentGatewayPage() {
                 <p>{t('s11Conclusion')}</p>
                 <p className="last-updated">{t('lastUpdated')}</p>
 
+                <AffiliateLink partner="tap">
+                  Visit Tap Payments
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -371,6 +393,7 @@ export default async function TapPaymentGatewayPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="tap" buttonText="Visit Tap Payments" />
     </>
   );
 }

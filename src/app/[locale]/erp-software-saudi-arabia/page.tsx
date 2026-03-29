@@ -9,6 +9,11 @@ import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
 import ArticleFaqTabs from '@/components/ui/ArticleFaqTabs';
 import ArticleAccordion from '@/components/ui/ArticleAccordion';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'Framework Overview' },
@@ -88,7 +93,9 @@ export default async function ErpSoftwareSaudiArabiaPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="odoo" title="ERP for Saudi Business" buttonText="Try Odoo Free" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -101,6 +108,9 @@ export default async function ErpSoftwareSaudiArabiaPage() {
                   <span className="last-updated">{t('authorUpdated')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — Summary Box */}
               <section id="section-2" className="fade-up article-section article-prose">
@@ -271,6 +281,14 @@ export default async function ErpSoftwareSaudiArabiaPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="odoo"
+                heading="Find Your ERP Match"
+                description="Compare ERP options and find the right fit for your Saudi business."
+                buttonText="Try Odoo Free"
+              />
+
               {/* SECTION 8 — ZATCA Compliance */}
               <section id="section-8" className="fade-up article-section article-prose">
                 <h2>{t('s8Title')}</h2>
@@ -385,6 +403,10 @@ export default async function ErpSoftwareSaudiArabiaPage() {
                   { id: 'compliance', label: t('s12TabCompliance'), items: [1, 2].map((n) => ({ question: t(`s12Faq_compliance_q${n}`), answer: t(`s12Faq_compliance_a${n}`) })) },
                   { id: 'technical', label: t('s12TabTechnical'), items: [1, 2].map((n) => ({ question: t(`s12Faq_technical_q${n}`), answer: t(`s12Faq_technical_a${n}`) })) },
                 ]} />
+                <AffiliateLink partner="odoo">
+                  Try Odoo Free
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -394,6 +416,7 @@ export default async function ErpSoftwareSaudiArabiaPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="odoo" buttonText="Try Odoo Free" />
     </>
   );
 }

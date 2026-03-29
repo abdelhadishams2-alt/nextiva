@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "Nextiva",
+    "title": "Mansati",
     "description": "Built with Next.js"
   },
   "Navbar": {
@@ -163,7 +163,7 @@
     "stat1Desc": "Handled by our network every year",
     "stat2Value": "100,000+",
     "stat2Label": "Businesses",
-    "stat2Desc": "Trust Nextiva for their communications",
+    "stat2Desc": "Trust Mansati for their recommendations",
     "stat3Value": "17",
     "stat3Label": "Years Running",
     "stat3Desc": "Award-winning customer service",
@@ -270,28 +270,28 @@
     },
     "card3": {
       "metric": "270+ Franchise Locations",
-      "text": "\"Our bakery owners are busy and don't have time for complicated systems. The interface and the Nextiva Support team were a big selling point.\"",
+      "text": "\"Our bakery owners are busy and don't have time for complicated systems. The interface and the Mansati reviews helped us find the right tool.\"",
       "name": "Vinny Torregrossa",
       "role": "IT Manager",
       "company": "Nothing Bundt Cakes"
     },
     "card4": {
       "metric": "+30% Annual Revenue Growth",
-      "text": "\"Since adopting Nextiva, we've achieved 30% annual revenue growth. We now provide cloud communications to 325 employees across six locations with 99.999% uptime.\"",
+      "text": "\"Since following Mansati's recommendations, we've achieved 30% annual revenue growth. We found the right tools for 325 employees across six locations.\"",
       "name": "Franklin Street",
       "role": "325 Employees, 6 Locations",
       "company": "Commercial Real Estate"
     },
     "card5": {
       "metric": "+60% Cost Savings",
-      "text": "\"Nextiva's VoIP phone system has helped us realize an estimated 60% cost savings over our previous system, and our customers never receive a busy signal.\"",
+      "text": "\"Mansati's comparison guides helped us realize an estimated 60% cost savings over our previous system. We found the perfect tool for our business.\"",
       "name": "Tabarka Studio",
       "role": "Tile & Stone Manufacturer",
       "company": "Scottsdale, AZ"
     },
     "card6": {
       "metric": "+50% Cost Reduction",
-      "text": "\"We were due for a complete overhaul. Moving to Nextiva gave us an all-in-one cloud-based solution that was easier to manage, more reliable, and cut our communications costs by more than 50%.\"",
+      "text": "\"We were due for a complete overhaul. Mansati's reviews guided us to an all-in-one solution that was easier to manage, more reliable, and cut our costs by more than 50%.\"",
       "name": "Rich Sparkman",
       "role": "Director of Technology",
       "company": "Shelby American"
@@ -335,7 +335,7 @@
       "metric": "20%",
       "metricLabel": "Improved Answer Ratios",
       "company": "NEBA",
-      "desc": "Improved answer ratios by 20% with Nextiva Contact Center for better patient care.",
+      "desc": "Improved answer ratios by 20% after switching tools based on Mansati's recommendation.",
       "link": "/blogs"
     },
     "card3": {
@@ -343,7 +343,7 @@
       "metric": "154%",
       "metricLabel": "Voice Efficiency",
       "company": "Emergia",
-      "desc": "High-volume call center boosted voice channel efficiency by 154% with Nextiva.",
+      "desc": "High-volume call center boosted voice channel efficiency by 154% with the right tool.",
       "link": "/blogs"
     },
     "card4": {
@@ -546,7 +546,7 @@
     "title": "Leading the Conversation on AI",
     "avatarAlt": "Tomas Gorny",
     "name": "Tomas Gorny",
-    "role": "Founder & CEO, Nextiva",
+    "role": "Founder & CEO, Mansati",
     "cardTitle": "Don't Wait for AI to Be Perfect. It's Already Doing Work.",
     "cardDesc": "AI learns through action, not hesitation. The companies seeing real results started imperfect and improved along the way.",
     "readArticle": "Read Full Article",
@@ -1910,7 +1910,7 @@
       "heroBadge": "Cloud Security",
       "heroTitle": "Cloud Inventory Security Is Better Than Yours: Why 99% of Breaches Are Your Fault, Not Your Vendor's",
       "heroImageAlt": "Abstract visualization of cloud security infrastructure protecting inventory data across connected networks",
-      "heroAuthor": "Nextiva Editorial Team",
+      "heroAuthor": "Mansati Editorial Team",
       "heroDate": "March 24, 2026",
       "heroReadTime": "11 min read",
       "authorPublished": "Published March 24, 2026",
@@ -2248,7 +2248,7 @@
       "heroBadge": "Enterprise Technology",
       "heroTitle": "ERP Decision Framework for Saudi Businesses",
       "heroImageAlt": "Modern Saudi business district representing enterprise technology adoption and ERP implementation across the Kingdom",
-      "heroAuthor": "Nextiva Editorial Team",
+      "heroAuthor": "Mansati Editorial Team",
       "heroDate": "March 24, 2026",
       "heroReadTime": "13 min read",
       "authorPublished": "Published March 24, 2026 · 13 min read",
@@ -2764,7 +2764,7 @@
       "heroBadge": "Restaurant Technology",
       "heroTitle": "From POS to Payroll -- The Making of a Super-Platform",
       "heroImageAlt": "Riyadh skyline at dusk with modern towers reflecting golden light, symbolizing Saudi Arabia's technology ambitions",
-      "heroAuthor": "Nextiva Editorial Team",
+      "heroAuthor": "Mansati Editorial Team",
       "heroDate": "March 24, 2026",
       "heroReadTime": "12 min read",
       "authorPublished": "March 24, 2026 · 12 min read",
@@ -3070,7 +3070,7 @@
       "heroTitle": "ZATCA Wave 24 Countdown: Why Thousands of Saudi SMEs Must Act on Odoo Before June 2026",
       "heroReadTime": "14 min read",
       "heroDate": "Updated March 2026",
-      "authorName": "Nextiva Research",
+      "authorName": "Mansati Research",
       "authorMeta": "March 24, 2026 · 14 min read",
       "authorUpdated": "Last updated: March 2026",
       "keyTakeawaysLabel": "Key Takeaways",
@@ -3256,7 +3256,7 @@
       "heroBadge": "Supply Chain Intelligence",
       "heroTitle": "Real-Time Inventory as Competitive Moat: How Multi-Channel Sync Separates Winners from the Rest",
       "heroImageAlt": "Warehouse operations floor with automated inventory tracking systems and real-time digital dashboards",
-      "heroAuthor": "Nextiva Editorial Team",
+      "heroAuthor": "Mansati Editorial Team",
       "heroDate": "March 24, 2026",
       "heroReadTime": "10 min read",
       "authorPublished": "Published March 24, 2026",
@@ -3430,7 +3430,7 @@
       "heroBadge": "Construction Consulting",
       "heroTitle": "Saudi-Born vs. Global Giants: The New Rivalry Reshaping Project Management in the Kingdom",
       "heroImageAlt": "Riyadh skyline with active construction cranes and modern towers stretching across the horizon at dusk",
-      "heroAuthor": "Nextiva Editorial Team",
+      "heroAuthor": "Mansati Editorial Team",
       "heroDate": "March 24, 2026",
       "heroReadTime": "12 min read",
       "sourcesLabel": "Sources",
@@ -3827,7 +3827,7 @@
       "heroTitle": "The Regulatory Moat: How Tap Payments Locked Down All 6 GCC Licenses",
       "heroReadTime": "12 min read",
       "heroDate": "March 2026",
-      "authorName": "Nextiva Research",
+      "authorName": "Mansati Research",
       "authorMeta": "Fintech & Payments Analysis · March 24, 2026 · 12 min read",
       "sourcesLabel": "Sources",
       "shareText": "How Tap Payments Locked Down All 6 GCC Licenses and What It Means for MENA Commerce",
@@ -4065,9 +4065,9 @@
     }
   },
   "Blogs": {
-    "metaTitle": "Blog — Nextiva",
+    "metaTitle": "Blog — Mansati",
     "metaDescription": "Explore insights on business technology, restaurant operations, inventory management, enterprise software, and digital commerce across the MENA region.",
-    "heroBadge": "Nextiva Blog",
+    "heroBadge": "Mansati Blog",
     "heroTitle": "Insights, Trends & Deep Dives",
     "heroDesc": "Expert analysis on technology, enterprise software, restaurant operations, and digital commerce across the MENA region.",
     "filterLabel": "Explore Topics",
@@ -4264,5 +4264,10 @@
       "image": "/assets/articles/article-foodics-superplatform-1.webp",
       "link": "/foodics-saudi-arabia"
     }
+  },
+  "Affiliate": {
+    "disclosure": "This article may contain affiliate links. If you purchase through these links, we may earn a commission at no extra cost to you. This helps support our independent reviews.",
+    "visitSite": "Visit {tool}",
+    "trySite": "Try {tool}"
   }
 }

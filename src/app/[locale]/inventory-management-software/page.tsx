@@ -7,6 +7,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 import ArticleAccordionFaq from '@/components/ui/ArticleAccordionFaq';
 
 const tocItems = [
@@ -82,9 +87,14 @@ export default async function InventoryManagementSoftwarePage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="shopify" title="AI Inventory Forecasting" buttonText="Compare Solutions" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — The $9.6B Question */}
               <section id="section-2" className="fade-up article-section">
@@ -219,6 +229,14 @@ export default async function InventoryManagementSoftwarePage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="shopify"
+                heading="AI-Powered Inventory"
+                description="Compare intelligent inventory solutions that forecast demand automatically."
+                buttonText="Compare Solutions"
+              />
+
               {/* SECTION 7 — Market Adoption */}
               <section id="section-7" className="fade-up article-section">
                 <h2>{t('s7Title')}</h2>
@@ -310,6 +328,10 @@ export default async function InventoryManagementSoftwarePage() {
                 </div>
                 <p style={{ marginTop: '24px' }}>{t('s11Conclusion')}</p>
                 <div className="last-updated">{t('s11LastUpdated')}</div>
+                <AffiliateLink partner="shopify">
+                  Compare Solutions
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -319,6 +341,7 @@ export default async function InventoryManagementSoftwarePage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="shopify" buttonText="Compare Solutions" />
     </>
   );
 }

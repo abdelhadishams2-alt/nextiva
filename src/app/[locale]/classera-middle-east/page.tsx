@@ -7,6 +7,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'The Full-Stack Thesis' },
@@ -81,7 +86,9 @@ export default async function ClasseraMiddleEastPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="classera" title="Education Platform" buttonText="Visit Classera" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -93,6 +100,9 @@ export default async function ClasseraMiddleEastPage() {
                   <span className="author-meta">{t('authorPublished')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — The Full-Stack Thesis */}
               <section id="section-2" className="fade-up article-section article-prose section-intro">
@@ -193,6 +203,14 @@ export default async function ClasseraMiddleEastPage() {
                   </ol>
                 </div>
               </section>
+
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="classera"
+                heading="Transform Your Learning Platform"
+                description="See how Classera powers education across the Middle East."
+                buttonText="Visit Classera"
+              />
 
               {/* SECTION 7 — The Arabic Content Gap */}
               <section id="section-7" className="fade-up article-section article-prose">
@@ -324,6 +342,10 @@ export default async function ClasseraMiddleEastPage() {
                     ))}
                   </ol>
                 </div>
+                <AffiliateLink partner="classera">
+                  Visit Classera
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -333,6 +355,7 @@ export default async function ClasseraMiddleEastPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="classera" buttonText="Visit Classera" />
     </>
   );
 }

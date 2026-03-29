@@ -9,6 +9,11 @@ import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
 import ArticleFaq from '@/components/ui/ArticleFaq';
 import ArticleAccordionProcess from '@/components/ui/ArticleAccordionProcess';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'The Invisible Bleed' },
@@ -79,7 +84,9 @@ export default async function RestaurantInventoryManagementSystemPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="foodics" title="Restaurant Inventory" buttonText="Try Foodics Free" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -97,6 +104,9 @@ export default async function RestaurantInventoryManagementSystemPage() {
                     <span className="author-meta">{t('authorMeta')}</span>
                   </div>
                 </div>
+
+                {/* Affiliate Disclosure */}
+                <AffiliateDisclosure />
               </section>
 
               {/* SECTION 3 — Stats Grid */}
@@ -249,6 +259,14 @@ export default async function RestaurantInventoryManagementSystemPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="foodics"
+                heading="Stop the Inventory Losses"
+                description="Foodics tracks every ingredient in real-time across all locations."
+                buttonText="Try Foodics Free"
+              />
+
               {/* SECTION 8 — Case Studies */}
               <section id="section-8" className="fade-up article-section article-prose">
                 <h2>{t('s8Title')}</h2>
@@ -347,6 +365,10 @@ export default async function RestaurantInventoryManagementSystemPage() {
 
               {/* SECTION 12 — Share */}
               <section id="section-12" className="fade-up article-section">
+                <AffiliateLink partner="foodics">
+                  Try Foodics Free
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
                 <p className="last-updated">{t('lastUpdated')}</p>
               </section>
@@ -357,6 +379,7 @@ export default async function RestaurantInventoryManagementSystemPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="foodics" buttonText="Try Foodics Free" />
     </>
   );
 }

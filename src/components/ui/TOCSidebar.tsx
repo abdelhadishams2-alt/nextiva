@@ -9,9 +9,10 @@ interface TOCItem {
 
 interface TOCSidebarProps {
   items: TOCItem[];
+  children?: React.ReactNode;
 }
 
-export default function TOCSidebar({ items }: TOCSidebarProps) {
+export default function TOCSidebar({ items, children }: TOCSidebarProps) {
   const sidebarRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -80,6 +81,7 @@ export default function TOCSidebar({ items }: TOCSidebarProps) {
             </li>
           ))}
         </ol>
+        {children}
       </div>
     </aside>
   );

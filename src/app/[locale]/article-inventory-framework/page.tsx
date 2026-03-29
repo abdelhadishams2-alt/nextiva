@@ -8,6 +8,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'The Profit Crisis' },
@@ -80,7 +85,9 @@ export default async function ArticleInventoryFrameworkPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="foodics" title="Restaurant Inventory Solution" buttonText="Try Foodics Free" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -92,6 +99,9 @@ export default async function ArticleInventoryFrameworkPage() {
                   <span className="author-meta">{t('authorMeta')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — KPI Row */}
               <section id="section-2" className="fade-up article-section article-prose">
@@ -217,6 +227,14 @@ export default async function ArticleInventoryFrameworkPage() {
                   </div>
                 </div>
               </section>
+
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="foodics"
+                heading="Automate Your Inventory"
+                description="Stop counting manually. Foodics handles inventory tracking across all your locations."
+                buttonText="Try Foodics Free"
+              />
 
               {/* SECTION 7 — Pillar 4: Value */}
               <section id="section-7" className="fade-up article-section article-prose">
@@ -372,6 +390,10 @@ export default async function ArticleInventoryFrameworkPage() {
 
                 <p>{t('s11Conclusion')}</p>
 
+                <AffiliateLink partner="foodics">
+                  Try Foodics Free
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -381,6 +403,7 @@ export default async function ArticleInventoryFrameworkPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="foodics" buttonText="Try Foodics Free" />
     </>
   );
 }

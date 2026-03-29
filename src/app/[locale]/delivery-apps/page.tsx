@@ -7,6 +7,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 import ArticleFaq from '@/components/ui/ArticleFaq';
 
 const tocItems = [
@@ -75,9 +80,14 @@ export default async function DeliveryAppsPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="foodics" title="Restaurant Technology" buttonText="Explore Foodics" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — Stats Cards */}
               <section id="section-2" className="fade-up article-section article-prose">
@@ -203,6 +213,14 @@ export default async function DeliveryAppsPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="foodics"
+                heading="Built for Restaurant Tech"
+                description="From POS to delivery to analytics — one platform for everything."
+                buttonText="Explore Foodics"
+              />
+
               {/* SECTION 7 — Before/After */}
               <section id="section-7" className="fade-up article-section article-prose">
                 <h2>{t('s7Title')}</h2>
@@ -292,6 +310,10 @@ export default async function DeliveryAppsPage() {
                     answer: t(`s11Faq${n}A`),
                   }))} />
                 </div>
+                <AffiliateLink partner="foodics">
+                  Explore Foodics
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -301,6 +323,7 @@ export default async function DeliveryAppsPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="foodics" buttonText="Explore Foodics" />
     </>
   );
 }

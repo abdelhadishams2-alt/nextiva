@@ -4,6 +4,11 @@ import TOCSidebar from '@/components/ui/TOCSidebar';
 import TOCInline from '@/components/ui/TOCInline';
 import ShareButtons from '@/components/ui/ShareButtons';
 import FadeUpObserver from '@/components/ui/FadeUpObserver';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
@@ -81,7 +86,9 @@ export default async function ArticleShopifySaudiPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="shopify" title="Launch Your Saudi Store" buttonText="Try Shopify Free" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -94,6 +101,9 @@ export default async function ArticleShopifySaudiPage() {
                   <span className="author-meta">{t('authorMeta')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — Market Opportunity */}
               <section id="section-2" className="fade-up article-section">
@@ -228,6 +238,14 @@ export default async function ArticleShopifySaudiPage() {
                 <p>{t('s7Tip')}</p>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="shopify"
+                heading="Ready to Launch Your Store?"
+                description="Start your Saudi e-commerce journey with Shopify's localized tools and Arabic RTL support."
+                buttonText="Try Shopify Free"
+              />
+
               {/* SECTION 8 — Pre-launch Optimization */}
               <section id="section-8" className="fade-up article-section">
                 <h2>{t('s8Title')}</h2>
@@ -307,6 +325,9 @@ export default async function ArticleShopifySaudiPage() {
                   <div className="impact-highlight__metric">{t('s12CtaTitle')}</div>
                   <p className="impact-highlight__desc">{t('s12CtaDesc')}</p>
                 </div>
+                <AffiliateLink partner="shopify">
+                  Try Shopify Free
+                </AffiliateLink>
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -327,6 +348,7 @@ export default async function ArticleShopifySaudiPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="shopify" buttonText="Try Shopify Free" />
     </>
   );
 }

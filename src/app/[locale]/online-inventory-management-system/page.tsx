@@ -8,6 +8,11 @@ import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
 import ArticleFaqAccordion from '@/components/ui/ArticleFaqAccordion';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'The $1.6T Problem' },
@@ -84,7 +89,9 @@ export default async function OnlineInventoryManagementSystemPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="shopify" title="Inventory Management" buttonText="Compare Solutions" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -97,6 +104,9 @@ export default async function OnlineInventoryManagementSystemPage() {
                   <span className="last-updated">{t('authorUpdated')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
@@ -262,6 +272,14 @@ export default async function OnlineInventoryManagementSystemPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="shopify"
+                heading="Real-Time Inventory Sync"
+                description="Keep your inventory accurate across every channel automatically."
+                buttonText="Compare Solutions"
+              />
+
               {/* SECTION 8 — Problem/Approach/Results */}
               <section id="section-8" className="fade-up article-section">
                 <div className="par-section">
@@ -401,6 +419,10 @@ export default async function OnlineInventoryManagementSystemPage() {
                   <blockquote>
                     <p dangerouslySetInnerHTML={{ __html: t.raw('s12Quote') }} />
                   </blockquote>
+                  <AffiliateLink partner="shopify">
+                    Compare Solutions
+                  </AffiliateLink>
+
                   <ShareButtons shareText={t('shareText')} />
                 </div>
               </section>
@@ -411,6 +433,7 @@ export default async function OnlineInventoryManagementSystemPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="shopify" buttonText="Compare Solutions" />
     </>
   );
 }

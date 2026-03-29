@@ -7,6 +7,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 import ArticleTabs from '@/components/ui/ArticleTabs';
 
 const tocItems = [
@@ -78,9 +83,14 @@ export default async function ArticleMposHiddenMathPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="square" title="Compare POS Systems" buttonText="Compare POS Plans" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* SECTION 2 — The Fee Illusion */}
               <section id="section-2" className="fade-up article-section article-prose">
@@ -230,6 +240,14 @@ export default async function ArticleMposHiddenMathPage() {
                 </div>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="square"
+                heading="Compare POS Costs"
+                description="See the real fees behind each POS system before you commit."
+                buttonText="Compare POS Plans"
+              />
+
               {/* SECTION 7 — Cost Reversal */}
               <section id="section-7" className="fade-up article-section article-prose">
                 <h2>{t('s7Title')}</h2>
@@ -339,6 +357,10 @@ export default async function ArticleMposHiddenMathPage() {
                   <img src="/assets/articles/article-mpos-hidden-math-5.webp" alt={t('s11ImageAlt')} />
                   <figcaption>{t('s11ImageCaption')}</figcaption>
                 </figure>
+                <AffiliateLink partner="square">
+                  Compare POS Plans
+                </AffiliateLink>
+
                 <ShareButtons shareText={t('shareText')} />
               </section>
 
@@ -348,6 +370,7 @@ export default async function ArticleMposHiddenMathPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="square" buttonText="Compare POS Plans" />
     </>
   );
 }

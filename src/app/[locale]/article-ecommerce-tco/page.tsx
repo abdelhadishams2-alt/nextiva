@@ -7,6 +7,11 @@ import FadeUpObserver from '@/components/ui/FadeUpObserver';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
+import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
+import AffiliateLink from '@/components/ui/AffiliateLink';
+import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
+import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
+import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
   { id: 'section-2', label: 'Why TCO Matters' },
@@ -87,7 +92,9 @@ export default async function ArticleEcommerceTcoPage() {
 
         <div className="container-article">
           <div className="article-layout">
-            <TOCSidebar items={tocItems} />
+            <TOCSidebar items={tocItems}>
+              <AffiliateSidebar partner="shopify" title="Compare Ecommerce Platforms" buttonText="Compare Plans Now" />
+            </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
@@ -99,6 +106,9 @@ export default async function ArticleEcommerceTcoPage() {
                   <span className="author-meta">{t('authorMeta')}</span>
                 </div>
               </div>
+
+              {/* Affiliate Disclosure */}
+              <AffiliateDisclosure />
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
@@ -285,6 +295,14 @@ export default async function ArticleEcommerceTcoPage() {
                 <p className="inline-source">{t('s7Sources')}</p>
               </section>
 
+              {/* Mid-Article CTA */}
+              <AffiliateMidArticle
+                partner="shopify"
+                heading="Compare Platforms Now"
+                description="See the real cost breakdown before choosing your e-commerce platform."
+                buttonText="Compare Plans Now"
+              />
+
               {/* SECTION 8 — Crossover Points */}
               <section id="section-8" className="fade-up article-section">
                 <h2>{t('s8Title')}</h2>
@@ -425,6 +443,10 @@ export default async function ArticleEcommerceTcoPage() {
                 </ol>
               </div>
 
+              <AffiliateLink partner="shopify">
+                Compare Plans Now
+              </AffiliateLink>
+
               <ShareButtons shareText={t('shareText')} />
 
             </div>
@@ -433,6 +455,7 @@ export default async function ArticleEcommerceTcoPage() {
       </main>
       <CallToAction />
       <Footer />
+      <AffiliateMobileBar partner="shopify" buttonText="Compare Plans Now" />
     </>
   );
 }
