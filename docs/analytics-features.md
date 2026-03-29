@@ -1,4 +1,4 @@
-# Analytics Features — What We Built & How You Benefit
+# Analytics Features — What We Built & How You Benefit (Steps 3-6)
 
 ## Overview
 

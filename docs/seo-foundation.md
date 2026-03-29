@@ -1,4 +1,4 @@
-# SEO Foundation — What We Built & How You Benefit
+# SEO Foundation — What We Built & How You Benefit (Step 7)
 
 ## Overview
 

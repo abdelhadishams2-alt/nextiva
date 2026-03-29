@@ -1,4 +1,4 @@
-# Website Analytics & Growth Infrastructure Plan
+# Website Analytics & Growth Infrastructure Plan (Steps 1-8 Overview)
 
 ## Overview
 
@@ -155,7 +155,7 @@ This document tracks the step-by-step implementation of analytics, monetization,
 ---
 
 ### Step 8: Social Media Auto-Posting
-**Status:** [ ] Not started
+**Status:** [x] DONE
 
 **What:** Auto-post to X/Twitter when article published
 

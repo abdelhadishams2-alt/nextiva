@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import PostHogProvider from "@/components/providers/PostHogProvider";
-import ExitIntent from "@/components/ui/ExitIntent";
+// import ExitIntent from "@/components/ui/ExitIntent";
 
 export async function generateMetadata() {
   const t = await getTranslations("Metadata");
@@ -23,7 +23,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <PostHogProvider>
         {children}
-        <ExitIntent />
+        {/* <ExitIntent /> */}
       </PostHogProvider>
     </NextIntlClientProvider>
   );

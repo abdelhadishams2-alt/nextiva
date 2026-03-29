@@ -1,4 +1,4 @@
-# Why We Need PostHog — Analytics Proposal
+# Why We Need PostHog — Analytics Proposal (Step 2)
 
 ## The Problem
 
