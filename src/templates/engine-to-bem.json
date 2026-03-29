@@ -1,0 +1,47 @@
+{
+  "_comment": "Maps engine Tailwind/generic classes to Mansati BEM classes",
+  "layout": {
+    "max-w-7xl mx-auto px-4 py-12": "container-article",
+    "grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-12": "article-layout",
+    "prose prose-lg max-w-none": "article-prose",
+    "hidden lg:block": "toc-sidebar",
+    "sticky top-8 space-y-2": "toc-sidebar-inner"
+  },
+  "hero": {
+    "article-hero": "article-section article-hero",
+    "mb-12": "article-hero__content",
+    "text-4xl font-bold": ""
+  },
+  "sections": {
+    "section": "fade-up article-section",
+    "mb-8": "",
+    "mt-8": ""
+  },
+  "images": {
+    "article-image": "article-image article-image--contextual",
+    "w-full rounded-lg": "article-image",
+    "text-sm text-gray-500 mt-2": ""
+  },
+  "typography": {
+    "text-2xl font-bold": "",
+    "text-xl font-semibold": "",
+    "text-lg": "",
+    "text-gray-600": "",
+    "text-gray-500": "",
+    "font-bold": "",
+    "font-semibold": ""
+  },
+  "components": {
+    "bg-white rounded-lg shadow-md p-6": "stat-card",
+    "border rounded-lg p-4": "feature-card",
+    "bg-gray-50 p-4 rounded": "highlight-box",
+    "bg-blue-50 border-l-4 border-blue-500 p-4": "callout-block",
+    "grid grid-cols-2 md:grid-cols-4 gap-4": "progress-bars-grid",
+    "grid grid-cols-1 md:grid-cols-2 gap-6": "feature-grid",
+    "grid grid-cols-1 md:grid-cols-3 gap-6": "comparison-grid"
+  },
+  "interactive": {
+    "bg-blue-600 text-white px-6 py-3 rounded-lg": "impact-highlight__cta",
+    "bg-white border px-4 py-2 rounded": "share-btn"
+  }
+}

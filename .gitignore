@@ -45,3 +45,6 @@ next-env.d.ts
 .screenshots/
 *.png
 !public/**/*.png
+
+# Embedded repos
+article-engine/
