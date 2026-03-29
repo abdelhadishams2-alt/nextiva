@@ -64,11 +64,11 @@ export async function Hero() {
           </div>
 
           <div className="hero__ctas">
-            <a href="/blogs" className="hero__btn hero__btn--primary">
+            <a href="/blogs" className="hero__btn hero__btn--primary" data-ph-capture-attribute-button="hero-read-reviews">
               <span className="hero__btn-text">{t("primaryCta")}</span>
               <ArrowIcon />
             </a>
-            <a href="/#reviews" className="hero__btn hero__btn--ghost">
+            <a href="/#reviews" className="hero__btn hero__btn--ghost" data-ph-capture-attribute-button="hero-how-we-review">
               <span className="hero__btn-text">{t("secondaryCta")}</span>
               <ArrowIcon />
             </a>

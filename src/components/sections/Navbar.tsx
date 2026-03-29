@@ -194,7 +194,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
         </nav>
 
         <div className="navbar__actions">
-          <a href="/#contact" className="navbar__cta" onClick={smoothScroll}>
+          <a href="/#contact" className="navbar__cta" onClick={smoothScroll} data-ph-capture-attribute-button="navbar-browse-reviews">
             {t('newsletter')}
           </a>
         </div>
@@ -274,7 +274,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
             {t('blog')}
           </a>
         </nav>
-        <a href="/#contact" className="navbar__mobile-cta" onClick={mobileSmooth}>
+        <a href="/#contact" className="navbar__mobile-cta" onClick={mobileSmooth} data-ph-capture-attribute-button="navbar-mobile-browse-reviews">
           {t('newsletter')}
         </a>
       </div>

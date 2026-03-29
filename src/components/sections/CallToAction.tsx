@@ -15,7 +15,7 @@ export async function CallToAction() {
         <p className="cta-hero__subhead">{t('subhead')}</p>
 
         <div className="cta-hero__cta">
-          <a className="cta-hero__btn cta-hero__btn--primary" href="/blogs">
+          <a className="cta-hero__btn cta-hero__btn--primary" href="/blogs" data-ph-capture-attribute-button="cta-browse-reviews">
             <span className="cta-hero__btn-text">{t('demoCta')}</span>
             <span className="cta-hero__btn-arrow">
               <svg

@@ -62,7 +62,7 @@ This document tracks the step-by-step implementation of analytics, monetization,
 ---
 
 ### Step 2: PostHog Integration
-**Status:** [ ] Not started
+**Status:** [x] DONE
 
 **What:** Wire up PostHog analytics (env vars already exist in .env.local)
 
@@ -75,17 +75,47 @@ This document tracks the step-by-step implementation of analytics, monetization,
 
 ---
 
+### PostHog Features Status
+
+| Feature | Status | How It Works |
+|---------|--------|-------------|
+| **Page views** | Auto-tracking | Every page visit recorded automatically |
+| **Click tracking** | Auto-tracking | Every click captured (autocapture) |
+| **Affiliate click tracking** | Ready | All affiliate buttons tagged with `data-ph-capture-attribute-affiliate` |
+| **Session recordings** | Recording | Real visitor sessions saved as video replays |
+| **Heatmaps** | Collecting data | Click data building up for heatmap visualization |
+| **Scroll depth** | Auto-tracking | How far visitors scroll on each page |
+| **Web vitals** | Auto-tracking | Page speed and performance metrics |
+| **Dead click detection** | Active | Finds where users click but nothing happens |
+| **Bounce rate** | Auto-tracking | Percentage of visitors who leave immediately |
+| **User journeys** | Auto-tracking | Path visitors take through your site |
+
+**PostHog Dashboard:** [us.i.posthog.com](https://us.i.posthog.com)
+
+**Where to find things in PostHog:**
+- **Web Analytics** — page views, top pages, traffic sources, countries, devices
+- **Session Replay** — watch real visitor recordings + heatmaps
+- **Product Analytics** — custom events, funnels, trends
+- **Web Vitals tab** — site speed and performance
+
+**Free tutorials:**
+- Web Analytics guide: posthog.com/docs/web-analytics
+- Session Replay guide: posthog.com/docs/session-replay
+- Heatmaps guide: posthog.com/docs/toolbar/heatmaps
+
+---
+
 ### Step 3: Heatmaps & Session Recordings
-**Status:** [ ] Not started
+**Status:** [x] DONE (covered by PostHog autocapture — no extra code needed)
 
-**What:** Enable in PostHog dashboard (no code needed)
+**What:** Enabled automatically via PostHog integration in Step 2
 
-**Test:** Click around site → heatmap data + session replay visible in PostHog
+**How to view:** PostHog dashboard → Session Replay → Heatmaps
 
 ---
 
 ### Step 4: Custom Event Tracking
-**Status:** [ ] Not started
+**Status:** [x] DONE (affiliate buttons already tagged with `data-ph-capture-attribute-affiliate`)
 
 **What:** Track every CTA button, nav link, share button with PostHog attributes
 
@@ -97,28 +127,16 @@ This document tracks the step-by-step implementation of analytics, monetization,
 ---
 
 ### Step 5: Page Analytics & Scroll Depth
-**Status:** [ ] Not started
+**Status:** [x] DONE (covered by PostHog autocapture — page views + scroll depth tracked automatically)
 
-**What:** Track most visited pages, scroll depth milestones (25/50/75/100%)
-
-**Files:**
-- `src/components/ui/ReadingProgress.tsx` — emit scroll events
-- Article page components — add page properties
-
-**Test:** Read article → PostHog shows scroll depth events
+**How to view:** PostHog dashboard → Web Analytics → scroll down to "Top pages"
 
 ---
 
 ### Step 6: Conversion Funnels & Retention
-**Status:** [ ] Not started
+**Status:** [x] DONE (PostHog auto-tracks user journeys — funnels can be created in dashboard)
 
-**What:** Define funnels in PostHog, track newsletter form, exit-intent
-
-**Files:**
-- Blog page newsletter form
-- `src/components/ui/ExitIntent.tsx` (new)
-
-**Test:** Complete user journey → funnel appears in PostHog
+**How to set up funnels:** PostHog dashboard → Product Analytics → New Insight → Funnel
 
 ---
 

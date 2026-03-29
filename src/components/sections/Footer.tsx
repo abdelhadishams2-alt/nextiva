@@ -24,13 +24,13 @@ export async function Footer() {
             </div>
 
             <div className="footer__social">
-              <a href="https://x.com/mansati" aria-label={t('socialX')}>
+              <a href="https://x.com/mansati" aria-label={t('socialX')} data-ph-capture-attribute-button="footer-social-x">
                 <img src="/assets/footer-x.webp" alt={t('socialX')} width={32} height={32} loading="lazy" />
               </a>
-              <a href="https://www.linkedin.com/company/mansati" aria-label={t('socialLinkedIn')}>
+              <a href="https://www.linkedin.com/company/mansati" aria-label={t('socialLinkedIn')} data-ph-capture-attribute-button="footer-social-linkedin">
                 <img src="/assets/footer-linkedin.webp" alt={t('socialLinkedIn')} width={32} height={32} loading="lazy" />
               </a>
-              <a href="https://www.youtube.com/@mansati" aria-label={t('socialYouTube')}>
+              <a href="https://www.youtube.com/@mansati" aria-label={t('socialYouTube')} data-ph-capture-attribute-button="footer-social-youtube">
                 <img src="/assets/footer-youtube.webp" alt={t('socialYouTube')} width={32} height={32} loading="lazy" />
               </a>
             </div>
