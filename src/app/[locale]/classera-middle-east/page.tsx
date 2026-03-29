@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
 import TOCSidebar from '@/components/ui/TOCSidebar';
 import TOCInline from '@/components/ui/TOCInline';
@@ -41,10 +42,31 @@ const tocItemsFull = [
 
 export async function generateMetadata() {
   const t = await getTranslations('Articles.classeraMiddleEast');
+  const title = t('metaTitle');
+  const description = t('metaDescription');
   return {
-    title: t('metaTitle'),
-    description: t('metaDescription'),
+    title,
+    description,
     keywords: 'Classera, MENA EdTech, education operating system, LMS, Arabic education technology, Saudi EdTech, learning management system, education ERP',
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_CONFIG.url}/classera-middle-east`,
+      siteName: SITE_CONFIG.name,
+      images: [{ url: `${SITE_CONFIG.url}/assets/articles/article-classera-education-os-1.webp`, width: 1200, height: 630, alt: title }],
+      type: 'article',
+      publishedTime: '2026-03-24T00:00:00Z',
+      authors: [SITE_CONFIG.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${SITE_CONFIG.url}/assets/articles/article-classera-education-os-1.webp`],
+    },
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/classera-middle-east`,
+    },
   };
 }
 

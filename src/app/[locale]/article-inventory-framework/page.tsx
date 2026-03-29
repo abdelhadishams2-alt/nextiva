@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { SITE_CONFIG } from '@/config/site';
 import { getTranslations } from 'next-intl/server';
 import ReadingProgress from '@/components/ui/ReadingProgress';
 import TOCSidebar from '@/components/ui/TOCSidebar';
@@ -42,10 +43,31 @@ const tocItemsFull = [
 
 export async function generateMetadata() {
   const t = await getTranslations('Articles.articleInventoryFramework');
+  const title = t('metaTitle');
+  const description = t('metaDescription');
   return {
-    title: t('metaTitle'),
-    description: t('metaDescription'),
+    title,
+    description,
     keywords: 'restaurant inventory management, food cost control, inventory framework, restaurant profit margins, food waste reduction, inventory technology, supply chain optimization',
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_CONFIG.url}/article-inventory-framework`,
+      siteName: SITE_CONFIG.name,
+      images: [{ url: `${SITE_CONFIG.url}/assets/articles/article-inventory-framework-1.webp`, width: 1200, height: 630, alt: title }],
+      type: 'article',
+      publishedTime: '2026-03-24T00:00:00Z',
+      authors: [SITE_CONFIG.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${SITE_CONFIG.url}/assets/articles/article-inventory-framework-1.webp`],
+    },
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/article-inventory-framework`,
+    },
   };
 }
 
