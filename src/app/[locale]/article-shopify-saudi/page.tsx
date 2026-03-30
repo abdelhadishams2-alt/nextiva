@@ -86,19 +86,25 @@ export default async function ArticleShopifySaudiPage() {
         <section id="section-1" className="article-section">
           <div className="article-hero-outer">
             <div className="article-hero-inner">
-              <img className="article-hero-bg" src="/assets/articles/article-shopify-saudi-1.webp" alt={t('heroImageAlt')} />
+              <div className="article-hero-bg">
+                <img src="/assets/articles/article-shopify-saudi-1.webp" alt={t('heroImageAlt')} />
+              </div>
               <div className="article-hero-overlay" />
               <div className="article-hero-content">
-                <span className="article-hero-tag">{t('heroBadge')}</span>
+                <span className="hero-tag">{t('heroBadge')}</span>
                 <h1>{t('heroTitle')}</h1>
-                <div className="article-hero-meta">
-                  <span className="article-hero-meta-item">
-                    <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-                    {t('heroReadTime')}
+                <div className="hero-meta-row">
+                  <span>
+                    <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                    {t('heroAuthor')}
                   </span>
-                  <span className="article-hero-meta-item">
+                  <span>
                     <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
                     {t('heroDate')}
+                  </span>
+                  <span className="reading-time">
+                    <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                    {t('heroReadTime')}
                   </span>
                 </div>
               </div>
@@ -139,9 +145,9 @@ export default async function ArticleShopifySaudiPage() {
                 <div className="progress-bars-grid">
                   {[
                     { key: 1, width: '57%' },
-                    { key: 2, width: '100%' },
+                    { key: 2, width: '78%' },
                     { key: 3, width: '30%' },
-                    { key: 4, width: '78%' },
+                    { key: 4, width: '94%' },
                   ].map(({ key, width }) => (
                     <div key={key} className="progress-bar-card">
                       <div className="progress-bar-label">{t(`s2Stat${key}Label`)}</div>

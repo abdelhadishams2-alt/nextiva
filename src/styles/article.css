@@ -6899,9 +6899,11 @@
   .stats-trio { grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .feature-cards-grid { grid-template-columns: repeat(2, 1fr); }
   .rec-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .article-hero-content h1 { font-size: 34px; }
 }
 @media (max-width: 768px) {
   .stats-trio { grid-template-columns: 1fr; }
   .feature-cards-grid { grid-template-columns: 1fr; }
   .rec-cards-grid { grid-template-columns: 1fr; }
+  .article-hero-content h1 { font-size: 26px; line-height: 1.2; }
 }
