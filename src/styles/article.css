@@ -2222,6 +2222,7 @@
    ---------------------------------------------------------------- */
 .feature-matrix {
   width: 100%;
+  min-width: 640px;
   border-collapse: collapse;
   margin: 28px 0;
   font-size: 14px;
@@ -3584,7 +3585,7 @@
 /* ----------------------------------------------------------------
    Scorecard Table (Ecommerce TCO)
    ---------------------------------------------------------------- */
-.scorecard-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 24px; }
+.scorecard-table { width: 100%; min-width: 640px; border-collapse: separate; border-spacing: 0; margin-top: 24px; }
 .scorecard-table th { text-align: left; padding: 14px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-light); border-bottom: 2px solid var(--border); background: var(--card-bg); }
 .scorecard-table th:first-child { border-radius: var(--radius-card) 0 0 0; }
 .scorecard-table th:last-child { border-radius: 0 var(--radius-card) 0 0; }
@@ -3618,7 +3619,8 @@
 .feature-matrix .check { color: #047857; font-weight: 700; font-size: 16px; }
 .feature-matrix .cross { color: #b91c1c; font-weight: 700; font-size: 16px; }
 .feature-matrix .partial { color: #d97706; font-weight: 600; font-size: 13px; }
-.feature-matrix .highlight-col { background: rgba(0,102,255,0.04); }
+.feature-matrix td.highlight-col { background: rgba(0,102,255,0.04); }
+.feature-matrix th.highlight-col { background: var(--accent, #06f); }
 
 /* ----------------------------------------------------------------
    Stacked Chart (Ecommerce TCO)
@@ -3713,7 +3715,8 @@
    Responsive — Ecommerce TCO at 768px
    ================================================================ */
 @media (max-width: 768px) {
-  .arrow-separator { width: 100%; height: 40px; transform: rotate(90deg); }
+  .arrow-separator { width: 100%; height: auto; padding: 12px 0; transform: none; font-size: 20px; color: transparent; }
+  .arrow-separator::after { content: '\2193'; color: var(--accent); }
   .mini-cards-grid { grid-template-columns: 1fr; }
   .two-col-grid { grid-template-columns: 1fr; }
   .qa-grid { grid-template-columns: 1fr; }
@@ -6546,7 +6549,7 @@
    Evaluation Scorecard
    ---------------------------------------------------------------- */
 .scorecard-table {
-  width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 24px;
+  width: 100%; min-width: 640px; border-collapse: separate; border-spacing: 0; margin-top: 24px;
 }
 .scorecard-table th {
   text-align: left; padding: 14px 16px; font-size: 12px; font-weight: 600;
@@ -6747,7 +6750,8 @@
    ---------------------------------------------------------------- */
 @media (max-width: 768px) {
   .problem-solution-grid:has(.arrow-separator) { grid-template-columns: 1fr; }
-  .arrow-separator { width: 100%; height: 40px; transform: rotate(90deg); }
+  .arrow-separator { width: 100%; height: auto; padding: 12px 0; transform: none; font-size: 20px; color: transparent; }
+  .arrow-separator::after { content: '\2193'; color: var(--accent); }
   .mini-cards-grid { grid-template-columns: 1fr; }
   .two-col-grid { grid-template-columns: 1fr; }
   .qa-grid { grid-template-columns: 1fr; }
