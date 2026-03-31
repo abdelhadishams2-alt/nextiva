@@ -6,24 +6,20 @@ import { useEffect } from 'react';
 
 export default function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
-      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
-        capture_pageview: true,
-        capture_pageleave: true,
-        autocapture: true,
-        capture_heatmaps: true,
-        scroll_root_selector: ['main'],
-        loaded: (posthog) => {
-          if (process.env.NODE_ENV === 'development') {
-            posthog.debug();
-          }
-        },
-      });
-    }
+    const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+    if (typeof window === 'undefined' || !key || process.env.NODE_ENV === 'development') return;
+
+    posthog.init(key, {
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+      capture_pageview: true,
+      capture_pageleave: true,
+      autocapture: true,
+      capture_heatmaps: true,
+      scroll_root_selector: ['main'],
+    });
   }, []);
 
-  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NODE_ENV === 'development') {
     return <>{children}</>;
   }
 
