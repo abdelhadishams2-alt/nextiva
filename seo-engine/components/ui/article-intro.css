@@ -1,0 +1,261 @@
+/* ----------------------------------------------------------------
+   ArticleIntro — Mansati Design System
+   Article header with title, authors, methodology, badge, intro
+   ---------------------------------------------------------------- */
+
+.article-intro {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  max-width: 800px;
+  line-height: 1.65;
+}
+
+/* ----------------------------------------------------------------
+   Header (Title + Date)
+   ---------------------------------------------------------------- */
+.article-intro__header {
+  margin-bottom: var(--space-xl);
+}
+
+.article-intro__title {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-lg);
+  font-weight: var(--arizona-heading-weight);
+  line-height: var(--arizona-heading-line-height);
+  letter-spacing: var(--arizona-heading-letter-spacing);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.article-intro__subtitle {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-heading-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: var(--space-sm);
+}
+
+.article-intro__date {
+  font-size: var(--text-body-sm);
+  color: var(--text-tertiary);
+  margin: var(--space-md) 0 0;
+}
+
+.article-intro__updates-link {
+  color: var(--brand-blue);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: var(--text-body-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-intro__updates-link:hover {
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   Methodology Box
+   ---------------------------------------------------------------- */
+.article-intro__methodology {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xl);
+  background: var(--muted-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.article-intro__methodology-text {
+  flex: 1;
+}
+
+.article-intro__methodology-desc {
+  font-size: var(--text-body);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md);
+  line-height: 1.6;
+}
+
+.article-intro__methodology-link {
+  font-size: var(--text-caption-lg);
+  font-weight: 600;
+  color: var(--brand-blue);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-intro__methodology-link:hover {
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   Authors
+   ---------------------------------------------------------------- */
+.article-intro__authors {
+  display: flex;
+  gap: var(--space-lg);
+  flex-shrink: 0;
+}
+
+.article-intro__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.article-intro__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.article-intro__author-name {
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.article-intro__author-role {
+  font-size: var(--text-caption);
+  color: var(--text-tertiary);
+  margin: 2px 0 0;
+}
+
+.article-intro__verified {
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   Disclaimer
+   ---------------------------------------------------------------- */
+.article-intro__disclaimer {
+  font-size: var(--text-body-xs);
+  color: var(--text-tertiary);
+  background: var(--neutral-25);
+  border-left: 3px solid var(--border-subtle);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------------
+   Badge Section
+   ---------------------------------------------------------------- */
+.article-intro__badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  background: var(--muted-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.article-intro__badge-text {
+  flex: 1;
+}
+
+.article-intro__badge-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-body-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.article-intro__badge-subtext {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.article-intro__badge-img {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   Intro Paragraphs
+   ---------------------------------------------------------------- */
+.article-intro__paragraph {
+  font-size: var(--text-body-lg);
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg);
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .article-intro__title {
+    font-size: var(--text-heading-md-lg);
+  }
+
+  .article-intro__methodology {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .article-intro__authors {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .article-intro__badge {
+    gap: var(--space-lg);
+  }
+
+  .article-intro__badge-img {
+    width: 100px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .article-intro__title {
+    font-size: var(--text-heading-md);
+  }
+
+  .article-intro__subtitle {
+    font-size: var(--text-body-lg);
+  }
+
+  .article-intro__methodology {
+    padding: var(--space-lg);
+  }
+
+  .article-intro__authors {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .article-intro__badge {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-lg);
+  }
+
+  .article-intro__badge-img {
+    width: 80px;
+    margin: 0 auto;
+  }
+
+  .article-intro__paragraph {
+    font-size: var(--text-body);
+  }
+}

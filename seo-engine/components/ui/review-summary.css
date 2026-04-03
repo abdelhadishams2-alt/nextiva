@@ -1,0 +1,87 @@
+/* ----------------------------------------------------------------
+   ReviewSummary — Mansati Design System
+   Summary info box with left accent border and rich content
+   ---------------------------------------------------------------- */
+
+.review-summary {
+  max-width: 100%;
+}
+
+.review-summary__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-md);
+  font-weight: var(--arizona-heading-weight);
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin: var(--space-3xl) 0 0;
+}
+
+/* ----------------------------------------------------------------
+   Info Box
+   ---------------------------------------------------------------- */
+.review-summary__box {
+  border-left: 4px solid var(--brand-teal);
+  padding: 0 0 0 var(--space-lg);
+  margin: var(--space-xl) 0 var(--space-2xl);
+}
+
+.review-summary__paragraph {
+  margin-top: var(--space-lg);
+}
+
+.review-summary__paragraph:first-child {
+  margin-top: 0;
+}
+
+.review-summary__paragraph p {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.review-summary__box a {
+  color: var(--brand-teal);
+  text-decoration: none;
+}
+
+.review-summary__box a:hover {
+  color: var(--brand-navy);
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .review-summary__heading {
+    font-size: var(--text-heading-sm);
+    margin-top: var(--space-2xl);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .review-summary__heading {
+    font-size: var(--text-body-xl);
+    line-height: 1.15;
+    margin-top: var(--space-xl);
+  }
+
+  .review-summary__box {
+    padding-left: var(--space-md);
+    margin: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .review-summary__paragraph p {
+    font-size: var(--text-body);
+    line-height: 1.5;
+  }
+
+  .review-summary__paragraph {
+    margin-top: var(--space-md);
+  }
+}

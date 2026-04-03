@@ -1,0 +1,160 @@
+/* ----------------------------------------------------------------
+   RecommendationTabs — Mansati Design System
+   Two-tab pro/con recommendation widget
+   ---------------------------------------------------------------- */
+
+.recommendation-tabs {
+  margin: var(--space-2xl) 0;
+}
+
+.recommendation-tabs__heading {
+  font-family: var(--font-sans);
+  font-size: var(--text-heading-sm);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md);
+}
+
+/* ----------------------------------------------------------------
+   Tab Navigation
+   ---------------------------------------------------------------- */
+.recommendation-tabs__nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.recommendation-tabs__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.recommendation-tabs__tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin-right: var(--space-sm);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  user-select: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.recommendation-tabs__tab:focus-visible {
+  outline: 2px solid var(--brand-teal);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+
+.recommendation-tabs__tab--active {
+  font-weight: 700;
+  border-bottom-color: var(--brand-teal);
+}
+
+/* ----------------------------------------------------------------
+   Tab Icons
+   ---------------------------------------------------------------- */
+.recommendation-tabs__icon {
+  flex-shrink: 0;
+}
+
+.recommendation-tabs__icon--check {
+  width: 18px;
+  height: 18px;
+  color: #7edcd2;
+}
+
+.recommendation-tabs__icon--cross {
+  width: 14px;
+  height: 14px;
+  color: #f28b82;
+}
+
+/* ----------------------------------------------------------------
+   Tab Panel & List
+   ---------------------------------------------------------------- */
+.recommendation-tabs__panel {
+  margin-top: var(--space-md);
+}
+
+.recommendation-tabs__list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.recommendation-tabs__item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: var(--space-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.recommendation-tabs__item p {
+  margin: 0;
+}
+
+.recommendation-tabs__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10' fill='none'%3E%3Cpath d='M1 4.68L5.41 9.08L14.7 1' stroke='%237edcd2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.recommendation-tabs__list--cons .recommendation-tabs__item::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 11 11' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.28033 0.21967C0.987437 -0.0732233 0.512563 -0.0732233 0.21967 0.21967C-0.0732233 0.512563 -0.0732233 0.987437 0.21967 1.28033L4.37212 5.43278L0.21967 9.58523C-0.0732233 9.87813 -0.0732233 10.353 0.21967 10.6459C0.512563 10.9388 0.987437 10.9388 1.28033 10.6459L5.43278 6.49344L9.58523 10.6459C9.87813 10.9388 10.353 10.9388 10.6459 10.6459C10.9388 10.353 10.9388 9.87813 10.6459 9.58523L6.49344 5.43278L10.6459 1.28033C10.9388 0.987437 10.9388 0.512563 10.6459 0.21967C10.353 -0.0732233 9.87813 -0.0732233 9.58523 0.21967L5.43278 4.37212L1.28033 0.21967Z' fill='%23f28b82'/%3E%3C/svg%3E");
+  width: 14px;
+  height: 14px;
+  top: 6px;
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .recommendation-tabs__heading {
+    font-size: var(--text-body-lg);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .recommendation-tabs {
+    margin: var(--space-xl) 0;
+  }
+
+  .recommendation-tabs__heading {
+    font-size: var(--text-body-lg);
+  }
+
+  .recommendation-tabs__tab {
+    font-size: var(--text-body-sm);
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .recommendation-tabs__item {
+    font-size: var(--text-body-sm);
+    line-height: 1.5;
+  }
+}

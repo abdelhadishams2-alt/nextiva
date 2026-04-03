@@ -1,0 +1,530 @@
+/* ----------------------------------------------------------------
+   ReviewHeroCard — Mansati Design System
+   Product review header with score, pros/cons, pricing, CTA
+   ---------------------------------------------------------------- */
+
+.review-hero-card {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+/* ----------------------------------------------------------------
+   Cover Bar
+   ---------------------------------------------------------------- */
+.review-hero-card__cover {
+  background-color: var(--brand-navy);
+  height: 80px;
+}
+
+/* ----------------------------------------------------------------
+   Main Grid (Desktop)
+   ---------------------------------------------------------------- */
+.review-hero-card__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 80px repeat(8, 1fr);
+  grid-template-rows: auto 50px;
+  gap: var(--space-2xl);
+  max-width: var(--content-max-width);
+  padding: var(--space-xl) var(--container-padding) 0;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------------
+   Rank Badge (best-of variant)
+   ---------------------------------------------------------------- */
+.review-hero-card__rank {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--text-body-sm);
+  z-index: 3;
+}
+
+/* ----------------------------------------------------------------
+   Logo Card
+   ---------------------------------------------------------------- */
+.review-hero-card__logo {
+  grid-column: 1 / 4;
+  grid-row: 1 / 3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -60px;
+  background-color: var(--neutral-0);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.10);
+  padding: var(--space-lg);
+}
+
+.review-hero-card__logo img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* ----------------------------------------------------------------
+   Rating Circle
+   ---------------------------------------------------------------- */
+.review-hero-card__score {
+  grid-column: 4 / 5;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+}
+
+.review-hero-card__circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.review-hero-card__circle span {
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  z-index: 2;
+}
+
+.review-hero-card__circle::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  right: 3px;
+  left: 3px;
+  border-radius: 100%;
+  background: var(--neutral-0);
+  z-index: 1;
+}
+
+.review-hero-card__circle--large {
+  width: 80px;
+  height: 80px;
+}
+
+.review-hero-card__circle--large span {
+  font-size: var(--text-body-xl);
+}
+
+.review-hero-card__circle--large::after {
+  top: 4px;
+  bottom: 4px;
+  right: 4px;
+  left: 4px;
+}
+
+/* ----------------------------------------------------------------
+   Summary (Best / Worst / Pricing)
+   ---------------------------------------------------------------- */
+.review-hero-card__summary {
+  grid-column: 5 / 11;
+  grid-row: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.review-hero-card__summary-col {
+  flex: 1 1 0%;
+  padding: 0 var(--space-lg);
+  border-left: 1px solid var(--border-subtle);
+}
+
+.review-hero-card__summary-col--pricing {
+  border-right: 1px solid var(--border-subtle);
+}
+
+.review-hero-card__anchor {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.review-hero-card__label {
+  font-size: var(--text-body-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin: 0 0 5px;
+  letter-spacing: 0.5px;
+}
+
+.review-hero-card__price {
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+/* ----------------------------------------------------------------
+   Pros / Cons Checklist
+   ---------------------------------------------------------------- */
+.review-hero-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-hero-card__list li {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  font-size: var(--text-body-md);
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.review-hero-card__icon-check,
+.review-hero-card__icon-cross {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+/* ----------------------------------------------------------------
+   CTA Button
+   ---------------------------------------------------------------- */
+.review-hero-card__cta {
+  grid-column: 11 / 13;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-hero-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--cta-blue);
+  border: 1px solid var(--cta-blue);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-body-sm);
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.review-hero-card__btn:hover,
+.review-hero-card__btn:focus {
+  background-color: var(--brand-navy);
+  border-color: var(--brand-navy);
+  color: var(--text-white);
+}
+
+/* ----------------------------------------------------------------
+   Tab Navigation (Review / Pricing)
+   ---------------------------------------------------------------- */
+.review-hero-card__nav {
+  grid-column: 4 / 13;
+  grid-row: 2;
+}
+
+.review-hero-card__tabs {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-lg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.review-hero-card__tab {
+  display: block;
+  padding: var(--space-sm);
+  font-size: var(--text-body-xl);
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.review-hero-card__tab--active {
+  font-weight: 700;
+  border-bottom-color: var(--brand-navy);
+}
+
+.review-hero-card__tab:hover {
+  border-bottom-color: var(--brand-navy);
+}
+
+/* ----------------------------------------------------------------
+   Compact Variant (best-of listicle)
+   ---------------------------------------------------------------- */
+.review-hero-card--compact .review-hero-card__cover {
+  height: 0;
+}
+
+.review-hero-card--compact .review-hero-card__inner {
+  grid-template-columns: 120px 60px 1fr auto;
+  grid-template-rows: auto;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--container-padding);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.review-hero-card--compact .review-hero-card__logo {
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: 0;
+  box-shadow: none;
+  border: 1px solid var(--border-subtle);
+}
+
+.review-hero-card--compact .review-hero-card__logo img {
+  max-width: 80px;
+}
+
+.review-hero-card--compact .review-hero-card__score {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.review-hero-card--compact .review-hero-card__summary {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.review-hero-card--compact .review-hero-card__cta {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+/* ----------------------------------------------------------------
+   Versus Variant (side by side)
+   ---------------------------------------------------------------- */
+.review-hero-card--versus .review-hero-card__cover {
+  height: 60px;
+}
+
+.review-hero-card--versus .review-hero-card__inner {
+  grid-template-columns: 140px 60px 1fr auto;
+  grid-template-rows: auto;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--container-padding);
+}
+
+.review-hero-card--versus .review-hero-card__logo {
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: -40px;
+}
+
+.review-hero-card--versus .review-hero-card__logo img {
+  max-width: 100px;
+}
+
+.review-hero-card--versus .review-hero-card__score {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.review-hero-card--versus .review-hero-card__summary {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.review-hero-card--versus .review-hero-card__cta {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .review-hero-card__inner {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: var(--space-md) var(--space-lg);
+    padding: var(--space-lg) var(--container-padding) 0;
+  }
+
+  .review-hero-card__logo {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: -50px;
+    max-width: 160px;
+    padding: var(--space-md);
+  }
+
+  .review-hero-card__logo img {
+    max-width: 120px;
+  }
+
+  .review-hero-card__cta {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .review-hero-card__score {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .review-hero-card__summary {
+    grid-column: 2;
+    grid-row: 2;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .review-hero-card__summary-col {
+    border-left: none;
+    border-right: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .review-hero-card__summary-col--pricing {
+    border-right: none;
+  }
+
+  .review-hero-card__anchor {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .review-hero-card__label {
+    font-size: var(--text-caption-lg);
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .review-hero-card__list li {
+    font-size: var(--text-body-sm);
+    line-height: 1.5;
+  }
+
+  .review-hero-card__list li:not(:first-child) {
+    display: none;
+  }
+
+  .review-hero-card__summary-col--pricing .review-hero-card__list {
+    display: none;
+  }
+
+  .review-hero-card__price {
+    font-size: var(--text-body-sm);
+    margin: 0;
+  }
+
+  .review-hero-card__nav {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .review-hero-card__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Compact stays compact on tablet */
+  .review-hero-card--compact .review-hero-card__inner {
+    grid-template-columns: 100px 50px 1fr auto;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .review-hero-card__inner {
+    grid-template-columns: 140px 1fr;
+    gap: var(--space-sm) var(--space-md);
+    padding: var(--space-md) var(--space-md) 0;
+  }
+
+  .review-hero-card__logo {
+    max-width: 140px;
+    margin-top: -45px;
+    padding: var(--space-sm);
+  }
+
+  .review-hero-card__logo img {
+    max-width: 100px;
+  }
+
+  .review-hero-card__circle--large {
+    width: 65px;
+    height: 65px;
+  }
+
+  .review-hero-card__circle--large span {
+    font-size: var(--text-body-lg);
+  }
+
+  .review-hero-card__list li {
+    font-size: var(--text-body-xs);
+    line-height: 1.4;
+  }
+
+  .review-hero-card__label {
+    font-size: var(--text-caption);
+  }
+
+  .review-hero-card__price {
+    font-size: var(--text-body-xs);
+  }
+
+  .review-hero-card__tab {
+    font-size: var(--text-body-lg);
+  }
+
+  /* Compact stacks on mobile */
+  .review-hero-card--compact .review-hero-card__inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    text-align: center;
+  }
+
+  .review-hero-card--compact .review-hero-card__logo {
+    grid-column: 1;
+    margin: 0 auto;
+    max-width: 120px;
+  }
+
+  .review-hero-card--compact .review-hero-card__score {
+    grid-column: 1;
+    justify-content: center;
+  }
+
+  .review-hero-card--compact .review-hero-card__summary {
+    grid-column: 1;
+  }
+
+  .review-hero-card--compact .review-hero-card__cta {
+    grid-column: 1;
+  }
+}

@@ -27,73 +27,74 @@ const { ARTICLE_TYPES } = require('./article-type-detector');
  */
 const CTA_CONFIGS = {
   review: {
-    // Single tool — all CTAs point to the same partner
-    heroCTA: true,
+    // 3 CTA cards (sidebar, middle, bottom) + mobile sticky bar
+    // All other affiliate links are inline text links (Tooltester style)
+    heroCTA: false,
     sidebar: true,
     mobileBar: true,
     disclosure: true,
-    midArticleInterval: 3,    // every 3 sections
-    inlineCTAInterval: 2,     // inline CTA every 2 sections (offset from mid)
-    conclusionCTA: true,
-    maxCTAs: 8,
+    midArticleCount: 1,        // exactly 1 mid-article card
+    inlineCTAInterval: 0,      // no inline CTA cards — use text links instead
+    conclusionCTA: true,       // 1 bottom card
+    maxCTAs: 3,                // sidebar + middle + bottom = 3 cards total
   },
   comparison: {
-    // Multiple tools — CTAs for the "winner" or rotate between tools
-    heroCTA: false,            // no single tool to promote in hero
+    // 3 CTA cards: sidebar + middle + bottom. Per-tool CTAs are inline text links.
+    heroCTA: false,
     sidebar: true,
     mobileBar: true,
     disclosure: true,
-    midArticleInterval: 3,
-    inlineCTAInterval: 0,     // inline CTAs inside comparison tables instead
+    midArticleCount: 1,
+    inlineCTAInterval: 0,
     conclusionCTA: true,
-    perToolCTA: true,          // CTA button per tool in comparison table
-    maxCTAs: 10,
+    perToolCTA: false,
+    maxCTAs: 3,
   },
   versus: {
-    // Two tools — alternate CTAs between them
+    // 3 CTA cards: sidebar + middle + bottom
     heroCTA: false,
     sidebar: true,
-    mobileBar: false,
+    mobileBar: true,
     disclosure: true,
-    midArticleInterval: 3,
-    inlineCTAInterval: 2,
+    midArticleCount: 1,
+    inlineCTAInterval: 0,
     conclusionCTA: true,
-    alternateCTAs: true,       // switch between tool A and tool B
-    maxCTAs: 6,
+    alternateCTAs: true,
+    maxCTAs: 3,
   },
   'best-of': {
-    // Ranked list — CTA per ranked tool
+    // 3 CTA cards: sidebar + middle + bottom. Per-tool CTAs are inline text links.
     heroCTA: false,
     sidebar: true,
     mobileBar: true,
     disclosure: true,
-    midArticleInterval: 4,
+    midArticleCount: 1,
     inlineCTAInterval: 0,
     conclusionCTA: true,
-    perToolCTA: true,
-    maxCTAs: 12,
+    perToolCTA: false,
+    maxCTAs: 3,
   },
   guide: {
-    // How-to — CTA for the tool being demonstrated
-    heroCTA: true,
+    // 3 CTA cards: sidebar + middle + bottom
+    heroCTA: false,
     sidebar: true,
     mobileBar: true,
     disclosure: true,
-    midArticleInterval: 4,
-    inlineCTAInterval: 3,
-    conclusionCTA: true,
-    maxCTAs: 6,
-  },
-  analysis: {
-    // Market analysis — minimal CTAs, more informational
-    heroCTA: false,
-    sidebar: true,
-    mobileBar: false,
-    disclosure: true,
-    midArticleInterval: 5,
+    midArticleCount: 1,
     inlineCTAInterval: 0,
     conclusionCTA: true,
-    maxCTAs: 4,
+    maxCTAs: 3,
+  },
+  analysis: {
+    // 3 CTA cards: sidebar + middle + bottom
+    heroCTA: false,
+    sidebar: true,
+    mobileBar: true,
+    disclosure: true,
+    midArticleCount: 1,
+    inlineCTAInterval: 0,
+    conclusionCTA: true,
+    maxCTAs: 3,
   },
 };
 
@@ -176,64 +177,29 @@ function generateCTAPlan(opts) {
     });
   }
 
-  // 5. Mid-article and inline CTAs (placed between sections)
-  sections.forEach((section, i) => {
-    if (ctaCount >= maxCTAs) return;
-    const sectionNum = i + 1;
+  // 5. Mid-article CTA card (exactly 1, placed at ~middle of article)
+  if (config.midArticleCount && primaryPartner && ctaCount < maxCTAs) {
+    const midIndex = Math.floor(sections.length / 2);
+    const partner = getPartnerForPosition(midIndex, {
+      primaryPartner, partners, versusInfo, config,
+    });
 
-    // Mid-article CTA (banner style)
-    if (config.midArticleInterval && sectionNum > 1 && sectionNum % config.midArticleInterval === 0) {
-      const partner = getPartnerForPosition(sectionNum, {
-        primaryPartner, partners, versusInfo, config,
-      });
+    plan.placements.push({
+      position: `after-section-${midIndex + 2}`,
+      sectionIndex: midIndex,
+      component: 'AffiliateMidArticle',
+      props: {
+        partner,
+        variant: 'mid',
+      },
+    });
+    ctaCount++;
+  }
 
-      plan.placements.push({
-        position: `after-section-${i + 2}`,
-        sectionIndex: i,
-        component: 'AffiliateMidArticle',
-        props: {
-          partner,
-          variant: `mid-s${i + 2}`,
-        },
-      });
-      ctaCount++;
-    }
-
-    // Inline CTA (text link style)
-    if (config.inlineCTAInterval && sectionNum > 1 && sectionNum % config.inlineCTAInterval === 0 && sectionNum % config.midArticleInterval !== 0) {
-      if (ctaCount >= maxCTAs) return;
-
-      const partner = getPartnerForPosition(sectionNum, {
-        primaryPartner, partners, versusInfo, config,
-      });
-
-      plan.placements.push({
-        position: `inline-section-${i + 2}`,
-        sectionIndex: i,
-        component: 'AffiliateLink',
-        props: {
-          partner,
-          variant: `inline-s${i + 2}`,
-          inline: true,
-        },
-      });
-      ctaCount++;
-    }
-
-    // Per-tool CTA (in comparison tables / ranked cards)
-    if (config.perToolCTA && section.partner && ctaCount < maxCTAs) {
-      plan.placements.push({
-        position: `tool-cta-section-${i + 2}`,
-        sectionIndex: i,
-        component: 'AffiliateLink',
-        props: {
-          partner: section.partner,
-          variant: `tool-s${i + 2}`,
-          inline: false,
-        },
-      });
-      ctaCount++;
-    }
+  // Note: No inline CTA cards or per-tool CTA cards.
+  // Affiliate links within article text use plain <a> tags (Tooltester style),
+  // not AffiliateMidArticle or AffiliateLink components.
+  sections.forEach(() => {
   });
 
   // 6. Conclusion CTA

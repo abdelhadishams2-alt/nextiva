@@ -1,0 +1,167 @@
+/* ----------------------------------------------------------------
+   MethodologyBox — Mansati Design System
+   Credibility box with author cards, verified badges, and learn-more link
+   ---------------------------------------------------------------- */
+
+.methodology-box {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  box-shadow: 0 0 18px 1px rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+/* ----------------------------------------------------------------
+   Text Area
+   ---------------------------------------------------------------- */
+.methodology-box__text {
+  flex: 1 1 auto;
+}
+
+.methodology-box__description {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.methodology-box__link {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  color: var(--brand-teal);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.methodology-box__link:visited {
+  color: var(--brand-teal);
+}
+
+.methodology-box__link:hover {
+  color: var(--brand-navy);
+}
+
+/* ----------------------------------------------------------------
+   Authors Area
+   ---------------------------------------------------------------- */
+.methodology-box__authors {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.methodology-box__author {
+  display: flex;
+  align-items: center;
+  flex: 0 0 50%;
+}
+
+.methodology-box__avatar {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-right: var(--space-xs);
+  flex: 0 0 80px;
+}
+
+.methodology-box__author-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.methodology-box__author-name,
+.methodology-box__author-role {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.methodology-box__author-name {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.methodology-box__author-role {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+/* ----------------------------------------------------------------
+   Verified Badge
+   ---------------------------------------------------------------- */
+.methodology-box__verified {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-teal);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .methodology-box__text {
+    padding-right: 0;
+    min-width: 0;
+  }
+
+  .methodology-box__authors {
+    flex: none;
+    margin-top: var(--space-lg);
+  }
+
+  .methodology-box__avatar {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .methodology-box {
+    flex-direction: column;
+    padding: var(--space-md);
+  }
+
+  .methodology-box__authors {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    gap: var(--space-md);
+  }
+
+  .methodology-box__avatar {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+  }
+
+  .methodology-box__author {
+    min-width: 0;
+  }
+
+  .methodology-box__author-name {
+    white-space: normal;
+  }
+}

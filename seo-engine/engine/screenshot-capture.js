@@ -14,6 +14,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { exec } = require('child_process');
+const { promisify } = require('util');
+const execAsync = promisify(exec);
 
 /**
  * Screenshot plan — defines what pages/steps to capture for an article.
@@ -216,12 +219,38 @@ function buildMCPCalls(plan) {
 }
 
 /**
+ * Convert a Playwright PNG screenshot to WebP.
+ *
+ * @param {string} pngPath - Absolute path to source PNG
+ * @param {string} webpPath - Absolute path to destination WebP
+ * @param {number} [quality=80] - WebP quality (0-100)
+ * @returns {Promise<boolean>} Whether conversion succeeded
+ */
+async function convertScreenshotToWebP(pngPath, webpPath, quality = 80) {
+  try {
+    await execAsync(`cwebp -q ${quality} "${pngPath}" -o "${webpPath}"`);
+    // Remove the source PNG after conversion
+    await fs.promises.unlink(pngPath);
+    return true;
+  } catch {
+    try {
+      await execAsync(`ffmpeg -y -i "${pngPath}" -quality ${quality} "${webpPath}"`);
+      await fs.promises.unlink(pngPath);
+      return true;
+    } catch {
+      // Fallback: rename PNG to .webp (browsers handle it)
+      await fs.promises.rename(pngPath, webpPath);
+      return false;
+    }
+  }
+}
+
+/**
  * Ensure the screenshots directory exists.
  *
  * @param {string} projectDir
- * @param {string} slug
  */
-async function ensureScreenshotDir(projectDir, slug) {
+async function ensureScreenshotDir(projectDir) {
   const dir = path.join(projectDir, 'public', 'assets', 'articles');
   await fs.promises.mkdir(dir, { recursive: true });
   return dir;
@@ -243,4 +272,5 @@ module.exports = {
   generateGuidePlan,
   buildMCPCalls,
   ensureScreenshotDir,
+  convertScreenshotToWebP,
 };

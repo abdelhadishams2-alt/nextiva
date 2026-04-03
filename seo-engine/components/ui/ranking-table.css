@@ -1,0 +1,373 @@
+/* ----------------------------------------------------------------
+   RankingTable — Mansati Design System
+   Ranked comparison table with ratings, pricing, pros/cons, CTAs
+   ---------------------------------------------------------------- */
+
+.ranking-table-section {
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.ranking-table-section h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-md);
+  font-weight: var(--arizona-heading-weight);
+  color: var(--text-primary);
+}
+
+/* ----------------------------------------------------------------
+   Table Base
+   ---------------------------------------------------------------- */
+.ranking-table__scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ranking-table {
+  margin-top: var(--space-xl);
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.ranking-table thead th {
+  background: none;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-body-sm);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-md) var(--space-sm);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.ranking-table td {
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-lg) var(--space-xl);
+  vertical-align: top;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.ranking-table td:first-child {
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  padding: var(--space-md) var(--space-sm);
+  font-size: var(--text-body-lg);
+}
+
+/* ----------------------------------------------------------------
+   Tool Cell
+   ---------------------------------------------------------------- */
+.ranking-table__tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.ranking-table__logo {
+  width: 180px;
+  height: auto;
+  margin: 0 auto 4px;
+  object-fit: contain;
+}
+
+.ranking-table__name {
+  font-size: var(--text-body-lg);
+  color: var(--brand-blue);
+  text-decoration: underline;
+  font-family: var(--font-sans);
+}
+
+.ranking-table__name:hover {
+  color: var(--brand-navy);
+}
+
+.ranking-table__label {
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------
+   Rating Circle (small)
+   ---------------------------------------------------------------- */
+.ranking-table__circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.ranking-table__circle span {
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+  z-index: 2;
+}
+
+.ranking-table__circle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  right: 2px;
+  left: 2px;
+  border-radius: 100%;
+  background: var(--neutral-0);
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------
+   CTA Button
+   ---------------------------------------------------------------- */
+.ranking-table__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  padding: var(--space-sm) var(--space-lg);
+  margin: var(--space-md) 0;
+  border: 1px solid var(--brand-navy);
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-caption-lg);
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  width: 80%;
+  text-align: center;
+}
+
+.ranking-table__btn:hover,
+.ranking-table__btn:focus {
+  background-color: var(--brand-navy);
+  border-color: var(--brand-navy);
+  color: var(--text-white);
+}
+
+/* ----------------------------------------------------------------
+   Pricing Cell
+   ---------------------------------------------------------------- */
+.ranking-table__pricing {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.ranking-table__pricing li {
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.ranking-table__tip {
+  font-size: var(--text-body);
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+}
+
+.ranking-table__link {
+  margin-top: var(--space-sm);
+  font-size: var(--text-body-sm);
+}
+
+.ranking-table__link a {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.ranking-table__link a:hover {
+  text-decoration: underline;
+}
+
+.ranking-table__arrow {
+  color: var(--text-primary);
+}
+
+/* ----------------------------------------------------------------
+   Pros / Cons Lists
+   ---------------------------------------------------------------- */
+.ranking-table__pros ul,
+.ranking-table__cons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-table__pros ul li,
+.ranking-table__cons ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.ranking-table__icon {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 5px;
+}
+
+.ranking-table__icon--check {
+  color: #7edcd2;
+}
+
+.ranking-table__icon--cross {
+  color: #f28b82;
+}
+
+.ranking-table__cons {
+  margin-top: var(--space-md);
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .ranking-table-section h2 {
+    font-size: var(--text-heading-sm);
+  }
+
+  .ranking-table {
+    display: block;
+  }
+
+  .ranking-table thead,
+  .ranking-table tbody {
+    display: block;
+  }
+
+  .ranking-table tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .ranking-table th,
+  .ranking-table td {
+    flex: 1 1 0%;
+    width: 50%;
+    min-width: 0;
+  }
+
+  /* Hide rank column and pros/cons header */
+  .ranking-table thead th:first-child,
+  .ranking-table thead th:nth-child(4),
+  .ranking-table td:first-child,
+  .ranking-table th:first-child {
+    display: none;
+  }
+
+  .ranking-table thead th:nth-child(2),
+  .ranking-table thead th:nth-child(3) {
+    width: 50%;
+  }
+
+  .ranking-table td:nth-child(2),
+  .ranking-table td:nth-child(3) {
+    width: 50%;
+  }
+
+  /* Pros/cons full width */
+  .ranking-table td:nth-child(4) {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  /* data-th labels */
+  .ranking-table tbody td::before {
+    content: attr(data-th);
+    display: block;
+    background: var(--muted-bg);
+    border: 1px solid var(--border-subtle);
+    font-size: var(--text-body-sm);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding: var(--space-md) var(--space-sm);
+    margin-bottom: var(--space-md);
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  /* Pros and cons side by side */
+  .ranking-table__pros,
+  .ranking-table__cons {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+  }
+
+  .ranking-table__cons {
+    padding-left: 3%;
+    margin-top: 0;
+  }
+
+  .ranking-table__btn {
+    width: 100%;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .ranking-table-section h2 {
+    font-size: var(--text-heading-sm);
+  }
+
+  .ranking-table thead {
+    display: none;
+  }
+
+  .ranking-table td {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .ranking-table__tool {
+    min-width: 0;
+  }
+
+  .ranking-table__logo {
+    width: 120px;
+  }
+
+  .ranking-table__btn {
+    width: 100%;
+    padding: var(--space-sm) var(--space-sm);
+    font-size: var(--text-caption);
+  }
+
+  .ranking-table__pricing li,
+  .ranking-table__link,
+  .ranking-table__tip,
+  .ranking-table__pros ul li,
+  .ranking-table__cons ul li {
+    font-size: var(--text-body-xs);
+  }
+
+  .ranking-table__name {
+    font-size: var(--text-body-sm);
+  }
+}

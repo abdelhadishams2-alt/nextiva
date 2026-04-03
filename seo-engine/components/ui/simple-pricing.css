@@ -1,0 +1,112 @@
+/* ----------------------------------------------------------------
+   Simple Pricing
+   ---------------------------------------------------------------- */
+.simple-pricing {
+  margin: var(--space-lg) 0;
+}
+
+.simple-pricing__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-pricing__row {
+  display: flex;
+  align-items: flex-start;
+  margin: var(--space-md) 0;
+}
+
+.simple-pricing__value {
+  flex: 0 0 12%;
+  font-family: var(--font-sans);
+  font-size: 1.85rem;
+  line-height: 1;
+  color: var(--text-primary);
+  margin-right: 10px;
+}
+
+.simple-pricing__detail {
+  flex: 1 1 0%;
+}
+
+.simple-pricing__name {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.simple-pricing__description {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.simple-pricing__notes {
+  margin-top: var(--space-md);
+}
+
+.simple-pricing__note {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: var(--space-md) 0 0;
+}
+
+.simple-pricing__note strong {
+  font-weight: 700;
+}
+
+/* ----------------------------------------------------------------
+   Tablet
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .simple-pricing__value {
+    font-size: 1.5rem;
+  }
+
+  .simple-pricing__name {
+    font-size: 1.15rem;
+  }
+
+  .simple-pricing__description {
+    font-size: 0.95rem;
+  }
+
+  .simple-pricing__note {
+    font-size: 1rem;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Mobile
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .simple-pricing__row {
+    margin: 24px 0;
+  }
+
+  .simple-pricing__value {
+    flex: 0 0 18%;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .simple-pricing__name {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+
+  .simple-pricing__description {
+    font-size: 0.9rem;
+  }
+
+  .simple-pricing__note {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,175 @@
+/* ----------------------------------------------------------------
+   FaqAccordion — Mansati Design System
+   Expandable/collapsible FAQ list with smooth transitions
+   ---------------------------------------------------------------- */
+
+.faq-accordion {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.faq-accordion__item {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.faq-accordion__item:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ----------------------------------------------------------------
+   Trigger Button
+   ---------------------------------------------------------------- */
+.faq-accordion__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: var(--space-lg) 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.faq-accordion__trigger:focus-visible {
+  outline: 2px solid var(--brand-teal);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.faq-accordion__question {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+/* ----------------------------------------------------------------
+   Plus / Minus Icon
+   ---------------------------------------------------------------- */
+.faq-accordion__icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-left: var(--space-md);
+}
+
+.faq-accordion__icon::before,
+.faq-accordion__icon::after {
+  content: "";
+  position: absolute;
+  background: var(--text-primary);
+  transition: transform 0.25s ease-out;
+}
+
+.faq-accordion__icon::before {
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+}
+
+.faq-accordion__icon::after {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.faq-accordion__item--active .faq-accordion__icon::before {
+  transform: rotate(90deg);
+}
+
+.faq-accordion__item--active .faq-accordion__icon::after {
+  transform: rotate(180deg);
+}
+
+/* ----------------------------------------------------------------
+   Collapsible Body
+   ---------------------------------------------------------------- */
+.faq-accordion__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.faq-accordion__body--open {
+  grid-template-rows: 1fr;
+}
+
+.faq-accordion__content {
+  overflow: hidden;
+}
+
+.faq-accordion__body--open .faq-accordion__content {
+  padding-bottom: var(--space-lg);
+}
+
+.faq-accordion__content p {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-top: var(--space-sm);
+}
+
+.faq-accordion__content p:first-child {
+  margin-top: 0;
+}
+
+.faq-accordion__content a {
+  color: var(--brand-teal);
+  text-decoration: none;
+}
+
+.faq-accordion__content a:hover {
+  text-decoration: underline;
+}
+
+.faq-accordion__content img {
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-sm) 0;
+  border-radius: var(--radius-md);
+}
+
+.faq-accordion__content ul {
+  margin: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+.faq-accordion__content ul li {
+  margin-bottom: 4px;
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .faq-accordion__question {
+    font-size: var(--text-body);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .faq-accordion__question {
+    font-size: var(--text-body-sm);
+  }
+
+  .faq-accordion__trigger {
+    padding: var(--space-md) 0;
+  }
+}

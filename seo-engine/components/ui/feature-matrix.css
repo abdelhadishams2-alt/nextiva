@@ -1,0 +1,134 @@
+/* ----------------------------------------------------------------
+   FeatureMatrix — Mansati Design System
+   Grouped feature comparison table with section headings
+   ---------------------------------------------------------------- */
+
+.feature-matrix__scroll {
+  width: 100%;
+}
+
+.feature-matrix {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.feature-matrix caption,
+.feature-matrix tbody,
+.feature-matrix tfoot,
+.feature-matrix thead,
+.feature-matrix tr,
+.feature-matrix th,
+.feature-matrix td {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm, 14px);
+  line-height: 1.3;
+  word-break: normal;
+}
+
+.feature-matrix td[colspan] {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* ----------------------------------------------------------------
+   Table Header
+   ---------------------------------------------------------------- */
+.feature-matrix thead th {
+  background: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-md) var(--space-sm);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.feature-matrix thead th:first-child {
+  text-align: left;
+}
+
+/* ----------------------------------------------------------------
+   Section Heading Row
+   ---------------------------------------------------------------- */
+.feature-matrix__row--section td {
+  background-color: var(--muted-bg);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-md) var(--space-sm);
+  font-weight: 700;
+  color: var(--brand-navy);
+  text-align: left;
+}
+
+/* ----------------------------------------------------------------
+   Feature Rows
+   ---------------------------------------------------------------- */
+.feature-matrix td {
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-md) var(--space-sm);
+  text-align: center;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.feature-matrix__feature {
+  font-weight: 700;
+  text-align: left;
+}
+
+.feature-matrix__row:hover {
+  background-color: var(--muted-bg);
+}
+
+/* ----------------------------------------------------------------
+   Highlighted Row
+   ---------------------------------------------------------------- */
+.feature-matrix__row--highlight td {
+  background-color: var(--muted-bg);
+}
+
+/* ----------------------------------------------------------------
+   Links
+   ---------------------------------------------------------------- */
+.feature-matrix a {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.feature-matrix a:hover {
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   Tablet
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .feature-matrix__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .feature-matrix th,
+  .feature-matrix td {
+    min-width: 150px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Mobile
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .feature-matrix__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .feature-matrix th,
+  .feature-matrix td {
+    min-width: 130px;
+  }
+}

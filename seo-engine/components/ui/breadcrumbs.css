@@ -1,0 +1,80 @@
+/* ----------------------------------------------------------------
+   Breadcrumbs — Mansati Design System
+   Linked breadcrumb trail with separator
+   ---------------------------------------------------------------- */
+
+.breadcrumbs {
+  margin: 0;
+  padding: var(--space-md) 0;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------------------
+   Items & Links
+   ---------------------------------------------------------------- */
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs__link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.breadcrumbs__link:hover {
+  color: var(--brand-teal);
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   Separator
+   ---------------------------------------------------------------- */
+.breadcrumbs__separator {
+  margin: 0 var(--space-xs);
+  color: var(--text-tertiary);
+  font-size: var(--text-body-sm);
+  user-select: none;
+}
+
+/* ----------------------------------------------------------------
+   Current Page
+   ---------------------------------------------------------------- */
+.breadcrumbs__current {
+  color: var(--brand-teal);
+  font-weight: 500;
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .breadcrumbs__list {
+    font-size: var(--text-caption);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    padding: var(--space-sm) 0;
+  }
+
+  .breadcrumbs__list {
+    font-size: var(--text-caption);
+  }
+}

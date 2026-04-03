@@ -17,6 +17,7 @@
 5. **Client components** have `'use client'` and use `useTranslations()` from `next-intl`.
 6. **Desktop-first responsive** — only `max-width` breakpoints (1024px, 768px). Never `min-width`.
 7. **Import alias** `@/` maps to `src/`.
+8. **All images must be `.webp` format** — never PNG, JPG, or SVG for content images. Convert to WebP before saving to `public/assets/`. This applies to hero images, article images, screenshots, logos, and any generated images. WebP is mandatory for performance and file size.
 
 ## CSS Strategy
 

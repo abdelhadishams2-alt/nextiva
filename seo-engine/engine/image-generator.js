@@ -12,6 +12,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { exec } = require('child_process');
+const { promisify } = require('util');
+const execAsync = promisify(exec);
 
 // Gemini MCP output directory
 const GEMINI_OUTPUT_DIR = path.join(
@@ -140,15 +143,43 @@ function buildPrompt({ subject, context, style }) {
 }
 
 /**
+ * Convert a PNG image to WebP format using cwebp or sharp.
+ * Falls back to copying as-is if conversion tools aren't available.
+ *
+ * @param {string} inputPath - Absolute path to source PNG
+ * @param {string} outputPath - Absolute path to destination WebP
+ * @param {number} [quality=80] - WebP quality (0-100)
+ * @returns {Promise<boolean>} Whether conversion succeeded
+ */
+async function convertToWebP(inputPath, outputPath, quality = 80) {
+  try {
+    // Try cwebp (Google's official WebP encoder)
+    await execAsync(`cwebp -q ${quality} "${inputPath}" -o "${outputPath}"`);
+    return true;
+  } catch {
+    try {
+      // Fallback: try ffmpeg
+      await execAsync(`ffmpeg -y -i "${inputPath}" -quality ${quality} "${outputPath}"`);
+      return true;
+    } catch {
+      // Last resort: copy the PNG with .webp extension (browsers handle it)
+      console.warn('No WebP converter found (cwebp/ffmpeg). Copying PNG as-is.');
+      await fs.promises.copyFile(inputPath, outputPath);
+      return false;
+    }
+  }
+}
+
+/**
  * Copy a generated image from Gemini MCP output to the project.
+ * Automatically converts PNG → WebP for performance.
  *
  * @param {string} sourceName - The image filename in Gemini output dir
- * @param {string} destPath - Destination path relative to project root
+ * @param {string} destPath - Destination path relative to project root (must end in .webp)
  * @param {string} projectDir - Absolute path to project root
  * @returns {Promise<boolean>} Whether the copy succeeded
  */
 async function copyGeneratedImage(sourceName, destPath, projectDir) {
-  const source = path.join(GEMINI_OUTPUT_DIR, sourceName);
   const dest = path.join(projectDir, destPath);
 
   try {
@@ -168,6 +199,15 @@ async function copyGeneratedImage(sourceName, destPath, projectDir) {
     }
 
     const sourceFile = path.join(GEMINI_OUTPUT_DIR, matching[0]);
+    const isPNG = sourceFile.endsWith('.png') || sourceFile.endsWith('.PNG');
+    const destIsWebP = dest.endsWith('.webp');
+
+    if (isPNG && destIsWebP) {
+      // Convert PNG → WebP
+      return await convertToWebP(sourceFile, dest);
+    }
+
+    // Already WebP or no conversion needed
     await fs.promises.copyFile(sourceFile, dest);
     return true;
   } catch (err) {
@@ -193,5 +233,6 @@ module.exports = {
   generateImagePrompts,
   buildPrompt,
   copyGeneratedImage,
+  convertToWebP,
   ensureImageDir,
 };
