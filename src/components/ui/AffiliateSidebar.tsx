@@ -1,16 +1,18 @@
 'use client';
 
-import { getAffiliateUrl, affiliatePartners } from '@/config/affiliates';
+import { affiliatePartners } from '@/config/affiliates';
 
 interface AffiliateSidebarProps {
   partner: string;
+  variant?: string;
   label?: string;
   title?: string;
   buttonText?: string;
 }
 
-export default function AffiliateSidebar({ partner, label, title, buttonText }: AffiliateSidebarProps) {
-  const href = getAffiliateUrl(partner);
+export default function AffiliateSidebar({ partner, variant, label, title, buttonText }: AffiliateSidebarProps) {
+  const slug = variant ? `${partner}-${variant}` : `${partner}-sidebar`;
+  const href = `/out/${slug}`;
   const partnerData = affiliatePartners[partner];
   const name = partnerData?.name ?? partner;
 

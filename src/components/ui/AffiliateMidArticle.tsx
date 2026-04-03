@@ -1,16 +1,18 @@
 'use client';
 
-import { getAffiliateUrl, affiliatePartners } from '@/config/affiliates';
+import { affiliatePartners } from '@/config/affiliates';
 
 interface AffiliateMidArticleProps {
   partner: string;
+  variant?: string;
   heading?: string;
   description?: string;
   buttonText?: string;
 }
 
-export default function AffiliateMidArticle({ partner, heading, description, buttonText }: AffiliateMidArticleProps) {
-  const href = getAffiliateUrl(partner);
+export default function AffiliateMidArticle({ partner, variant, heading, description, buttonText }: AffiliateMidArticleProps) {
+  const slug = variant ? `${partner}-${variant}` : `${partner}-mid`;
+  const href = `/out/${slug}`;
   const partnerData = affiliatePartners[partner];
   const name = partnerData?.name ?? partner;
 

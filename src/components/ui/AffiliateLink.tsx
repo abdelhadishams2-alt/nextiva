@@ -1,17 +1,17 @@
 'use client';
 
-import { getAffiliateUrl } from '@/config/affiliates';
-
 interface AffiliateLinkProps {
   partner: string;
+  variant?: string;
   fallbackUrl?: string;
   children: React.ReactNode;
   className?: string;
   inline?: boolean;
 }
 
-export default function AffiliateLink({ partner, fallbackUrl, children, className, inline }: AffiliateLinkProps) {
-  const href = getAffiliateUrl(partner, fallbackUrl);
+export default function AffiliateLink({ partner, variant, fallbackUrl, children, className, inline }: AffiliateLinkProps) {
+  const slug = variant ? `${partner}-${variant}` : partner;
+  const href = fallbackUrl || `/out/${slug}`;
 
   if (inline) {
     return (

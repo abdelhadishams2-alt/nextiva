@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getAffiliateUrl, affiliatePartners } from '@/config/affiliates';
+import { affiliatePartners } from '@/config/affiliates';
 
 interface AffiliateMobileBarProps {
   partner: string;
@@ -11,7 +11,7 @@ interface AffiliateMobileBarProps {
 export default function AffiliateMobileBar({ partner, buttonText }: AffiliateMobileBarProps) {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
-  const href = getAffiliateUrl(partner);
+  const href = `/out/${partner}-mobile`;
   const partnerData = affiliatePartners[partner];
   const name = partnerData?.name ?? partner;
 
