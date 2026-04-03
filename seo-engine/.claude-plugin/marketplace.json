@@ -1,0 +1,39 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "article-engine",
+  "owner": {
+    "name": "emrankelany-oss",
+    "email": "emran.kealny@gmail.com"
+  },
+  "metadata": {
+    "description": "Autonomous article generation engine for Claude Code",
+    "version": "4.6.8"
+  },
+  "plugins": [
+    {
+      "name": "article-engine",
+      "description": "Portable, project-agnostic article generation engine. Generates full standalone HTML article pages from minimal input — with multi-round research, 4-6 AI-generated images, section-level editing, sidebar TOC, trust layer, and automatic design system adaptation. Works on any website.",
+      "source": "./",
+      "strict": false,
+      "version": "4.6.8",
+      "author": {
+        "name": "emrankelany-oss",
+        "email": "emran.kealny@gmail.com"
+      },
+      "homepage": "https://github.com/emrankelany-oss/article-engine",
+      "category": "content-generation",
+      "license": "MIT",
+      "keywords": [
+        "article",
+        "blog",
+        "content-generation",
+        "html",
+        "gemini",
+        "images",
+        "research",
+        "seo",
+        "writing"
+      ]
+    }
+  ]
+}

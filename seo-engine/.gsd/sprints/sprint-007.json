@@ -1,0 +1,11 @@
+{
+  "sprint_id": "sprint-007",
+  "name": "Phase 8-9 Sprint 7 — Voice Agent + Voice Dashboard + Universal Payload",
+  "tasks": ["VI-003", "VI-004", "PB-001"],
+  "anchor_tasks": ["VI-003"],
+  "protocol_update_interval": 2,
+  "protocol_files": ["dev_docs/STATUS.md", "dev_docs/handoff.md"],
+  "verification_commands": null,
+  "created_at": "2026-03-28T18:00:00Z",
+  "created_by": "auto"
+}

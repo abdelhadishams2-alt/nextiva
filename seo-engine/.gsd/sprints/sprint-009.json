@@ -1,0 +1,11 @@
+{
+  "sprint_id": "sprint-009",
+  "name": "Phase 9 Sprint 9 — CMS Adapters + Publish Manager",
+  "tasks": ["PB-004", "PB-005"],
+  "anchor_tasks": ["PB-004"],
+  "protocol_update_interval": 2,
+  "protocol_files": ["dev_docs/STATUS.md", "dev_docs/handoff.md"],
+  "verification_commands": null,
+  "created_at": "2026-03-28T21:00:00Z",
+  "created_by": "auto"
+}

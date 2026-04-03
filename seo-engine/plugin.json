@@ -1,0 +1,11 @@
+{
+  "name": "chainiq",
+  "version": "1.0.0-alpha",
+  "description": "ChainIQ — AI Content Intelligence Platform. Generates full standalone HTML article pages from minimal input by adapting to any website's design system. Features: first-time setup gate, built-in structural component registry (170+ blueprints), runtime visual adaptation, domain integrity enforcement, multi-round research via Gemini MCP, portable Gemini image generation, 4-6 images per article, graceful fallback, sidebar table of contents, visual trust layer, section editing via bridge server, topic-aware composition, and three adaptation modes. Works on any project.",
+  "author": {
+    "name": "emrankelany-oss",
+    "email": "emran.kealny@gmail.com"
+  },
+  "homepage": "https://github.com/emrankelany-oss/article-engine",
+  "license": "MIT"
+}

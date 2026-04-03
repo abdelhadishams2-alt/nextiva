@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta name="keywords" content="{{META_KEYWORDS}}">
+  <meta property="og:title" content="{{PAGE_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  {{FONT_CDN}}
+  <style>
+    /* ================================================================
+       DESIGN TOKENS — injected from project detection or fallback
+       Override these values with the current project's design tokens.
+       ================================================================ */
+    :root {
+      --primary:       {{COLOR_PRIMARY}};
+      --primary-hover: {{COLOR_PRIMARY_HOVER}};
+      --secondary:     {{COLOR_SECONDARY}};
+      --accent:        {{COLOR_ACCENT}};
+      --foreground:    {{COLOR_TEXT}};
+      --text-dark:     {{COLOR_TEXT}};
+      --text-muted:    {{COLOR_TEXT_MUTED}};
+      --text-light:    {{COLOR_TEXT_LIGHT}};
+      --background:    {{COLOR_BACKGROUND}};
+      --card-bg:       {{COLOR_CARD_BG}};
+      --muted-bg:      {{COLOR_MUTED_BG}};
+      --border:        {{COLOR_BORDER}};
+      --radius-btn:    {{RADIUS_BUTTON}};
+      --radius-card:   {{RADIUS_CARD}};
+      --shadow-card:   {{SHADOW_CARD}};
+      --ease:          cubic-bezier(0.4, 0, 0.2, 1);
+      --duration:      0.3s;
+      --container:     {{CONTAINER_WIDTH}};
+      --container-pad: {{CONTAINER_PADDING}};
+    }
+
+    /* ================================================================
+       RESET + BASE
+       ================================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: {{FONT_BODY}};
+      font-size: 16px;
+      color: var(--foreground);
+      background: var(--background);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: {{FONT_HEADING}};
+      font-weight: 600;
+    }
+    a { text-decoration: none; color: inherit; transition: all var(--duration) var(--ease); }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; }
+
+    .container-article {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--container-pad);
+    }
+
+    /* ================================================================
+       READING PROGRESS BAR
+       ================================================================ */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* ================================================================
+       ARTICLE LAYOUT — Two-column with sidebar TOC
+       ================================================================ */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .article-main {
+      min-width: 0;
+    }
+
+    /* ================================================================
+       SIDEBAR TABLE OF CONTENTS
+       ================================================================ */
+    .toc-sidebar {
+      position: sticky;
+      top: 100px;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .toc-sidebar::-webkit-scrollbar { width: 3px; }
+    .toc-sidebar::-webkit-scrollbar-track { background: transparent; }
+    .toc-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    .toc-sidebar-inner {
+      border-right: 2px solid var(--border);
+      padding-right: 0;
+    }
+    .toc-sidebar-label {
+      font-family: {{FONT_HEADING}};
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-light);
+      padding: 0 20px 12px 0;
+      margin: 0;
+    }
+    .toc-sidebar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-sidebar-list li { margin: 0; }
+    .toc-sidebar-list li a {
+      display: block;
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--text-light);
+      padding: 7px 20px 7px 16px;
+      border-right: 2px solid transparent;
+      margin-right: -2px;
+      transition: all var(--duration) var(--ease);
+    }
+    .toc-sidebar-list li a:hover {
+      color: var(--text-dark);
+      border-right-color: var(--border);
+    }
+    .toc-sidebar-list li a.active {
+      color: var(--primary);
+      font-weight: 500;
+      border-right-color: var(--primary);
+      background: linear-gradient(270deg, rgba(0,0,0,0.02), transparent);
+    }
+
+    /* ================================================================
+       INLINE TOC (mobile fallback)
+       ================================================================ */
+    .article-toc-inline {
+      display: none;
+      background: var(--muted-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-inline-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .toc-inline-header h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--secondary);
+      margin: 0;
+    }
+    .toc-inline-toggle {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 4px;
+      transition: transform var(--duration) var(--ease);
+    }
+    .toc-inline-toggle.expanded { transform: rotate(180deg); }
+    .toc-inline-list {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 12px 0 0 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease);
+    }
+    .toc-inline-list.expanded { max-height: 600px; }
+    .toc-inline-list li {
+      counter-increment: toc-counter;
+      margin-bottom: 4px;
+    }
+    .toc-inline-list li a {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: all var(--duration) var(--ease);
+    }
+    .toc-inline-list li a::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      min-width: 18px;
+    }
+    .toc-inline-list li a:hover {
+      background: rgba(0,0,0,0.03);
+      color: var(--primary);
+    }
+    .toc-inline-list li a.active {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* ================================================================
+       TRUST LAYER — Author Box
+       ================================================================ */
+    .author-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .author-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: {{FONT_HEADING}}; font-weight: 600; font-size: 16px;
+      flex-shrink: 0;
+    }
+    .author-info { display: flex; flex-direction: column; gap: 2px; }
+    .author-name { font-weight: 600; font-size: 15px; color: var(--foreground); }
+    .author-meta { font-size: 13px; color: var(--text-light); }
+
+    /* ================================================================
+       TRUST LAYER — Reading Time
+       ================================================================ */
+    .reading-time {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--text-light); font-weight: 500;
+    }
+    .reading-time svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ================================================================
+       TRUST LAYER — Key Takeaways
+       ================================================================ */
+    .key-takeaways {
+      background: var(--muted-bg);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+    .key-takeaways h4 {
+      font-size: 15px; font-weight: 600;
+      color: var(--secondary); margin-bottom: 16px;
+    }
+    .key-takeaways ul { list-style: none; padding: 0; }
+    .key-takeaways li {
+      position: relative; padding-left: 24px;
+      margin-bottom: 10px; font-size: 14px;
+      color: var(--text-dark); line-height: 1.6;
+    }
+    .key-takeaways li::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+    }
+
+    /* ================================================================
+       TRUST LAYER — Source Citations
+       ================================================================ */
+    .sources-block {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 28px 32px; margin: 40px 0;
+    }
+    .sources-block h4 { font-size: 15px; font-weight: 600; color: var(--secondary); margin-bottom: 16px; }
+    .sources-block ol { padding-left: 20px; }
+    .sources-block li { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.5; }
+    .sources-block a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+    .sources-block a:hover { opacity: 0.8; }
+
+    /* ================================================================
+       TRUST LAYER — Share Buttons
+       ================================================================ */
+    .share-buttons {
+      display: flex; align-items: center; gap: 12px;
+      padding: 20px 0; margin: 32px 0; border-top: 1px solid var(--border);
+    }
+    .share-buttons span { font-size: 14px; font-weight: 500; color: var(--text-muted); margin-right: 4px; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 40px; font-size: 13px; font-weight: 500;
+      border: 1px solid var(--border); color: var(--text-muted);
+      transition: all var(--duration) var(--ease);
+    }
+    .share-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ================================================================
+       TRUST LAYER — Expert Callout
+       ================================================================ */
+    .expert-callout {
+      position: relative; padding: 32px 36px; margin: 40px 0;
+      background: var(--muted-bg); border-radius: var(--radius-card); border: 1px solid var(--border);
+    }
+    .expert-callout::before {
+      content: '\201C'; position: absolute; top: 12px; left: 20px;
+      font-size: 64px; font-family: Georgia, serif; color: var(--accent); line-height: 1; opacity: 0.5;
+    }
+    .expert-callout p {
+      font-size: 17px; font-style: italic; color: var(--text-dark);
+      line-height: 1.7; margin-bottom: 12px; position: relative; z-index: 1;
+    }
+    .expert-callout cite { font-size: 13px; font-style: normal; font-weight: 600; color: var(--primary); }
+
+    .last-updated { font-size: 12px; color: var(--text-light); padding: 4px 0; }
+
+    /* ================================================================
+       ARTICLE IMAGES
+       ================================================================ */
+    .article-image { margin: 32px 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
+    .article-image img { width: 100%; height: auto; display: block; }
+    .article-image--hero { margin: 0 0 40px 0; border-radius: var(--radius-card); max-height: 500px; overflow: hidden; }
+    .article-image--hero img { width: 100%; height: 100%; object-fit: cover; }
+    .article-image--contextual { margin: 28px 0; }
+    .article-image--supporting { margin: 24px 0; max-width: 85%; }
+    .article-image--atmospheric { margin: 32px 0; max-height: 400px; overflow: hidden; }
+    .article-image--atmospheric img { width: 100%; height: 100%; object-fit: cover; }
+    .article-image figcaption { padding: 12px 16px; font-size: 13px; color: var(--text-light); background: var(--card-bg); border-top: 1px solid var(--border); }
+
+    /* ================================================================
+       FADE-IN ANIMATION
+       ================================================================ */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ================================================================
+       SECTION EDIT SYSTEM
+       ================================================================ */
+    .article-section {
+      position: relative;
+    }
+    .article-section:hover .section-edit-trigger {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .section-edit-trigger {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      opacity: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 10;
+      transition: opacity 0.2s ease, background 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      font-family: inherit;
+    }
+    .section-edit-trigger:hover {
+      filter: brightness(1.1);
+    }
+    .section-edit-trigger svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Edit overlay */
+    .section-edit-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .section-edit-overlay.active {
+      display: flex;
+    }
+    .section-edit-panel {
+      background: var(--background, #fff);
+      border-radius: var(--radius-card, 12px);
+      padding: 32px;
+      max-width: 560px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .section-edit-panel h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--foreground, #1a1a1a);
+      margin: 0 0 4px 0;
+    }
+    .section-edit-meta {
+      font-size: 12px;
+      color: var(--text-muted, #666);
+      margin-bottom: 20px;
+    }
+    .section-edit-meta span {
+      display: inline-block;
+      background: var(--muted-bg, #f5f5f5);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      font-size: 11px;
+    }
+    .section-edit-input {
+      width: 100%;
+      min-height: 100px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border, #e2e8f0);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--foreground, #1a1a1a);
+      background: var(--background, #fff);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .section-edit-input:focus {
+      border-color: var(--primary, #2563eb);
+    }
+    .section-edit-input::placeholder {
+      color: var(--text-muted, #999);
+    }
+    .section-edit-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      justify-content: flex-end;
+    }
+    .section-edit-btn {
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .section-edit-btn--generate {
+      background: var(--primary, #2563eb);
+      color: #fff;
+    }
+    .section-edit-btn--generate:hover {
+      filter: brightness(1.1);
+    }
+    .section-edit-btn--cancel {
+      background: transparent;
+      color: var(--text-muted, #666);
+      border: 1px solid var(--border, #e2e8f0);
+    }
+    .section-edit-btn--cancel:hover {
+      background: var(--muted-bg, #f5f5f5);
+    }
+
+    /* Edit status toast */
+    .section-edit-status {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .section-edit-status.visible {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-edit-status--success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .section-edit-status--error {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .section-edit-status svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .section-edit-status-text {
+      flex: 1;
+    }
+    .section-edit-status code {
+      background: rgba(0,0,0,0.06);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Fallback prompt toggle */
+    .section-edit-fallback-toggle {
+      display: none;
+      margin-top: 12px;
+      background: none;
+      border: none;
+      color: var(--text-muted, #666);
+      font-size: 12px;
+      cursor: pointer;
+      padding: 4px 0;
+      font-family: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .section-edit-fallback-toggle.visible {
+      display: inline-block;
+    }
+
+    /* Generated prompt display (fallback) */
+    .section-edit-prompt-result {
+      display: none;
+      margin-top: 12px;
+      padding: 16px;
+      background: var(--card-bg, #f8fafc);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 8px;
+    }
+    .section-edit-prompt-result.visible {
+      display: block;
+    }
+    .section-edit-prompt-result pre {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--foreground, #1a1a1a);
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0 0 12px 0;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    }
+    .section-edit-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--primary, #2563eb);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .section-edit-copy-btn:hover {
+      filter: brightness(1.1);
+    }
+
+    /* ================================================================
+       AUTH — Login/Signup Panel
+       ================================================================ */
+    .section-auth-panel { text-align: center; }
+    .section-auth-panel h3 { margin-bottom: 8px; }
+    .section-auth-panel .auth-subtitle {
+      font-size: 13px; color: var(--text-muted, #666);
+      margin-bottom: 24px; line-height: 1.5;
+    }
+    .auth-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border, #e2e8f0);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--foreground, #1a1a1a);
+      background: var(--background, #fff);
+      outline: none;
+      transition: border-color 0.2s ease;
+      margin-bottom: 12px;
+    }
+    .auth-input:focus {
+      border-color: var(--primary, #2563eb);
+    }
+    .auth-input::placeholder {
+      color: var(--text-muted, #999);
+    }
+    .auth-actions {
+      display: flex; gap: 10px;
+      margin-top: 8px; justify-content: flex-end;
+    }
+    .auth-toggle {
+      font-size: 13px; color: var(--text-muted, #666);
+      margin-top: 20px;
+    }
+    .auth-toggle a {
+      color: var(--primary, #2563eb);
+      cursor: pointer; font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .auth-toggle a:hover { opacity: 0.8; }
+    .auth-status {
+      display: none; margin-top: 16px;
+      padding: 12px 16px; border-radius: 8px;
+      font-size: 13px; line-height: 1.5; font-weight: 500;
+      text-align: left;
+    }
+    .auth-status.visible { display: block; }
+    .auth-status--success {
+      background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0;
+    }
+    .auth-status--error {
+      background: #fef2f2; color: #991b1b; border: 1px solid #fecaca;
+    }
+
+    /* Print: hide edit UI */
+    @media print {
+      .section-edit-trigger,
+      .section-edit-overlay { display: none !important; }
+    }
+
+    /* ================================================================
+       RESPONSIVE
+       ================================================================ */
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 220px 1fr; gap: 32px; }
+      .toc-sidebar { top: 88px; }
+      .toc-sidebar-list li a { font-size: 12px; padding: 6px 16px 6px 12px; }
+      .toc-sidebar-label { font-size: 10px; padding-right: 16px; }
+    }
+    @media (max-width: 768px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .toc-sidebar { display: none; }
+      .article-toc-inline { display: block; }
+      .key-takeaways { padding: 20px 24px; }
+      .expert-callout { padding: 24px 28px; }
+      .sources-block { padding: 20px 24px; }
+      .share-buttons { flex-wrap: wrap; }
+      .article-image--supporting { max-width: 100%; }
+      .section-edit-trigger { opacity: 0.7; pointer-events: auto; }
+    }
+    @media (max-width: 480px) {
+      .author-box { flex-direction: column; text-align: center; }
+      .section-edit-panel { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  {{SHELL_NAVBAR}}
+
+  <main>
+    {{ARTICLE_HERO}}
+
+    <div class="container-article">
+      <div class="article-layout">
+        <aside class="toc-sidebar" id="toc-sidebar" aria-label="Table of Contents">
+          {{ARTICLE_TOC_SIDEBAR}}
+        </aside>
+        <div class="article-main">
+          {{ARTICLE_TOC_INLINE}}
+          {{ARTICLE_CONTENT}}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {{SHELL_FOOTER}}
+
+  <!-- Section Edit Overlay -->
+  <div class="section-edit-overlay" id="section-edit-overlay">
+    <!-- Auth Panel (shown when not logged in) -->
+    <div class="section-edit-panel section-auth-panel" id="auth-panel" style="display:none;">
+      <h3 id="auth-panel-title">Login to Edit</h3>
+      <p class="auth-subtitle">Sign in to unlock section editing.</p>
+      <input class="auth-input" type="email" id="auth-email" placeholder="Email address" autocomplete="email">
+      <input class="auth-input" type="password" id="auth-password" placeholder="Password" autocomplete="current-password">
+      <div class="auth-actions">
+        <button class="section-edit-btn section-edit-btn--cancel" id="auth-cancel-btn">Cancel</button>
+        <button class="section-edit-btn section-edit-btn--generate" id="auth-submit-btn">Login</button>
+      </div>
+      <div class="auth-status" id="auth-status"></div>
+      <p class="auth-toggle" id="auth-toggle-text">Don't have an account? <a id="auth-toggle-link">Sign up</a></p>
+    </div>
+    <!-- Edit Panel (shown when logged in) -->
+    <div class="section-edit-panel" id="edit-panel" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 id="edit-section-title">Edit Section</h3>
+        <button class="section-edit-btn section-edit-btn--cancel" id="edit-logout-btn" style="padding:4px 12px; font-size:11px;">Logout</button>
+      </div>
+      <div class="section-edit-meta" id="edit-section-meta"></div>
+      <textarea class="section-edit-input" id="edit-section-input"
+        placeholder="Describe the change you want. Examples:&#10;&#8226; Make this section more emotional&#10;&#8226; Shorten this intro&#10;&#8226; Add stronger facts&#10;&#8226; Make the tone more professional&#10;&#8226; Replace this with a timeline style"></textarea>
+      <div class="section-edit-actions">
+        <button class="section-edit-btn section-edit-btn--cancel" id="edit-cancel-btn">Cancel</button>
+        <button class="section-edit-btn section-edit-btn--generate" id="edit-generate-btn">Apply Edit</button>
+      </div>
+      <div class="section-edit-status" id="edit-status"></div>
+      <button class="section-edit-fallback-toggle" id="edit-fallback-toggle">Show prompt (manual fallback)</button>
+      <div class="section-edit-prompt-result" id="edit-prompt-result">
+        <pre id="edit-prompt-text"></pre>
+        <button class="section-edit-copy-btn" id="edit-copy-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy to clipboard
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fade-in + Progress + TOC + Section Edit -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Fade-in
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+      // Reading progress
+      const bar = document.getElementById('reading-progress');
+      if (bar) {
+        window.addEventListener('scroll', () => {
+          const pct = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (pct > 0 ? (window.scrollY / pct) * 100 : 0) + '%';
+        }, { passive: true });
+      }
+
+      // TOC active state — sync sidebar + inline
+      const sidebarLinks = document.querySelectorAll('.toc-sidebar-list a');
+      const inlineLinks = document.querySelectorAll('.toc-inline-list a');
+      const allLinks = [...sidebarLinks, ...inlineLinks];
+
+      if (allLinks.length > 0) {
+        const secs = [];
+        const seen = new Set();
+        allLinks.forEach(l => {
+          const id = l.getAttribute('href')?.replace('#', '');
+          if (id && !seen.has(id)) { seen.add(id); const el = document.getElementById(id); if (el) secs.push({ el, id }); }
+        });
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              allLinks.forEach(l => l.classList.remove('active'));
+              const id = entry.target.id;
+              allLinks.forEach(l => { if (l.getAttribute('href') === '#' + id) l.classList.add('active'); });
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '-80px 0px -55% 0px' });
+        secs.forEach(s => obs.observe(s.el));
+      }
+
+      // Inline TOC toggle
+      const hdr = document.querySelector('.toc-inline-header');
+      const lst = document.querySelector('.toc-inline-list');
+      const tog = document.querySelector('.toc-inline-toggle');
+      if (hdr && lst) {
+        hdr.addEventListener('click', () => { lst.classList.toggle('expanded'); if (tog) tog.classList.toggle('expanded'); });
+      }
+
+      // Smooth scroll
+      allLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = link.getAttribute('href')?.replace('#', '');
+          const t = id ? document.getElementById(id) : null;
+          if (t) {
+            window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+            if (window.innerWidth <= 768 && lst) { lst.classList.remove('expanded'); if (tog) tog.classList.remove('expanded'); }
+          }
+        });
+      });
+
+      // ================================================================
+      // SECTION EDIT SYSTEM — Auth-gated + Bridge server
+      // When replacing tokens, escape single quotes: ' → \'
+      // ================================================================
+      const ARTICLE_TOPIC = '{{ARTICLE_TOPIC}}';
+      const ARTICLE_FILE = '{{ARTICLE_FILENAME}}';
+      const BRIDGE_URL = 'http://127.0.0.1:19847';
+      const AUTH_TOKEN_KEY = 'article-engine-token';
+
+      function getStoredToken() { return localStorage.getItem(AUTH_TOKEN_KEY); }
+      function storeToken(token) { localStorage.setItem(AUTH_TOKEN_KEY, token); }
+      function clearToken() { localStorage.removeItem(AUTH_TOKEN_KEY); }
+
+      function buildEditPrompt(sectionId, sType, sRole, sPurpose, sHeading, userInput) {
+        return 'SECTION_EDIT:\nUse the autonomous-article-engine skill to update section ' + sectionId + '.\n\nTopic: ' + ARTICLE_TOPIC + '\nArticle file: ' + ARTICLE_FILE + '\nSection ID: ' + sectionId + '\nSection type: ' + sType + '\nSection role: ' + sRole + '\nSection purpose: ' + sPurpose + '\nCurrent section heading: ' + sHeading + '\n\nUser requested change: ' + userInput + '\n\nRULES:\n- Update only this section unless a minimal surrounding adjustment is required for consistency\n- Preserve topic domain integrity\n- Preserve page style and component compatibility\n- Improve the section intelligently and professionally, not just literally\n- Keep the result aligned with the rest of the article\n- If the edit affects a heading, update the sidebar TOC entry to match\n- Maintain the section\'s data attributes (data-section-id, data-section-type, data-section-role)';
+      }
+
+      function showEditStatus(type, msg) {
+        var el = document.getElementById('edit-status');
+        el.className = 'section-edit-status visible section-edit-status--' + type;
+        var icon = type === 'success'
+          ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
+          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+        el.innerHTML = icon + '<span class="section-edit-status-text"></span>';
+        el.querySelector('.section-edit-status-text').textContent = msg;
+      }
+
+      function showAuthStatus(type, text) {
+        var el = document.getElementById('auth-status');
+        el.className = 'auth-status visible auth-status--' + type;
+        el.textContent = text;
+      }
+
+      // Show auth panel or edit panel based on login state
+      function showPanel(which) {
+        document.getElementById('auth-panel').style.display = which === 'auth' ? 'block' : 'none';
+        document.getElementById('edit-panel').style.display = which === 'edit' ? 'block' : 'none';
+      }
+
+      // Auth toggle between login and signup
+      var isSignup = false;
+      function handleAuthToggle() {
+        isSignup = !isSignup;
+        document.getElementById('auth-panel-title').textContent = isSignup ? 'Create Account' : 'Login to Edit';
+        document.getElementById('auth-submit-btn').textContent = isSignup ? 'Sign Up' : 'Login';
+        document.getElementById('auth-toggle-text').innerHTML = isSignup
+          ? 'Already have an account? <a id="auth-toggle-link">Login</a>'
+          : 'Don\'t have an account? <a id="auth-toggle-link">Sign up</a>';
+        document.getElementById('auth-status').className = 'auth-status';
+        // Re-attach toggle listener to the newly created link
+        document.getElementById('auth-toggle-link')?.addEventListener('click', handleAuthToggle);
+      }
+      document.getElementById('auth-toggle-link')?.addEventListener('click', handleAuthToggle);
+
+      // Auth cancel
+      document.getElementById('auth-cancel-btn')?.addEventListener('click', function() {
+        document.getElementById('section-edit-overlay').classList.remove('active');
+      });
+
+      // Auth submit (login or signup)
+      document.getElementById('auth-submit-btn')?.addEventListener('click', function() {
+        var email = document.getElementById('auth-email').value.trim();
+        var password = document.getElementById('auth-password').value;
+        if (!email || !password) {
+          showAuthStatus('error', 'Please enter email and password.');
+          return;
+        }
+        var btn = document.getElementById('auth-submit-btn');
+        btn.disabled = true;
+        btn.textContent = isSignup ? 'Creating...' : 'Logging in...';
+
+        var endpoint = isSignup ? '/auth/signup' : '/auth/login';
+        fetch(BRIDGE_URL + endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, password: password })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.status === 'success') {
+            if (isSignup) {
+              showAuthStatus('success', 'Account created! Your access is pending admin approval.');
+              btn.textContent = 'Sign Up';
+              btn.disabled = false;
+            } else {
+              // Login success — check subscription
+              if (data.subscription && data.subscription.status === 'active') {
+                storeToken(data.access_token);
+                showPanel('edit');
+                document.getElementById('edit-section-input')?.focus();
+              } else {
+                showAuthStatus('error', 'Your account is pending approval. Contact the admin for access.');
+                btn.textContent = 'Login';
+                btn.disabled = false;
+              }
+            }
+          } else {
+            var errMsg = data.error || 'Something went wrong.';
+            if (errMsg.toLowerCase().indexOf('not configured') !== -1) {
+              errMsg = 'Auth service unavailable. Please restart the bridge server with /start-bridge and try again.';
+            }
+            showAuthStatus('error', errMsg);
+            btn.textContent = isSignup ? 'Sign Up' : 'Login';
+            btn.disabled = false;
+          }
+        })
+        .catch(function() {
+          showAuthStatus('error', 'Cannot connect to bridge server. Run /start-bridge first.');
+          btn.textContent = isSignup ? 'Sign Up' : 'Login';
+          btn.disabled = false;
+        });
+      });
+
+      // Edit trigger click handlers — check auth before showing panel
+      document.querySelectorAll('.section-edit-trigger').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var sectionId = btn.getAttribute('data-edit-section');
+          var section = document.getElementById(sectionId);
+          if (!section) return;
+
+          var sType = section.getAttribute('data-section-type') || 'unknown';
+          var sRole = section.getAttribute('data-section-role') || 'unknown';
+          var sHeading = section.getAttribute('data-section-heading') || 'Untitled';
+          var sPurpose = section.getAttribute('data-section-purpose') || '';
+
+          document.getElementById('edit-section-title').textContent = 'Edit: ' + sHeading;
+          var metaEl = document.getElementById('edit-section-meta');
+          metaEl.innerHTML = '<span></span><span></span>';
+          metaEl.children[0].textContent = sType;
+          metaEl.children[1].textContent = sRole.substring(0, 60);
+
+          var overlay = document.getElementById('section-edit-overlay');
+          overlay.setAttribute('data-current-section', sectionId);
+          overlay.setAttribute('data-current-type', sType);
+          overlay.setAttribute('data-current-role', sRole);
+          overlay.setAttribute('data-current-heading', sHeading);
+          overlay.setAttribute('data-current-purpose', sPurpose);
+
+          // Reset state
+          document.getElementById('edit-section-input').value = '';
+          document.getElementById('edit-status').className = 'section-edit-status';
+          document.getElementById('edit-fallback-toggle').classList.remove('visible');
+          document.getElementById('edit-prompt-result').classList.remove('visible');
+          document.getElementById('auth-email').value = '';
+          document.getElementById('auth-password').value = '';
+          document.getElementById('auth-status').className = 'auth-status';
+
+          // Check if user has a stored token
+          var token = getStoredToken();
+          if (token) {
+            // Verify token is still valid
+            fetch(BRIDGE_URL + '/auth/verify', {
+              headers: { 'Authorization': 'Bearer ' + token }
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              if (data.status === 'ok' && data.subscription && data.subscription.status === 'active') {
+                showPanel('edit');
+                overlay.classList.add('active');
+                document.getElementById('edit-section-input').focus();
+              } else {
+                clearToken();
+                showPanel('auth');
+                overlay.classList.add('active');
+              }
+            })
+            .catch(function() {
+              // Bridge not running — keep token (may still be valid when bridge restarts)
+              showPanel('auth');
+              showAuthStatus('error', 'Cannot connect to bridge server. Run /start-bridge first.');
+              overlay.classList.add('active');
+            });
+          } else {
+            showPanel('auth');
+            overlay.classList.add('active');
+          }
+        });
+      });
+
+      // Logout button
+      document.getElementById('edit-logout-btn')?.addEventListener('click', function() {
+        clearToken();
+        showPanel('auth');
+      });
+
+      // Cancel button (edit panel)
+      document.getElementById('edit-cancel-btn')?.addEventListener('click', function() {
+        document.getElementById('section-edit-overlay').classList.remove('active');
+      });
+
+      // Click outside to close
+      document.getElementById('section-edit-overlay')?.addEventListener('click', function(e) {
+        if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+      });
+
+      // Apply Edit button — sends with auth token
+      document.getElementById('edit-generate-btn')?.addEventListener('click', function() {
+        var overlay = document.getElementById('section-edit-overlay');
+        var userInput = document.getElementById('edit-section-input').value.trim();
+        if (!userInput) return;
+
+        var sectionId = overlay.getAttribute('data-current-section');
+        var sType = overlay.getAttribute('data-current-type');
+        var sRole = overlay.getAttribute('data-current-role');
+        var sHeading = overlay.getAttribute('data-current-heading');
+        var sPurpose = overlay.getAttribute('data-current-purpose');
+
+        var prompt = buildEditPrompt(sectionId, sType, sRole, sPurpose, sHeading, userInput);
+        var token = getStoredToken();
+
+        // Store prompt for fallback display
+        document.getElementById('edit-prompt-text').textContent = prompt;
+
+        // Disable button
+        var btn = document.getElementById('edit-generate-btn');
+        btn.textContent = 'Applying edit...';
+        btn.disabled = true;
+
+        // Send to bridge with auth token
+        fetch(BRIDGE_URL + '/apply-edit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + (token || '')
+          },
+          body: JSON.stringify({ prompt: prompt })
+        })
+        .then(function(r) {
+          var httpStatus = r.status;
+          return r.json().then(function(data) { data._httpStatus = httpStatus; return data; });
+        })
+        .then(function(data) {
+          if (data.status === 'success') {
+            showEditStatus('success', 'Section updated automatically! Refresh the page to see changes.');
+            btn.textContent = 'Done!';
+            setTimeout(function() { btn.textContent = 'Apply Edit'; btn.disabled = false; }, 4000);
+          } else if (data.status === 'busy') {
+            showEditStatus('error', 'Another edit is in progress. Please wait and try again.');
+            btn.textContent = 'Apply Edit';
+            btn.disabled = false;
+          } else if (data._httpStatus === 401 || data._httpStatus === 403) {
+            // Token expired or unauthorized — go back to auth
+            clearToken();
+            showPanel('auth');
+            showAuthStatus('error', data.error || 'Session expired. Please log in again.');
+            btn.textContent = 'Apply Edit';
+            btn.disabled = false;
+          } else {
+            showEditStatus('error', 'Edit failed: ' + (data.error || 'Unknown error'));
+            document.getElementById('edit-fallback-toggle').classList.add('visible');
+            btn.textContent = 'Apply Edit';
+            btn.disabled = false;
+          }
+        })
+        .catch(function() {
+          showEditStatus('error', 'Cannot connect to bridge server. Run <code>/start-bridge</code> in Claude Code.');
+          document.getElementById('edit-fallback-toggle').classList.add('visible');
+          btn.textContent = 'Apply Edit';
+          btn.disabled = false;
+        });
+      });
+
+      // Fallback toggle — show/hide raw prompt
+      document.getElementById('edit-fallback-toggle')?.addEventListener('click', function() {
+        document.getElementById('edit-prompt-result').classList.toggle('visible');
+      });
+
+      // Copy button (fallback manual copy)
+      document.getElementById('edit-copy-btn')?.addEventListener('click', function() {
+        var text = document.getElementById('edit-prompt-text').textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          var btn = document.getElementById('edit-copy-btn');
+          var orig = btn.innerHTML;
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.innerHTML = orig; }, 2000);
+        }).catch(function() {
+          // Fallback for non-secure contexts (Firefox file://)
+          var pre = document.getElementById('edit-prompt-text');
+          var range = document.createRange();
+          range.selectNodeContents(pre);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          var btn = document.getElementById('edit-copy-btn');
+          btn.textContent = 'Selected! Press Ctrl+C';
+          setTimeout(function() { btn.innerHTML = orig; }, 3000);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

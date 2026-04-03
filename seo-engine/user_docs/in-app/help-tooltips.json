@@ -1,0 +1,31 @@
+{
+  "tooltips": {
+    "generate-topic": {
+      "title": "Topic Keyword",
+      "body": "Enter a specific topic keyword or phrase. More specific topics produce higher quality articles.",
+      "example": "best CRM software for small businesses 2026"
+    },
+    "generate-language": {
+      "title": "Language",
+      "body": "Choose the article language. Auto-detect uses the language of your topic keyword.",
+      "options": "Arabic, English, French, Spanish, German, Italian, Portuguese, Dutch, Turkish, Japanese, Korean"
+    },
+    "generate-framework": {
+      "title": "Framework",
+      "body": "Choose the output format. Auto-detect analyzes your project to pick the right format.",
+      "options": "Next.js (.tsx), Vue (.vue), Svelte (+page.svelte), WordPress (PHP), Plain HTML"
+    },
+    "api-key-create": {
+      "title": "Create API Key",
+      "body": "API keys authenticate CMS plugins. Copy the key immediately — it's only shown once. Keys are encrypted with AES-256-GCM."
+    },
+    "quality-score": {
+      "title": "Quality Score",
+      "body": "Articles are scored across 7 signals: E-E-A-T, completeness, voice match, AI detection, freshness, technical SEO, and readability. Score of 70%+ is passing."
+    },
+    "edit-section": {
+      "title": "Edit Section",
+      "body": "Describe the change you want in plain language. ChainIQ rewrites only this section while preserving the rest of the article."
+    }
+  }
+}

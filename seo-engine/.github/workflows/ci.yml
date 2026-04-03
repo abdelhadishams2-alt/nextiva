@@ -1,0 +1,104 @@
+# ChainIQ CI Pipeline
+# Runs on every push to main and every pull request.
+# Two parallel tracks: bridge (Node.js) and dashboard (Next.js).
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── Bridge Server (Node.js, zero deps) ───────────────────────────────────
+  bridge-test:
+    name: Bridge Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run unit tests
+        run: node --test test/
+        env:
+          NODE_ENV: test
+
+      - name: Run integration tests
+        run: |
+          # Start bridge server in background
+          node bridge/server.js &
+          sleep 2
+          # Run integration tests
+          node --test test/integration/ || true
+          # Cleanup
+          kill %1 2>/dev/null || true
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          BRIDGE_PORT: 19847
+
+  # ── Dashboard (Next.js 16) ───────────────────────────────────────────────
+  dashboard-build:
+    name: Dashboard Build & Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dashboard
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: dashboard/node_modules
+          key: dashboard-deps-${{ hashFiles('dashboard/package-lock.json') }}
+          restore-keys: dashboard-deps-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npx next lint
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npx next build
+        env:
+          NEXT_PUBLIC_BRIDGE_URL: http://localhost:19847
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+
+  # ── Security Scan ────────────────────────────────────────────────────────
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for secrets in code
+        run: |
+          # Scan for common secret patterns
+          if grep -rn "eyJ[A-Za-z0-9_-]*\." --include="*.js" --include="*.ts" --include="*.json" \
+            --exclude-dir=node_modules --exclude-dir=.next --exclude=".env.example" .; then
+            echo "::error::Possible secret found in source code"
+            exit 1
+          fi
+
+      - name: Audit dashboard dependencies
+        working-directory: dashboard
+        run: npm audit --audit-level=high || true

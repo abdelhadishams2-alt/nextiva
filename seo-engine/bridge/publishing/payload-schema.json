@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UniversalArticlePayload",
+  "description": "Universal article payload schema for cross-platform publishing (WordPress, Shopify, Ghost, generic CMS)",
+  "type": "object",
+  "required": ["title", "slug", "html", "keyword", "status", "format"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "Article title"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 200,
+      "description": "URL-friendly slug derived from title"
+    },
+    "html": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Full article HTML content"
+    },
+    "excerpt": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Short excerpt or summary for previews"
+    },
+    "keyword": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Primary target keyword"
+    },
+    "author": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 200 },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" },
+        "bio": { "type": "string", "maxLength": 2000 }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 100 },
+      "maxItems": 20,
+      "description": "Article categories for taxonomy"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 100 },
+      "maxItems": 50,
+      "description": "Article tags for taxonomy"
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 70,
+          "description": "SEO meta title (may differ from article title)"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "SEO meta description"
+        },
+        "canonical": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Canonical URL if different from published URL"
+        },
+        "og": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string", "maxLength": 95 },
+            "description": { "type": "string", "maxLength": 200 },
+            "image": { "type": ["string", "null"] },
+            "type": { "type": "string", "default": "article" },
+            "locale": { "type": "string" }
+          }
+        },
+        "twitter": {
+          "type": "object",
+          "properties": {
+            "card": { "type": "string", "enum": ["summary", "summary_large_image"] },
+            "title": { "type": "string", "maxLength": 70 },
+            "description": { "type": "string", "maxLength": 200 },
+            "image": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["src", "alt"],
+        "properties": {
+          "src": { "type": "string", "description": "Image URL (original or CDN)" },
+          "cdnSrc": { "type": ["string", "null"], "description": "CDN/CMS media URL after upload" },
+          "alt": { "type": "string", "maxLength": 500 },
+          "width": { "type": ["integer", "null"] },
+          "height": { "type": ["integer", "null"] },
+          "caption": { "type": ["string", "null"], "maxLength": 500 },
+          "mimeType": { "type": ["string", "null"] },
+          "sizeBytes": { "type": ["integer", "null"] },
+          "isFeatured": { "type": "boolean", "default": false }
+        }
+      },
+      "description": "All images extracted from article HTML"
+    },
+    "structuredData": {
+      "type": "object",
+      "properties": {
+        "article": {
+          "type": ["object", "null"],
+          "description": "Article JSON-LD structured data"
+        },
+        "faq": {
+          "type": ["object", "null"],
+          "description": "FAQPage JSON-LD structured data"
+        },
+        "howTo": {
+          "type": ["object", "null"],
+          "description": "HowTo JSON-LD structured data"
+        },
+        "breadcrumb": {
+          "type": ["object", "null"],
+          "description": "BreadcrumbList JSON-LD structured data"
+        }
+      },
+      "description": "JSON-LD structured data objects"
+    },
+    "qualityScore": {
+      "type": "object",
+      "properties": {
+        "overall": { "type": "number", "minimum": 0, "maximum": 100 },
+        "checklist": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number" },
+            "passedCount": { "type": "integer" },
+            "totalCount": { "type": "integer" },
+            "categoryScores": { "type": "object" }
+          }
+        },
+        "eeat": {
+          "type": "object",
+          "properties": {
+            "totalScore": { "type": "number" },
+            "maxScore": { "type": "number" },
+            "grade": { "type": "string" },
+            "dimensions": { "type": "object" }
+          }
+        },
+        "sevenSignals": {
+          "type": ["array", "null"],
+          "description": "Seven-signal weighted scoring breakdown"
+        }
+      },
+      "description": "Quality assessment scores"
+    },
+    "voiceProfile": {
+      "type": ["object", "null"],
+      "properties": {
+        "profileId": { "type": "string" },
+        "matchScore": { "type": "number" },
+        "adjustments": { "type": "object" }
+      },
+      "description": "Voice/tone profile used for generation"
+    },
+    "publishedAt": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Publication timestamp (ISO 8601)"
+    },
+    "updatedAt": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Last update timestamp (ISO 8601)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "review", "scheduled", "published", "archived"],
+      "description": "Publishing status"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["wordpress", "shopify", "ghost", "generic"],
+      "description": "Target platform format"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Content language code (e.g., en, ar, fr)"
+    },
+    "wordCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total word count"
+    },
+    "readingTimeMinutes": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Estimated reading time in minutes"
+    },
+    "platformMeta": {
+      "type": "object",
+      "description": "Platform-specific metadata (varies by format)",
+      "properties": {
+        "wordpress": {
+          "type": "object",
+          "properties": {
+            "postType": { "type": "string", "default": "post" },
+            "postFormat": { "type": "string", "default": "standard" },
+            "featuredMediaId": { "type": ["integer", "null"] },
+            "customFields": { "type": "object" },
+            "yoastMeta": { "type": "object" }
+          }
+        },
+        "shopify": {
+          "type": "object",
+          "properties": {
+            "blogId": { "type": ["string", "null"] },
+            "handle": { "type": "string" },
+            "templateSuffix": { "type": ["string", "null"] },
+            "metafields": { "type": "array" }
+          }
+        },
+        "ghost": {
+          "type": "object",
+          "properties": {
+            "mobiledoc": { "type": ["string", "null"] },
+            "featureImage": { "type": ["string", "null"] },
+            "featureImageAlt": { "type": ["string", "null"] },
+            "codeinjectionHead": { "type": ["string", "null"] },
+            "visibility": { "type": "string", "default": "public" }
+          }
+        }
+      }
+    }
+  }
+}

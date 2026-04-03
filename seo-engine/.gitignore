@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Sensitive files (secrets, tokens — NEVER commit)
+config/.supabase-admin.json
+.supabase-admin.json
+.auth-session.json
+config/.auth-session.json
+
+# Local state files
+config/.usage.json
+config/.setup-status.json
+config/.blueprint-history.json
+
+# Supabase public config (anon key is safe to share — needed for user auth)
+# config/.supabase.json is NOT gitignored — it ships with the plugin
+
+# Bridge server PID
+.claude-bridge-pid
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Master Kit reference (not part of ChainIQ source)
+Master-Kit-main/
+
+# Claude Code local state
+.claude/
+
+# Playwright MCP local state
+.playwright-mcp/
+
+# Generated article images (large binaries)
+images/
+
+# Docker
+.docker/
+
+# Dashboard build artifacts
+dashboard/.next/
+dashboard/node_modules/
+dashboard/out/
+
+# Local marketplace copy
+UsersPc.claudepluginsmarketplacesarticle-engine/

@@ -1,0 +1,63 @@
+{
+  "$schema": "Orchestrator state file — machine-readable resume point",
+  "version": "1.0.0",
+  "project_name": "ChainIQ",
+  "project_slug": "chainiq",
+  "current_step": "8-planning-complete",
+  "completed": ["0-ecosystem", "0.5-maturity", "1-E-intake", "E1-deep-audit", "E2-quality-scorecard", "E3-gap-analysis", "E4-enhancement-backlog", "2-ai-config", "5-service-specs", "6-screen-specs", "8-task-generation", "phase-0-INFRA-001", "phase-0-SEC-001", "phase-0-TEST-001", "phase-0-DOC-001", "phase-1-DASH-001", "phase-1-DASH-002", "phase-1-DASH-003", "phase-1-INFRA-002", "phase-1-UNI-001", "phase-2-POLISH-001-batch1", "phase-2-POLISH-001-batch2", "phase-3-plan", "phase-3-A1-settings-schema", "phase-3-B1-keys-schema", "phase-3-A2-quota-functions", "phase-3-B2-key-manager", "phase-3-C1-framework-router", "phase-3-C2-next-adapter", "phase-3-C3-svelte-adapter", "phase-3-C8-auto-config", "phase-3-A3-plugin-quota", "phase-3-B3-plugin-keys", "phase-3-C7-draft-writer", "phase-3-A4-settings-ui", "phase-3-A5-admin-quota-mgmt", "phase-3-B4-key-mgmt-ui", "phase-3-D3-generate-ui", "phase-3-T3-edit-ux-progress", "phase-3-T3-edit-ux-versions", "phase-3-T3-edit-server-snapshots", "phase-3-D1-generate-api-hardening", "phase-3-D2-sse-token-queryparam", "phase-4-edit-sse-progress", "phase-4-generate-command", "phase-4-publisher-hub", "phase-4-pipeline-audit"],
+  "in_progress": null,
+  "gate_mode": "manual",
+  "stack": {
+    "frontend_framework": "N/A (Claude Code Plugin — markdown/HTML/JS)",
+    "backend_framework": "Node.js (bridge server)",
+    "database": "Supabase (PostgreSQL)",
+    "orm": "Supabase client SDK",
+    "package_manager": "npm",
+    "monorepo": "None",
+    "auth_strategy": "Supabase Auth + Bearer tokens",
+    "hosting_provider": "Local plugin (Claude Code)"
+  },
+  "counts": {
+    "services": 12,
+    "screens": 15,
+    "tasks": 52,
+    "api_contracts": 0,
+    "research_files": 0,
+    "total_docs": 17
+  },
+  "timing": {},
+  "gate_decisions": {},
+  "errors": [],
+  "skipped_steps": [],
+  "path": "enhance",
+  "started_at": "2026-03-26T00:00:00Z",
+  "last_updated": "2026-03-28T18:00:00Z",
+  "maturity": {
+    "score": 45,
+    "classification": "MID_BUILD",
+    "flags": {
+      "HAS_KIT_ARTIFACTS": false,
+      "HAS_EXISTING_TESTS": false,
+      "HAS_EXISTING_SPECS": false,
+      "HAS_TASK_TRACKING": false,
+      "IS_ACTIVE_DEV": true,
+      "NEEDS_ENHANCE_NOT_GREENFIELD": true
+    },
+    "recommended_path": "enhance",
+    "user_approved_path": "enhance"
+  },
+  "config": {
+    "product_name": "ChainIQ",
+    "product_description": "AI Content Intelligence Platform — universal article-engine plugin with dashboard control, multi-language support, and auto-adaptation to any project",
+    "target_market": "Enterprise publishers (initially MENA/Arabic), expanding to universal",
+    "enhancement_goals": [
+      "Dashboard to control plugin configuration, article pipeline, user management, and analytics",
+      "Universal adaptability — any tech stack, any language, zero-config auto-detection",
+      "Multi-language article generation with RTL support",
+      "Transform article-engine plugin into ChainIQ product",
+      "Full dashboard-to-plugin control: settings sync, quota enforcement, API key management",
+      "Framework-aware output: generate native Next.js pages, Vue SFCs, Svelte components",
+      "Dashboard-triggered article generation with real-time progress"
+    ]
+  }
+}
