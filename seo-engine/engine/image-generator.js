@@ -60,8 +60,24 @@ const STYLE_PRESETS = {
 const BRAND_GUIDANCE = [
   'Color palette: navy blue (#02122c), blue (#0062b8), white, subtle warm neutrals.',
   'Style: clean, professional, editorial. No cartoons, no stock photo feel.',
-  'Text in image: NONE. Never include text, labels, or watermarks in the image.',
+  'Text in image: NONE. Never include text, labels, watermarks, or readable words in the image.',
   'Background: clean gradients or subtle geometric patterns, not busy.',
+].join(' ');
+
+/**
+ * Hero-specific guidance.
+ * Hero images sit BEHIND text (title, badge, meta) so they must be:
+ * - Dark enough for white text readability
+ * - No objects/faces in the center (text goes there)
+ * - Abstract/minimal — not illustrative
+ */
+const HERO_GUIDANCE = [
+  'This image will be used as a BACKGROUND behind white text.',
+  'The center must be dark and empty — no objects, faces, or bright elements in the center area.',
+  'Keep visual elements (geometric patterns, light effects) at the edges and corners only.',
+  'The overall image must be dark (navy/deep blue) so white text overlaid on it is perfectly readable.',
+  'Think: premium SaaS landing page background, not an illustration.',
+  'NEVER include any text, words, labels, or readable characters in the image.',
 ].join(' ');
 
 /**
@@ -83,14 +99,12 @@ function generateImagePrompts(opts) {
 
   const prompts = [];
 
-  // 1. Hero image (always)
+  // 1. Hero image (always — dark abstract background, no text, no center objects)
   const heroPreset = STYLE_PRESETS.hero;
   prompts.push({
     name: `${slug}-1`,
-    prompt: buildPrompt({
+    prompt: buildHeroPrompt({
       subject: title,
-      context: 'Hero banner for a professional tech review article.',
-      style: heroPreset.style,
     }),
     preset: 'hero',
     width: heroPreset.width,
@@ -138,6 +152,20 @@ function buildPrompt({ subject, context, style }) {
     `Create a professional editorial illustration for: "${subject}".`,
     context,
     `Visual style: ${style}.`,
+    BRAND_GUIDANCE,
+  ].join('\n');
+}
+
+/**
+ * Build a hero-specific image prompt.
+ * Hero images are dark backgrounds designed for text overlay.
+ */
+function buildHeroPrompt({ subject }) {
+  return [
+    `Create a dark abstract background image for an article about: "${subject}".`,
+    'Dark navy blue (#02122c) base with subtle geometric patterns — soft glowing grid lines, gentle light streaks, and minimal floating tech elements (small dots, thin connection lines).',
+    'Very clean and minimal, designed to be used BEHIND white text overlay.',
+    HERO_GUIDANCE,
     BRAND_GUIDANCE,
   ].join('\n');
 }
@@ -227,11 +255,37 @@ async function ensureImageDir(projectDir) {
   return dir;
 }
 
+/**
+ * Convert a Gemini-generated image (JPEG/PNG) to WebP.
+ * All article images MUST be .webp — never .jpeg or .png.
+ *
+ * @param {string} sourcePath - Absolute path to source image
+ * @param {string} destPath - Absolute path to .webp destination
+ * @param {number} [quality=80] - WebP quality (0-100)
+ * @returns {Promise<boolean>} Whether conversion succeeded
+ */
+async function convertToWebP(sourcePath, destPath, quality = 80) {
+  try {
+    await execAsync(`ffmpeg -y -i "${sourcePath}" -quality ${quality} "${destPath}"`);
+    return true;
+  } catch {
+    try {
+      await execAsync(`cwebp -q ${quality} "${sourcePath}" -o "${destPath}"`);
+      return true;
+    } catch {
+      await fs.promises.copyFile(sourcePath, destPath);
+      return false;
+    }
+  }
+}
+
 module.exports = {
   STYLE_PRESETS,
   BRAND_GUIDANCE,
+  HERO_GUIDANCE,
   generateImagePrompts,
   buildPrompt,
+  buildHeroPrompt,
   copyGeneratedImage,
   convertToWebP,
   ensureImageDir,

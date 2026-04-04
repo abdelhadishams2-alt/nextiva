@@ -12,6 +12,7 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import PricingCards from '@/components/ui/PricingCards';
 
 const tocItems = [
   { id: 'section-2', label: 'Why Shopify' },
@@ -338,20 +339,70 @@ export default async function HowToBuildShopifyStorePage() {
               {/* SECTION 13 -- Pricing */}
               <section id="section-13" className="fade-up article-section">
                 <h2>{t('s13Title')}</h2>
-                {/* Note: t.raw() is used here for trusted, developer-controlled i18n content containing internal links -- not user-generated input */}<p dangerouslySetInnerHTML={{ __html: t.raw('s13Intro') }} />
-                <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/how-to-build-shopify-store-3.webp" alt="Shopify pricing plans comparison 2026" />
-                </figure>
-                <div className="shopify-guide__pricing-grid">
-                  {[1, 2, 3, 4].map((n) => (
-                    <div key={n} className={`shopify-guide__pricing-card${n === 1 ? ' shopify-guide__pricing-card--recommended' : ''}`}>
-                      <h4>{t(`s13Plan${n}Name`)}</h4>
-                      <p className="shopify-guide__pricing-price">{t(`s13Plan${n}Price`)}</p>
-                      <p className="shopify-guide__pricing-features">{t(`s13Plan${n}Features`)}</p>
-                    </div>
-                  ))}
-                </div>
+                {/* Note: t.raw() is used here for trusted, developer-controlled i18n content containing internal links -- not user-generated input */}
+                <p dangerouslySetInnerHTML={{ __html: t.raw('s13Intro') }} />
                 <p>{t('s13P1')}</p>
+                <PricingCards
+                  heading={t('s13PricingHeading')}
+                  description={t('s13PricingDesc')}
+                  badge={t('s13PricingBadge')}
+                  monthlyLabel={t('s13MonthlyLabel')}
+                  yearlyLabel={t('s13YearlyLabel')}
+                  saveLabel={t('s13SaveLabel')}
+                  plans={[
+                    {
+                      name: t('s13Plan1Name'),
+                      monthlyPrice: '$27',
+                      yearlyPrice: '$19',
+                      description: t('s13Plan1Desc'),
+                      isPopular: true,
+                      features: [
+                        t('s13Plan1F1'),
+                        t('s13Plan1F2'),
+                        t('s13Plan1F3'),
+                        t('s13Plan1F4'),
+                        t('s13Plan1F5'),
+                      ],
+                      ctaText: t('s13PlanCta'),
+                      ctaUrl: '/out/shopify-pricing',
+                    },
+                    {
+                      name: t('s13Plan2Name'),
+                      monthlyPrice: '$72',
+                      yearlyPrice: '$54',
+                      description: t('s13Plan2Desc'),
+                      features: [
+                        t('s13Plan2F1'),
+                        t('s13Plan2F2'),
+                        t('s13Plan2F3'),
+                        t('s13Plan2F4'),
+                        t('s13Plan2F5'),
+                        t('s13Plan2F6'),
+                      ],
+                      ctaText: t('s13PlanCta'),
+                      ctaUrl: '/out/shopify-pricing',
+                    },
+                    {
+                      name: t('s13Plan3Name'),
+                      monthlyPrice: '$399',
+                      yearlyPrice: '$299',
+
+                      description: t('s13Plan3Desc'),
+                      features: [
+                        t('s13Plan3F1'),
+                        t('s13Plan3F2'),
+                        t('s13Plan3F3'),
+                        t('s13Plan3F4'),
+                        t('s13Plan3F5'),
+                        t('s13Plan3F6'),
+                        t('s13Plan3F7'),
+                      ],
+                      ctaText: t('s13PlanCta'),
+                      ctaUrl: '/out/shopify-pricing',
+                    },
+                  ]}
+                />
+                <p>{t('s13PricingNote')}</p>
               </section>
 
               {/* SECTION 14 -- FAQ */}

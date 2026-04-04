@@ -87,6 +87,17 @@ const MANSATI_COMPONENTS = {
     description: 'Simplified pricing display with price/name/description rows.',
   },
 
+  PricingCards: {
+    name: 'Pricing Cards',
+    file: 'PricingCards.tsx',
+    css: 'pricing-cards.css',
+    articleTypes: ['review', 'comparison', 'guide', 'best-of'],
+    placement: 'body',
+    priority: 'primary',
+    variants: ['light', 'dark-popular'],
+    description: 'Interactive pricing plan cards with monthly/annual toggle, popular highlight, mobile carousel with drag.',
+  },
+
   // ── Content Blocks ────────────────────────────────────────────
   FaqAccordion: {
     name: 'FAQ Accordion',
