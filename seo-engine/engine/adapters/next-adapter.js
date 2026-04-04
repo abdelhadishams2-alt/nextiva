@@ -47,10 +47,17 @@ function generate(ir) {
   const namespace = camelCase(slug).replace(/[^a-zA-Z0-9]/g, '');
   const files = [];
 
+  // 3. Translation strings for messages/en.json (generate FIRST to know which keys have HTML)
+  const messagesResult = generateMessages({
+    title, articleDesc, sections, images, meta, faq,
+    keyTakeaways, namespace,
+  }, { projectConfig });
+  const htmlKeys = messagesResult._htmlKeys || [];
+
   // 1. Main page component (Server Component — async, getTranslations)
   const pageContent = generatePageComponent({
     title, articleDesc, sections, images, meta, faq,
-    keyTakeaways, slug, namespace, langConfig,
+    keyTakeaways, slug, namespace, langConfig, htmlKeys,
   });
   files.push({ path: `src/app/[locale]/${slug}/page.tsx`, content: pageContent });
 
@@ -58,11 +65,8 @@ function generate(ir) {
   const cssContent = generateBEMCSS(slug, sections, langConfig);
   files.push({ path: `src/styles/article-${slug}.css`, content: cssContent });
 
-  // 3. Translation strings for messages/en.json
-  const messages = generateMessages({
-    title, articleDesc, sections, images, meta, faq,
-    keyTakeaways, namespace,
-  });
+  // Messages already generated above (before page component, to extract htmlKeys)
+  const messages = { Articles: messagesResult.Articles };
 
   // 4. Globals.css import line
   const globalsImport = `@import '../styles/article-${slug}.css';`;
@@ -75,8 +79,29 @@ function generate(ir) {
 function generatePageComponent(opts) {
   const {
     title, articleDesc, sections, images, meta, faq,
-    keyTakeaways, slug, namespace, langConfig,
+    keyTakeaways, slug, namespace, langConfig, htmlKeys = [],
   } = opts;
+
+  const htmlKeySet = new Set(htmlKeys);
+
+  // Helper: render a translation key as JSX.
+  // Uses t.raw() + dangerouslySetInnerHTML for keys containing HTML (affiliate links).
+  // Uses plain t() for plain text keys.
+  // SAFETY: All HTML in translations is developer-controlled i18n content (affiliate links
+  // injected by injectAffiliateLinks), never user-generated input.
+  function renderT(key, tag, indent) {
+    if (htmlKeySet.has(key)) {
+      return `${indent}<${tag} dangerouslySetInnerHTML={{ __html: t.raw('${key}') }} />`;
+    }
+    return `${indent}<${tag}>{t('${key}')}</${tag}>`;
+  }
+
+  // Helper: render a dynamic key (template literal) — always uses t.raw() since
+  // dynamic keys may resolve to HTML-containing values at runtime.
+  // SAFETY: same as renderT — only developer-controlled i18n content.
+  function renderDynamic(keyTemplate, tag, indent) {
+    return `${indent}<${tag} dangerouslySetInnerHTML={{ __html: t.raw(\`${keyTemplate}\`) }} />`;
+  }
 
   const heroImage = images.length > 0 ? images[0] : null;
   const dir = langConfig.direction || 'ltr';
@@ -247,13 +272,15 @@ function generatePageComponent(opts) {
     }
 
     // Section content — paragraphs use translation keys
+    // Uses t.raw() for keys containing HTML (affiliate links), plain t() otherwise
     if (section.paragraphs && section.paragraphs.length > 0) {
       section.paragraphs.forEach((_, pIdx) => {
-        lines.push(`                <p>{t('${sectionKey}P${pIdx + 1}')}</p>`);
+        const pKey = `${sectionKey}P${pIdx + 1}`;
+        lines.push(renderT(pKey, 'p', '                '));
       });
     } else if (section.content) {
-      // Fallback: single content block
-      lines.push(`                <p>{t('${sectionKey}Content')}</p>`);
+      const cKey = `${sectionKey}Content`;
+      lines.push(renderT(cKey, 'p', '                '));
     }
 
     // Section image
@@ -277,9 +304,10 @@ function generatePageComponent(opts) {
     lines.push("                <h2>{t('faqTitle')}</h2>");
     lines.push('                <div className="faq-grid">');
     faq.forEach((_, fIdx) => {
+      const aKey = `faq${fIdx + 1}A`;
       lines.push(`                  <details className="faq-item">`);
       lines.push(`                    <summary>{t('faq${fIdx + 1}Q')}</summary>`);
-      lines.push(`                    <p>{t('faq${fIdx + 1}A')}</p>`);
+      lines.push(renderT(aKey, 'p', '                    '));
       lines.push('                  </details>');
     });
     lines.push('                </div>');
@@ -381,11 +409,12 @@ function generateBEMCSS(slug, sections, langConfig) {
 
 // ── Translation Messages Generator ─────────────────────────────────
 
-function generateMessages(opts) {
+function generateMessages(opts, extra = {}) {
   const {
     title, articleDesc, sections, images, meta, faq,
     keyTakeaways, namespace,
   } = opts;
+  const { projectConfig } = extra;
 
   const msgs = {};
 
@@ -442,7 +471,24 @@ function generateMessages(opts) {
     });
   }
 
-  return { [`Articles`]: { [namespace]: msgs } };
+  // Inject affiliate hyperlinks into text that mentions tool/platform names
+  // Converts plain text mentions like "shopify.com" into /out/ affiliate links
+  injectAffiliateLinks(msgs, projectConfig || {});
+
+  // Escape all values for next-intl ICU safety (prevents { } in CSS/code from breaking)
+  for (const key of Object.keys(msgs)) {
+    msgs[key] = escapeICU(msgs[key]);
+  }
+
+  // Track which keys contain HTML (for t.raw() usage in page.tsx)
+  const htmlKeys = new Set();
+  for (const key of Object.keys(msgs)) {
+    if (typeof msgs[key] === 'string' && /<[a-z][\s\S]*>/i.test(msgs[key])) {
+      htmlKeys.add(key);
+    }
+  }
+
+  return { [`Articles`]: { [namespace]: msgs }, _htmlKeys: [...htmlKeys] };
 }
 
 // ── Utilities ──────────────────────────────────────────────────────
@@ -479,4 +525,83 @@ function getInitials(name) {
   return name.split(/\s+/).map(w => w[0]).join('').toUpperCase().slice(0, 2);
 }
 
-module.exports = { description, extensions, generate };
+/**
+ * Inject affiliate hyperlinks into translation text.
+ * Converts plain-text mentions of tool names, URLs, and UI labels into
+ * /out/{partner}-{variant} affiliate links.
+ *
+ * Only injects into keys that contain step instructions, tips, or FAQ answers
+ * (keys matching: *Step*, *Tip, *Intro, faq*A). Skips titles and labels.
+ *
+ * @param {object} msgs - Translation messages object (mutated in place)
+ * @param {object} [projectConfig] - Project config with affiliate registry
+ */
+function injectAffiliateLinks(msgs, projectConfig = {}) {
+  // Known tool domains and their partner slugs
+  const LINK_PATTERNS = [
+    { pattern: /\bshopify\.com\b/gi, partner: 'shopify', variant: 'signup', label: 'shopify.com' },
+    { pattern: /\bwix\.com\b/gi, partner: 'wix', variant: 'signup', label: 'wix.com' },
+    { pattern: /\bsalla\.sa\b/gi, partner: 'salla', variant: 'signup', label: 'salla.sa' },
+    { pattern: /\bzid\.sa\b/gi, partner: 'zid', variant: 'signup', label: 'zid.sa' },
+    { pattern: /\bfoodics\.com\b/gi, partner: 'foodics', variant: 'signup', label: 'foodics.com' },
+    { pattern: /\bhostinger\.com\b/gi, partner: 'hostinger', variant: 'signup', label: 'hostinger.com' },
+    { pattern: /\bodoo\.com\b/gi, partner: 'odoo', variant: 'signup', label: 'odoo.com' },
+  ];
+
+  // Standard affiliate link attributes
+  const LINK_ATTRS = 'class="affiliate-text-link" target="_blank" rel="nofollow sponsored noopener"';
+
+  // Verified Shopify app store slugs (validated against live app store)
+  const VERIFIED_APP_SLUGS = {
+    'tap-payments': 'tap',
+    'tap': 'tap',
+    'marmin': 'marmin-e-invoicing-ksa-test',
+    'oto': 'oto',
+    'sufio': 'sufio',
+    'translate-and-adapt': 'translate-and-adapt',
+    'translate': 'translate-and-adapt',
+  };
+
+  // Only inject into content keys (steps, tips, intros, FAQ answers)
+  const INJECTABLE_KEY_PATTERN = /Step\d|Tip$|Intro$|faq\d+A$/;
+
+  for (const key of Object.keys(msgs)) {
+    if (!INJECTABLE_KEY_PATTERN.test(key)) continue;
+    if (typeof msgs[key] !== 'string') continue;
+
+    let text = msgs[key];
+    // Skip if already contains <a> tags (already has links)
+    if (/<a\s/.test(text)) continue;
+
+    for (const { pattern, partner, variant, label } of LINK_PATTERNS) {
+      if (pattern.test(text)) {
+        text = text.replace(pattern, `<a href="/out/${partner}-${variant}" ${LINK_ATTRS}>${label}</a>`);
+      }
+    }
+    msgs[key] = text;
+  }
+}
+
+/**
+ * Escape curly braces in translation values for next-intl ICU format.
+ * next-intl treats { and } as ICU message syntax placeholders.
+ * Literal braces (e.g. CSS code snippets) must be escaped as '{' and '}'.
+ *
+ * @param {string} text - Raw translation value
+ * @returns {string} ICU-safe translation value
+ */
+function escapeICU(text) {
+  if (typeof text !== 'string') return text;
+  // Only escape if the braces are NOT valid ICU placeholders like {name} or {count, plural, ...}
+  // Simple heuristic: if content between braces contains spaces, colons, or semicolons, it's code not ICU
+  return text.replace(/\{([^}]*)\}/g, (match, inner) => {
+    // Valid ICU: {name}, {count, plural, one {# item} other {# items}}
+    // Invalid (code): { direction: rtl; }, { color: red }
+    if (/[;:]/.test(inner) || /^\s/.test(inner)) {
+      return "'{'" + inner + "'}'";
+    }
+    return match;
+  });
+}
+
+module.exports = { description, extensions, generate, escapeICU };

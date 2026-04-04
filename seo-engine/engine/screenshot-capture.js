@@ -165,6 +165,20 @@ function generateGuidePlan(opts) {
 function buildMCPCalls(plan) {
   const calls = [];
 
+  // Always set viewport to 1440x900 before first screenshot
+  calls.push({
+    tool: 'mcp__plugin_playwright_playwright__browser_resize',
+    params: { width: 1440, height: 900 },
+    description: 'Set viewport to 1440x900 for consistent screenshots',
+  });
+
+  // Hide scrollbar so it doesn't appear in screenshots
+  calls.push({
+    tool: 'mcp__plugin_playwright_playwright__browser_evaluate',
+    params: { expression: "document.documentElement.style.cssText += 'overflow: auto; scrollbar-width: none; -ms-overflow-style: none;'; document.head.insertAdjacentHTML('beforeend', '<style>::-webkit-scrollbar{display:none}</style>');" },
+    description: 'Hide scrollbar for clean screenshots',
+  });
+
   for (const step of plan) {
     // Navigate
     calls.push({

@@ -1591,12 +1591,19 @@
   color: var(--text-muted);
   line-height: 1.7;
 }
-.article-prose a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.article-prose a,
+.article-section a:not([class]),
+.affiliate-text-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
-.article-prose a:hover { opacity: 0.8; }
+.article-prose a:hover,
+.article-section a:not([class]):hover,
+.affiliate-text-link:hover {
+  color: var(--accent);
+}
 
 /* ----------------------------------------------------------------
    Big Stat Callout (bp-big-stat-callout)
