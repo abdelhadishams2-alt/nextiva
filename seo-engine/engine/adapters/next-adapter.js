@@ -71,7 +71,19 @@ function generate(ir) {
   // 4. Globals.css import line
   const globalsImport = `@import '../styles/article-${slug}.css';`;
 
-  return { files, globalsImport, messages };
+  // 5. Blog listing entry (for blogs/page.tsx)
+  const blogEntry = {
+    slug,
+    image: `/assets/articles/${slug}-1.webp`,
+    badge: meta.category || 'Article',
+    title,
+    excerpt: articleDesc || title,
+    date: meta.date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    readTime: meta.readTime || '10 min read',
+    category: meta.articleType || 'general',
+  };
+
+  return { files, globalsImport, messages, blogEntry };
 }
 
 // ── Page Component (Server Component) ──────────────────────────────
@@ -302,10 +314,10 @@ function generatePageComponent(opts) {
     lines.push('              {/* FAQ */}');
     lines.push('              <section className="fade-up article-section">');
     lines.push("                <h2>{t('faqTitle')}</h2>");
-    lines.push('                <div className="faq-grid">');
+    lines.push('                <div className="shopify-guide__faq-list">');
     faq.forEach((_, fIdx) => {
       const aKey = `faq${fIdx + 1}A`;
-      lines.push(`                  <details className="faq-item">`);
+      lines.push(`                  <details className="shopify-guide__faq-item">`);
       lines.push(`                    <summary>{t('faq${fIdx + 1}Q')}</summary>`);
       lines.push(renderT(aKey, 'p', '                    '));
       lines.push('                  </details>');
@@ -352,45 +364,8 @@ function generateBEMCSS(slug, sections, langConfig) {
   lines.push('   ---------------------------------------------------------------- */');
   lines.push('');
 
-  // FAQ styles (if needed)
-  lines.push('.faq-grid {');
-  lines.push('  display: flex;');
-  lines.push('  flex-direction: column;');
-  lines.push('  gap: 12px;');
-  lines.push('  margin-top: 24px;');
-  lines.push('}');
-  lines.push('');
-  lines.push('.faq-item {');
-  lines.push('  border: 1px solid var(--border);');
-  lines.push('  border-radius: var(--radius-card);');
-  lines.push('  padding: 0;');
-  lines.push('  overflow: hidden;');
-  lines.push('}');
-  lines.push('');
-  lines.push('.faq-item summary {');
-  lines.push('  padding: 16px 24px;');
-  lines.push('  font-weight: 600;');
-  lines.push('  font-size: 15px;');
-  lines.push('  cursor: pointer;');
-  lines.push('  list-style: none;');
-  lines.push('  color: var(--text-dark);');
-  lines.push('  transition: background var(--duration) var(--ease);');
-  lines.push('}');
-  lines.push('');
-  lines.push('.faq-item summary:hover {');
-  lines.push('  background: var(--muted-bg);');
-  lines.push('}');
-  lines.push('');
-  lines.push('.faq-item summary::-webkit-details-marker { display: none; }');
-  lines.push('');
-  lines.push('.faq-item p {');
-  lines.push('  padding: 0 24px 16px;');
-  lines.push('  margin: 0;');
-  lines.push('  color: var(--text-muted);');
-  lines.push('  font-size: 14px;');
-  lines.push('  line-height: 1.7;');
-  lines.push('}');
-  lines.push('');
+  // FAQ uses shared shopify-guide__faq-list / shopify-guide__faq-item styles from article.css
+
 
   // RTL overrides
   if (isRTL) {

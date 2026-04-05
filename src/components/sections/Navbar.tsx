@@ -52,33 +52,33 @@ function CategoriesDropdown() {
         {/* Technology */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('websiteBuilders')}</h4>
-          <MegaMenuItem title={t('websiteBuildersItems.wordpress')} desc={t('websiteBuildersItems.wordpressDesc')} href="/article-ecommerce-tco" />
-          <MegaMenuItem title={t('websiteBuildersItems.wix')} desc={t('websiteBuildersItems.wixDesc')} href="/article-mpos-hidden-math" />
-          <MegaMenuItem title={t('websiteBuildersItems.squarespace')} desc={t('websiteBuildersItems.squarespaceDesc')} href="/cloud-based-inventory-management" />
-          <MegaMenuItem title={t('websiteBuildersItems.shopify')} desc={t('websiteBuildersItems.shopifyDesc')} href="/delivery-apps" />
-          <MegaMenuItem title={t('websiteBuildersItems.webflow')} desc={t('websiteBuildersItems.webflowDesc')} href="/tap-payment-gateway" />
+          <MegaMenuItem title={t('websiteBuildersItems.wordpress')} desc={t('websiteBuildersItems.wordpressDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('websiteBuildersItems.wix')} desc={t('websiteBuildersItems.wixDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('websiteBuildersItems.squarespace')} desc={t('websiteBuildersItems.squarespaceDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('websiteBuildersItems.shopify')} desc={t('websiteBuildersItems.shopifyDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('websiteBuildersItems.webflow')} desc={t('websiteBuildersItems.webflowDesc')} href="/how-to-build-shopify-store" />
         </div>
         {/* Saudi Arabia */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('hosting')}</h4>
-          <MegaMenuItem title={t('hostingItems.cloudways')} desc={t('hostingItems.cloudwaysDesc')} href="/article-shopify-saudi" />
-          <MegaMenuItem title={t('hostingItems.siteground')} desc={t('hostingItems.sitegroundDesc')} href="/project-management-companies-in-saudi-arabia" />
-          <MegaMenuItem title={t('hostingItems.bluehost')} desc={t('hostingItems.bluehostDesc')} href="/classera-middle-east" />
-          <MegaMenuItem title={t('hostingItems.hostinger')} desc={t('hostingItems.hostingerDesc')} href="/odoo-saudi-arabia" />
+          <MegaMenuItem title={t('hostingItems.cloudways')} desc={t('hostingItems.cloudwaysDesc')} href="/foodics-review" />
+          <MegaMenuItem title={t('hostingItems.siteground')} desc={t('hostingItems.sitegroundDesc')} href="/foodics-review" />
+          <MegaMenuItem title={t('hostingItems.bluehost')} desc={t('hostingItems.bluehostDesc')} href="/foodics-review" />
+          <MegaMenuItem title={t('hostingItems.hostinger')} desc={t('hostingItems.hostingerDesc')} href="/how-to-build-shopify-store" />
         </div>
         {/* E-Commerce */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('ecommerce')}</h4>
-          <MegaMenuItem title={t('ecommerceItems.shopify')} desc={t('ecommerceItems.shopifyDesc')} href="/article-ecommerce-tco" />
-          <MegaMenuItem title={t('ecommerceItems.woocommerce')} desc={t('ecommerceItems.woocommerceDesc')} href="/article-mpos-hidden-math" />
-          <MegaMenuItem title={t('ecommerceItems.bigcommerce')} desc={t('ecommerceItems.bigcommerceDesc')} href="/erp-software-saudi-arabia" />
+          <MegaMenuItem title={t('ecommerceItems.shopify')} desc={t('ecommerceItems.shopifyDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('ecommerceItems.woocommerce')} desc={t('ecommerceItems.woocommerceDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('ecommerceItems.bigcommerce')} desc={t('ecommerceItems.bigcommerceDesc')} href="/foodics-review" />
         </div>
         {/* Restaurant & Food */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('marketing')}</h4>
-          <MegaMenuItem title={t('marketingItems.mailchimp')} desc={t('marketingItems.mailchimpDesc')} href="/foodics-saudi-arabia" />
-          <MegaMenuItem title={t('marketingItems.hubspot')} desc={t('marketingItems.hubspotDesc')} href="/article-saudi-food-delivery" />
-          <MegaMenuItem title={t('marketingItems.semrush')} desc={t('marketingItems.semrushDesc')} href="/article-inventory-framework" />
+          <MegaMenuItem title={t('marketingItems.mailchimp')} desc={t('marketingItems.mailchimpDesc')} href="/foodics-review" />
+          <MegaMenuItem title={t('marketingItems.hubspot')} desc={t('marketingItems.hubspotDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('marketingItems.semrush')} desc={t('marketingItems.semrushDesc')} href="/foodics-review" />
         </div>
       </div>
     </div>
@@ -233,33 +233,33 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
               {/* Technology */}
               <div className="navbar__mobile-cat-group">
                 <span className="navbar__mobile-cat-heading">{t('categoriesMenu.websiteBuilders')}</span>
-                <a href="/article-ecommerce-tco" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.wordpress')}</a>
-                <a href="/article-mpos-hidden-math" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.wix')}</a>
-                <a href="/cloud-based-inventory-management" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.squarespace')}</a>
-                <a href="/delivery-apps" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.shopify')}</a>
-                <a href="/tap-payment-gateway" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.webflow')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.wordpress')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.wix')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.squarespace')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.shopify')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.websiteBuildersItems.webflow')}</a>
               </div>
               {/* Saudi Arabia */}
               <div className="navbar__mobile-cat-group">
                 <span className="navbar__mobile-cat-heading">{t('categoriesMenu.hosting')}</span>
-                <a href="/article-shopify-saudi" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.cloudways')}</a>
-                <a href="/project-management-companies-in-saudi-arabia" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.siteground')}</a>
-                <a href="/classera-middle-east" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.bluehost')}</a>
-                <a href="/odoo-saudi-arabia" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.hostinger')}</a>
+                <a href="/foodics-review" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.cloudways')}</a>
+                <a href="/foodics-review" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.siteground')}</a>
+                <a href="/foodics-review" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.bluehost')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.hostingItems.hostinger')}</a>
               </div>
               {/* E-Commerce */}
               <div className="navbar__mobile-cat-group">
                 <span className="navbar__mobile-cat-heading">{t('categoriesMenu.ecommerce')}</span>
-                <a href="/article-ecommerce-tco" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.shopify')}</a>
-                <a href="/article-mpos-hidden-math" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.woocommerce')}</a>
-                <a href="/erp-software-saudi-arabia" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.bigcommerce')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.shopify')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.woocommerce')}</a>
+                <a href="/foodics-review" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.ecommerceItems.bigcommerce')}</a>
               </div>
               {/* Restaurant & Food */}
               <div className="navbar__mobile-cat-group">
                 <span className="navbar__mobile-cat-heading">{t('categoriesMenu.marketing')}</span>
-                <a href="/foodics-saudi-arabia" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.mailchimp')}</a>
-                <a href="/article-saudi-food-delivery" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.hubspot')}</a>
-                <a href="/article-inventory-framework" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.semrush')}</a>
+                <a href="/foodics-review" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.mailchimp')}</a>
+                <a href="/how-to-build-shopify-store" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.hubspot')}</a>
+                <a href="/foodics-review" className="navbar__mobile-cat-item" onClick={() => setMobileOpen(false)}>{t('categoriesMenu.marketingItems.semrush')}</a>
               </div>
             </div>
           </div>

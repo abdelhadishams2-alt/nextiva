@@ -1,0 +1,114 @@
+/* ----------------------------------------------------------------
+   Shopify vs Salla — Article-Specific Overrides
+   Most styles inherit from article.css. Only comparison-specific
+   elements are defined here.
+   ---------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------
+   Feature Matrix — Highlight Alternating Rows
+   ---------------------------------------------------------------- */
+
+.shopify-vs-salla__feature-matrix tbody tr:nth-child(even) {
+  background: rgba(13, 148, 136, 0.03);
+}
+
+/* ----------------------------------------------------------------
+   Pricing Table — Accent Price Columns
+   ---------------------------------------------------------------- */
+
+.shopify-vs-salla__pricing-table td:nth-child(3),
+.shopify-vs-salla__pricing-table td:nth-child(5) {
+  font-weight: 700;
+  color: var(--accent, #0d9488);
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------
+   Verdict Grid — Side-by-Side Cards
+   ---------------------------------------------------------------- */
+
+.shopify-vs-salla__verdict-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.shopify-vs-salla__verdict-card {
+  background: var(--surface-2, #f8f9fa);
+  border: 2px solid var(--border, #e1deda);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.shopify-vs-salla__verdict-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.shopify-vs-salla__verdict-card p {
+  margin: 0 0 16px;
+  color: var(--text-muted, #6b7280);
+  line-height: 1.65;
+}
+
+.shopify-vs-salla__verdict-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.shopify-vs-salla__verdict-card ul li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.shopify-vs-salla__verdict-card--shopify {
+  border-color: #96bf48;
+}
+
+.shopify-vs-salla__verdict-card--shopify h3 {
+  color: #5e8e3e;
+}
+
+.shopify-vs-salla__verdict-card--salla {
+  border-color: #7c3aed;
+}
+
+.shopify-vs-salla__verdict-card--salla h3 {
+  color: #7c3aed;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .shopify-vs-salla__verdict-grid {
+    gap: 20px;
+  }
+
+  .shopify-vs-salla__verdict-card {
+    padding: 24px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .shopify-vs-salla__verdict-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .shopify-vs-salla__verdict-card {
+    padding: 20px;
+  }
+
+  .shopify-vs-salla__verdict-card h3 {
+    font-size: 1.1rem;
+  }
+}

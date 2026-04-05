@@ -960,16 +960,7 @@ sidebar_compatibility: works in main column
 | bp-gantt-timeline | Gantt-Style Timeline | chronological-content | Project timelines |
 | bp-two-track-process | Two-Track Process | sequential-content | Parallel workflows |
 | bp-process-cards-grid | Process Cards Grid | sequential-content | Process step cards |
-| bp-classic-accordion | Classic Accordion FAQ | interactive | Standard FAQ |
-| bp-two-col-qa | Two-Column Q&A | interactive | Grid FAQ layout |
-| bp-tabbed-faq | Tabbed FAQ Categories | interactive | Categorized FAQ |
-| bp-faq-cards-grid | FAQ Cards Grid | interactive | Card-style FAQ |
-| bp-inline-qa | Inline Q&A List | editorial | Simple Q&A pairs |
-| bp-faq-category-headers | FAQ + Category Headers | interactive | Grouped FAQ sections |
-| bp-featured-question | Featured Question | editorial | Single highlighted Q&A |
-| bp-faq-sidebar | FAQ Sidebar Panel | interactive | Sidebar FAQ |
-| bp-visual-qa-icons | Visual Q&A + Icons | interactive | Icon-enhanced FAQ |
-| bp-faq-summary-table | FAQ Summary Table | data-visualization | Tabular FAQ |
+| bp-classic-accordion | Classic Accordion FAQ | interactive | Standard FAQ — MANDATORY for all articles. Uses native details/summary with shopify-guide__faq-list + shopify-guide__faq-item classes. No other FAQ pattern allowed. |
 | bp-problem-approach-results | Problem→Approach→Results | comparison | Three-phase case studies |
 | bp-case-study-before-after | Case Study Before/After | comparison | Case study metrics |
 | bp-testimonial-results | Testimonial + Results | comparison | Quote with metrics |
@@ -1064,7 +1055,7 @@ Different topic types benefit from different component mixes:
 | **Historical / Narrative** | timeline, pull-quote, image-caption, section-heading, vertical-timeline-v2, horizontal-milestones, gantt-timeline, milestone-timeline, chapter-intro | Chronological storytelling |
 | **Comparison / Review** | before-after, comparison-table, mini-cards, problem-solution, do-dont-panel, capability-comparison, feature-matrix, pricing-tiers, comparison-data-bars, service-comparison | Side-by-side contrast |
 | **Feature / Product** | feature-grid, mini-cards, inline-cta, highlight-callout, service-type-cards, image-feature-list, tip-cards, icon-stat-row | Benefits and conversion |
-| **FAQ / Informational** | faq-accordion, key-takeaways, callout, two-col-text, classic-accordion, tabbed-faq, faq-cards-grid, two-col-faq, faq-sidebar, expandable-faq, visual-qa-icons | Scannable answers |
+| **FAQ / Informational** | classic-accordion (details/summary), key-takeaways, callout, two-col-text | Scannable answers — ALL articles MUST use the same accordion FAQ (shopify-guide__faq-list) |
 | **Opinion / Editorial** | pull-quote, section-heading, image-caption, callout, pull-quote-editorial, decorative-blockquote, highlighted-quote, blockquote-highlight, key-insight, lead-drop-cap | Voice and emphasis |
 | **Case Study / Results** | problem-approach-results, client-success, compact-case-study, three-phase-case, results-dashboard, mini-case-studies, testimonial-results, impact-highlight, outcome-banner | Evidence and proof |
 | **Visual / Media-rich** | hero-image-gradient, mosaic-grid, bento-grid, horizontal-gallery, glassmorphism-card, image-testimonial, parallax-banner, asymmetric-duo, image-tiles, image-comparison-slider | Visual storytelling |

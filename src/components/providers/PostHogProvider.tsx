@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 export default function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-    if (typeof window === 'undefined' || !key || process.env.NODE_ENV === 'development') return;
+    if (typeof window === 'undefined' || !key) return;
 
     posthog.init(key, {
       api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
@@ -19,7 +19,7 @@ export default function PostHogProvider({ children }: { children: React.ReactNod
     });
   }, []);
 
-  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.NODE_ENV === 'development') {
+  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     return <>{children}</>;
   }
 

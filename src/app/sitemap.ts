@@ -2,22 +2,9 @@ import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/config/site';
 
 const articleSlugs = [
-  'article-ecommerce-tco',
-  'article-inventory-framework',
-  'article-mpos-hidden-math',
-  'article-saudi-food-delivery',
-  'article-shopify-saudi',
-  'classera-middle-east',
-  'cloud-based-inventory-management',
-  'delivery-apps',
-  'erp-software-saudi-arabia',
-  'foodics-saudi-arabia',
-  'inventory-management-software',
-  'odoo-saudi-arabia',
-  'online-inventory-management-system',
-  'project-management-companies-in-saudi-arabia',
-  'restaurant-inventory-management-system',
-  'tap-payment-gateway',
+  'shopify-vs-salla',
+  'how-to-build-shopify-store',
+  'foodics-review',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

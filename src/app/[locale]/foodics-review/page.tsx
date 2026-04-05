@@ -380,12 +380,12 @@ export default async function FoodicsReviewPage() {
               {/* SECTION 12 -- FAQ */}
               <section id="section-12" className="fade-up article-section">
                 <h2>{t('s12Title')}</h2>
-                <div className="qa-grid">
+                <div className="shopify-guide__faq-list">
                   {[1, 2, 3, 4, 5].map((n) => (
-                    <div key={n} className="qa-card">
-                      <h4><span className="qa-icon">Q</span> {t(`s12Q${n}`)}</h4>
+                    <details key={n} className="shopify-guide__faq-item">
+                      <summary>{t(`s12Q${n}`)}</summary>
                       <p>{t(`s12A${n}`)}</p>
-                    </div>
+                    </details>
                   ))}
                 </div>
               </section>
