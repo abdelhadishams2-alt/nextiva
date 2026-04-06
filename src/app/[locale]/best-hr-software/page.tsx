@@ -14,47 +14,47 @@ import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 
 const tocItems = [
-  { id: 'section-2', label: 'Why ZATCA Matters' },
+  { id: 'section-2', label: 'Why HR Software' },
   { id: 'section-3', label: 'Quick Comparison' },
-  { id: 'section-4', label: 'ZATCA Phase 2' },
-  { id: 'section-5', label: 'Foodics' },
-  { id: 'section-6', label: 'Marn POS' },
-  { id: 'section-7', label: 'Odoo POS' },
-  { id: 'section-8', label: 'Loyverse' },
-  { id: 'section-9', label: 'Others' },
+  { id: 'section-4', label: 'Jisr' },
+  { id: 'section-5', label: 'ZenHR' },
+  { id: 'section-6', label: 'Bayzat' },
+  { id: 'section-7', label: 'Darwinbox' },
+  { id: 'section-8', label: 'Others' },
+  { id: 'section-9', label: 'Saudi Compliance' },
   { id: 'section-10', label: 'How to Choose' },
   { id: 'section-11', label: 'Verdict' },
   { id: 'section-12', label: 'FAQ' },
 ];
 
 const tocItemsFull = [
-  { id: 'section-2', label: 'Why ZATCA Compliance Is Non-Negotiable in 2025' },
-  { id: 'section-3', label: 'Quick Comparison: All 9 POS Systems at a Glance' },
-  { id: 'section-4', label: 'Understanding ZATCA Phase 2 Requirements' },
-  { id: 'section-5', label: 'Foodics: Best POS for Saudi Restaurants' },
-  { id: 'section-6', label: 'Marn POS: Best Saudi-Born All-Rounder' },
-  { id: 'section-7', label: 'Odoo POS: Best for ERP-Connected Businesses' },
-  { id: 'section-8', label: 'Loyverse: Best Free POS Option' },
-  { id: 'section-9', label: 'POSRocket, iiko, Lightspeed, Square & Toast' },
-  { id: 'section-10', label: 'How to Choose the Right POS for Your Business' },
-  { id: 'section-11', label: 'Our Verdict: Which POS Should You Choose?' },
+  { id: 'section-2', label: 'Why Every Saudi Business Needs HR Software in 2026' },
+  { id: 'section-3', label: 'Quick Comparison: All 7 HR Platforms at a Glance' },
+  { id: 'section-4', label: 'Jisr: Best HR Software for Saudi SMEs' },
+  { id: 'section-5', label: 'ZenHR: Best Value MENA-Focused HR Platform' },
+  { id: 'section-6', label: 'Bayzat: Best All-in-One HR + Insurance Platform' },
+  { id: 'section-7', label: 'Darwinbox: Best Enterprise HR for Fast-Growing Companies' },
+  { id: 'section-8', label: 'SAP SuccessFactors, BambooHR & MudadHR' },
+  { id: 'section-9', label: 'Saudi Compliance: GOSI, Mudad, Nitaqat & Qiwa Explained' },
+  { id: 'section-10', label: 'How to Choose the Right HR Software' },
+  { id: 'section-11', label: 'Our Verdict: Which HR Software Should You Choose?' },
   { id: 'section-12', label: 'Frequently Asked Questions' },
 ];
 
 export async function generateMetadata() {
-  const t = await getTranslations('Articles.bestPosSystemsSaudi');
+  const t = await getTranslations('Articles.bestHrSoftwareSaudi');
   const title = t('metaTitle');
   const description = t('metaDescription');
   return {
     title,
     description,
-    keywords: 'best POS system Saudi Arabia, POS Saudi Arabia, ZATCA compliant POS, Foodics POS, Marn POS, point of sale Saudi, restaurant POS KSA, retail POS Saudi, mada payment POS, e-invoicing Saudi Arabia',
+    keywords: 'best HR software Saudi Arabia, HR system KSA, Jisr HR, ZenHR Saudi, Bayzat KSA, GOSI integration, Mudad compliance, Saudization tracking, Nitaqat HR, payroll software Saudi Arabia',
     openGraph: {
       title,
       description,
-      url: `${SITE_CONFIG.url}/best-pos-systems-saudi`,
+      url: `${SITE_CONFIG.url}/best-hr-software`,
       siteName: SITE_CONFIG.name,
-      images: [{ url: `${SITE_CONFIG.url}/assets/articles/best-pos-systems-saudi-1.webp`, width: 1200, height: 630, alt: title }],
+      images: [{ url: `${SITE_CONFIG.url}/assets/articles/best-hr-software-saudi-1.webp`, width: 1200, height: 630, alt: title }],
       type: 'article',
       publishedTime: '2026-04-06T00:00:00Z',
       authors: [SITE_CONFIG.author],
@@ -63,16 +63,16 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title,
       description,
-      images: [`${SITE_CONFIG.url}/assets/articles/best-pos-systems-saudi-1.webp`],
+      images: [`${SITE_CONFIG.url}/assets/articles/best-hr-software-saudi-1.webp`],
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/best-pos-systems-saudi`,
+      canonical: `${SITE_CONFIG.url}/best-hr-software`,
     },
   };
 }
 
-export default async function BestPosSystemsSaudiPage() {
-  const t = await getTranslations('Articles.bestPosSystemsSaudi');
+export default async function BestHrSoftwareSaudiPage() {
+  const t = await getTranslations('Articles.bestHrSoftwareSaudi');
 
   return (
     <>
@@ -84,7 +84,7 @@ export default async function BestPosSystemsSaudiPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/best-pos-systems-saudi-1.webp" alt={t('heroImageAlt')} />
+            <img src="/assets/articles/best-hr-software-saudi-1.webp" alt={t('heroImageAlt')} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -110,12 +110,11 @@ export default async function BestPosSystemsSaudiPage() {
         <div className="container-article">
           <div className="article-layout">
             <TOCSidebar items={tocItems}>
-              <AffiliateSidebar partner="foodics" title="Foodics POS" buttonText="Try Foodics" />
+              <AffiliateSidebar partner="jisr" title="Jisr HR" buttonText="Try Jisr" />
             </TOCSidebar>
             <div className="article-main">
               <TOCInline items={tocItemsFull} />
 
-              {/* Author Box */}
               <div className="author-box">
                 <div className="author-avatar">{t('authorInitials')}</div>
                 <div className="author-info">
@@ -126,7 +125,6 @@ export default async function BestPosSystemsSaudiPage() {
 
               <AffiliateDisclosure />
 
-              {/* Key Takeaways */}
               <div className="key-takeaways">
                 <h4>{t('keyTakeawaysLabel')}</h4>
                 <ul>
@@ -136,7 +134,7 @@ export default async function BestPosSystemsSaudiPage() {
                 </ul>
               </div>
 
-              {/* SECTION 2 -- Why ZATCA Compliance Matters */}
+              {/* SECTION 2 */}
               <section id="section-2" className="fade-up article-section">
                 <h2>{t('s2Title')}</h2>
                 <p className="lead-paragraph">{t('s2Lead')}</p>
@@ -150,26 +148,26 @@ export default async function BestPosSystemsSaudiPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <div className="data-table-wrap">
-                  <table className="feature-matrix pos-saudi__comparison-table">
+                  <table className="feature-matrix hr-saudi__comparison-table">
                     <thead>
                       <tr>
                         <th>{t('s3ColPlatform')}</th>
                         <th>{t('s3ColBestFor')}</th>
                         <th>{t('s3ColStartingPrice')}</th>
-                        <th>{t('s3ColZatca')}</th>
+                        <th>{t('s3ColGosi')}</th>
                         <th>{t('s3ColArabic')}</th>
                         <th>{t('s3ColRating')}</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {(['foodics', 'marn', 'odoo', 'loyverse', 'posrocket', 'iiko', 'lightspeed', 'square', 'toast'] as const).map((key) => (
+                      {(['jisr', 'zenhr', 'bayzat', 'darwinbox', 'sap', 'bamboohr', 'mudadhr'] as const).map((key) => (
                         <tr key={key}>
                           <td><strong>{t(`s3Row_${key}_name`)}</strong></td>
                           <td>{t(`s3Row_${key}_bestFor`)}</td>
                           <td>{t(`s3Row_${key}_price`)}</td>
-                          <td>{t(`s3Row_${key}_zatca`)}</td>
+                          <td>{t(`s3Row_${key}_gosi`)}</td>
                           <td>{t(`s3Row_${key}_arabic`)}</td>
-                          <td><span className="pos-saudi__score">{t(`s3Row_${key}_rating`)}</span></td>
+                          <td><span className="hr-saudi__score">{t(`s3Row_${key}_rating`)}</span></td>
                         </tr>
                       ))}
                     </tbody>
@@ -177,42 +175,42 @@ export default async function BestPosSystemsSaudiPage() {
                 </div>
               </section>
 
-              {/* SECTION 4 -- ZATCA Phase 2 Requirements */}
+              {/* SECTION 4 -- Jisr */}
               <section id="section-4" className="fade-up article-section">
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pos-systems-saudi-2.webp" alt={t('s4ImageAlt')} />
-                  <figcaption>{t('s4ImageCaption')}</figcaption>
+                  <img src="/assets/articles/best-hr-software-saudi-3.webp" alt="Saudi employees using HR mobile self-service app" />
+                  <figcaption>Jisr provides a mobile-first experience for employee self-service</figcaption>
                 </figure>
                 <p>{t('s4P1')}</p>
                 <p>{t('s4P2')}</p>
-                <div className="expert-callout">
-                  <p>{t('s4Callout')}</p>
+                <div className="problem-solution-grid">
+                  <div className="solution-col">
+                    <h4>{t('s4ProsTitle')}</h4>
+                    <ul>
+                      {[1, 2, 3, 4].map((n) => (
+                        <li key={n}>{t(`s4Pro${n}`)}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="problem-col">
+                    <h4>{t('s4ConsTitle')}</h4>
+                    <ul>
+                      {[1, 2].map((n) => (
+                        <li key={n}>{t(`s4Con${n}`)}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </section>
 
-              <AffiliateMidArticle partner="foodics" heading="Foodics POS" description="The #1 restaurant POS in Saudi Arabia" buttonText="Try Foodics Free" />
-
-              {/* SECTION 5 -- Foodics */}
+              {/* SECTION 5 -- ZenHR */}
               <section id="section-5" className="fade-up article-section">
                 <h2>{t('s5Title')}</h2>
                 <p className="lead-paragraph">{t('s5Intro')}</p>
-                <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pos-systems-saudi-3.webp" alt={t('s5ImageAlt')} />
-                  <figcaption>{t('s5ImageCaption')}</figcaption>
-                </figure>
                 <p>{t('s5P1')}</p>
                 <p>{t('s5P2')}</p>
-                <h3>{t('s5PricingIntro')}</h3>
-                <div className="mini-cards-grid">
-                  {(['Starter', 'Basic', 'Advance'] as const).map((tier) => (
-                    <div key={tier} className="mini-card">
-                      <span className="mini-card-badge">{tier}</span>
-                      <h4>{t(`s5Pricing${tier}`)}</h4>
-                    </div>
-                  ))}
-                </div>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
                     <h4>{t('s5ProsTitle')}</h4>
@@ -233,21 +231,19 @@ export default async function BestPosSystemsSaudiPage() {
                 </div>
               </section>
 
-              {/* SECTION 6 -- Marn POS */}
+              <AffiliateMidArticle partner="jisr" heading="Jisr HR" description="The #1 HR platform built for Saudi businesses" buttonText="Try Jisr Free" />
+
+              {/* SECTION 6 -- Bayzat */}
               <section id="section-6" className="fade-up article-section">
                 <h2>{t('s6Title')}</h2>
                 <p className="lead-paragraph">{t('s6Intro')}</p>
-                <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pos-systems-saudi-4.webp" alt="Retail store owner using a tablet-based POS system in Saudi Arabia" />
-                  <figcaption>Marn POS is designed specifically for the Saudi retail and service market</figcaption>
-                </figure>
                 <p>{t('s6P1')}</p>
                 <p>{t('s6P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
                     <h4>{t('s6ProsTitle')}</h4>
                     <ul>
-                      {[1, 2, 3, 4].map((n) => (
+                      {[1, 2, 3].map((n) => (
                         <li key={n}>{t(`s6Pro${n}`)}</li>
                       ))}
                     </ul>
@@ -263,7 +259,7 @@ export default async function BestPosSystemsSaudiPage() {
                 </div>
               </section>
 
-              {/* SECTION 7 -- Odoo POS */}
+              {/* SECTION 7 -- Darwinbox */}
               <section id="section-7" className="fade-up article-section">
                 <h2>{t('s7Title')}</h2>
                 <p className="lead-paragraph">{t('s7Intro')}</p>
@@ -273,7 +269,7 @@ export default async function BestPosSystemsSaudiPage() {
                   <div className="solution-col">
                     <h4>{t('s7ProsTitle')}</h4>
                     <ul>
-                      {[1, 2, 3, 4].map((n) => (
+                      {[1, 2, 3].map((n) => (
                         <li key={n}>{t(`s7Pro${n}`)}</li>
                       ))}
                     </ul>
@@ -289,57 +285,46 @@ export default async function BestPosSystemsSaudiPage() {
                 </div>
               </section>
 
-              {/* SECTION 8 -- Loyverse */}
+              {/* SECTION 8 -- Others */}
               <section id="section-8" className="fade-up article-section">
                 <h2>{t('s8Title')}</h2>
-                <p className="lead-paragraph">{t('s8Intro')}</p>
-                <p>{t('s8P1')}</p>
-                <p>{t('s8P2')}</p>
-                <div className="problem-solution-grid">
-                  <div className="solution-col">
-                    <h4>{t('s8ProsTitle')}</h4>
-                    <ul>
-                      {[1, 2, 3].map((n) => (
-                        <li key={n}>{t(`s8Pro${n}`)}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="problem-col">
-                    <h4>{t('s8ConsTitle')}</h4>
-                    <ul>
-                      {[1, 2].map((n) => (
-                        <li key={n}>{t(`s8Con${n}`)}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </section>
-
-              <AffiliateMidArticle partner="foodics" heading="Foodics POS" description="Trusted by 50,000+ restaurants in the Middle East" buttonText="Get Started with Foodics" variant="conclusion" />
-
-              {/* SECTION 9 -- Others */}
-              <section id="section-9" className="fade-up article-section">
-                <h2>{t('s9Title')}</h2>
-                <p>{t('s9Intro')}</p>
-                <div className="pos-saudi__others-grid">
-                  {(['posrocket', 'iiko', 'lightspeed', 'square', 'toast'] as const).map((key) => (
-                    <div key={key} className="pos-saudi__other-card">
-                      <h4>{t(`s9_${key}_name`)}</h4>
-                      <p className="pos-saudi__other-price">{t(`s9_${key}_price`)}</p>
-                      <p>{t(`s9_${key}_summary`)}</p>
-                      <p className="pos-saudi__other-verdict"><strong>{t(`s9_${key}_verdict`)}</strong></p>
+                <p>{t('s8Intro')}</p>
+                <div className="hr-saudi__others-grid">
+                  {(['sap', 'bamboohr', 'mudadhr'] as const).map((key) => (
+                    <div key={key} className="hr-saudi__other-card">
+                      <h4>{t(`s8_${key}_name`)}</h4>
+                      <p className="hr-saudi__other-price">{t(`s8_${key}_price`)}</p>
+                      <p>{t(`s8_${key}_summary`)}</p>
+                      <p className="hr-saudi__other-verdict"><strong>{t(`s8_${key}_verdict`)}</strong></p>
                     </div>
                   ))}
                 </div>
               </section>
+
+              {/* SECTION 9 -- Saudi Compliance */}
+              <section id="section-9" className="fade-up article-section">
+                <h2>{t('s9Title')}</h2>
+                <p className="lead-paragraph">{t('s9Intro')}</p>
+                <figure className="article-image article-image--contextual">
+                  <img src="/assets/articles/best-hr-software-saudi-2.webp" alt="Saudi HR compliance workflow showing GOSI, Mudad, Nitaqat, and Qiwa" />
+                  <figcaption>Saudi HR compliance requires integration with multiple government platforms</figcaption>
+                </figure>
+                <p>{t('s9P1')}</p>
+                <p>{t('s9P2')}</p>
+                <div className="expert-callout">
+                  <p>{t('s9Callout')}</p>
+                </div>
+              </section>
+
+              <AffiliateMidArticle partner="zenhr" heading="ZenHR" description="GOSI, Mudad & Saudization compliance built-in" buttonText="Try ZenHR" variant="conclusion" />
 
               {/* SECTION 10 -- How to Choose */}
               <section id="section-10" className="fade-up article-section">
                 <h2>{t('s10Title')}</h2>
                 <p className="lead-paragraph">{t('s10Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pos-systems-saudi-5.webp" alt={t('s10ImageAlt')} />
-                  <figcaption>{t('s10ImageCaption')}</figcaption>
+                  <img src="/assets/articles/best-hr-software-saudi-4.webp" alt="6 key factors for choosing HR software in Saudi Arabia" />
+                  <figcaption>Key factors to evaluate when selecting HR software for your Saudi business</figcaption>
                 </figure>
                 <div className="mini-cards-grid mini-cards-grid--2col">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
@@ -355,23 +340,23 @@ export default async function BestPosSystemsSaudiPage() {
               <section id="section-11" className="fade-up article-section">
                 <h2>{t('s11Title')}</h2>
                 <p className="lead-paragraph">{t('s11Intro')}</p>
-                <div className="pos-saudi__verdict-grid">
-                  {(['Restaurant', 'Retail', 'Budget', 'Enterprise'] as const).map((cat) => (
-                    <div key={cat} className="pos-saudi__verdict-card">
-                      <span className="pos-saudi__verdict-label">Best for {cat}</span>
+                <div className="hr-saudi__verdict-grid">
+                  {(['SME', 'Enterprise', 'Budget', 'Startup'] as const).map((cat) => (
+                    <div key={cat} className="hr-saudi__verdict-card">
+                      <span className="hr-saudi__verdict-label">Best for {cat}</span>
                       <p>{t(`s11Verdict${cat}`)}</p>
                     </div>
                   ))}
                 </div>
                 <h3>{t('s11ScoreLabel')}</h3>
-                <div className="pos-saudi__scores">
-                  {(['foodics', 'marn', 'odoo', 'loyverse'] as const).map((key) => (
-                    <div key={key} className="pos-saudi__score-row">
-                      <span className="pos-saudi__score-name">{t(`s3Row_${key}_name`)}</span>
-                      <div className="pos-saudi__score-bar">
-                        <div className="pos-saudi__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 10) * 100}%` }} />
+                <div className="hr-saudi__scores">
+                  {(['jisr', 'zenhr', 'bayzat', 'darwinbox'] as const).map((key) => (
+                    <div key={key} className="hr-saudi__score-row">
+                      <span className="hr-saudi__score-name">{t(`s3Row_${key}_name`)}</span>
+                      <div className="hr-saudi__score-bar">
+                        <div className="hr-saudi__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 10) * 100}%` }} />
                       </div>
-                      <span className="pos-saudi__score-value">{t(`s11_${key}_score`)}{t('s11ScoreMax')}</span>
+                      <span className="hr-saudi__score-value">{t(`s11_${key}_score`)}{t('s11ScoreMax')}</span>
                     </div>
                   ))}
                 </div>
@@ -390,7 +375,7 @@ export default async function BestPosSystemsSaudiPage() {
                 </div>
               </section>
 
-              <ShareButtons shareText="Best POS Systems in Saudi Arabia: ZATCA Compliance, Pricing & What Actually Matters" />
+              <ShareButtons shareText="Best HR Software in Saudi Arabia (2026): GOSI, Mudad & Saudization Compliance" />
             </div>
           </div>
         </div>
@@ -399,7 +384,7 @@ export default async function BestPosSystemsSaudiPage() {
       </main>
 
       <Footer />
-      <AffiliateMobileBar partner="foodics" buttonText="Try Foodics" />
+      <AffiliateMobileBar partner="jisr" buttonText="Try Jisr" />
     </>
   );
 }

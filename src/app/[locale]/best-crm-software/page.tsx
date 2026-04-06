@@ -52,7 +52,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: `${SITE_CONFIG.url}/best-crm-saudi`,
+      url: `${SITE_CONFIG.url}/best-crm-software`,
       siteName: SITE_CONFIG.name,
       images: [{ url: `${SITE_CONFIG.url}/assets/articles/best-crm-saudi-1.webp`, width: 1200, height: 630, alt: title }],
       type: 'article',
@@ -66,7 +66,7 @@ export async function generateMetadata() {
       images: [`${SITE_CONFIG.url}/assets/articles/best-crm-saudi-1.webp`],
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/best-crm-saudi`,
+      canonical: `${SITE_CONFIG.url}/best-crm-software`,
     },
   };
 }

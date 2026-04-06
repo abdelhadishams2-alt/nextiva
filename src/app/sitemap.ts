@@ -2,11 +2,14 @@ import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/config/site';
 
 const articleSlugs = [
+  'best-hr-software',
+  'best-crm-software',
+  'best-pos-systems',
+  'odoo-zatca-compliance',
+  'best-website-builders',
   'shopify-vs-salla',
   'how-to-build-shopify-store',
   'foodics-review',
-  'best-website-builders-saudi',
-  'odoo-saudi-arabia',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

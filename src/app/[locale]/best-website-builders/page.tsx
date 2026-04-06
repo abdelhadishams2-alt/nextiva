@@ -52,7 +52,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: `${SITE_CONFIG.url}/best-website-builders-saudi`,
+      url: `${SITE_CONFIG.url}/best-website-builders`,
       siteName: SITE_CONFIG.name,
       images: [{ url: `${SITE_CONFIG.url}/assets/articles/best-website-builders-saudi-1.webp`, width: 1200, height: 630, alt: title }],
       type: 'article',
@@ -66,7 +66,7 @@ export async function generateMetadata() {
       images: [`${SITE_CONFIG.url}/assets/articles/best-website-builders-saudi-1.webp`],
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/best-website-builders-saudi`,
+      canonical: `${SITE_CONFIG.url}/best-website-builders`,
     },
   };
 }

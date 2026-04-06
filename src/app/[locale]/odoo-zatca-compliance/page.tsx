@@ -54,7 +54,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: `${SITE_CONFIG.url}/odoo-saudi-arabia`,
+      url: `${SITE_CONFIG.url}/odoo-zatca-compliance`,
       siteName: SITE_CONFIG.name,
       images: [{ url: `${SITE_CONFIG.url}/assets/articles/odoo-saudi-arabia-1.webp`, width: 1200, height: 630, alt: title }],
       type: 'article',
@@ -68,7 +68,7 @@ export async function generateMetadata() {
       images: [`${SITE_CONFIG.url}/assets/articles/odoo-saudi-arabia-1.webp`],
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/odoo-saudi-arabia`,
+      canonical: `${SITE_CONFIG.url}/odoo-zatca-compliance`,
     },
   };
 }
