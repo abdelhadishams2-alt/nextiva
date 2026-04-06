@@ -85,6 +85,34 @@ public/assets/           ← Static assets (images, icons, etc.)
 - Always wrap GSAP usage in `useEffect` or `useLayoutEffect` inside client components.
 - Use `gsap.context()` for cleanup.
 
+## Article Generation (SEO Engine)
+
+When asked to generate an article, blog post, or write about a topic, **always use the SEO engine** located at `/home/abdelhadi/Desktop/nextiva/seo-engine`.
+
+The SEO engine is a ChainIQ Article Engine plugin with a 4-agent pipeline:
+1. **Project Analyzer** — detects the project's framework, design tokens, and components
+2. **Research Engine** — 6-round deep research via Gemini MCP
+3. **Article Architect** — builds article architecture with component mapping
+4. **Draft Writer** — produces the final article in the project's native format
+
+### How to use
+
+Invoke the `article-engine` skill from the SEO engine. The skill triggers on phrases like "generate an article", "write about", "blog about", "create content about", etc.
+
+Alternatively, use the `/generate` command which collects the topic and language, then runs the full pipeline.
+
+### What it handles automatically
+
+- Detects this project's Next.js stack, design system, and components
+- Researches the topic thoroughly before writing
+- Generates images (via Gemini MCP)
+- Produces publication-ready content with TOC, trust elements, and SEO structure
+- Supports section-level editing after generation
+
+### Key rule
+
+**The topic determines the article domain. The website determines the presentation.** Never force a topic into the website's industry — the website is the publisher, not the subject.
+
 ## Commands
 
 ```bash

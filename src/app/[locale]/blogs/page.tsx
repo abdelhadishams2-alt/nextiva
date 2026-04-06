@@ -6,6 +6,16 @@ import BlogsGrid from '@/components/ui/BlogsGrid';
 
 const articles = [
   {
+    slug: 'best-pos-systems-saudi',
+    image: '/assets/articles/best-pos-systems-saudi-1.webp',
+    badge: 'Best Of',
+    title: 'Best POS Systems in Saudi Arabia: ZATCA Compliance, Pricing & What Actually Matters',
+    excerpt: 'We tested 9 POS systems for Saudi businesses — Foodics, Marn, Odoo, Loyverse, and more. Honest comparison of ZATCA Phase 2 compliance, mada integration, Arabic support, and real pricing in SAR.',
+    date: 'April 6, 2026',
+    readTime: '18 min read',
+    category: 'restaurant',
+  },
+  {
     slug: 'odoo-saudi-arabia',
     image: '/assets/articles/odoo-saudi-arabia-1.webp',
     badge: 'Step-by-Step Guide',
