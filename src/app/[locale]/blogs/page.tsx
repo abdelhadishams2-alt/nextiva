@@ -6,6 +6,16 @@ import BlogsGrid from '@/components/ui/BlogsGrid';
 
 const articles = [
   {
+    slug: 'best-crm-saudi',
+    image: '/assets/articles/best-crm-saudi-1.webp',
+    badge: 'Best Of',
+    title: 'Best CRM Software in Saudi Arabia (2026): Honest Comparison',
+    excerpt: 'We tested HubSpot, Zoho, Salesforce, Freshsales, Bitrix24, Dynamics 365, and Pipedrive for Saudi businesses. Arabic support, pricing in SAR, and what actually matters.',
+    date: 'April 6, 2026',
+    readTime: '17 min read',
+    category: 'enterprise',
+  },
+  {
     slug: 'best-pos-systems-saudi',
     image: '/assets/articles/best-pos-systems-saudi-1.webp',
     badge: 'Best Of',
