@@ -5,6 +5,8 @@ const articleSlugs = [
   'shopify-vs-salla',
   'how-to-build-shopify-store',
   'foodics-review',
+  'best-website-builders-saudi',
+  'odoo-saudi-arabia',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

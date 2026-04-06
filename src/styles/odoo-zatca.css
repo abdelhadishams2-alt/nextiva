@@ -1,0 +1,94 @@
+/* ----------------------------------------------------------------
+   Odoo ZATCA Article — Component Styles
+   ---------------------------------------------------------------- */
+
+/* Comparison Table (Community vs Enterprise) */
+.odoo-zatca__comparison-table {
+  min-width: 600px;
+}
+
+.odoo-zatca__comparison-table .highlight-col {
+  background: rgba(138, 92, 246, 0.06);
+}
+
+/* Third-Party Modules Table */
+.odoo-zatca__modules-table {
+  min-width: 700px;
+}
+
+/* ERP Comparison Table (Odoo vs SAP vs Zoho) */
+.odoo-zatca__erp-table {
+  min-width: 700px;
+}
+
+.odoo-zatca__erp-table .highlight-col {
+  background: rgba(138, 92, 246, 0.06);
+}
+
+/* Penalty Cards */
+.odoo-zatca__penalty-card {
+  border-left: 3px solid var(--color-accent, #ef4444);
+}
+
+.odoo-zatca__penalty-badge {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+/* Mistake Blocks */
+.odoo-zatca__mistake-block {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  background: var(--surface-secondary, rgba(248, 250, 252, 0.6));
+  border-radius: 12px;
+  border-left: 3px solid var(--color-warning, #f59e0b);
+}
+
+.odoo-zatca__mistake-block h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--text-primary, #0f172a);
+}
+
+.odoo-zatca__mistake-block p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary, #475569);
+}
+
+/* Pricing Table */
+.odoo-zatca__pricing-table {
+  min-width: 700px;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .odoo-zatca__mistake-block {
+    padding: 1rem 1.25rem;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .odoo-zatca__mistake-block {
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .odoo-zatca__mistake-block h3 {
+    font-size: 1rem;
+  }
+
+  .odoo-zatca__mistake-block p {
+    font-size: 0.9rem;
+  }
+}

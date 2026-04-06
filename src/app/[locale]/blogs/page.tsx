@@ -6,6 +6,16 @@ import BlogsGrid from '@/components/ui/BlogsGrid';
 
 const articles = [
   {
+    slug: 'odoo-saudi-arabia',
+    image: '/assets/articles/odoo-saudi-arabia-1.webp',
+    badge: 'Step-by-Step Guide',
+    title: 'Odoo ZATCA Compliance 2026: The Complete Setup Guide for Saudi SMEs',
+    excerpt: 'Complete guide to setting up Odoo for ZATCA Phase 2 e-invoicing — Community vs Enterprise, step-by-step configuration, penalties, and comparison with SAP and Zoho.',
+    date: 'April 6, 2026',
+    readTime: '22 min read',
+    category: 'enterprise',
+  },
+  {
     slug: 'best-website-builders-saudi',
     image: '/assets/articles/best-website-builders-saudi-1.webp',
     badge: 'Best Of',
@@ -51,6 +61,7 @@ const filters = [
   { key: 'all', label: 'All Posts' },
   { key: 'website-builders', label: 'Website Builders' },
   { key: 'ecommerce', label: 'E-Commerce' },
+  { key: 'enterprise', label: 'Enterprise Software' },
   { key: 'restaurant', label: 'Restaurant & Food' },
 ];
 
