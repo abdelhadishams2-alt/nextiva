@@ -60,7 +60,9 @@ const STYLE_PRESETS = {
 const BRAND_GUIDANCE = [
   'Color palette: navy blue (#02122c), blue (#0062b8), white, subtle warm neutrals.',
   'Style: clean, professional, editorial. No cartoons, no stock photo feel.',
-  'Text in image: NONE. Never include text, labels, watermarks, or readable words in the image.',
+  'Text in image: NONE. Never include any text, labels, watermarks, or readable words in the image.',
+  'Language: NEVER include Arabic script, Arabic text, Arabic characters, or any RTL text in the image. All UI/screens shown must use English only.',
+  'Cultural props: Do NOT add Saudi/Arab cultural props (Arabic coffee dallah, dates, prayer beads, camels, desert scenes, Arabic calligraphy) unless the article is specifically about those topics. Focus ONLY on the article subject matter.',
   'Background: clean gradients or subtle geometric patterns, not busy.',
 ].join(' ');
 
@@ -78,6 +80,7 @@ const HERO_GUIDANCE = [
   'The overall image must be dark (navy/deep blue) so white text overlaid on it is perfectly readable.',
   'Think: premium SaaS landing page background, not an illustration.',
   'NEVER include any text, words, labels, or readable characters in the image.',
+  'NEVER include Arabic script, Arabic text, or Arabic characters anywhere in the image. All visible UI, screens, and signage must be in English only.',
 ].join(' ');
 
 /**
@@ -95,16 +98,17 @@ const HERO_GUIDANCE = [
  * @returns {Array<{name: string, prompt: string, preset: string, outputPath: string}>}
  */
 function generateImagePrompts(opts) {
-  const { title, slug, articleType, sections = [], count = 4 } = opts;
+  const { title, slug, articleType, sections = [], count = 4, description } = opts;
 
   const prompts = [];
 
-  // 1. Hero image (always — dark abstract background, no text, no center objects)
+  // 1. Hero image — content-relevant scene representing the article topic
   const heroPreset = STYLE_PRESETS.hero;
   prompts.push({
     name: `${slug}-1`,
     prompt: buildHeroPrompt({
       subject: title,
+      description: description || sections.map(s => s.title || s.sidebarLabel).filter(Boolean).join(', '),
     }),
     preset: 'hero',
     width: heroPreset.width,
@@ -112,11 +116,12 @@ function generateImagePrompts(opts) {
     outputPath: `public/assets/articles/${slug}-1.webp`,
   });
 
-  // 2. Section images
+  // 2. Section images — each must visually represent its specific section topic
   const sectionCount = Math.min(count - 1, sections.length, 5);
   for (let i = 0; i < sectionCount; i++) {
     const section = sections[i];
     const sectionTitle = section.title || section.sidebarLabel || `Section ${i + 2}`;
+    const sectionDesc = section.description || section.summary || '';
 
     let preset;
     if (articleType === 'comparison' || articleType === 'versus') {
@@ -131,8 +136,11 @@ function generateImagePrompts(opts) {
       name: `${slug}-${i + 2}`,
       prompt: buildPrompt({
         subject: sectionTitle,
-        context: `Illustration for article section about "${sectionTitle}" in an article titled "${title}".`,
+        context: sectionDesc
+          ? `This section covers: ${sectionDesc}. Show a realistic scene that directly illustrates this specific topic.`
+          : `This section is about "${sectionTitle}" in an article titled "${title}". Show a realistic scene that directly illustrates this specific topic — not a generic image.`,
         style: preset.style,
+        articleTitle: title,
       }),
       preset: preset === STYLE_PRESETS.comparison ? 'comparison' : 'section',
       width: preset.width,
@@ -146,25 +154,51 @@ function generateImagePrompts(opts) {
 
 /**
  * Build a complete image generation prompt.
+ *
+ * IMPORTANT: Every image must visually represent the specific article topic
+ * and section content. Generic or unrelated images hurt user trust and SEO.
+ *
+ * @param {object} opts
+ * @param {string} opts.subject - Section title
+ * @param {string} opts.context - What the section is about
+ * @param {string} opts.style - Visual style preset
+ * @param {string} opts.articleTitle - Full article title (for context)
  */
-function buildPrompt({ subject, context, style }) {
+function buildPrompt({ subject, context, style, articleTitle }) {
   return [
-    `Create a professional editorial illustration for: "${subject}".`,
-    context,
-    `Visual style: ${style}.`,
+    `Create a photorealistic editorial image for a section titled "${subject}" in an article about "${articleTitle || subject}".`,
+    `The image MUST visually represent this specific topic: ${context}`,
+    'Show a realistic scene, objects, tools, or environment directly related to the section topic. The viewer should immediately understand what the section is about just by looking at the image.',
+    'Do NOT create generic stock photos, abstract patterns, or unrelated scenes. The image must be SPECIFIC to the content.',
+    'Do NOT add Saudi/Arab cultural props (coffee dallah, dates, camels, desert, Arabic calligraphy) unless the section is specifically about those topics. Focus on the subject matter only.',
+    `Visual style: ${style}. Photorealistic, professional editorial photography.`,
+    'IMPORTANT: Do not include any Arabic text, Arabic script, or Arabic characters anywhere in the image. Any text visible on screens, signs, or UI must be in English only.',
     BRAND_GUIDANCE,
   ].join('\n');
 }
 
 /**
  * Build a hero-specific image prompt.
- * Hero images are dark backgrounds designed for text overlay.
+ *
+ * Hero images must be content-relevant — showing real objects, tools,
+ * or environments related to the article topic. They sit behind text
+ * so they need a dark overlay-friendly composition.
+ *
+ * @param {object} opts
+ * @param {string} opts.subject - Article title
+ * @param {string} [opts.description] - Brief description of what the article covers
  */
-function buildHeroPrompt({ subject }) {
+function buildHeroPrompt({ subject, description }) {
   return [
-    `Create a dark abstract background image for an article about: "${subject}".`,
-    'Dark navy blue (#02122c) base with subtle geometric patterns — soft glowing grid lines, gentle light streaks, and minimal floating tech elements (small dots, thin connection lines).',
-    'Very clean and minimal, designed to be used BEHIND white text overlay.',
+    `Create a cinematic, content-relevant hero image for an article titled: "${subject}".`,
+    description
+      ? `The article covers: ${description}. The image MUST visually represent this topic.`
+      : `The image MUST visually represent the topic "${subject}" — show realistic objects, tools, screens, or environments directly related to this subject.`,
+    'Show a realistic scene that a reader would immediately associate with this article topic.',
+    'Composition: the image will have white text overlaid, so ensure the left side and center-bottom are slightly darker or have less visual detail. Important visual elements should be on the right side and top.',
+    'Do NOT create generic abstract backgrounds, geometric patterns, or unrelated scenes.',
+    'Do NOT add Saudi/Arab cultural props (coffee dallah, dates, camels, desert scenes, Arabic calligraphy, traditional clothing) unless the article is specifically about those topics. The image should look international and focus purely on the subject matter.',
+    'IMPORTANT: Do not include any Arabic text, Arabic script, or Arabic characters anywhere in the image. Any text visible on screens, signs, or UI must be in English only.',
     HERO_GUIDANCE,
     BRAND_GUIDANCE,
   ].join('\n');

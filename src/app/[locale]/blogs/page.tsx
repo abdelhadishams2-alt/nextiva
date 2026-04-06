@@ -6,6 +6,16 @@ import BlogsGrid from '@/components/ui/BlogsGrid';
 
 const articles = [
   {
+    slug: 'best-website-builders-saudi',
+    image: '/assets/articles/best-website-builders-saudi-1.webp',
+    badge: 'Best Of',
+    title: '6 Best Website Builders in Saudi Arabia (2026)',
+    excerpt: 'We tested Wix, Shopify, Salla, Zid, WordPress, and Squarespace for Saudi businesses. Honest comparison of pricing, Arabic support, ZATCA compliance, and features.',
+    date: 'April 6, 2026',
+    readTime: '20 min read',
+    category: 'website-builders',
+  },
+  {
     slug: 'shopify-vs-salla',
     image: '/assets/articles/shopify-vs-salla-1.webp',
     badge: 'Comparison',
@@ -39,6 +49,7 @@ const articles = [
 
 const filters = [
   { key: 'all', label: 'All Posts' },
+  { key: 'website-builders', label: 'Website Builders' },
   { key: 'ecommerce', label: 'E-Commerce' },
   { key: 'restaurant', label: 'Restaurant & Food' },
 ];
