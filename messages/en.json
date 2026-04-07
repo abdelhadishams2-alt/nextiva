@@ -3,6 +3,114 @@
     "title": "Mansati",
     "description": "Built with Next.js"
   },
+  "NotFound": {
+    "title": "Lost in the desert",
+    "description": "The page you're looking for has wandered off. It may have been moved, renamed, or never existed in the first place.",
+    "backHome": "Back to Home",
+    "browseReviews": "Browse Reviews",
+    "readBlog": "Read Blog"
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "description": "We hit an unexpected sandstorm. Our team has been notified and we're working to clear the path.",
+    "tryAgain": "Try Again",
+    "backHome": "Back to Home"
+  },
+  "CookieConsent": {
+    "message": "We use cookies to analyze site usage and improve your experience. No personal data is collected.",
+    "accept": "Accept All",
+    "reject": "Reject Non-Essential",
+    "learnMore": "Learn more"
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "metaDescription": "Learn how Mansati collects, uses, and protects your personal data when you visit our website.",
+    "lastUpdated": "Last updated: April 7, 2026",
+    "intro": {
+      "heading": "Introduction",
+      "text": "Mansati (\"we,\" \"us,\" or \"our\") operates the website mansati.com. This Privacy Policy explains how we collect, use, and protect information when you visit our site. By using Mansati, you agree to the practices described in this policy."
+    },
+    "dataCollection": {
+      "heading": "Information We Collect",
+      "text": "We collect limited information to improve your experience and understand how our content performs:",
+      "item1": "Usage data — pages visited, time spent, scroll depth, and click patterns (collected via PostHog analytics)",
+      "item2": "Device information — browser type, operating system, screen resolution, and language preferences",
+      "item3": "Referral data — the website or search engine that directed you to Mansati",
+      "item4": "We do not collect personal information such as your name, email address, or phone number unless you voluntarily provide it"
+    },
+    "analytics": {
+      "heading": "Analytics",
+      "text": "We use PostHog, a privacy-focused analytics platform, to understand how visitors interact with our content. PostHog collects anonymized usage data to help us improve article quality, site navigation, and user experience. We do not sell or share analytics data with third parties."
+    },
+    "cookies": {
+      "heading": "Cookies",
+      "text": "Mansati uses essential cookies to ensure the website functions properly and analytics cookies to understand site usage. You can control cookie preferences through your browser settings. Disabling analytics cookies will not affect your ability to browse the site."
+    },
+    "affiliateLinks": {
+      "heading": "Affiliate Links",
+      "text": "Some links on Mansati are affiliate links. When you click an affiliate link and make a purchase or sign up for a service, we may earn a commission at no additional cost to you. Affiliate links include UTM tracking parameters (source, medium, content) so we can measure which reviews drive the most value. These parameters do not collect personal information."
+    },
+    "thirdParty": {
+      "heading": "Third-Party Services",
+      "text": "Our website may contain links to third-party websites and services. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party service before providing personal information."
+    },
+    "yourRights": {
+      "heading": "Your Rights",
+      "text": "Depending on your location, you may have the following rights regarding your data:",
+      "item1": "Request access to the data we hold about you",
+      "item2": "Request deletion of your data from our analytics platform",
+      "item3": "Opt out of analytics tracking by disabling cookies in your browser"
+    },
+    "changes": {
+      "heading": "Changes to This Policy",
+      "text": "We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated \"Last updated\" date. We encourage you to review this policy periodically."
+    },
+    "contact": {
+      "heading": "Contact Us",
+      "text": "If you have questions about this Privacy Policy, please contact us at privacy@mansati.com."
+    }
+  },
+  "Terms": {
+    "title": "Terms of Use",
+    "metaDescription": "Read the terms and conditions for using the Mansati website, including content usage, affiliate disclosure, and liability limitations.",
+    "lastUpdated": "Last updated: April 7, 2026",
+    "acceptance": {
+      "heading": "Acceptance of Terms",
+      "text": "By accessing and using Mansati (mansati.com), you accept and agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use our website."
+    },
+    "content": {
+      "heading": "Content & Reviews",
+      "text": "All reviews, comparisons, and guides published on Mansati are based on our independent research and testing. While we strive for accuracy, the technology landscape changes rapidly. Pricing, features, and availability of products mentioned in our reviews may change without notice. We recommend verifying current information directly with the product vendor before making purchasing decisions."
+    },
+    "affiliateDisclosure": {
+      "heading": "Affiliate Disclosure",
+      "text": "Mansati participates in affiliate programs with various software and technology companies. This means we may earn a commission when you click an affiliate link and complete a purchase or sign-up. Affiliate relationships do not influence our editorial ratings or recommendations. We test every product independently and provide honest assessments regardless of affiliate status."
+    },
+    "intellectualProperty": {
+      "heading": "Intellectual Property",
+      "text": "All content on Mansati — including text, graphics, logos, images, and software — is the property of Mansati or its content suppliers and is protected by international copyright laws. You may not reproduce, distribute, or create derivative works from our content without explicit written permission."
+    },
+    "disclaimer": {
+      "heading": "Disclaimer of Warranties",
+      "text": "Mansati is provided \"as is\" without warranties of any kind, whether express or implied. We do not guarantee that our content is complete, accurate, reliable, or error-free. Product information, pricing, and features are subject to change by their respective vendors."
+    },
+    "limitation": {
+      "heading": "Limitation of Liability",
+      "text": "Mansati shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website, including any purchasing decisions made based on our reviews and recommendations."
+    },
+    "externalLinks": {
+      "heading": "External Links",
+      "text": "Our website contains links to third-party websites. These links are provided for your convenience and do not signify our endorsement of the linked website. We have no control over the content or availability of external sites and are not responsible for any damage or loss caused by their use."
+    },
+    "changes": {
+      "heading": "Changes to Terms",
+      "text": "We reserve the right to modify these Terms of Use at any time. Changes take effect immediately upon posting to this page. Your continued use of Mansati after changes are posted constitutes acceptance of the modified terms."
+    },
+    "contact": {
+      "heading": "Contact",
+      "text": "For questions about these Terms of Use, please contact us at legal@mansati.com."
+    }
+  },
   "Navbar": {
     "logo": "Mansati",
     "reviews": "Featured",
@@ -585,7 +693,9 @@
     "col4Heading": "Company",
     "col4Links": {
       "about": "About Mansati",
-      "methodology": "Our methodology"
+      "methodology": "Our methodology",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
     },
     "blogHeading": "Latest Articles",
     "blogPost1Title": "Best POS Systems: ZATCA Compliance & Pricing",

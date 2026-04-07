@@ -5,6 +5,7 @@ const articleSlugs = [
   'best-hr-software',
   'best-crm-software',
   'best-pos-systems',
+  'best-project-management-tools',
   'odoo-zatca-compliance',
   'best-website-builders',
   'shopify-vs-salla',
@@ -34,5 +35,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...articles,
+    {
+      url: `${SITE_CONFIG.url}/privacy-policy`,
+      lastModified: new Date('2026-04-07'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_CONFIG.url}/terms`,
+      lastModified: new Date('2026-04-07'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 }

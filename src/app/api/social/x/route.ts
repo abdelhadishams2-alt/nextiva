@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { SITE_CONFIG } from '@/config/site';
 
 export async function POST(req: NextRequest) {
+  const adminSecret = req.headers.get('X-Admin-Secret');
+  if (!adminSecret || adminSecret !== process.env.ADMIN_SECRET) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   const { slug, title, description } = await req.json();
 
   const apiKey = process.env.TWITTER_API_KEY;

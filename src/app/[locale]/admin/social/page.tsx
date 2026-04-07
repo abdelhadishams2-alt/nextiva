@@ -9,6 +9,22 @@ type PostStatus = Record<string, { x?: string; linkedin?: string }>;
 export default function SocialAdminPage() {
   const [status, setStatus] = useState<PostStatus>({});
   const [loading, setLoading] = useState<Record<string, boolean>>({});
+  const [authenticated, setAuthenticated] = useState(false);
+  const [secret, setSecret] = useState('');
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const res = await fetch('/api/admin/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret }),
+    });
+    if (res.ok) {
+      setAuthenticated(true);
+    } else {
+      alert('Invalid admin secret');
+    }
+  };
 
   const postTo = async (platform: 'x' | 'linkedin', slug: string, title: string, description: string) => {
     const key = `${platform}-${slug}`;
@@ -17,7 +33,7 @@ export default function SocialAdminPage() {
     try {
       const res = await fetch(`/api/social/${platform}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Secret': secret },
         body: JSON.stringify({ slug, title, description }),
       });
 
@@ -39,6 +55,29 @@ export default function SocialAdminPage() {
       setLoading((prev) => ({ ...prev, [key]: false }));
     }
   };
+
+  if (!authenticated) {
+    return (
+      <div className="admin-social">
+        <div className="admin-social__header">
+          <h1 className="admin-social__title">Admin Access</h1>
+          <p className="admin-social__desc">Enter the admin secret to continue.</p>
+        </div>
+        <form onSubmit={handleLogin} className="admin-social__login">
+          <input
+            type="password"
+            value={secret}
+            onChange={(e) => setSecret(e.target.value)}
+            placeholder="Admin secret"
+            className="admin-social__input"
+          />
+          <button type="submit" className="admin-social__btn admin-social__btn--x">
+            Authenticate
+          </button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div className="admin-social">

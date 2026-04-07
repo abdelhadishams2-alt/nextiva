@@ -68,6 +68,8 @@ export async function Footer() {
                 <ul className="footer__links-list">
                   <li><a href="/#features">{t('col4Links.about')}</a></li>
                   <li><a href="/#reviews">{t('col4Links.methodology')}</a></li>
+                  <li><a href="/privacy-policy">{t('col4Links.privacy')}</a></li>
+                  <li><a href="/terms">{t('col4Links.terms')}</a></li>
                 </ul>
               </div>
 

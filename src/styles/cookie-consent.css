@@ -1,0 +1,120 @@
+/* ----------------------------------------------------------------
+   Cookie Consent Banner
+   ---------------------------------------------------------------- */
+
+@keyframes cookie-consent-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #0b1924;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: cookie-consent-slide-up 0.4s var(--ease-out) forwards;
+}
+
+.cookie-consent__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 1.25rem var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.cookie-consent__message {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.cookie-consent__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-consent__btn {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              opacity var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.cookie-consent__btn--accept {
+  background: #1a6b8a;
+  color: #ffffff;
+  border: 1px solid #1a6b8a;
+}
+
+.cookie-consent__btn--accept:hover {
+  background: #15586f;
+  border-color: #15586f;
+}
+
+.cookie-consent__btn--reject {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cookie-consent__btn--reject:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+/* ----------------------------------------------------------------
+   Tablet (max-width: 1024px)
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .cookie-consent__inner {
+    gap: 1rem;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone (max-width: 768px)
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .cookie-consent__inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem var(--container-padding) 1.5rem;
+    gap: 1rem;
+  }
+
+  .cookie-consent__actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cookie-consent__btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+  }
+}

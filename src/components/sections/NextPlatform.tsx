@@ -69,7 +69,7 @@ export function NextPlatform() {
         <div className="next-platform__stats">
           <div className="next-platform__stat">
             <div className="next-platform__stat-icon">
-              <Image src="/assets/stat-icon-1.png" alt="" width={20} height={20} />
+              <Image src="/assets/stat-icon-1.webp" alt="" width={20} height={20} />
             </div>
             <span className="next-platform__stat-title">
               <span className="next-platform__stat-counter" data-counter-target="1000000000" data-counter-suffix="+" data-counter-format="abbrev">0</span>
@@ -79,7 +79,7 @@ export function NextPlatform() {
           </div>
           <div className="next-platform__stat">
             <div className="next-platform__stat-icon">
-              <Image src="/assets/stat-icon-2.png" alt="" width={20} height={20} />
+              <Image src="/assets/stat-icon-2.webp" alt="" width={20} height={20} />
             </div>
             <span className="next-platform__stat-title">
               <span className="next-platform__stat-counter" data-counter-target="100000" data-counter-suffix="+">0</span>
@@ -89,7 +89,7 @@ export function NextPlatform() {
           </div>
           <div className="next-platform__stat">
             <div className="next-platform__stat-icon">
-              <Image src="/assets/stat-icon-3.png" alt="" width={20} height={20} />
+              <Image src="/assets/stat-icon-3.webp" alt="" width={20} height={20} />
             </div>
             <span className="next-platform__stat-title">
               <span className="next-platform__stat-counter" data-counter-target="17" data-counter-suffix="">0</span>
@@ -225,7 +225,7 @@ export function NextPlatform() {
               <div className="next-platform__visual">
                 <div className="next-platform__visual-bg">
                   <Image
-                    src="/assets/desert-wildflowers-dusk.png"
+                    src="/assets/desert-wildflowers-dusk.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"

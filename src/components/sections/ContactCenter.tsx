@@ -18,7 +18,7 @@ export async function ContactCenter() {
         <div
           className="contact-center__card"
           style={{
-            backgroundImage: 'url(/assets/contact-center-desert.png)',
+            backgroundImage: 'url(/assets/contact-center-desert.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -37,7 +37,7 @@ export async function ContactCenter() {
         <div
           className="contact-center__card contact-center__card--blue"
           style={{
-            backgroundImage: 'url(/assets/contact-center-agent.png)',
+            backgroundImage: 'url(/assets/contact-center-agent.webp)',
             backgroundSize: 'auto 130%',
             backgroundPosition: 'left bottom',
           }}

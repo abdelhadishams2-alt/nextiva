@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import PostHogProvider from "@/components/providers/PostHogProvider";
+import CookieConsent from "@/components/ui/CookieConsent";
 // import ExitIntent from "@/components/ui/ExitIntent";
 
 export async function generateMetadata() {
@@ -23,6 +24,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <PostHogProvider>
         {children}
+        <CookieConsent />
         {/* <ExitIntent /> */}
       </PostHogProvider>
     </NextIntlClientProvider>

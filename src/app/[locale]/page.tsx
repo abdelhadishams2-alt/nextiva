@@ -16,6 +16,7 @@ import { EditorsPick } from "@/components/sections/EditorsPick";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Pricing } from "@/components/sections/Pricing";
 import { Footer } from "@/components/sections/Footer";
+import { SITE_CONFIG } from "@/config/site";
 
 export default async function HomePage() {
 
@@ -40,6 +41,28 @@ export default async function HomePage() {
       <EditorsPick />
       <CallToAction />
       <Footer />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url,
+              description: SITE_CONFIG.description,
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url,
+              logo: `${SITE_CONFIG.url}/assets/mansati-logo.svg`,
+            },
+          ]),
+        }}
+      />
     </>
   );
 }

@@ -1,0 +1,145 @@
+/* ----------------------------------------------------------------
+   Error Page
+   ---------------------------------------------------------------- */
+
+.error-page {
+  align-items: center;
+  background-color: var(--brand-navy);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.error-page__bg {
+  background: radial-gradient(ellipse at 50% 80%, rgba(180, 60, 60, 0.1) 0%, transparent 60%);
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.error-page__content {
+  max-width: 640px;
+  padding: 120px 40px 80px;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.error-page__icon {
+  color: rgba(180, 60, 60, 0.6);
+  font-size: 56px;
+  margin-bottom: 24px;
+}
+
+.error-page__title {
+  color: var(--text-white);
+  font-family: var(--font-display);
+  font-size: var(--text-heading-lg);
+  font-weight: var(--arizona-heading-weight);
+  letter-spacing: var(--arizona-heading-letter-spacing);
+  line-height: var(--arizona-heading-line-height);
+  margin: 0 0 20px;
+}
+
+.error-page__desc {
+  color: var(--color-dark-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: 1.6;
+  margin: 0 0 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-page__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.error-page__btn {
+  align-items: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  gap: 12px;
+  padding: 14px 28px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.error-page__btn--primary {
+  background-color: var(--brand-primary, #1a6b8a);
+  color: #fff;
+}
+
+.error-page__btn--primary:hover {
+  background-color: var(--brand-primary-hover, #145a75);
+  transform: translateY(-1px);
+}
+
+.error-page__btn--ghost {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.error-page__btn--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.error-page__btn i {
+  font-size: 18px;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .error-page__content {
+    padding: 100px 32px 60px;
+  }
+
+  .error-page__title {
+    font-size: var(--text-heading-xl);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .error-page__content {
+    padding: 80px 20px 48px;
+  }
+
+  .error-page__title {
+    font-size: var(--text-heading-md-lg);
+  }
+
+  .error-page__desc {
+    font-size: var(--text-body);
+  }
+
+  .error-page__actions {
+    flex-direction: column;
+  }
+
+  .error-page__btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .error-page__icon {
+    font-size: 44px;
+  }
+}

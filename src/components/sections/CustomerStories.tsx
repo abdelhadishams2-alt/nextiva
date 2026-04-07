@@ -35,12 +35,12 @@ interface CardData {
 }
 
 const CARDS: CardData[] = [
-  { key: "card1", logo: "/assets/logo-hyundai.png", logoAlt: "Hyundai", logoWidth: 213, logoHeight: 56, icon: TREND_ICON },
-  { key: "card2", logo: "/assets/logo-dhl.png", logoAlt: "DHL", logoWidth: 144, logoHeight: 20, icon: TREND_ICON },
-  { key: "card3", logo: "/assets/logo-nothing-bundt-cakes.png", logoAlt: "Nothing Bundt Cakes", logoWidth: 300, logoHeight: 300, icon: BAR_ICON },
-  { key: "card4", logo: "/assets/logo-franklin-street.png", logoAlt: "Franklin Street", logoWidth: 40, logoHeight: 40, icon: BAR_ICON },
-  { key: "card5", logo: "/assets/logo-tabarka.png", logoAlt: "Tabarka Studio", logoWidth: 40, logoHeight: 40, icon: TREND_ICON },
-  { key: "card6", logo: "/assets/logo-shelby-circle.png", logoAlt: "Shelby American", logoWidth: 300, logoHeight: 300, icon: TREND_ICON },
+  { key: "card1", logo: "/assets/logo-hyundai.webp", logoAlt: "Hyundai", logoWidth: 213, logoHeight: 56, icon: TREND_ICON },
+  { key: "card2", logo: "/assets/logo-dhl.webp", logoAlt: "DHL", logoWidth: 144, logoHeight: 20, icon: TREND_ICON },
+  { key: "card3", logo: "/assets/logo-nothing-bundt-cakes.webp", logoAlt: "Nothing Bundt Cakes", logoWidth: 300, logoHeight: 300, icon: BAR_ICON },
+  { key: "card4", logo: "/assets/logo-franklin-street.webp", logoAlt: "Franklin Street", logoWidth: 40, logoHeight: 40, icon: BAR_ICON },
+  { key: "card5", logo: "/assets/logo-tabarka.webp", logoAlt: "Tabarka Studio", logoWidth: 40, logoHeight: 40, icon: TREND_ICON },
+  { key: "card6", logo: "/assets/logo-shelby-circle.webp", logoAlt: "Shelby American", logoWidth: 300, logoHeight: 300, icon: TREND_ICON },
 ];
 
 export async function CustomerStories() {
@@ -59,7 +59,7 @@ export async function CustomerStories() {
           <div className="customer-stories__trust-badges">
             <div className="customer-stories__badge-item">
               <Image
-                src="/assets/logo-trustpilot.png"
+                src="/assets/logo-trustpilot.webp"
                 alt="Trustpilot"
                 width={300}
                 height={74}
@@ -72,7 +72,7 @@ export async function CustomerStories() {
             </div>
             <div className="customer-stories__badge-item">
               <Image
-                src="/assets/logo-g2.png"
+                src="/assets/logo-g2.webp"
                 alt="G2"
                 width={100}
                 height={100}

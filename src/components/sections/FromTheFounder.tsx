@@ -21,7 +21,7 @@ export async function FromTheFounder() {
                 <div className="from-founder__card-meta">
                   <div className="from-founder__avatar">
                     <img
-                      src="/assets/tomas-avatar.png"
+                      src="/assets/tomas-avatar.webp"
                       alt={t('avatarAlt')}
                       width={56}
                       height={56}
@@ -78,7 +78,7 @@ export async function FromTheFounder() {
               <div className="from-founder__linkedin-footer">
                 <div className="from-founder__mini-avatar">
                   <img
-                    src="/assets/tomas-avatar.png"
+                    src="/assets/tomas-avatar.webp"
                     alt={t('avatarAlt')}
                     width={32}
                     height={32}

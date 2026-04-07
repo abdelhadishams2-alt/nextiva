@@ -183,7 +183,7 @@ function PlanCard({
         {addon && (
           <div className="pricing__addon">
             <span className="pricing__addon-icon">
-              <Image src="/assets/xbert-icon-dark.png" alt="" width={19} height={28} className="pricing__addon-xbert" />
+              <Image src="/assets/xbert-icon-dark.webp" alt="" width={19} height={28} className="pricing__addon-xbert" />
             </span>
             <span className="pricing__addon-text">
               <strong>{addonLabel}</strong> {addonText}

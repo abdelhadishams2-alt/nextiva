@@ -159,9 +159,9 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
               onMouseEnter={() => openMenu('categories')}
               onMouseLeave={scheduleClose}
             >
-              <button className="navbar__link navbar__link--dropdown" type="button">
+              <button className="navbar__link navbar__link--dropdown" type="button" aria-expanded={activeMenu === 'categories'} aria-label={t('categories')}>
                 {t('categories')}
-                <svg className="navbar__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <svg className="navbar__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
                   <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
