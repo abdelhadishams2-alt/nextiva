@@ -43,12 +43,11 @@ export async function Footer() {
               <div className="footer__links-col">
                 <span className="footer__links-heading">{t('col1Heading')}</span>
                 <ul className="footer__links-list">
-                  <li><a href="/foodics-review">{t('col1Links.websiteBuilders')}</a></li>
-                  <li><a href="/how-to-build-shopify-store">{t('col1Links.ecommerce')}</a></li>
-                  <li><a href="/foodics-review">{t('col1Links.crm')}</a></li>
-                  <li><a href="/how-to-build-shopify-store">{t('col1Links.projectMgmt')}</a></li>
-                  <li><a href="/foodics-review">{t('col1Links.hosting')}</a></li>
-                  <li><a href="/how-to-build-shopify-store">{t('col1Links.emailMarketing')}</a></li>
+                  <li><a href="/best-website-builders">{t('col1Links.websiteBuilders')}</a></li>
+                  <li><a href="/best-pos-systems">{t('col1Links.pos')}</a></li>
+                  <li><a href="/best-crm-software">{t('col1Links.crm')}</a></li>
+                  <li><a href="/best-hr-software">{t('col1Links.hr')}</a></li>
+                  <li><a href="/foodics-review">{t('col1Links.foodics')}</a></li>
                 </ul>
               </div>
 
@@ -57,31 +56,18 @@ export async function Footer() {
                 <span className="footer__links-heading">{t('col2Heading')}</span>
                 <ul className="footer__links-list">
                   <li><a href="/blogs">{t('col2Links.guides')}</a></li>
-                  <li><a href="/#editors-pick">{t('col2Links.comparisons')}</a></li>
-                  <li><a href="/#featured">{t('col2Links.bestOf')}</a></li>
-                  <li><a href="/#reviews">{t('col2Links.pricing')}</a></li>
+                  <li><a href="/how-to-build-shopify-store">{t('col2Links.shopifyGuide')}</a></li>
+                  <li><a href="/odoo-zatca-compliance">{t('col2Links.zatca')}</a></li>
+                  <li><a href="/shopify-vs-salla">{t('col2Links.shopifyVsSalla')}</a></li>
                 </ul>
               </div>
 
-              {/* Column 3 — Categories */}
-              <div className="footer__links-col">
-                <span className="footer__links-heading">{t('col3Heading')}</span>
-                <ul className="footer__links-list">
-                  <li><a href="/foodics-review">{t('col3Links.marketing')}</a></li>
-                  <li><a href="/how-to-build-shopify-store">{t('col3Links.analytics')}</a></li>
-                  <li><a href="/foodics-review">{t('col3Links.design')}</a></li>
-                  <li><a href="/how-to-build-shopify-store">{t('col3Links.ai')}</a></li>
-                  <li><a href="/foodics-review">{t('col3Links.communication')}</a></li>
-                </ul>
-              </div>
-
-              {/* Column 4 — Company */}
+              {/* Column 3 — Company */}
               <div className="footer__links-col">
                 <span className="footer__links-heading">{t('col4Heading')}</span>
                 <ul className="footer__links-list">
                   <li><a href="/#features">{t('col4Links.about')}</a></li>
                   <li><a href="/#reviews">{t('col4Links.methodology')}</a></li>
-                  <li><a href="/#contact">{t('col4Links.contact')}</a></li>
                 </ul>
               </div>
 
@@ -90,7 +76,7 @@ export async function Footer() {
                 <span className="footer__links-heading">{t('blogHeading')}</span>
                 <ul className="footer__links-list footer__links-list--blog">
                   <li className="footer__blog-card">
-                    <a className="footer__blog-link" href="/how-to-build-shopify-store">
+                    <a className="footer__blog-link" href="/best-pos-systems">
                       <div className="footer__blog-content">
                         <div className="footer__blog-title">{t('blogPost1Title')}</div>
                         <div className="footer__blog-go">
@@ -103,7 +89,7 @@ export async function Footer() {
                     </a>
                   </li>
                   <li className="footer__blog-card">
-                    <a className="footer__blog-link" href="/foodics-review">
+                    <a className="footer__blog-link" href="/best-crm-software">
                       <div className="footer__blog-content">
                         <div className="footer__blog-title">{t('blogPost2Title')}</div>
                         <div className="footer__blog-go">
