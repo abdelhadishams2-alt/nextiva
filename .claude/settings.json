@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "Stop": [],
+    "PreCompact": [],
+    "PreToolUse": []
+  }
+}

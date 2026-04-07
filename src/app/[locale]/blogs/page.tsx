@@ -6,6 +6,16 @@ import BlogsGrid from '@/components/ui/BlogsGrid';
 
 const articles = [
   {
+    slug: 'best-project-management-tools',
+    image: '/assets/articles/best-pm-tools-1.webp',
+    badge: 'Best Of',
+    title: 'From Chaos to Control: Best PM Tools for Every Team Size (2026)',
+    excerpt: 'We tested ClickUp, Monday.com, Asana, Notion, Jira, Trello, Wrike, and more. Organized by team size with real pricing, AI features, and honest pros/cons.',
+    date: 'April 7, 2026',
+    readTime: '18 min read',
+    category: 'enterprise',
+  },
+  {
     slug: 'best-hr-software',
     image: '/assets/articles/best-hr-software-saudi-1.webp',
     badge: 'Best Of',

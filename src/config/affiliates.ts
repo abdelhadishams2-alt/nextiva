@@ -91,6 +91,24 @@ export const affiliatePartners: Record<string, AffiliatePartner> = {
     commission: 'Contact for terms',
     programUrl: 'https://www.sumup.com',
   },
+  clickup: {
+    name: 'ClickUp',
+    url: 'https://www.clickup.com?ref=mansati',
+    commission: 'Contact for terms',
+    programUrl: 'https://clickup.com/partners',
+  },
+  monday: {
+    name: 'Monday.com',
+    url: 'https://www.monday.com?ref=mansati',
+    commission: 'Contact for terms',
+    programUrl: 'https://monday.com/partners',
+  },
+  asana: {
+    name: 'Asana',
+    url: 'https://www.asana.com?ref=mansati',
+    commission: 'Contact for terms',
+    programUrl: 'https://asana.com/partners',
+  },
 };
 
 /**
