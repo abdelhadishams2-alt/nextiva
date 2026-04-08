@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef } from 'react';
 
@@ -186,14 +187,14 @@ export function SplitShowcase() {
         {/* Card 1 — XBert AI */}
         <div className="split-showcase__card">
           <div className="split-showcase__card-image">
-            <img
+            <Image
               loading="lazy"
-              decoding="async"
               width={1024}
               height={1024}
               src="/assets/trust-testing.webp"
               className="split-showcase__img"
               alt=""
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="split-showcase__overlay split-showcase__overlay--ai">
               <div className="split-showcase__face-box split-showcase__face-box--ai">
@@ -225,14 +226,14 @@ export function SplitShowcase() {
         {/* Card 2 — Team Focus */}
         <div className="split-showcase__card">
           <div className="split-showcase__card-image">
-            <img
+            <Image
               loading="lazy"
-              decoding="async"
               width={1024}
               height={771}
               src="/assets/trust-no-bias.webp"
               className="split-showcase__img"
               alt=""
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="split-showcase__overlay split-showcase__overlay--team">
               <div className="split-showcase__face-box split-showcase__face-box--team">
@@ -263,14 +264,14 @@ export function SplitShowcase() {
         {/* Card 3 — Unified Platform */}
         <div className="split-showcase__card">
           <div className="split-showcase__card-image">
-            <img
+            <Image
               loading="lazy"
-              decoding="async"
               width={847}
               height={1024}
               src="/assets/trust-mena.webp"
               className="split-showcase__img"
               alt=""
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="split-showcase__overlay split-showcase__overlay--constellation">
               <ConstellationSVG />

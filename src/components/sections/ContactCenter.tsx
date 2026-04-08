@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 
 const ArrowIcon = () => (
@@ -15,14 +16,16 @@ export async function ContactCenter() {
   return (
     <section className="contact-center">
       <div className="contact-center__row">
-        <div
-          className="contact-center__card"
-          style={{
-            backgroundImage: 'url(/assets/contact-center-desert.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
+        <div className="contact-center__card">
+          <Image
+            src="/assets/contact-center-desert.webp"
+            alt=""
+            fill
+            loading="lazy"
+            quality={75}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover' }}
+          />
           <div className="contact-center__overlay">
             <span className="contact-center__label">{t('card1.label')}</span>
             <h3 className="contact-center__title">{t('card1.title')}</h3>
@@ -34,14 +37,16 @@ export async function ContactCenter() {
           </div>
         </div>
 
-        <div
-          className="contact-center__card contact-center__card--blue"
-          style={{
-            backgroundImage: 'url(/assets/contact-center-agent.webp)',
-            backgroundSize: 'auto 130%',
-            backgroundPosition: 'left bottom',
-          }}
-        >
+        <div className="contact-center__card contact-center__card--blue">
+          <Image
+            src="/assets/contact-center-agent.webp"
+            alt=""
+            fill
+            loading="lazy"
+            quality={75}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover', objectPosition: 'left bottom' }}
+          />
           <div className="contact-center__overlay">
             <span className="contact-center__label">{t('card2.label')}</span>
             <h3 className="contact-center__title">{t('card2.title')}</h3>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 
 export async function EndOfBusywork() {
@@ -36,10 +37,17 @@ export async function EndOfBusywork() {
         </div>
 
         {/* Right — Visual */}
-        <div
-          className="busywork__visual"
-          style={{ backgroundImage: 'url(/assets/why-trust-mansati.webp)' }}
-        />
+        <div className="busywork__visual">
+          <Image
+            src="/assets/why-trust-mansati.webp"
+            alt=""
+            fill
+            loading="lazy"
+            quality={75}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
       </div>
     </section>
   );

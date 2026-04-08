@@ -9,14 +9,21 @@ export default function PostHogProvider({ children }: { children: React.ReactNod
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
     if (typeof window === 'undefined' || !key) return;
 
-    posthog.init(key, {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
-      capture_pageview: true,
-      capture_pageleave: true,
-      autocapture: true,
-      capture_heatmaps: true,
-      scroll_root_selector: ['main'],
-    });
+    const init = () => {
+      posthog.init(key, {
+        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+        capture_pageview: true,
+        capture_pageleave: true,
+        autocapture: false,
+        capture_heatmaps: false,
+      });
+    };
+
+    if (typeof requestIdleCallback !== 'undefined') {
+      requestIdleCallback(init);
+    } else {
+      setTimeout(init, 200);
+    }
   }, []);
 
   if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {

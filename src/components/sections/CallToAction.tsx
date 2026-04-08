@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 
 export async function CallToAction() {
@@ -5,10 +6,17 @@ export async function CallToAction() {
 
   return (
     <section className="cta-hero" id="contact">
-      <div
-        className="cta-hero__bg"
-        style={{ backgroundImage: "url('/assets/cta-bg-mansati.webp')" }}
-      />
+      <div className="cta-hero__bg">
+        <Image
+          src="/assets/cta-bg-mansati.webp"
+          alt=""
+          fill
+          loading="lazy"
+          quality={75}
+          sizes="100vw"
+          style={{ objectFit: 'cover' }}
+        />
+      </div>
 
       <div className="cta-hero__content">
         <h2 className="cta-hero__headline">{t('headline')}</h2>

@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "babel-plugin-react-compiler": "^1.0.0",
-    "framer-motion": "^11.18.2",
     "gsap": "3.14",
     "next": "16.1.7",
     "next-intl": "^4.8.3",
@@ -20,6 +19,7 @@
   },
   "devDependencies": {
     "@mendable/firecrawl-js": "^1.21.1",
+    "@next/bundle-analyzer": "^16.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

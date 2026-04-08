@@ -1,3 +1,5 @@
+import "@/styles/article.css";
+import "@/styles/article-best-pm-tools.css";
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
@@ -115,7 +116,7 @@ export default function BlogsGrid({ articles, filters, searchPlaceholder }: Blog
                 className="blogs-card"
               >
                 <div className="blogs-card__image">
-                  <img src={article.image} alt={article.title} />
+                  <Image src={article.image} alt={article.title} width={600} height={400} loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 </div>
                 <div className="blogs-card__body">
                   <div className="blogs-card__top">

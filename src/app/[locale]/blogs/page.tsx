@@ -1,3 +1,4 @@
+import "@/styles/blogs.css";
 import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';

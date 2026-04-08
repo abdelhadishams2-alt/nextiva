@@ -1,3 +1,22 @@
+import "@/styles/hero.css";
+import "@/styles/hero-showcase.css";
+import "@/styles/logo-trust-bar.css";
+import "@/styles/featured-stories.css";
+import "@/styles/how-we-review.css";
+import "@/styles/end-of-busywork.css";
+import "@/styles/split-showcase.css";
+import "@/styles/editors-pick.css";
+import "@/styles/from-founder.css";
+import "@/styles/pricing.css";
+import "@/styles/pricing-cards.css";
+import "@/styles/feature-cards.css";
+import "@/styles/next-platform.css";
+import "@/styles/more-impact.css";
+import "@/styles/spotlight-hero.css";
+import "@/styles/proven-results.css";
+import "@/styles/customer-stories.css";
+import "@/styles/contact-center.css";
+
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { LogoTrustBar } from "@/components/sections/LogoTrustBar";

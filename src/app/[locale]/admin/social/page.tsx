@@ -1,5 +1,6 @@
 'use client';
 
+import "@/styles/admin-social.css";
 import { useState } from 'react';
 import { articles } from '@/config/articles';
 import { SITE_CONFIG } from '@/config/site';

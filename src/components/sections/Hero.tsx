@@ -26,7 +26,7 @@ export async function Hero() {
           alt=""
           fill
           priority
-          quality={100}
+          quality={80}
           sizes="100vw"
           style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
         />

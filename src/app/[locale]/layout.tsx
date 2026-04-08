@@ -1,8 +1,23 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
+import dynamic from "next/dynamic";
 import PostHogProvider from "@/components/providers/PostHogProvider";
-import CookieConsent from "@/components/ui/CookieConsent";
-// import ExitIntent from "@/components/ui/ExitIntent";
+
+const CookieConsent = dynamic(() => import("@/components/ui/CookieConsent"));
+
+const CLIENT_NAMESPACES = [
+  'Navbar', 'HeroShowcase', 'LogoTrustBar', 'SplitShowcase', 'MoreImpact',
+  'NextPlatform', 'ProvenResults', 'EditorsPick', 'HowWeReview', 'Pricing',
+  'Footer', 'CookieConsent', 'Blogs', 'Error',
+] as const;
+
+function pickClientMessages(messages: Record<string, unknown>) {
+  const picked: Record<string, unknown> = {};
+  for (const ns of CLIENT_NAMESPACES) {
+    if (messages[ns]) picked[ns] = messages[ns];
+  }
+  return picked;
+}
 
 export async function generateMetadata() {
   const t = await getTranslations("Metadata");
@@ -13,19 +28,23 @@ export async function generateMetadata() {
   };
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }];
+}
+
 export default async function LocaleLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const messages = await getMessages();
+  const clientMessages = pickClientMessages(messages as Record<string, unknown>);
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider messages={clientMessages}>
       <PostHogProvider>
         {children}
         <CookieConsent />
-        {/* <ExitIntent /> */}
       </PostHogProvider>
     </NextIntlClientProvider>
   );

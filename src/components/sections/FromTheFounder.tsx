@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { DustParticles } from '@/components/ui/DustParticles';
 
@@ -20,11 +21,12 @@ export async function FromTheFounder() {
               <div className="from-founder__card-top">
                 <div className="from-founder__card-meta">
                   <div className="from-founder__avatar">
-                    <img
+                    <Image
                       src="/assets/tomas-avatar.webp"
                       alt={t('avatarAlt')}
                       width={56}
                       height={56}
+                      loading="lazy"
                     />
                   </div>
                   <div className="from-founder__info">
@@ -77,11 +79,12 @@ export async function FromTheFounder() {
 
               <div className="from-founder__linkedin-footer">
                 <div className="from-founder__mini-avatar">
-                  <img
+                  <Image
                     src="/assets/tomas-avatar.webp"
                     alt={t('avatarAlt')}
                     width={32}
                     height={32}
+                    loading="lazy"
                   />
                 </div>
                 <span className="from-founder__linkedin-author">{t('name')}</span>

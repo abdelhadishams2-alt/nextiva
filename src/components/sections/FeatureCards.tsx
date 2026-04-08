@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { DustParticles } from '@/components/ui/DustParticles';
 import { EyeRadiate } from '@/components/ui/EyeRadiate';
@@ -9,10 +10,16 @@ export async function FeatureCards() {
     <section className="feature-cards">
       <div className="feature-cards__row">
         {/* Card 1 — Desert landscape with dust particles */}
-        <div
-          className="feature-cards__card"
-          style={{ backgroundImage: 'url(/assets/feature-card-desert.webp)' }}
-        >
+        <div className="feature-cards__card">
+          <Image
+            src="/assets/feature-card-desert.webp"
+            alt=""
+            fill
+            loading="lazy"
+            quality={75}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover', zIndex: 0 }}
+          />
           <DustParticles />
           <div className="feature-cards__overlay">
             <span className="feature-cards__label">{t('card1.label')}</span>
@@ -22,10 +29,16 @@ export async function FeatureCards() {
         </div>
 
         {/* Card 2 — Portrait with eye radiate rings */}
-        <div
-          className="feature-cards__card feature-cards__card--blue"
-          style={{ backgroundImage: 'url(/assets/feature-card-portrait.webp)' }}
-        >
+        <div className="feature-cards__card feature-cards__card--blue">
+          <Image
+            src="/assets/feature-card-portrait.webp"
+            alt=""
+            fill
+            loading="lazy"
+            quality={75}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover', zIndex: 0 }}
+          />
           <EyeRadiate />
           <div className="feature-cards__overlay">
             <span className="feature-cards__label">{t('card2.label')}</span>

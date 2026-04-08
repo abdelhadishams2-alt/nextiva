@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -28,11 +29,16 @@ export function FooterBrand() {
   }, []);
 
   return (
-    <div
-      className="footer-brand"
-      ref={containerRef}
-      style={{ backgroundImage: "url('/assets/footer-bg-mansati.webp')" }}
-    >
+    <div className="footer-brand" ref={containerRef}>
+      <Image
+        src="/assets/footer-bg-mansati.webp"
+        alt=""
+        fill
+        loading="lazy"
+        quality={75}
+        sizes="100vw"
+        style={{ objectFit: 'cover', zIndex: 0 }}
+      />
       <span className="footer-brand__giant-text footer-brand__reveal">
         {t('brandText')}
       </span>

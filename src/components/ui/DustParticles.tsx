@@ -13,9 +13,13 @@ export function DustParticles() {
     const container = containerRef.current;
     if (!container) return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     let intervalId: ReturnType<typeof setInterval> | null = null;
     let cachedWidth = 0;
     let cachedHeight = 0;
+    const MAX_PARTICLES = 25;
 
     function updateSize() {
       cachedWidth = container!.offsetWidth;
@@ -39,6 +43,7 @@ export function DustParticles() {
 
     function spawnParticle() {
       if (!container || cachedWidth === 0) return;
+      if (container.querySelectorAll('.feature-cards__dust').length >= MAX_PARTICLES) return;
       const span = document.createElement('span');
       span.className = 'feature-cards__dust';
 
@@ -79,7 +84,7 @@ export function DustParticles() {
       intervalId = setInterval(() => {
         const count = Math.round(rand(1, 3));
         for (let i = 0; i < count; i++) spawnParticle();
-      }, 400);
+      }, 700);
     }
 
     function stopParticles() {

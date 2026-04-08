@@ -13,9 +13,13 @@ export function HeroParticles() {
     const container = containerRef.current;
     if (!container) return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     let intervalId: ReturnType<typeof setInterval> | null = null;
     let cachedWidth = 0;
     let cachedHeight = 0;
+    const MAX_PARTICLES = 25;
 
     function updateSize() {
       cachedWidth = container!.offsetWidth;
@@ -24,6 +28,7 @@ export function HeroParticles() {
 
     function spawnParticle() {
       if (!container || cachedWidth === 0) return;
+      if (container.querySelectorAll('.hero__particle').length >= MAX_PARTICLES) return;
 
       const span = document.createElement('span');
       span.className = 'hero__particle';
@@ -87,7 +92,7 @@ export function HeroParticles() {
         for (let i = 0; i < count; i++) {
           spawnParticle();
         }
-      }, 500);
+      }, 800);
     }
 
     function stopParticles() {

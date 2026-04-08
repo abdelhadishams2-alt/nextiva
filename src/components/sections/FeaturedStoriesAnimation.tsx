@@ -1,18 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useEffect } from 'react';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 
 export function FeaturedStoriesAnimation() {
-  const hasRun = useRef(false);
-
   useEffect(() => {
-    if (hasRun.current) return;
-    hasRun.current = true;
-
     const ctx = gsap.context(() => {
       const section = document.querySelector('.featured-stories');
       if (!section) return;
@@ -73,9 +65,16 @@ export function FeaturedStoriesAnimation() {
       /* Metric count-up animation */
       const metrics = section.querySelectorAll('.featured-stories__metric');
       metrics.forEach((el) => {
-        const text = el.textContent || '';
+        // Preserve original text in data attribute so StrictMode revert doesn't lose it
+        if (!el.getAttribute('data-original')) {
+          el.setAttribute('data-original', el.textContent || '');
+        }
+        const text = el.getAttribute('data-original') || '';
         const numMatch = text.match(/[\d.]+/);
         if (!numMatch) return;
+
+        // Reset text to original before animating (in case StrictMode left it at 0)
+        el.textContent = text;
 
         const target = parseFloat(numMatch[0]);
         const suffix = text.replace(numMatch[0], '');
