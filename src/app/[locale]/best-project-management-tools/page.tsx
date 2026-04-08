@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/article-best-pm-tools.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -14,6 +15,9 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'Why PM Tools Matter' },
@@ -86,7 +90,7 @@ export default async function BestProjectManagementToolsPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/best-pm-tools-1.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/best-pm-tools-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -184,7 +188,7 @@ export default async function BestProjectManagementToolsPage() {
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pm-tools-solo.webp" alt={t('s4ImageAlt')} />
+                  <Image src="/assets/articles/best-pm-tools-solo.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
 
@@ -229,7 +233,7 @@ export default async function BestProjectManagementToolsPage() {
                 <h2>{t('s5Title')}</h2>
                 <p className="lead-paragraph">{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pm-tools-small-team.webp" alt={t('s5ImageAlt')} />
+                  <Image src="/assets/articles/best-pm-tools-small-team.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
 
@@ -318,7 +322,7 @@ export default async function BestProjectManagementToolsPage() {
                 <h2>{t('s7Title')}</h2>
                 <p className="lead-paragraph">{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pm-tools-enterprise.webp" alt={t('s7ImageAlt')} />
+                  <Image src="/assets/articles/best-pm-tools-enterprise.webp" alt={t('s7ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
 
@@ -381,7 +385,7 @@ export default async function BestProjectManagementToolsPage() {
                 <h2>{t('s9Title')}</h2>
                 <p className="lead-paragraph">{t('s9Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-pm-tools-analytics.webp" alt={t('s9ImageAlt')} />
+                  <Image src="/assets/articles/best-pm-tools-analytics.webp" alt={t('s9ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s9ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid mini-cards-grid--2col">
@@ -473,6 +477,23 @@ export default async function BestProjectManagementToolsPage() {
 
       <Footer />
       <AffiliateMobileBar partner="clickup" buttonText="Try ClickUp Free" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/best-project-management-tools`}
+        image={`${SITE_CONFIG.url}/assets/articles/best-pm-tools-1.webp`}
+        datePublished="2026-04-07"
+        dateModified="2026-04-07"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Reviews', url: '/blogs' },
+        { name: t('metaTitle'), url: '/best-project-management-tools' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
+        question: t(`s12Q${n}`),
+        answer: t(`s12A${n}`),
+      }))} />
     </>
   );
 }

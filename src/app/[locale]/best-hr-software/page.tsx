@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/article-best-hr-software-saudi.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -14,6 +15,9 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'Why HR Software' },
@@ -86,7 +90,7 @@ export default async function BestHrSoftwareSaudiPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/best-hr-software-saudi-1.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/best-hr-software-saudi-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -182,7 +186,7 @@ export default async function BestHrSoftwareSaudiPage() {
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-hr-software-saudi-3.webp" alt="Saudi employees using HR mobile self-service app" />
+                  <Image src="/assets/articles/best-hr-software-saudi-3.webp" alt="Saudi employees using HR mobile self-service app" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>Jisr provides a mobile-first experience for employee self-service</figcaption>
                 </figure>
                 <p>{t('s4P1')}</p>
@@ -308,7 +312,7 @@ export default async function BestHrSoftwareSaudiPage() {
                 <h2>{t('s9Title')}</h2>
                 <p className="lead-paragraph">{t('s9Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-hr-software-saudi-2.webp" alt="Saudi HR compliance workflow showing GOSI, Mudad, Nitaqat, and Qiwa" />
+                  <Image src="/assets/articles/best-hr-software-saudi-2.webp" alt="Saudi HR compliance workflow showing GOSI, Mudad, Nitaqat, and Qiwa" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>Saudi HR compliance requires integration with multiple government platforms</figcaption>
                 </figure>
                 <p>{t('s9P1')}</p>
@@ -325,7 +329,7 @@ export default async function BestHrSoftwareSaudiPage() {
                 <h2>{t('s10Title')}</h2>
                 <p className="lead-paragraph">{t('s10Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-hr-software-saudi-4.webp" alt="6 key factors for choosing HR software in Saudi Arabia" />
+                  <Image src="/assets/articles/best-hr-software-saudi-4.webp" alt="6 key factors for choosing HR software in Saudi Arabia" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>Key factors to evaluate when selecting HR software for your Saudi business</figcaption>
                 </figure>
                 <div className="mini-cards-grid mini-cards-grid--2col">
@@ -387,6 +391,23 @@ export default async function BestHrSoftwareSaudiPage() {
 
       <Footer />
       <AffiliateMobileBar partner="jisr" buttonText="Try Jisr" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/best-hr-software`}
+        image={`${SITE_CONFIG.url}/assets/articles/best-hr-software-saudi-1.webp`}
+        datePublished="2026-04-06"
+        dateModified="2026-04-06"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Reviews', url: '/blogs' },
+        { name: t('metaTitle'), url: '/best-hr-software' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
+        question: t(`s12Q${n}`),
+        answer: t(`s12A${n}`),
+      }))} />
     </>
   );
 }

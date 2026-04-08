@@ -4,6 +4,8 @@
 
 .how-we-review {
   background: var(--brand-cream, #f8f8f6);
+  contain-intrinsic-size: auto 500px;
+  content-visibility: auto;
   overflow: hidden;
   padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
 }

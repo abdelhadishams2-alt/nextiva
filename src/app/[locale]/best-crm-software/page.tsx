@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/article-best-crm-saudi.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -14,6 +15,9 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'Why CRM Matters' },
@@ -86,7 +90,7 @@ export default async function BestCrmSaudiPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/best-crm-saudi-1.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/best-crm-saudi-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -184,7 +188,7 @@ export default async function BestCrmSaudiPage() {
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-crm-saudi-hubspot.webp" alt="HubSpot CRM dashboard interface" />
+                  <Image src="/assets/articles/best-crm-saudi-hubspot.webp" alt="HubSpot CRM dashboard interface" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>HubSpot offers one of the most generous free CRM plans on the market</figcaption>
                 </figure>
                 <p>{t('s4P1')}</p>
@@ -214,7 +218,7 @@ export default async function BestCrmSaudiPage() {
                 <h2>{t('s5Title')}</h2>
                 <p className="lead-paragraph">{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-crm-saudi-zoho-crm.webp" alt="Zoho CRM with Arabic interface" />
+                  <Image src="/assets/articles/best-crm-saudi-zoho-crm.webp" alt="Zoho CRM with Arabic interface" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>Zoho CRM offers full Arabic and RTL support out of the box</figcaption>
                 </figure>
                 <p>{t('s5P1')}</p>
@@ -246,7 +250,7 @@ export default async function BestCrmSaudiPage() {
                 <h2>{t('s6Title')}</h2>
                 <p className="lead-paragraph">{t('s6Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-crm-saudi-salesforce.webp" alt="Salesforce CRM enterprise dashboard" />
+                  <Image src="/assets/articles/best-crm-saudi-salesforce.webp" alt="Salesforce CRM enterprise dashboard" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>Salesforce opened its Riyadh headquarters in January 2025</figcaption>
                 </figure>
                 <p>{t('s6P1')}</p>
@@ -276,7 +280,7 @@ export default async function BestCrmSaudiPage() {
                 <h2>{t('s7Title')}</h2>
                 <p className="lead-paragraph">{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-crm-saudi-freshsales.webp" alt="Freshsales CRM pipeline view" />
+                  <Image src="/assets/articles/best-crm-saudi-freshsales.webp" alt="Freshsales CRM pipeline view" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>Freshsales combines an affordable price with built-in AI capabilities</figcaption>
                 </figure>
                 <p>{t('s7P1')}</p>
@@ -412,6 +416,23 @@ export default async function BestCrmSaudiPage() {
 
       <Footer />
       <AffiliateMobileBar partner="hubspot" buttonText="Try HubSpot Free" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/best-crm-software`}
+        image={`${SITE_CONFIG.url}/assets/articles/best-crm-saudi-1.webp`}
+        datePublished="2026-04-06"
+        dateModified="2026-04-06"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Reviews', url: '/blogs' },
+        { name: t('metaTitle'), url: '/best-crm-software' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
+        question: t(`s12Q${n}`),
+        answer: t(`s12A${n}`),
+      }))} />
     </>
   );
 }

@@ -4,6 +4,8 @@
 
 .busywork {
   background: var(--brand-white);
+  contain-intrinsic-size: auto 500px;
+  content-visibility: auto;
   padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
   padding-bottom: 0px;
 }

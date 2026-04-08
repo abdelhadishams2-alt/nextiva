@@ -4,6 +4,8 @@
 
 .from-founder {
   background: var(--bg-white, #fff);
+  contain-intrinsic-size: auto 500px;
+  content-visibility: auto;
   padding: 100px max(100px, (100% - var(--content-max-width)) / 2);
   position: relative;
 }

@@ -1,22 +1,22 @@
 import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/config/site';
 
-const articleSlugs = [
-  'best-hr-software',
-  'best-crm-software',
-  'best-pos-systems',
-  'best-project-management-tools',
-  'odoo-zatca-compliance',
-  'best-website-builders',
-  'shopify-vs-salla',
-  'how-to-build-shopify-store',
-  'foodics-review',
-];
+const articleDates: Record<string, string> = {
+  'best-hr-software': '2026-04-06',
+  'best-crm-software': '2026-04-06',
+  'best-pos-systems': '2026-04-06',
+  'best-project-management-tools': '2026-04-07',
+  'odoo-zatca-compliance': '2026-04-06',
+  'best-website-builders': '2026-04-06',
+  'shopify-vs-salla': '2026-04-04',
+  'how-to-build-shopify-store': '2026-04-04',
+  'foodics-review': '2026-04-03',
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const articles = articleSlugs.map((slug) => ({
+  const articles = Object.entries(articleDates).map(([slug, date]) => ({
     url: `${SITE_CONFIG.url}/${slug}`,
-    lastModified: new Date('2026-03-24'),
+    lastModified: new Date(date),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));

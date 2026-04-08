@@ -4,6 +4,8 @@
 
 .cta-hero {
   align-items: center;
+  contain-intrinsic-size: auto 500px;
+  content-visibility: auto;
   display: flex;
   justify-content: center;
   min-height: 80vh;

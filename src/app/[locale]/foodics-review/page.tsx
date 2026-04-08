@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/article-foodics-review.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -14,6 +15,9 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'Overview' },
@@ -88,7 +92,7 @@ export default async function FoodicsReviewPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/foodics-review-1.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/foodics-review-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -163,7 +167,7 @@ export default async function FoodicsReviewPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/foodics-review-screenshot-1.webp" alt={t('s3ImageAlt')} />
+                  <Image src="/assets/articles/foodics-review-screenshot-1.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -247,7 +251,7 @@ export default async function FoodicsReviewPage() {
                 <h2>{t('s7Title')}</h2>
                 <p>{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/foodics-review-screenshot-3.webp" alt={t('s7ImageAlt')} />
+                  <Image src="/assets/articles/foodics-review-screenshot-3.webp" alt={t('s7ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
                 <ul>
@@ -275,7 +279,7 @@ export default async function FoodicsReviewPage() {
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/foodics-review-screenshot-2.webp" alt={t('s8ImageAlt')} />
+                  <Image src="/assets/articles/foodics-review-screenshot-2.webp" alt={t('s8ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-table-wrap">
@@ -435,6 +439,23 @@ export default async function FoodicsReviewPage() {
       <CallToAction />
       <Footer />
       <AffiliateMobileBar partner="foodics" buttonText="Try Foodics Free" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/foodics-review`}
+        image={`${SITE_CONFIG.url}/assets/articles/foodics-review-1.webp`}
+        datePublished="2026-04-03"
+        dateModified="2026-04-03"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Reviews', url: '/blogs' },
+        { name: t('metaTitle'), url: '/foodics-review' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
+        question: t(`s12Q${n}`),
+        answer: t(`s12A${n}`),
+      }))} />
     </>
   );
 }

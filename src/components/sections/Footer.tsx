@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { FooterBrand } from '@/components/ui/FooterBrand';
 
@@ -12,7 +13,7 @@ export async function Footer() {
           <div className="footer__logo-section">
             <div className="footer__logo">
               <a href="/">
-                <img
+                <Image
                   src="/assets/mansati-logo.svg"
                   alt={t('logoAlt')}
                   width={188}
@@ -25,13 +26,13 @@ export async function Footer() {
 
             <div className="footer__social">
               <a href="https://x.com/mansati" aria-label={t('socialX')} data-ph-capture-attribute-button="footer-social-x">
-                <img src="/assets/footer-x.webp" alt={t('socialX')} width={32} height={32} loading="lazy" />
+                <Image src="/assets/footer-x.webp" alt={t('socialX')} width={32} height={32} loading="lazy" />
               </a>
               <a href="https://www.linkedin.com/company/mansati" aria-label={t('socialLinkedIn')} data-ph-capture-attribute-button="footer-social-linkedin">
-                <img src="/assets/footer-linkedin.webp" alt={t('socialLinkedIn')} width={32} height={32} loading="lazy" />
+                <Image src="/assets/footer-linkedin.webp" alt={t('socialLinkedIn')} width={32} height={32} loading="lazy" />
               </a>
               <a href="https://www.youtube.com/@mansati" aria-label={t('socialYouTube')} data-ph-capture-attribute-button="footer-social-youtube">
-                <img src="/assets/footer-youtube.webp" alt={t('socialYouTube')} width={32} height={32} loading="lazy" />
+                <Image src="/assets/footer-youtube.webp" alt={t('socialYouTube')} width={32} height={32} loading="lazy" />
               </a>
             </div>
           </div>

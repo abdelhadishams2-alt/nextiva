@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/article-shopify-vs-salla.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -14,6 +15,9 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'Introduction' },
@@ -84,7 +88,7 @@ export default async function ShopifyVsSallaPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/shopify-vs-salla-1.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/shopify-vs-salla-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -151,7 +155,7 @@ export default async function ShopifyVsSallaPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/shopify-vs-salla-2.webp" alt={t('s3ImageAlt')} />
+                  <Image src="/assets/articles/shopify-vs-salla-2.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
 
@@ -217,7 +221,7 @@ export default async function ShopifyVsSallaPage() {
                 <h2>{t('s5Title')}</h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/shopify-vs-salla-3.webp" alt={t('s5ImageAlt')} />
+                  <Image src="/assets/articles/shopify-vs-salla-3.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
 
@@ -400,7 +404,7 @@ export default async function ShopifyVsSallaPage() {
               <section id="section-10" className="fade-up article-section">
                 <h2>{t('s10Title')}</h2>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/shopify-vs-salla-4.webp" alt={t('s10ImageAlt')} />
+                  <Image src="/assets/articles/shopify-vs-salla-4.webp" alt={t('s10ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
 
@@ -460,6 +464,23 @@ export default async function ShopifyVsSallaPage() {
       <CallToAction />
       <Footer />
       <AffiliateMobileBar partner="shopify" buttonText="Start Free Trial" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/shopify-vs-salla`}
+        image={`${SITE_CONFIG.url}/assets/articles/shopify-vs-salla-1.webp`}
+        datePublished="2026-04-04"
+        dateModified="2026-04-04"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Comparisons', url: '/blogs' },
+        { name: t('metaTitle'), url: '/shopify-vs-salla' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
+        question: t(`s11Q${n}`),
+        answer: t(`s11A${n}`),
+      }))} />
     </>
   );
 }

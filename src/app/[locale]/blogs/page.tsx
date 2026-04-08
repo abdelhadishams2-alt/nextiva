@@ -1,9 +1,11 @@
 import "@/styles/blogs.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
 import BlogsGrid from '@/components/ui/BlogsGrid';
+import { SITE_CONFIG } from '@/config/site';
 
 const articles = [
   {
@@ -111,6 +113,21 @@ export async function generateMetadata() {
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
+    openGraph: {
+      title: t('metaTitle'),
+      description: t('metaDescription'),
+      url: `${SITE_CONFIG.url}/blogs`,
+      siteName: SITE_CONFIG.name,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('metaTitle'),
+      description: t('metaDescription'),
+    },
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/blogs`,
+    },
   };
 }
 
@@ -125,7 +142,7 @@ export default async function BlogsPage() {
         {/* Hero */}
         <section className="blogs-hero">
           <div className="blogs-hero__bg">
-            <img src="/assets/blogs-hero-bg.webp" alt="" loading="eager" />
+            <Image src="/assets/blogs-hero-bg.webp" alt="" fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="blogs-hero__overlay" />
           <div className="blogs-hero__content">

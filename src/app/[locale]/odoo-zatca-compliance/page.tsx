@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/odoo-zatca.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -14,6 +15,9 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'What Is ZATCA Phase 2' },
@@ -88,7 +92,7 @@ export default async function OdooSaudiArabiaPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/odoo-saudi-arabia-1.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/odoo-saudi-arabia-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -163,7 +167,7 @@ export default async function OdooSaudiArabiaPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/odoo-saudi-arabia-2.webp" alt={t('s3ImageAlt')} />
+                  <Image src="/assets/articles/odoo-saudi-arabia-2.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -183,7 +187,7 @@ export default async function OdooSaudiArabiaPage() {
                 <h2>{t('s4Title')}</h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/odoo-saudi-arabia-3.webp" alt={t('s4ImageAlt')} />
+                  <Image src="/assets/articles/odoo-saudi-arabia-3.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
 
@@ -489,6 +493,23 @@ export default async function OdooSaudiArabiaPage() {
       <CallToAction />
       <Footer />
       <AffiliateMobileBar partner="odoo" buttonText="Try Odoo Free" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/odoo-zatca-compliance`}
+        image={`${SITE_CONFIG.url}/assets/articles/odoo-saudi-arabia-1.webp`}
+        datePublished="2026-04-06"
+        dateModified="2026-04-06"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Guides', url: '/blogs' },
+        { name: t('metaTitle'), url: '/odoo-zatca-compliance' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5, 6].map((n) => ({
+        question: t(`s12Q${n}`),
+        answer: t(`s12A${n}`),
+      }))} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/article-how-to-build-shopify-store.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -15,6 +16,9 @@ import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
 import PricingCards from '@/components/ui/PricingCards';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'Why Shopify' },
@@ -93,7 +97,7 @@ export default async function HowToBuildShopifyStorePage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/how-to-build-shopify-store-2.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/how-to-build-shopify-store-2.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -179,7 +183,7 @@ export default async function HowToBuildShopifyStorePage() {
                 </h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/how-to-build-shopify-store-2.webp" alt="Shopify admin dashboard overview" />
+                  <Image src="/assets/articles/how-to-build-shopify-store-2.webp" alt="Shopify admin dashboard overview" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                 </figure>
                 <ol className="shopify-guide__steps">
                   {[1, 2, 3, 4, 5].map((n) => (
@@ -199,7 +203,7 @@ export default async function HowToBuildShopifyStorePage() {
                 </h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/how-to-build-shopify-store-4.webp" alt="Shopify theme store and Dawn theme customizer" />
+                  <Image src="/assets/articles/how-to-build-shopify-store-4.webp" alt="Shopify theme store and Dawn theme customizer" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                 </figure>
                 <ol className="shopify-guide__steps">
                   {[1, 2, 3, 4, 5].map((n) => (
@@ -447,6 +451,23 @@ export default async function HowToBuildShopifyStorePage() {
       <CallToAction />
       <Footer />
       <AffiliateMobileBar partner="shopify" buttonText="Start Free Trial" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/how-to-build-shopify-store`}
+        image={`${SITE_CONFIG.url}/assets/articles/how-to-build-shopify-store-2.webp`}
+        datePublished="2026-04-04"
+        dateModified="2026-04-04"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Guides', url: '/blogs' },
+        { name: t('metaTitle'), url: '/how-to-build-shopify-store' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5, 6].map((n) => ({
+        question: t(`faq${n}Q`),
+        answer: t(`faq${n}A`),
+      }))} />
     </>
   );
 }

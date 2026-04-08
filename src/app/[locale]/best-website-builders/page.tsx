@@ -1,5 +1,6 @@
 import "@/styles/article.css";
 import "@/styles/article-best-website-builders-saudi.css";
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -14,6 +15,9 @@ import AffiliateDisclosure from '@/components/ui/AffiliateDisclosure';
 import AffiliateSidebar from '@/components/ui/AffiliateSidebar';
 import AffiliateMobileBar from '@/components/ui/AffiliateMobileBar';
 import AffiliateMidArticle from '@/components/ui/AffiliateMidArticle';
+import { ArticleJsonLd } from '@/components/ui/ArticleJsonLd';
+import { BreadcrumbJsonLd } from '@/components/ui/BreadcrumbJsonLd';
+import { FaqJsonLd } from '@/components/ui/FaqJsonLd';
 
 const tocItems = [
   { id: 'section-2', label: 'Introduction' },
@@ -86,7 +90,7 @@ export default async function BestWebsiteBuildersSaudiPage() {
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <img src="/assets/articles/best-website-builders-saudi-1.webp" alt={t('heroImageAlt')} />
+            <Image src="/assets/articles/best-website-builders-saudi-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
@@ -152,7 +156,7 @@ export default async function BestWebsiteBuildersSaudiPage() {
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-website-builders-saudi-2.webp" alt={t('s3ImageAlt')} />
+                  <Image src="/assets/articles/best-website-builders-saudi-2.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-table-wrap">
@@ -188,7 +192,7 @@ export default async function BestWebsiteBuildersSaudiPage() {
                 <h2>{t('s4Title')}</h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-website-builders-saudi-3.webp" alt={t('s4ImageAlt')} />
+                  <Image src="/assets/articles/best-website-builders-saudi-3.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
                 <h3>{t('s4ProsTitle')}</h3>
@@ -284,7 +288,7 @@ export default async function BestWebsiteBuildersSaudiPage() {
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-website-builders-saudi-4.webp" alt={t('s8ImageAlt')} />
+                  <Image src="/assets/articles/best-website-builders-saudi-4.webp" alt={t('s8ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <h3>{t('s8ProsTitle')}</h3>
@@ -363,7 +367,7 @@ export default async function BestWebsiteBuildersSaudiPage() {
               <section id="section-11" className="fade-up article-section">
                 <h2>{t('s11Title')}</h2>
                 <figure className="article-image article-image--contextual">
-                  <img src="/assets/articles/best-website-builders-saudi-5.webp" alt={t('s11ImageAlt')} />
+                  <Image src="/assets/articles/best-website-builders-saudi-5.webp" alt={t('s11ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s11ImageCaption')}</figcaption>
                 </figure>
                 <div className="best-builders__verdict-grid">
@@ -409,6 +413,23 @@ export default async function BestWebsiteBuildersSaudiPage() {
       <CallToAction />
       <Footer />
       <AffiliateMobileBar partner="wix" buttonText="Try Wix Free" />
+      <ArticleJsonLd
+        title={t('metaTitle')}
+        description={t('metaDescription')}
+        url={`${SITE_CONFIG.url}/best-website-builders`}
+        image={`${SITE_CONFIG.url}/assets/articles/best-website-builders-saudi-1.webp`}
+        datePublished="2026-04-06"
+        dateModified="2026-04-06"
+      />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: '/' },
+        { name: 'Reviews', url: '/blogs' },
+        { name: t('metaTitle'), url: '/best-website-builders' },
+      ]} />
+      <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
+        question: t(`s12Q${n}`),
+        answer: t(`s12A${n}`),
+      }))} />
     </>
   );
 }
