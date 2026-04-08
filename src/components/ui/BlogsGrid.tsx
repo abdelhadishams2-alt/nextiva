@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
@@ -33,9 +33,15 @@ const PER_PAGE = 6;
 export default function BlogsGrid({ articles, filters, searchPlaceholder }: BlogsGridProps) {
   const t = useTranslations('Blogs');
   const searchParams = useSearchParams();
+  const gridRef = useRef<HTMLElement>(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   useEffect(() => {
     const category = searchParams.get('category');
@@ -103,7 +109,7 @@ export default function BlogsGrid({ articles, filters, searchPlaceholder }: Blog
       </section>
 
       {/* Article Grid */}
-      <section className="blogs-grid">
+      <section className="blogs-grid" ref={gridRef}>
         <div className="blogs-grid__inner">
           {filtered.length === 0 && (
             <p className="blogs-grid__empty">{t('noResults')}</p>
@@ -144,7 +150,7 @@ export default function BlogsGrid({ articles, filters, searchPlaceholder }: Blog
               <button
                 className="blogs-pagination__btn"
                 disabled={currentPage === 1}
-                onClick={() => setCurrentPage(currentPage - 1)}
+                onClick={() => goToPage(currentPage - 1)}
               >
                 <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
               </button>
@@ -153,7 +159,7 @@ export default function BlogsGrid({ articles, filters, searchPlaceholder }: Blog
                 <button
                   key={page}
                   className={`blogs-pagination__btn${currentPage === page ? ' blogs-pagination__btn--active' : ''}`}
-                  onClick={() => setCurrentPage(page)}
+                  onClick={() => goToPage(page)}
                 >
                   {page}
                 </button>
@@ -162,7 +168,7 @@ export default function BlogsGrid({ articles, filters, searchPlaceholder }: Blog
               <button
                 className="blogs-pagination__btn"
                 disabled={currentPage === totalPages}
-                onClick={() => setCurrentPage(currentPage + 1)}
+                onClick={() => goToPage(currentPage + 1)}
               >
                 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
               </button>
