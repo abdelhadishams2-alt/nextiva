@@ -361,8 +361,13 @@
     background-color: var(--color-fg);
   }
 
-  .navbar--mobile-open .navbar__hamburger {
-    z-index: 1002;
+  .navbar--mobile-open .navbar__inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg, #fff);
+    z-index: 1003;
   }
 
   .navbar__mobile-menu {
