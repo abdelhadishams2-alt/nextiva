@@ -1,7 +1,7 @@
 import "@/styles/article.css";
 import "@/styles/article-how-to-build-shopify-store.css";
 import Image from 'next/image';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
 import TOCSidebar from '@/components/ui/TOCSidebar';
@@ -54,6 +54,10 @@ const tocItemsFull = [
   { id: 'section-15', label: 'Final Tips for Saudi Sellers' },
 ];
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }];
+}
+
 export async function generateMetadata() {
   const t = await getTranslations('Articles.howToBuildShopifyStore');
   const title = t('metaTitle');
@@ -84,7 +88,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HowToBuildShopifyStorePage() {
+export default async function HowToBuildShopifyStorePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('Articles.howToBuildShopifyStore');
 
   return (

@@ -1,6 +1,6 @@
 import "@/styles/blogs.css";
 import Image from 'next/image';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Footer } from '@/components/sections/Footer';
@@ -108,6 +108,10 @@ const filters = [
   { key: 'restaurant', label: 'Restaurant & Food' },
 ];
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }];
+}
+
 export async function generateMetadata() {
   const t = await getTranslations('Blogs');
   return {
@@ -131,7 +135,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function BlogsPage() {
+export default async function BlogsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('Blogs');
 
   return (

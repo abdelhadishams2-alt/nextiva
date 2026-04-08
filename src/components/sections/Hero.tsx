@@ -1,8 +1,10 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
-import { HeroParticles } from "./HeroParticles";
 import { HeroShowcase } from "./HeroShowcase";
-import { HeroAnimation } from "./HeroAnimation";
+
+const HeroParticles = dynamic(() => import("./HeroParticles").then(m => ({ default: m.HeroParticles })));
+const HeroAnimation = dynamic(() => import("./HeroAnimation").then(m => ({ default: m.HeroAnimation })));
 
 function ArrowIcon() {
   return (

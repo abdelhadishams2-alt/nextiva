@@ -7,7 +7,7 @@ import "@/styles/end-of-busywork.css";
 import "@/styles/split-showcase.css";
 import "@/styles/editors-pick.css";
 import "@/styles/from-founder.css";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { LogoTrustBar } from "@/components/sections/LogoTrustBar";
@@ -15,7 +15,8 @@ import { EndOfBusywork } from "@/components/sections/EndOfBusywork";
 import { SplitShowcase } from "@/components/sections/SplitShowcase";
 import { FeaturedStories } from "@/components/sections/FeaturedStories";
 import { HowWeReview } from "@/components/sections/HowWeReview";
-import { EditorsPick } from "@/components/sections/EditorsPick";
+import dynamic from "next/dynamic";
+const EditorsPick = dynamic(() => import("@/components/sections/EditorsPick").then(m => ({ default: m.EditorsPick })));
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Footer } from "@/components/sections/Footer";
 import { SITE_CONFIG } from "@/config/site";
@@ -44,7 +45,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <>

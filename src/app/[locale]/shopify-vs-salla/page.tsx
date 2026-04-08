@@ -1,7 +1,7 @@
 import "@/styles/article.css";
 import "@/styles/article-shopify-vs-salla.css";
 import Image from 'next/image';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
 import TOCSidebar from '@/components/ui/TOCSidebar';
@@ -45,6 +45,10 @@ const tocItemsFull = [
   { id: 'section-11', label: 'Frequently Asked Questions' },
 ];
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }];
+}
+
 export async function generateMetadata() {
   const t = await getTranslations('Articles.shopifyVsSalla');
   const title = t('metaTitle');
@@ -75,7 +79,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function ShopifyVsSallaPage() {
+export default async function ShopifyVsSallaPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('Articles.shopifyVsSalla');
 
   return (

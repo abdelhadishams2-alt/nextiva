@@ -1,9 +1,13 @@
 import "@/styles/legal.css";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
 import { SITE_CONFIG } from '@/config/site';
 import type { Metadata } from 'next';
+
+export function generateStaticParams() {
+  return [{ locale: 'en' }];
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('Terms');
@@ -27,7 +31,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function TermsPage() {
+export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('Terms');
 
   return (

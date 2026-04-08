@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
 import PostHogProvider from "@/components/providers/PostHogProvider";
 
@@ -34,9 +34,13 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const messages = await getMessages();
   const clientMessages = pickClientMessages(messages as Record<string, unknown>);
 

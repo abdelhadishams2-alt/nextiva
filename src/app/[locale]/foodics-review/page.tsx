@@ -1,7 +1,7 @@
 import "@/styles/article.css";
 import "@/styles/article-foodics-review.css";
 import Image from 'next/image';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
 import TOCSidebar from '@/components/ui/TOCSidebar';
@@ -49,6 +49,10 @@ const tocItemsFull = [
   { id: 'section-13', label: 'Final Verdict: 4.5 out of 5' },
 ];
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }];
+}
+
 export async function generateMetadata() {
   const t = await getTranslations('Articles.foodicsReview');
   const title = t('metaTitle');
@@ -79,7 +83,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function FoodicsReviewPage() {
+export default async function FoodicsReviewPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('Articles.foodicsReview');
 
   return (
