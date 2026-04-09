@@ -381,7 +381,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                     <div key={key} className="pos-saudi__score-row">
                       <span className="pos-saudi__score-name">{t(`s3Row_${key}_name`)}</span>
                       <div className="pos-saudi__score-bar">
-                        <div className="pos-saudi__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 10) * 100}%` }} />
+                        <div className="pos-saudi__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 5) * 100}%` }} />
                       </div>
                       <span className="pos-saudi__score-value">{t(`s11_${key}_score`)}{t('s11ScoreMax')}</span>
                     </div>

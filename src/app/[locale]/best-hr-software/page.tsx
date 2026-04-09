@@ -366,7 +366,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                     <div key={key} className="hr-saudi__score-row">
                       <span className="hr-saudi__score-name">{t(`s3Row_${key}_name`)}</span>
                       <div className="hr-saudi__score-bar">
-                        <div className="hr-saudi__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 10) * 100}%` }} />
+                        <div className="hr-saudi__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 5) * 100}%` }} />
                       </div>
                       <span className="hr-saudi__score-value">{t(`s11_${key}_score`)}{t('s11ScoreMax')}</span>
                     </div>

@@ -159,6 +159,7 @@ If no `VOICE_PROFILE` is provided, fall back to the generic writing quality rule
 - Hook the reader within 2 sentences.
 - Clear takeaway or action in closing.
 - **DOMAIN INTEGRITY:** Stay within {topic} in {domain}. Do not drift.
+- **RATING SCALE:** All product ratings and scores MUST use a /5 scale (e.g., 4.5/5, 3.9/5). Never use /10. This applies to s11 scores, s13 category scores, s3Row ratings, comparison tables, and any other user-facing rating. Set `s11ScoreMax` and `s13ScoreMax` to `"/ 5"`. Score bar width calculations must divide by 5, not 10.
 
 ---
 

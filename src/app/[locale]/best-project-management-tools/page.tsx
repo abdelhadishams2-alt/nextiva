@@ -452,7 +452,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                     <div key={key} className="pm-tools__score-row">
                       <span className="pm-tools__score-name">{t(`s3Row_${key}_name`)}</span>
                       <div className="pm-tools__score-bar">
-                        <div className="pm-tools__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 10) * 100}%` }} />
+                        <div className="pm-tools__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 5) * 100}%` }} />
                       </div>
                       <span className="pm-tools__score-value">{t(`s11_${key}_score`)}{t('s11ScoreMax')}</span>
                     </div>

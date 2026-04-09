@@ -102,6 +102,7 @@ CONCEPT [N]: [Title]
 - Titles: compelling and specific
 - Concepts must be writable with available components (or fallback generation)
 - **NEVER score based on website industry alignment**
+- **All product ratings MUST use a /5 scale** (e.g., 4.5/5). Never /10. This applies to all score sections, comparison tables, and rating displays.
 - Each concept must identify 4-6 image opportunities for the multi-image system
 
 ### Output
