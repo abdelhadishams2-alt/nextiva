@@ -140,7 +140,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
-                <h4>{t('keyTakeawaysLabel')}</h4>
+                <h3>{t('keyTakeawaysLabel')}</h3>
                 <ul>
                   {[1, 2, 3, 4, 5].map((n) => (
                     <li key={n}>{t(`keyTakeaway${n}`)}</li>

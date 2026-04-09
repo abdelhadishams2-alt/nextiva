@@ -123,11 +123,13 @@ export async function generateMetadata() {
       url: `${SITE_CONFIG.url}/blogs`,
       siteName: SITE_CONFIG.name,
       type: 'website',
+      images: [{ url: `${SITE_CONFIG.url}/assets/blogs-hero-bg.webp`, width: 1200, height: 630, alt: t('metaTitle') }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
       description: t('metaDescription'),
+      images: [`${SITE_CONFIG.url}/assets/blogs-hero-bg.webp`],
     },
     alternates: {
       canonical: `${SITE_CONFIG.url}/blogs`,

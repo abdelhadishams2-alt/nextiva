@@ -143,7 +143,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
-                <h4>{t('keyTakeawaysLabel')}</h4>
+                <h3>{t('keyTakeawaysLabel')}</h3>
                 <ul>
                   {[1, 2, 3, 4, 5].map((n) => (
                     <li key={n}>{t(`keyTakeaway${n}`)}</li>
@@ -161,7 +161,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                 <div className="mini-cards-grid">
                   {(['founded', 'establishments', 'funding', 'countries'] as const).map((key) => (
                     <div key={key} className="mini-card">
-                      <h4>{t(`s2Card_${key}_value`)}</h4>
+                      <h3>{t(`s2Card_${key}_value`)}</h3>
                       <p>{t(`s2Card_${key}_label`)}</p>
                     </div>
                   ))}
@@ -180,7 +180,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                   {(['pos', 'inventory', 'kds', 'crm', 'delivery', 'hr'] as const).map((key) => (
                     <div key={key} className="mini-card">
                       <span className="mini-card-badge">{t(`s3Feature_${key}_icon`)}</span>
-                      <h4>{t(`s3Feature_${key}_title`)}</h4>
+                      <h3>{t(`s3Feature_${key}_title`)}</h3>
                       <p>{t(`s3Feature_${key}_desc`)}</p>
                     </div>
                   ))}
@@ -321,7 +321,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                 <h2>{t('s9Title')}</h2>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4><span>{'\u2705'}</span> {t('s9ProsTitle')}</h4>
+                    <h3><span>{'\u2705'}</span> {t('s9ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4, 5].map((n) => (
                         <li key={n}>{t(`s9Pro${n}`)}</li>
@@ -329,7 +329,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4><span>{'\u274C'}</span> {t('s9ConsTitle')}</h4>
+                    <h3><span>{'\u274C'}</span> {t('s9ConsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (
                         <li key={n}>{t(`s9Con${n}`)}</li>
@@ -347,7 +347,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                 <div className="mini-cards-grid">
                   {(['franchise', 'delivery', 'datadriven', 'zatca'] as const).map((key) => (
                     <div key={key} className="mini-card">
-                      <h4>{t(`s10Card_${key}_title`)}</h4>
+                      <h3>{t(`s10Card_${key}_title`)}</h3>
                       <p>{t(`s10Card_${key}_desc`)}</p>
                     </div>
                   ))}

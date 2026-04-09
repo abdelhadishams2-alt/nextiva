@@ -47,6 +47,21 @@ Mansati is a tool review site targeting the MENA region. Built with Next.js 16 (
 
 ## Recent Work
 
+### 2026-04-09 — SEO & Performance Audit (5 Rounds)
+- **R1 — Critical SEO:** Added og:image to Homepage and Blogs page. Added security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy). Converted EditorsPick raw `<img>` to `next/image`.
+- **R2 — Heading Hierarchy:** Fixed FeaturedStories h3→h2. Fixed all article h4→h3 for Pros/Cons/Key Takeaways (9 articles + CSS).
+- **R3 — Internal Linking:** Fixed mismatched navbar mega menu links (items were pointing to wrong articles).
+- **R4 — Performance:** Added CSS containment to hero. Added dns-prefetch for PostHog. Reduced hero backdrop-filter blur 12px→8px.
+- **R5 — Cleanup:** Removed empty best-payment-gateways-saudi directory.
+
+### 2026-04-09 — Vercel Deployment Performance Fix
+- Added `generateStaticParams` + `setRequestLocale` to all 12 pages for static generation.
+- Dynamic imports for HeroParticles, HeroAnimation, EditorsPick (code-split heavy JS).
+- Compressed hero image 212KB→57KB (resized 4800px→1920px + recompressed).
+- Deleted 2.5MB of unused hero background images (11 files).
+- Added `sizes` prop to FeaturedStories images. Added `deviceSizes`/`imageSizes` to next.config.ts.
+- Switched i18n request.ts to static import of en.json.
+
 ### 2026-04-09 — Rating Scale Standardization
 - **Problem:** Articles had inconsistent rating scales — CRM, HR, PM used /10 while POS, Foodics, Odoo, Website Builders used /5. POS had a bar width bug (dividing by 10 with /5 scores).
 - **Fix:** Converted all ratings to /5 scale across messages/en.json. Fixed bar width calculations in all 4 comparison article pages (/ 10 -> / 5). Updated s3Row table ratings for CRM (7 tools) and PM (10 tools).

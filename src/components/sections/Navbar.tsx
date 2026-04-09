@@ -46,36 +46,36 @@ function CategoriesDropdown() {
   return (
     <div className="mega-menu mega-menu--categories">
       <div className="mega-menu__grid">
-        {/* Technology */}
+        {/* Website Builders */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('websiteBuilders')}</h4>
           <MegaMenuItem title={t('websiteBuildersItems.wordpress')} desc={t('websiteBuildersItems.wordpressDesc')} href="/best-website-builders" />
-          <MegaMenuItem title={t('websiteBuildersItems.wix')} desc={t('websiteBuildersItems.wixDesc')} href="/best-pos-systems" />
-          <MegaMenuItem title={t('websiteBuildersItems.squarespace')} desc={t('websiteBuildersItems.squarespaceDesc')} href="/best-crm-software" />
-          <MegaMenuItem title={t('websiteBuildersItems.shopify')} desc={t('websiteBuildersItems.shopifyDesc')} href="/best-hr-software" />
-          <MegaMenuItem title={t('websiteBuildersItems.webflow')} desc={t('websiteBuildersItems.webflowDesc')} href="/odoo-zatca-compliance" />
+          <MegaMenuItem title={t('websiteBuildersItems.wix')} desc={t('websiteBuildersItems.wixDesc')} href="/best-website-builders" />
+          <MegaMenuItem title={t('websiteBuildersItems.squarespace')} desc={t('websiteBuildersItems.squarespaceDesc')} href="/best-website-builders" />
+          <MegaMenuItem title={t('websiteBuildersItems.shopify')} desc={t('websiteBuildersItems.shopifyDesc')} href="/how-to-build-shopify-store" />
+          <MegaMenuItem title={t('websiteBuildersItems.webflow')} desc={t('websiteBuildersItems.webflowDesc')} href="/best-website-builders" />
         </div>
         {/* Business Tools */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('hosting')}</h4>
-          <MegaMenuItem title={t('hostingItems.cloudways')} desc={t('hostingItems.cloudwaysDesc')} href="/how-to-build-shopify-store" />
-          <MegaMenuItem title={t('hostingItems.siteground')} desc={t('hostingItems.sitegroundDesc')} href="/odoo-zatca-compliance" />
-          <MegaMenuItem title={t('hostingItems.bluehost')} desc={t('hostingItems.bluehostDesc')} href="/best-crm-software" />
-          <MegaMenuItem title={t('hostingItems.hostinger')} desc={t('hostingItems.hostingerDesc')} href="/best-hr-software" />
+          <MegaMenuItem title={t('hostingItems.cloudways')} desc={t('hostingItems.cloudwaysDesc')} href="/best-website-builders" />
+          <MegaMenuItem title={t('hostingItems.siteground')} desc={t('hostingItems.sitegroundDesc')} href="/best-website-builders" />
+          <MegaMenuItem title={t('hostingItems.bluehost')} desc={t('hostingItems.bluehostDesc')} href="/best-website-builders" />
+          <MegaMenuItem title={t('hostingItems.hostinger')} desc={t('hostingItems.hostingerDesc')} href="/best-website-builders" />
         </div>
         {/* E-Commerce */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('ecommerce')}</h4>
           <MegaMenuItem title={t('ecommerceItems.shopify')} desc={t('ecommerceItems.shopifyDesc')} href="/shopify-vs-salla" />
           <MegaMenuItem title={t('ecommerceItems.woocommerce')} desc={t('ecommerceItems.woocommerceDesc')} href="/best-pos-systems" />
-          <MegaMenuItem title={t('ecommerceItems.bigcommerce')} desc={t('ecommerceItems.bigcommerceDesc')} href="/best-website-builders" />
+          <MegaMenuItem title={t('ecommerceItems.bigcommerce')} desc={t('ecommerceItems.bigcommerceDesc')} href="/best-pos-systems" />
         </div>
-        {/* Restaurant & Food */}
+        {/* CRM & Marketing */}
         <div className="mega-menu__column">
           <h4 className="mega-menu__heading">{t('marketing')}</h4>
-          <MegaMenuItem title={t('marketingItems.mailchimp')} desc={t('marketingItems.mailchimpDesc')} href="/foodics-review" />
-          <MegaMenuItem title={t('marketingItems.hubspot')} desc={t('marketingItems.hubspotDesc')} href="/best-pos-systems" />
-          <MegaMenuItem title={t('marketingItems.semrush')} desc={t('marketingItems.semrushDesc')} href="/best-hr-software" />
+          <MegaMenuItem title={t('marketingItems.mailchimp')} desc={t('marketingItems.mailchimpDesc')} href="/best-crm-software" />
+          <MegaMenuItem title={t('marketingItems.hubspot')} desc={t('marketingItems.hubspotDesc')} href="/best-crm-software" />
+          <MegaMenuItem title={t('marketingItems.semrush')} desc={t('marketingItems.semrushDesc')} href="/best-crm-software" />
         </div>
       </div>
     </div>

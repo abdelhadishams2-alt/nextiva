@@ -13,7 +13,7 @@ export async function FeaturedStories() {
       <div className="featured-stories__container">
         <div className="featured-stories__header">
           <span className="featured-stories__eyebrow">{t('eyebrow')}</span>
-          <h3 className="featured-stories__title">{t('title')}</h3>
+          <h2 className="featured-stories__title">{t('title')}</h2>
         </div>
 
         <div className="featured-stories__grid">

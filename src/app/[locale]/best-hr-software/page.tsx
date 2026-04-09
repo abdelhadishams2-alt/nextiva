@@ -138,7 +138,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
               <AffiliateDisclosure />
 
               <div className="key-takeaways">
-                <h4>{t('keyTakeawaysLabel')}</h4>
+                <h3>{t('keyTakeawaysLabel')}</h3>
                 <ul>
                   {[1, 2, 3, 4, 5].map((n) => (
                     <li key={n}>{t(`keyTakeaway${n}`)}</li>
@@ -199,7 +199,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <p>{t('s4P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s4ProsTitle')}</h4>
+                    <h3>{t('s4ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (
                         <li key={n}>{t(`s4Pro${n}`)}</li>
@@ -207,7 +207,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s4ConsTitle')}</h4>
+                    <h3>{t('s4ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s4Con${n}`)}</li>
@@ -225,7 +225,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <p>{t('s5P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s5ProsTitle')}</h4>
+                    <h3>{t('s5ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (
                         <li key={n}>{t(`s5Pro${n}`)}</li>
@@ -233,7 +233,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s5ConsTitle')}</h4>
+                    <h3>{t('s5ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s5Con${n}`)}</li>
@@ -253,7 +253,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <p>{t('s6P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s6ProsTitle')}</h4>
+                    <h3>{t('s6ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (
                         <li key={n}>{t(`s6Pro${n}`)}</li>
@@ -261,7 +261,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s6ConsTitle')}</h4>
+                    <h3>{t('s6ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s6Con${n}`)}</li>
@@ -279,7 +279,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <p>{t('s7P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s7ProsTitle')}</h4>
+                    <h3>{t('s7ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (
                         <li key={n}>{t(`s7Pro${n}`)}</li>
@@ -287,7 +287,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s7ConsTitle')}</h4>
+                    <h3>{t('s7ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s7Con${n}`)}</li>
@@ -304,7 +304,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <div className="hr-saudi__others-grid">
                   {(['sap', 'bamboohr', 'mudadhr'] as const).map((key) => (
                     <div key={key} className="hr-saudi__other-card">
-                      <h4>{t(`s8_${key}_name`)}</h4>
+                      <h3>{t(`s8_${key}_name`)}</h3>
                       <p className="hr-saudi__other-price">{t(`s8_${key}_price`)}</p>
                       <p>{t(`s8_${key}_summary`)}</p>
                       <p className="hr-saudi__other-verdict"><strong>{t(`s8_${key}_verdict`)}</strong></p>
@@ -341,7 +341,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <div className="mini-cards-grid mini-cards-grid--2col">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <div key={n} className="mini-card">
-                      <h4>{t(`s10Factor${n}Title`)}</h4>
+                      <h3>{t(`s10Factor${n}Title`)}</h3>
                       <p>{t(`s10Factor${n}Desc`)}</p>
                     </div>
                   ))}

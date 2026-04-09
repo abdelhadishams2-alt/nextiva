@@ -139,7 +139,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
-                <h4>{t('keyTakeawaysLabel')}</h4>
+                <h3>{t('keyTakeawaysLabel')}</h3>
                 <ul>
                   {[1, 2, 3, 4, 5].map((n) => (
                     <li key={n}>{t(`keyTakeaway${n}`)}</li>
@@ -367,7 +367,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                 <h3>{t('s9ShopifyHeading')}</h3>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4><span>{'\u2705'}</span> {t('s9ShopifyProsTitle')}</h4>
+                    <h3><span>{'\u2705'}</span> {t('s9ShopifyProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4, 5].map((n) => (
                         <li key={n}>{t(`s9ShopifyPro${n}`)}</li>
@@ -375,7 +375,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4><span>{'\u274C'}</span> {t('s9ShopifyConsTitle')}</h4>
+                    <h3><span>{'\u274C'}</span> {t('s9ShopifyConsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (
                         <li key={n}>{t(`s9ShopifyCon${n}`)}</li>
@@ -387,7 +387,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                 <h3>{t('s9SallaHeading')}</h3>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4><span>{'\u2705'}</span> {t('s9SallaProsTitle')}</h4>
+                    <h3><span>{'\u2705'}</span> {t('s9SallaProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4, 5].map((n) => (
                         <li key={n}>{t(`s9SallaPro${n}`)}</li>
@@ -395,7 +395,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4><span>{'\u274C'}</span> {t('s9SallaConsTitle')}</h4>
+                    <h3><span>{'\u274C'}</span> {t('s9SallaConsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (
                         <li key={n}>{t(`s9SallaCon${n}`)}</li>

@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 
 const TOOL_KEYS = ['notion', 'zoom', 'hubspot', 'canva'] as const;
 const ROTATE_INTERVAL = 5000;
@@ -66,10 +67,13 @@ export function EditorsPick() {
         <div className="editors-pick__row">
           {/* Featured Tool Card */}
           <div className={`editors-pick__card-primary${phase === 'exit' ? ' editors-pick--exit' : phase === 'enter' ? ' editors-pick--enter' : ' editors-pick--idle'}`}>
-            <img
+            <Image
               className="editors-pick__card-image"
               src={t(`tools.${key}.image`)}
               alt={t(`tools.${key}.imageAlt`)}
+              width={600}
+              height={400}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="editors-pick__card-overlay" />
             <div className="editors-pick__card-content">

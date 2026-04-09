@@ -143,7 +143,7 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
-                <h4>{t('keyTakeawaysLabel')}</h4>
+                <h3>{t('keyTakeawaysLabel')}</h3>
                 <ul>
                   {[1, 2, 3, 4, 5].map((n) => (
                     <li key={n}>{t(`keyTakeaway${n}`)}</li>
@@ -161,7 +161,7 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
                 <div className="mini-cards-grid">
                   {(['taxpayers', 'penalty', 'waves', 'deadline'] as const).map((key) => (
                     <div key={key} className="mini-card">
-                      <h4>{t(`s2Card_${key}_value`)}</h4>
+                      <h3>{t(`s2Card_${key}_value`)}</h3>
                       <p>{t(`s2Card_${key}_label`)}</p>
                     </div>
                   ))}
@@ -180,7 +180,7 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
                   {(['xml', 'crypto', 'qr', 'uuid', 'api', 'arabic'] as const).map((key) => (
                     <div key={key} className="mini-card">
                       <span className="mini-card-badge">{t(`s3Feature_${key}_icon`)}</span>
-                      <h4>{t(`s3Feature_${key}_title`)}</h4>
+                      <h3>{t(`s3Feature_${key}_title`)}</h3>
                       <p>{t(`s3Feature_${key}_desc`)}</p>
                     </div>
                   ))}
@@ -336,7 +336,7 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
                   {([1, 2, 3, 4] as const).map((n) => (
                     <div key={n} className="mini-card odoo-zatca__penalty-card">
                       <span className="mini-card-badge odoo-zatca__penalty-badge">{t(`s7Penalty${n}Amount`)}</span>
-                      <h4>{t(`s7Penalty${n}Title`)}</h4>
+                      <h3>{t(`s7Penalty${n}Title`)}</h3>
                       <p>{t(`s7Penalty${n}Desc`)}</p>
                     </div>
                   ))}
@@ -435,7 +435,7 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
                 <div className="mini-cards-grid">
                   {(['sme', 'manufacturing', 'multiCompany', 'existing'] as const).map((key) => (
                     <div key={key} className="mini-card">
-                      <h4>{t(`s11Card_${key}_title`)}</h4>
+                      <h3>{t(`s11Card_${key}_title`)}</h3>
                       <p>{t(`s11Card_${key}_desc`)}</p>
                     </div>
                   ))}

@@ -50,7 +50,7 @@
   box-shadow: var(--shadow-card);
 }
 
-.hr-saudi__other-card h4 {
+.hr-saudi__other-card h3 {
   font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: 4px;

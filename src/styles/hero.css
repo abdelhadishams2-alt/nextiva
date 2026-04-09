@@ -9,6 +9,7 @@
   min-height: 100vh;
   overflow: hidden;
   z-index: 0;
+  contain: layout style paint;
 }
 
 /* Sections after hero stack above it so parallax content stays behind (desktop only) */
@@ -53,8 +54,8 @@
     rgba(180, 120, 60, 0.7) 70%,
     rgba(180, 120, 60, 1)
   );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   mask-image: linear-gradient(to bottom, transparent, black 30%);
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%);
 }

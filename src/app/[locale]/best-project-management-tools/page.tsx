@@ -140,7 +140,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
-                <h4>{t('keyTakeawaysLabel')}</h4>
+                <h3>{t('keyTakeawaysLabel')}</h3>
                 <ul>
                   {[1, 2, 3, 4, 5].map((n) => (
                     <li key={n}>{t(`keyTakeaway${n}`)}</li>
@@ -203,13 +203,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s4NotionP2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s4NotionProsTitle')}</h4>
+                    <h3>{t('s4NotionProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (<li key={n}>{t(`s4NotionPro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s4NotionConsTitle')}</h4>
+                    <h3>{t('s4NotionConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s4NotionCon${n}`)}</li>))}
                     </ul>
@@ -220,13 +220,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s4TrelloP1')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s4TrelloProsTitle')}</h4>
+                    <h3>{t('s4TrelloProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (<li key={n}>{t(`s4TrelloPro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s4TrelloConsTitle')}</h4>
+                    <h3>{t('s4TrelloConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s4TrelloCon${n}`)}</li>))}
                     </ul>
@@ -248,13 +248,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s5ClickUpP2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s5ClickUpProsTitle')}</h4>
+                    <h3>{t('s5ClickUpProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (<li key={n}>{t(`s5ClickUpPro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s5ClickUpConsTitle')}</h4>
+                    <h3>{t('s5ClickUpConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s5ClickUpCon${n}`)}</li>))}
                     </ul>
@@ -266,13 +266,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s5MondayP2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s5MondayProsTitle')}</h4>
+                    <h3>{t('s5MondayProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (<li key={n}>{t(`s5MondayPro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s5MondayConsTitle')}</h4>
+                    <h3>{t('s5MondayConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s5MondayCon${n}`)}</li>))}
                     </ul>
@@ -292,13 +292,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s6AsanaP2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s6AsanaProsTitle')}</h4>
+                    <h3>{t('s6AsanaProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (<li key={n}>{t(`s6AsanaPro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s6AsanaConsTitle')}</h4>
+                    <h3>{t('s6AsanaConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s6AsanaCon${n}`)}</li>))}
                     </ul>
@@ -309,13 +309,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s6TeamworkP1')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s6TeamworkProsTitle')}</h4>
+                    <h3>{t('s6TeamworkProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (<li key={n}>{t(`s6TeamworkPro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s6TeamworkConsTitle')}</h4>
+                    <h3>{t('s6TeamworkConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s6TeamworkCon${n}`)}</li>))}
                     </ul>
@@ -337,13 +337,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s7JiraP2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s7JiraProsTitle')}</h4>
+                    <h3>{t('s7JiraProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (<li key={n}>{t(`s7JiraPro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s7JiraConsTitle')}</h4>
+                    <h3>{t('s7JiraConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s7JiraCon${n}`)}</li>))}
                     </ul>
@@ -354,13 +354,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <p>{t('s7WrikeP1')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s7WrikeProsTitle')}</h4>
+                    <h3>{t('s7WrikeProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (<li key={n}>{t(`s7WrikePro${n}`)}</li>))}
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s7WrikeConsTitle')}</h4>
+                    <h3>{t('s7WrikeConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (<li key={n}>{t(`s7WrikeCon${n}`)}</li>))}
                     </ul>
@@ -377,7 +377,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <div className="pm-tools__others-grid">
                   {(['airtable', 'smartsheet', 'basecamp'] as const).map((key) => (
                     <div key={key} className="pm-tools__other-card">
-                      <h4>{t(`s8_${key}_name`)}</h4>
+                      <h3>{t(`s8_${key}_name`)}</h3>
                       <p className="pm-tools__other-price">{t(`s8_${key}_price`)}</p>
                       <p>{t(`s8_${key}_summary`)}</p>
                       <p className="pm-tools__other-verdict"><strong>{t(`s8_${key}_verdict`)}</strong></p>
@@ -397,7 +397,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <div className="mini-cards-grid mini-cards-grid--2col">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <div key={n} className="mini-card">
-                      <h4>{t(`s9Factor${n}Title`)}</h4>
+                      <h3>{t(`s9Factor${n}Title`)}</h3>
                       <p>{t(`s9Factor${n}Desc`)}</p>
                     </div>
                   ))}

@@ -6,6 +6,14 @@ Chronological record of significant changes to the Mansati project.
 
 ## 2026-04-09
 
+### SEO & Performance Audit (5 Rounds)
+**Scope:** 30+ files across pages, components, styles, config
+**Why:** Website was slow on Vercel (SSR on every request, large images, no code-splitting) and had SEO gaps (missing og:image, broken heading hierarchy, mismatched navbar links, no security headers).
+**What changed:**
+- **Performance:** Added `generateStaticParams` + `setRequestLocale` to all 12 pages. Dynamic imports for HeroParticles, HeroAnimation, EditorsPick. Compressed hero image 212KB→57KB. Deleted 2.5MB unused hero images. Added `sizes` prop to FeaturedStories. Added `deviceSizes`/`imageSizes` to next.config.ts. Static import of en.json. CSS containment on hero. Reduced backdrop-filter blur 12px→8px. Added dns-prefetch for PostHog.
+- **SEO:** Added og:image to Homepage and Blogs page. Added security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy). Fixed heading hierarchy: FeaturedStories h3→h2, all article h4→h3 across 9 articles + CSS. Fixed navbar mega menu links pointing to wrong articles. Converted EditorsPick raw `<img>` to `next/image`. Removed empty directory.
+**Build:** Passes
+
 ### Rating Scale Standardization
 **Scope:** messages/en.json, 4 page files, 2 SEO engine agent files
 **Why:** Blog articles had mixed rating scales — CRM, HR, PM articles used /10 while POS, Foodics, Odoo, Website Builders used /5. The POS page also had a bug where scores were /5 but the bar width calculation divided by 10, showing bars at ~45% instead of ~90%.

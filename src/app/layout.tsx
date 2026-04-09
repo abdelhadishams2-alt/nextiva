@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${geistMono.variable} ${lora.variable}`} style={{ backgroundColor: '#ffffff' }}>
       <head>
+        <link rel="dns-prefetch" href="https://us.i.posthog.com" />
         <link rel="preload" href="/fonts/remixicon.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/fonts/remixicon.css" />
       </head>

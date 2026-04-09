@@ -140,7 +140,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
 
               {/* Key Takeaways */}
               <div className="key-takeaways">
-                <h4>{t('keyTakeawaysLabel')}</h4>
+                <h3>{t('keyTakeawaysLabel')}</h3>
                 <ul>
                   {[1, 2, 3, 4, 5].map((n) => (
                     <li key={n}>{t(`keyTakeaway${n}`)}</li>
@@ -221,13 +221,13 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                   {(['Starter', 'Basic', 'Advance'] as const).map((tier) => (
                     <div key={tier} className="mini-card">
                       <span className="mini-card-badge">{tier}</span>
-                      <h4>{t(`s5Pricing${tier}`)}</h4>
+                      <h3>{t(`s5Pricing${tier}`)}</h3>
                     </div>
                   ))}
                 </div>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s5ProsTitle')}</h4>
+                    <h3>{t('s5ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (
                         <li key={n}>{t(`s5Pro${n}`)}</li>
@@ -235,7 +235,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s5ConsTitle')}</h4>
+                    <h3>{t('s5ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s5Con${n}`)}</li>
@@ -257,7 +257,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <p>{t('s6P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s6ProsTitle')}</h4>
+                    <h3>{t('s6ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (
                         <li key={n}>{t(`s6Pro${n}`)}</li>
@@ -265,7 +265,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s6ConsTitle')}</h4>
+                    <h3>{t('s6ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s6Con${n}`)}</li>
@@ -283,7 +283,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <p>{t('s7P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s7ProsTitle')}</h4>
+                    <h3>{t('s7ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3, 4].map((n) => (
                         <li key={n}>{t(`s7Pro${n}`)}</li>
@@ -291,7 +291,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s7ConsTitle')}</h4>
+                    <h3>{t('s7ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s7Con${n}`)}</li>
@@ -309,7 +309,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <p>{t('s8P2')}</p>
                 <div className="problem-solution-grid">
                   <div className="solution-col">
-                    <h4>{t('s8ProsTitle')}</h4>
+                    <h3>{t('s8ProsTitle')}</h3>
                     <ul>
                       {[1, 2, 3].map((n) => (
                         <li key={n}>{t(`s8Pro${n}`)}</li>
@@ -317,7 +317,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                     </ul>
                   </div>
                   <div className="problem-col">
-                    <h4>{t('s8ConsTitle')}</h4>
+                    <h3>{t('s8ConsTitle')}</h3>
                     <ul>
                       {[1, 2].map((n) => (
                         <li key={n}>{t(`s8Con${n}`)}</li>
@@ -336,7 +336,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <div className="pos-saudi__others-grid">
                   {(['posrocket', 'iiko', 'lightspeed', 'square', 'toast'] as const).map((key) => (
                     <div key={key} className="pos-saudi__other-card">
-                      <h4>{t(`s9_${key}_name`)}</h4>
+                      <h3>{t(`s9_${key}_name`)}</h3>
                       <p className="pos-saudi__other-price">{t(`s9_${key}_price`)}</p>
                       <p>{t(`s9_${key}_summary`)}</p>
                       <p className="pos-saudi__other-verdict"><strong>{t(`s9_${key}_verdict`)}</strong></p>
@@ -356,7 +356,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <div className="mini-cards-grid mini-cards-grid--2col">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <div key={n} className="mini-card">
-                      <h4>{t(`s10Factor${n}Title`)}</h4>
+                      <h3>{t(`s10Factor${n}Title`)}</h3>
                       <p>{t(`s10Factor${n}Desc`)}</p>
                     </div>
                   ))}
