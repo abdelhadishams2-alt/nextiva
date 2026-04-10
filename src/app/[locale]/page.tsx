@@ -33,13 +33,13 @@ export async function generateMetadata() {
       url: SITE_CONFIG.url,
       siteName: SITE_CONFIG.name,
       type: 'website',
-      images: [{ url: `${SITE_CONFIG.url}/assets/hero-backgrounds/hero-option-12-desert-wide-4x3.webp`, width: 1200, height: 630, alt: t('title') }],
+      images: [{ url: `${SITE_CONFIG.url}/assets/hero-backgrounds/hero-main.webp`, width: 1200, height: 630, alt: t('title') }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: [`${SITE_CONFIG.url}/assets/hero-backgrounds/hero-option-12-desert-wide-4x3.webp`],
+      images: [`${SITE_CONFIG.url}/assets/hero-backgrounds/hero-main.webp`],
     },
     alternates: {
       canonical: SITE_CONFIG.url,

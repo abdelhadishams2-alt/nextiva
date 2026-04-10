@@ -31,6 +31,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Prevent scroll-restoration flash: hide body until browser restores scroll position */
+body.no-flash {
+  visibility: hidden;
+}
+
+body.no-flash.is-ready {
+  visibility: visible;
+}
+
 img,
 picture,
 video,

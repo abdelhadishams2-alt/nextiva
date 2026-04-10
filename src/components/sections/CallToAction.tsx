@@ -8,7 +8,7 @@ export async function CallToAction() {
     <section className="cta-hero" id="contact">
       <div className="cta-hero__bg">
         <Image
-          src="/assets/cta-bg-mansati.webp"
+          src="/assets/cta-bg-new.webp"
           alt=""
           fill
           loading="lazy"

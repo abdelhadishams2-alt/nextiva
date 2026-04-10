@@ -43,30 +43,13 @@
   opacity: 0.85;
 }
 
-.navbar__logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  background-color: var(--brand-primary, #1a6b8a);
-  border-radius: 10px;
-  letter-spacing: -0.02em;
-  flex-shrink: 0;
+.navbar__logo img {
+  filter: brightness(0);
+  transition: filter 0.3s;
 }
 
-.navbar__logo-text {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--color-fg);
-  letter-spacing: -0.03em;
-}
-
-.navbar--transparent .navbar__logo-text {
-  color: var(--color-dark-fg);
+.navbar--transparent .navbar__logo img {
+  filter: brightness(0) invert(1);
 }
 
 /* ----------------------------------------------------------------
@@ -359,6 +342,10 @@
 
   .navbar--mobile-open .navbar__hamburger-line {
     background-color: var(--color-fg);
+  }
+
+  .navbar--mobile-open .navbar__logo img {
+    filter: brightness(0);
   }
 
   .navbar--mobile-open .navbar__inner {

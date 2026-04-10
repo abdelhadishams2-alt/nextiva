@@ -33,7 +33,7 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/remixicon.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/fonts/remixicon.css" />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body className="no-flash" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

@@ -191,7 +191,7 @@ export function SplitShowcase() {
               loading="lazy"
               width={1024}
               height={1024}
-              src="/assets/trust-testing.webp"
+              src="/assets/we-buy-and-test.webp"
               className="split-showcase__img"
               alt=""
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -230,7 +230,7 @@ export function SplitShowcase() {
               loading="lazy"
               width={1024}
               height={771}
-              src="/assets/trust-no-bias.webp"
+              src="/assets/no-sponsored-review.webp"
               className="split-showcase__img"
               alt=""
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -268,7 +268,7 @@ export function SplitShowcase() {
               loading="lazy"
               width={847}
               height={1024}
-              src="/assets/trust-mena.webp"
+              src="/assets/mena-focused.webp"
               className="split-showcase__img"
               alt=""
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

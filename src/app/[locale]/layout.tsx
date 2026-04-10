@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
 import PostHogProvider from "@/components/providers/PostHogProvider";
+import { ScrollReady } from "@/components/ui/ScrollReady";
 
 const CookieConsent = dynamic(() => import("@/components/ui/CookieConsent"));
 
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={clientMessages}>
       <PostHogProvider>
+        <ScrollReady />
         {children}
         <CookieConsent />
       </PostHogProvider>

@@ -701,7 +701,7 @@
     "blogPost1Title": "Best POS Systems: ZATCA Compliance & Pricing",
     "blogPost2Title": "Best CRM Software: Honest Comparison & Pricing",
     "goLearn": "Read More",
-    "brandText": "mansati",
+    "brandText": "LKWJD",
     "slogan": "Built with",
     "sloganHeart": "❤",
     "sloganLocation": "for the Middle East",
@@ -2796,7 +2796,7 @@
     "fullReview": "See Full Review",
     "tools": {
       "notion": {
-        "image": "/assets/articles/best-pos-systems-saudi-1.webp",
+        "image": "/assets/articles/pos-card.webp",
         "imageAlt": "Best POS systems comparison with ZATCA compliance",
         "badge": "April 2026",
         "rating": "4.9 / 5",
@@ -2812,7 +2812,7 @@
         "price": "Free (Loyverse) to SAR 625/mo (Foodics)"
       },
       "zoom": {
-        "image": "/assets/articles/best-crm-saudi-1.webp",
+        "image": "/assets/articles/crm-card.webp",
         "imageAlt": "Best CRM software comparison and pricing",
         "badge": "April 2026",
         "rating": "4.8 / 5",
@@ -2844,7 +2844,7 @@
         "price": "Free (WordPress) to $79/mo (Shopify Advanced)"
       },
       "canva": {
-        "image": "/assets/articles/foodics-review-1.webp",
+        "image": "/assets/articles/foodics-review-card.webp",
         "imageAlt": "Foodics restaurant POS platform review",
         "badge": "April 2026",
         "rating": "4.8 / 5",
@@ -2874,7 +2874,7 @@
           "Feature mapping",
           "Pricing research"
         ],
-        "image": "/assets/review-step-research.webp"
+        "image": "/assets/step-deepdive.webp"
       },
       "step2": {
         "label": "Hands-On Testing",
@@ -2885,7 +2885,7 @@
           "Core features",
           "Support quality"
         ],
-        "image": "/assets/review-step-testing.webp"
+        "image": "/assets/step-realusage.webp"
       },
       "step3": {
         "label": "Benchmarking",
@@ -2896,7 +2896,7 @@
           "Uptime monitoring",
           "Load testing"
         ],
-        "image": "/assets/review-step-benchmarking.webp"
+        "image": "/assets/step-performance.webp"
       },
       "step4": {
         "label": "Comparison",
@@ -2907,7 +2907,7 @@
           "Pricing breakdown",
           "Use case fit"
         ],
-        "image": "/assets/review-step-comparison.webp"
+        "image": "/assets/step-deepdive.webp"
       },
       "step5": {
         "label": "Final Verdict",
@@ -2918,7 +2918,7 @@
           "Pros & cons",
           "Who it's best for"
         ],
-        "image": "/assets/review-step-verdict.webp"
+        "image": "/assets/step-thereview.webp"
       }
     }
   },
@@ -2932,7 +2932,7 @@
       "metricLabel": "POS Systems Tested",
       "company": "Best POS Systems: ZATCA Compliance & Pricing",
       "desc": "We tested Foodics, Marn, Odoo, Loyverse, and 5 more POS systems. Honest comparison of ZATCA Phase 2 compliance, mada integration, and real pricing.",
-      "image": "/assets/articles/best-pos-systems-saudi-1.webp",
+      "image": "/assets/articles/pos-card.webp",
       "link": "/best-pos-systems"
     },
     "card2": {
@@ -2941,7 +2941,7 @@
       "metricLabel": "CRMs Compared",
       "company": "Best CRM Software: Honest Comparison & Pricing",
       "desc": "HubSpot, Zoho, Salesforce, Freshsales, Bitrix24, Dynamics 365, and Pipedrive tested. Arabic support, pricing, and what actually matters.",
-      "image": "/assets/articles/best-crm-saudi-1.webp",
+      "image": "/assets/articles/crm-card.webp",
       "link": "/best-crm-software"
     },
     "card3": {
@@ -2950,7 +2950,7 @@
       "metricLabel": "HR Platforms Tested",
       "company": "Best HR Software: GOSI, Mudad & Saudization",
       "desc": "Jisr, ZenHR, Bayzat, Darwinbox, SAP SuccessFactors and more tested for GOSI integration, Mudad compliance, and Saudization tracking.",
-      "image": "/assets/articles/best-hr-software-saudi-1.webp",
+      "image": "/assets/articles/hr-card.webp",
       "link": "/best-hr-software"
     },
     "card4": {
@@ -2959,7 +2959,7 @@
       "metricLabel": "Mansati Score",
       "company": "Foodics Review: The All-in-One Restaurant POS",
       "desc": "An honest breakdown of Foodics — the restaurant management platform. Covering POS, inventory, delivery integration, ZATCA compliance, and pricing.",
-      "image": "/assets/articles/foodics-review-1.webp",
+      "image": "/assets/articles/restaurant-card.webp",
       "link": "/foodics-review"
     }
   },

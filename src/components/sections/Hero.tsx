@@ -24,7 +24,7 @@ export async function Hero() {
     <section className="hero" id="hero">
       <div className="hero__bg">
         <Image
-          src="/assets/hero-backgrounds/hero-option-12-desert-wide-4x3.webp"
+          src="/assets/hero-backgrounds/hero-main.webp"
           alt=""
           fill
           priority

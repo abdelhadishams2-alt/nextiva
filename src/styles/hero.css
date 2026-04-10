@@ -47,13 +47,7 @@
   height: 30%;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(180, 120, 60, 0.3) 30%,
-    rgba(180, 120, 60, 0.7) 70%,
-    rgba(180, 120, 60, 1)
-  );
+  background: none;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   mask-image: linear-gradient(to bottom, transparent, black 30%);

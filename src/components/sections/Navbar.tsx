@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { gsap } from '@/lib/gsap';
+import Image from 'next/image';
 
 function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>) {
   const href = e.currentTarget.getAttribute('href') || '';
@@ -140,8 +141,14 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
     <header className={navClass} ref={navRef}>
       <div className="navbar__inner container">
         <a href="/" className="navbar__logo">
-          <span className="navbar__logo-mark">M</span>
-          <span className="navbar__logo-text">{t('logo')}</span>
+          <Image
+            src="/assets/footerbigbelow-logo.webp"
+            alt={t('logo')}
+            width={120}
+            height={46}
+            priority
+            style={{ objectFit: 'contain', height: 'auto' }}
+          />
         </a>
 
         <nav className="navbar__nav">
