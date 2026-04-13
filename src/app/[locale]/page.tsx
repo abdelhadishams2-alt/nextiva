@@ -1,4 +1,5 @@
 import "@/styles/hero.css";
+import "@/styles/hero-showcase.css";
 import "@/styles/logo-trust-bar.css";
 import "@/styles/featured-stories.css";
 import "@/styles/end-of-busywork.css";
