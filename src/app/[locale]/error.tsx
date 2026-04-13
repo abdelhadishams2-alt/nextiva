@@ -1,5 +1,6 @@
 'use client';
 
+import '@/styles/error.css';
 import { useTranslations } from 'next-intl';
 
 export default function ErrorPage({

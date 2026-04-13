@@ -1,8 +1,7 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
-import { HeroShowcase } from "./HeroShowcase";
-
+const HeroShowcase = dynamic(() => import("./HeroShowcase").then(m => ({ default: m.HeroShowcase })));
 const HeroParticles = dynamic(() => import("./HeroParticles").then(m => ({ default: m.HeroParticles })));
 const HeroAnimation = dynamic(() => import("./HeroAnimation").then(m => ({ default: m.HeroAnimation })));
 

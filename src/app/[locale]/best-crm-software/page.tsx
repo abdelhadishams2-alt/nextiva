@@ -1,4 +1,6 @@
 import "@/styles/article.css";
+import "@/styles/affiliate.css";
+import "@/styles/faq.css";
 import "@/styles/article-best-crm-saudi.css";
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';

@@ -9,6 +9,9 @@ const withAnalyzer = withBundleAnalyzer({
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  experimental: {
+    optimizePackageImports: ['gsap', 'next-intl'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     qualities: [75, 80],

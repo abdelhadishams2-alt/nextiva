@@ -1,5 +1,6 @@
 import "@/styles/blogs.css";
 import Image from 'next/image';
+import { Suspense } from 'react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Navbar } from '@/components/sections/Navbar';
 import { CallToAction } from '@/components/sections/CallToAction';
@@ -150,7 +151,7 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
         {/* Hero */}
         <section className="blogs-hero">
           <div className="blogs-hero__bg">
-            <Image src="/assets/blogs-hero-bg.webp" alt="" fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/blogs-hero-bg.webp" alt="" fill priority quality={75} style={{ objectFit: 'cover' }} />
           </div>
           <div className="blogs-hero__overlay" />
           <div className="blogs-hero__content">
@@ -161,11 +162,13 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
         </section>
 
         {/* Filters + Grid (client component) */}
-        <BlogsGrid
-          articles={articles}
-          filters={filters}
-          searchPlaceholder={t('searchPlaceholder')}
-        />
+        <Suspense>
+          <BlogsGrid
+            articles={articles}
+            filters={filters}
+            searchPlaceholder={t('searchPlaceholder')}
+          />
+        </Suspense>
       </main>
 
       <CallToAction />

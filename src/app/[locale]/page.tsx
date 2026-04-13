@@ -1,20 +1,16 @@
 import "@/styles/hero.css";
-import "@/styles/hero-showcase.css";
 import "@/styles/logo-trust-bar.css";
 import "@/styles/featured-stories.css";
-import "@/styles/how-we-review.css";
 import "@/styles/end-of-busywork.css";
-import "@/styles/split-showcase.css";
-import "@/styles/editors-pick.css";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { LogoTrustBar } from "@/components/sections/LogoTrustBar";
 import { EndOfBusywork } from "@/components/sections/EndOfBusywork";
-import { SplitShowcase } from "@/components/sections/SplitShowcase";
 import { FeaturedStories } from "@/components/sections/FeaturedStories";
-import { HowWeReview } from "@/components/sections/HowWeReview";
-import dynamic from "next/dynamic";
+const HowWeReview = dynamic(() => import("@/components/sections/HowWeReview").then(m => ({ default: m.HowWeReview })));
+const SplitShowcase = dynamic(() => import("@/components/sections/SplitShowcase").then(m => ({ default: m.SplitShowcase })));
 const EditorsPick = dynamic(() => import("@/components/sections/EditorsPick").then(m => ({ default: m.EditorsPick })));
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Footer } from "@/components/sections/Footer";
@@ -42,6 +38,7 @@ export async function generateMetadata() {
     },
     alternates: {
       canonical: SITE_CONFIG.url,
+      languages: { 'x-default': SITE_CONFIG.url, en: SITE_CONFIG.url },
     },
   };
 }

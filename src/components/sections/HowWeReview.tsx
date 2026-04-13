@@ -1,5 +1,6 @@
 'use client';
 
+import '@/styles/how-we-review.css';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useCallback, useRef } from 'react';

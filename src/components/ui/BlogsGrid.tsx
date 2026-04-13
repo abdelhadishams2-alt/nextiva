@@ -122,7 +122,7 @@ export default function BlogsGrid({ articles, filters, searchPlaceholder }: Blog
                 className="blogs-card"
               >
                 <div className="blogs-card__image">
-                  <Image src={article.image} alt={article.title} width={600} height={400} loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                  <Image src={article.image} alt={article.title} width={600} height={400} loading="lazy" quality={75} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 </div>
                 <div className="blogs-card__body">
                   <div className="blogs-card__top">

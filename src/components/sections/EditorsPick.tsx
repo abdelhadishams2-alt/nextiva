@@ -1,5 +1,6 @@
 'use client';
 
+import '@/styles/editors-pick.css';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';

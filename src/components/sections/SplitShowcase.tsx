@@ -1,5 +1,6 @@
 'use client';
 
+import '@/styles/split-showcase.css';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef } from 'react';

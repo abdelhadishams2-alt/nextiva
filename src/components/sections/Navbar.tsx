@@ -3,6 +3,9 @@
 import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { gsap } from '@/lib/gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
 import Image from 'next/image';
 
 function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>) {

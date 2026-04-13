@@ -16,10 +16,15 @@ const geistMono = Geist_Mono({
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#ffffff',
+};
 
 export default function RootLayout({
   children,
@@ -30,8 +35,7 @@ export default function RootLayout({
     <html lang="en" className={`${spaceGrotesk.variable} ${geistMono.variable} ${lora.variable}`} style={{ backgroundColor: '#ffffff' }}>
       <head>
         <link rel="dns-prefetch" href="https://us.i.posthog.com" />
-        <link rel="preload" href="/fonts/remixicon.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="/fonts/remixicon.css" />
+        <link rel="preconnect" href="https://us.i.posthog.com" crossOrigin="anonymous" />
       </head>
       <body className="no-flash" suppressHydrationWarning>{children}</body>
     </html>

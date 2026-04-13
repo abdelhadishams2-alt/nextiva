@@ -1,3 +1,4 @@
+import '@/styles/not-found.css';
 import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
