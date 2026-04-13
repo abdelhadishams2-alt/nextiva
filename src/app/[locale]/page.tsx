@@ -6,7 +6,6 @@ import "@/styles/how-we-review.css";
 import "@/styles/end-of-busywork.css";
 import "@/styles/split-showcase.css";
 import "@/styles/editors-pick.css";
-import "@/styles/from-founder.css";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
@@ -60,15 +59,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <HowWeReview />
       <EndOfBusywork />
       <SplitShowcase />
-      {/* <NextPlatform /> */}
-      {/* <FeatureCards /> */}
-
-      {/* <MoreImpact /> */}
-      {/* <SpotlightHero /> */}
-      {/* <CustomerStories /> */}
-      {/* <ProvenResults /> */}
-      {/* <ContactCenter /> */}
-      {/* <Pricing /> */}
       <EditorsPick />
       <CallToAction />
       <Footer />
@@ -89,7 +79,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               '@type': 'Organization',
               name: SITE_CONFIG.name,
               url: SITE_CONFIG.url,
-              logo: `${SITE_CONFIG.url}/assets/mansati-logo.svg`,
+              logo: `${SITE_CONFIG.url}/assets/lkwjd-logo.webp`,
             },
           ]),
         }}

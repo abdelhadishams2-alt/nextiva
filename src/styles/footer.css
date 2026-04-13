@@ -55,32 +55,6 @@
   opacity: 0.8;
 }
 
-/* Download Button */
-.footer__download {
-  background: #fff;
-  border: 1px solid #e1deda;
-  border-radius: 50px;
-  width: fit-content;
-}
-
-.footer__download-btn {
-  align-items: center;
-  color: #1a1a1a;
-  display: inline-flex;
-  font-size: 1rem;
-  font-weight: 500;
-  gap: 8px;
-  line-height: 1;
-  padding: 12px 18px;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.footer__download-btn:hover {
-  background-color: #ffffff;
-  border-radius: 50px;
-}
-
 /* Social Icons */
 .footer__social {
   align-items: center;
@@ -375,10 +349,6 @@
   .footer__social a {
     height: 28px;
     width: 28px;
-  }
-
-  .footer__download {
-    display: none;
   }
 
   /* Links: 2-col grid, hide blog column */

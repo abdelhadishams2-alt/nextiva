@@ -378,7 +378,7 @@ export function HeroShowcase() {
                 <div className="showcase__chat-bubble-wrapper showcase__chat-bubble-wrapper--xbert showcase__chat-bubble-wrapper--1">
                   <div className="showcase__chat-bubble-label">
                     <span className="showcase__chat-bubble-label-icon">&#10022;</span>
-                    Mansati AI
+                    lkwjd AI
                   </div>
                   <div className="showcase__chat-bubble showcase__chat-bubble--xbert">
                     {t('analysisCard.aiBubble1')}
@@ -398,7 +398,7 @@ export function HeroShowcase() {
                 <div className="showcase__chat-bubble-wrapper showcase__chat-bubble-wrapper--xbert showcase__chat-bubble-wrapper--3">
                   <div className="showcase__chat-bubble-label">
                     <span className="showcase__chat-bubble-label-icon">&#10022;</span>
-                    Mansati AI
+                    lkwjd AI
                   </div>
                   <div className="showcase__chat-bubble showcase__chat-bubble--xbert">
                     {t('analysisCard.aiBubble2')}

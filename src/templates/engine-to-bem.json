@@ -1,5 +1,5 @@
 {
-  "_comment": "Maps engine Tailwind/generic classes to Mansati BEM classes",
+  "_comment": "Maps engine Tailwind/generic classes to lkwjd BEM classes",
   "layout": {
     "max-w-7xl mx-auto px-4 py-12": "container-article",
     "grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-12": "article-layout",

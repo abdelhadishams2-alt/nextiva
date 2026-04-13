@@ -5,8 +5,8 @@
    ---------------------------------------------------------------- */
 
 export const SITE_CONFIG = {
-  name: 'Mansati',
-  url: 'https://mansati.com',
+  name: 'lkwjd',
+  url: 'https://lkwjd.com',
   description: 'Honest Tool Reviews for the Middle East',
-  author: 'Mansati Editorial Team',
+  author: 'lkwjd Editorial Team',
 };

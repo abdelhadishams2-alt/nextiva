@@ -14,7 +14,7 @@ export async function Footer() {
             <div className="footer__logo">
               <a href="/">
                 <Image
-                  src="/assets/mansati-logo.svg"
+                  src="/assets/lkwjd-logo.webp"
                   alt={t('logoAlt')}
                   width={188}
                   height={69}
@@ -25,13 +25,13 @@ export async function Footer() {
             </div>
 
             <div className="footer__social">
-              <a href="https://x.com/mansati" aria-label={t('socialX')} data-ph-capture-attribute-button="footer-social-x">
+              <a href="https://x.com/lkwjd" aria-label={t('socialX')} data-ph-capture-attribute-button="footer-social-x">
                 <Image src="/assets/footer-x.webp" alt={t('socialX')} width={32} height={32} loading="lazy" />
               </a>
-              <a href="https://www.linkedin.com/company/mansati" aria-label={t('socialLinkedIn')} data-ph-capture-attribute-button="footer-social-linkedin">
+              <a href="https://www.linkedin.com/company/lkwjd" aria-label={t('socialLinkedIn')} data-ph-capture-attribute-button="footer-social-linkedin">
                 <Image src="/assets/footer-linkedin.webp" alt={t('socialLinkedIn')} width={32} height={32} loading="lazy" />
               </a>
-              <a href="https://www.youtube.com/@mansati" aria-label={t('socialYouTube')} data-ph-capture-attribute-button="footer-social-youtube">
+              <a href="https://www.youtube.com/@lkwjd" aria-label={t('socialYouTube')} data-ph-capture-attribute-button="footer-social-youtube">
                 <Image src="/assets/footer-youtube.webp" alt={t('socialYouTube')} width={32} height={32} loading="lazy" />
               </a>
             </div>

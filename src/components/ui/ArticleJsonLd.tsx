@@ -35,7 +35,7 @@ export function ArticleJsonLd({
       name: SITE_CONFIG.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/assets/mansati-logo.svg`,
+        url: `${SITE_CONFIG.url}/assets/lkwjd-logo.webp`,
       },
     },
   };

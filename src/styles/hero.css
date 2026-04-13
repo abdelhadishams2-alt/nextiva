@@ -85,8 +85,7 @@
 .hero__eyebrow,
 .hero__title,
 .hero__description,
-.hero__btn,
-.hero__showcase {
+.hero__btn {
   opacity: 0;
 }
 
@@ -193,36 +192,6 @@
 .hero__rating-suffix {
   display: inline-block;
   white-space: nowrap;
-}
-
-/* ----------------------------------------------------------------
-   Trust Badges
-   ---------------------------------------------------------------- */
-
-.hero__trust-badges {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 0.5rem;
-  margin-left: 0.75rem;
-}
-
-.hero__trust-badge {
-  height: 18px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.95;
-  transition: opacity 0.3s ease;
-}
-
-.hero__trust-badge--wide {
-  height: 30px;
-  filter: brightness(0) invert(1);
-  opacity: 0.8;
-}
-
-.hero__trust-badge--wide:hover {
-  opacity: 1;
 }
 
 /* ----------------------------------------------------------------
@@ -493,7 +462,4 @@
     height: 28px;
   }
 
-  .hero__trust-badges {
-    display: none;
-  }
 }
