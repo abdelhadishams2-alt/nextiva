@@ -39,7 +39,7 @@ export default function ArticleIntro({
   authors,
   badge,
   introParagraphs,
-  disclaimerText = 'Mansati is supported by readers like yourself. We may earn an affiliate commission when you purchase through our links, which enables us to offer our research for free.',
+  disclaimerText = 'lkwjd is supported by readers like yourself. We may earn an affiliate commission when you purchase through our links, which enables us to offer our research for free.',
 }: ArticleIntroProps) {
   return (
     <article className="article-intro">

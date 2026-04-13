@@ -12,7 +12,7 @@
  *   5. Mobile bar — AffiliateMobileBar (sticky on scroll)
  *   6. Conclusion — final CTA before footer
  *
- * Components used (from Mansati project):
+ * Components used (from lkwjd project):
  *   - AffiliateLink (inline and button)
  *   - AffiliateMidArticle (mid-article banner)
  *   - AffiliateSidebar (TOC sidebar widget)

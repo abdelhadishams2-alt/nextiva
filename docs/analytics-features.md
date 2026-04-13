@@ -2,7 +2,7 @@
 
 ## Overview
 
-We installed PostHog analytics and built custom tracking across the entire Mansati website. Every visitor action is now tracked — page views, button clicks, scroll depth, affiliate link clicks, and exit behavior. All data flows to your PostHog dashboard at [us.i.posthog.com](https://us.i.posthog.com).
+We installed PostHog analytics and built custom tracking across the entire lkwjd website. Every visitor action is now tracked — page views, button clicks, scroll depth, affiliate link clicks, and exit behavior. All data flows to your PostHog dashboard at [us.i.posthog.com](https://us.i.posthog.com).
 
 **Cost: Free** (PostHog free tier = 1 million events/month)
 

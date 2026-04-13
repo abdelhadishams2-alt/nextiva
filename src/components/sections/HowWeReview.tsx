@@ -159,8 +159,9 @@ export function HowWeReview() {
                 alt={`${step.label} — ${step.name}`}
                 width={1440}
                 height={810}
+                quality={75}
                 className="how-we-review__mockup-img"
-                priority={step.index === 0}
+                {...(step.index === 0 ? { priority: true } : { loading: 'lazy' as const })}
               />
             </div>
           ))}

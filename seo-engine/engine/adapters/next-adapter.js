@@ -400,14 +400,14 @@ function generateMessages(opts, extra = {}) {
   // Hero
   msgs.heroBadge = meta.category || 'Analysis';
   msgs.heroTitle = title;
-  msgs.heroAuthor = meta.author || 'Mansati Editorial Team';
+  msgs.heroAuthor = meta.author || 'lkwjd Editorial Team';
   msgs.heroDate = meta.date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   msgs.heroReadTime = meta.readTime || '12 min read';
   msgs.heroImageAlt = meta.heroImageAlt || title;
 
   // Author
-  msgs.authorInitials = getInitials(meta.author || 'Mansati Editorial');
-  msgs.authorName = meta.author || 'Mansati Editorial Team';
+  msgs.authorInitials = getInitials(meta.author || 'lkwjd Editorial');
+  msgs.authorName = meta.author || 'lkwjd Editorial Team';
   msgs.authorMeta = meta.authorMeta || 'Expert Analysis & Research';
 
   // Key takeaways
@@ -433,7 +433,7 @@ function generateMessages(opts, extra = {}) {
     // Image alt/caption
     if (i % 2 === 0 && i < 6) {
       msgs[`${key}ImageAlt`] = section.imageAlt || `${section.title || title} illustration`;
-      msgs[`${key}ImageCaption`] = section.imageCaption || `Source: ${meta.author || 'Mansati'} Research`;
+      msgs[`${key}ImageCaption`] = section.imageCaption || `Source: ${meta.author || 'lkwjd'} Research`;
     }
   });
 

@@ -2,7 +2,7 @@
  * Component Registry for SEO Engine.
  *
  * Maps article types to their recommended components.
- * Priority: Mansati components (primary) → 193 blueprint registry (fallback).
+ * Priority: lkwjd components (primary) → 193 blueprint registry (fallback).
  *
  * Each component entry includes:
  *   - name: Component display name
@@ -10,10 +10,10 @@
  *   - css: CSS filename in seo-engine/components/ui/
  *   - articleTypes: Which article types use this component
  *   - placement: Where in the article it appears
- *   - priority: 'primary' (Mansati) or 'fallback' (193 registry)
+ *   - priority: 'primary' (lkwjd) or 'fallback' (193 registry)
  */
 
-const MANSATI_COMPONENTS = {
+const LKWJD_COMPONENTS = {
   // ── Review Components ─────────────────────────────────────────
   ReviewHeroCard: {
     name: 'Review Hero Card',
@@ -222,7 +222,7 @@ const MANSATI_COMPONENTS = {
 function getComponentsForType(articleType) {
   const placementOrder = ['nav', 'hero', 'intro', 'body', 'between-sections'];
 
-  return Object.entries(MANSATI_COMPONENTS)
+  return Object.entries(LKWJD_COMPONENTS)
     .filter(([, comp]) => comp.articleTypes.includes(articleType))
     .map(([key, comp]) => ({ key, ...comp }))
     .sort((a, b) => placementOrder.indexOf(a.placement) - placementOrder.indexOf(b.placement));
@@ -235,14 +235,14 @@ function getComponentsForType(articleType) {
  * @returns {object|null}
  */
 function getComponent(key) {
-  return MANSATI_COMPONENTS[key] || null;
+  return LKWJD_COMPONENTS[key] || null;
 }
 
 /**
- * List all Mansati components.
+ * List all lkwjd components.
  */
 function listComponents() {
-  return Object.entries(MANSATI_COMPONENTS).map(([key, comp]) => ({
+  return Object.entries(LKWJD_COMPONENTS).map(([key, comp]) => ({
     key,
     name: comp.name,
     articleTypes: comp.articleTypes,
@@ -347,7 +347,7 @@ function getArticleLayout(articleType) {
 }
 
 module.exports = {
-  MANSATI_COMPONENTS,
+  LKWJD_COMPONENTS,
   getComponentsForType,
   getComponent,
   listComponents,

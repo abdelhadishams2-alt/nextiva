@@ -1,4 +1,4 @@
-# Mansati Project Status
+# lkwjd Project Status
 
 **Last Updated:** 2026-04-09
 **Current Branch:** main
@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-Mansati is a tool review site targeting the MENA region. Built with Next.js 16 (App Router), React 19, plain CSS (BEM), and next-intl. The site publishes in-depth software reviews and comparison articles with affiliate monetization, social sharing, and SEO optimization via a custom 4-agent article generation engine.
+lkwjd is a tool review site targeting the MENA region. Built with Next.js 16 (App Router), React 19, plain CSS (BEM), and next-intl. The site publishes in-depth software reviews and comparison articles with affiliate monetization, social sharing, and SEO optimization via a custom 4-agent article generation engine.
 
 ---
 

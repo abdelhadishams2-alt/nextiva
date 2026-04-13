@@ -39,7 +39,7 @@ export async function EndOfBusywork() {
         {/* Right — Visual */}
         <div className="busywork__visual">
           <Image
-            src="/assets/cantrust-mansati.webp"
+            src="/assets/cantrust-lkwjd.webp"
             alt=""
             fill
             loading="lazy"

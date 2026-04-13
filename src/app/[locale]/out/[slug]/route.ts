@@ -33,7 +33,7 @@ export async function GET(
   const targetUrl = new URL(baseUrl);
 
   // Add tracking parameters
-  targetUrl.searchParams.set('utm_source', 'mansati');
+  targetUrl.searchParams.set('utm_source', 'lkwjd');
   targetUrl.searchParams.set('utm_medium', 'affiliate');
   if (variant) {
     targetUrl.searchParams.set('utm_content', variant);

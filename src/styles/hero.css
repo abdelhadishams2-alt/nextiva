@@ -343,7 +343,6 @@
   overflow: hidden;
   pointer-events: none;
   contain: strict;
-  will-change: contents;
 }
 
 .hero__particle {

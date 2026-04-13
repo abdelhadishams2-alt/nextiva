@@ -54,7 +54,7 @@ const STYLE_PRESETS = {
 };
 
 /**
- * Brand color guidance for Mansati.
+ * Brand color guidance for lkwjd.
  * Included in every prompt to keep images on-brand.
  */
 const BRAND_GUIDANCE = [

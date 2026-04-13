@@ -9,7 +9,7 @@ interface FaqAccordionProps {
 
 /**
  * FAQ Accordion — uses native <details>/<summary> elements.
- * Matches the shopify-guide__faq-list pattern used across all Mansati articles.
+ * Matches the shopify-guide__faq-list pattern used across all lkwjd articles.
  * No client-side JS needed — this is a server component.
  */
 export default function FaqAccordion({ items }: FaqAccordionProps) {

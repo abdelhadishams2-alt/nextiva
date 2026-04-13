@@ -190,6 +190,7 @@ export function SplitShowcase() {
           <div className="split-showcase__card-image">
             <Image
               loading="lazy"
+              quality={75}
               width={1024}
               height={1024}
               src="/assets/we-buy-and-test.webp"
@@ -229,6 +230,7 @@ export function SplitShowcase() {
           <div className="split-showcase__card-image">
             <Image
               loading="lazy"
+              quality={75}
               width={1024}
               height={771}
               src="/assets/no-sponsored-review.webp"
@@ -267,6 +269,7 @@ export function SplitShowcase() {
           <div className="split-showcase__card-image">
             <Image
               loading="lazy"
+              quality={75}
               width={847}
               height={1024}
               src="/assets/mena-focused.webp"

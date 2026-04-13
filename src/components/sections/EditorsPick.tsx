@@ -74,6 +74,8 @@ export function EditorsPick() {
               alt={t(`tools.${key}.imageAlt`)}
               width={600}
               height={400}
+              quality={75}
+              loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="editors-pick__card-overlay" />

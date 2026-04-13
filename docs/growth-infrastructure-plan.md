@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document tracks the step-by-step implementation of analytics, monetization, and growth infrastructure for the Mansati website (380K+ monthly visitors).
+This document tracks the step-by-step implementation of analytics, monetization, and growth infrastructure for the lkwjd website (380K+ monthly visitors).
 
 **Goal:** Answer the CEO's question — "Do we have the infrastructure to make money from the website?"
 
@@ -13,7 +13,7 @@ This document tracks the step-by-step implementation of analytics, monetization,
 ## How Affiliate Links Work
 
 1. Sign up for partner programs (Shopify, HubSpot, Wix, Odoo, etc.) — free
-2. Get a unique referral link (e.g., `shopify.com?ref=mansati`)
+2. Get a unique referral link (e.g., `shopify.com?ref=lkwjd`)
 3. Add the link to our tool review articles
 4. When a visitor clicks our link and subscribes to a paid plan → we earn a commission
 5. The visitor pays the same price — our commission comes from the company's marketing budget

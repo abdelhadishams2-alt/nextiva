@@ -1,4 +1,4 @@
-# Mansati.com — Production Readiness Audit Report
+# lkwjd.com — Production Readiness Audit Report
 
 **Date:** April 7, 2026
 **Auditor:** Senior Production Manager
@@ -8,7 +8,7 @@
 
 ## Audit Scope
 
-A full multi-round production readiness audit was conducted across the entire Mansati website codebase — covering pages, routing, SEO, security, accessibility, performance, legal compliance, and code quality.
+A full multi-round production readiness audit was conducted across the entire lkwjd website codebase — covering pages, routing, SEO, security, accessibility, performance, legal compliance, and code quality.
 
 ---
 
@@ -18,7 +18,7 @@ A full multi-round production readiness audit was conducted across the entire Ma
 
 | # | Issue | What Was Done |
 |---|-------|---------------|
-| 1 | **Footer logo broken** — `mansati-logo.svg` referenced but missing from `public/assets/` | Created `mansati-logo.svg` matching the navbar branding (teal "M" mark + "Mansati" wordmark) |
+| 1 | **Footer logo broken** — `lkwjd-logo.svg` referenced but missing from `public/assets/` | Created `lkwjd-logo.svg` matching the navbar branding (teal "M" mark + "lkwjd" wordmark) |
 | 2 | **No 404 or error pages** — users saw default Next.js error screens | Created 3 files: `[locale]/not-found.tsx` (desert-themed 404), `[locale]/error.tsx` (error boundary), `global-error.tsx` (root fallback). Added matching CSS (`not-found.css`, `error.css`) and translations in `en.json` |
 | 3 | **Admin route unprotected** — `/admin/social` accessible by anyone | Added secret-based auth gate on the admin page + `X-Admin-Secret` header check on `/api/social/x` and `/api/social/linkedin` routes. Created `/api/admin/verify` endpoint |
 | 4 | **Missing social API env vars** — endpoints would 500 in production | Documented all required variables in new `.env.example` file |
@@ -56,7 +56,7 @@ Both pages use a shared `legal.css` stylesheet with BEM naming, full responsive 
 
 | File | Purpose |
 |------|---------|
-| `public/assets/mansati-logo.svg` | Footer logo |
+| `public/assets/lkwjd-logo.svg` | Footer logo |
 | `src/app/[locale]/not-found.tsx` | Custom 404 page |
 | `src/app/[locale]/error.tsx` | Error boundary |
 | `src/app/global-error.tsx` | Root error fallback |

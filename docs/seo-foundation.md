@@ -17,7 +17,7 @@ We added the SEO infrastructure that tells Google (and other search engines) abo
 **What it does:** Automatically generates an XML file listing every page on your website with its URL, last modified date, and importance level.
 
 **How Google uses it:**
-- Google's crawler visits `mansati.com/sitemap.xml`
+- Google's crawler visits `lkwjd.com/sitemap.xml`
 - Sees all 18 pages listed (homepage, blog, 16 articles)
 - Knows exactly what pages exist and when they were updated
 - Crawls and indexes them faster
@@ -25,7 +25,7 @@ We added the SEO infrastructure that tells Google (and other search engines) abo
 **What it looks like to Google:**
 ```xml
 <url>
-  <loc>https://mansati.com/article-shopify-saudi</loc>
+  <loc>https://lkwjd.com/article-shopify-saudi</loc>
   <lastmod>2026-03-24</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
@@ -52,7 +52,7 @@ We added the SEO infrastructure that tells Google (and other search engines) abo
 User-agent: *
 Allow: /
 
-Sitemap: https://mansati.com/sitemap.xml
+Sitemap: https://lkwjd.com/sitemap.xml
 ```
 
 **How you benefit:**
@@ -70,11 +70,11 @@ Sitemap: https://mansati.com/sitemap.xml
 - Article title
 - Description
 - Hero image
-- Site name (Mansati)
+- Site name (lkwjd)
 
 **Before (without OG tags):**
 ```
-https://mansati.com/article-shopify-saudi
+https://lkwjd.com/article-shopify-saudi
 ```
 Just a plain URL. Nobody clicks on it.
 
@@ -91,7 +91,7 @@ Just a plain URL. Nobody clicks on it.
 │ a Shopify store for the Saudi       │
 │ market...                           │
 │                                     │
-│ mansati.com                         │
+│ lkwjd.com                         │
 └─────────────────────────────────────┘
 ```
 Eye-catching card. People click on it. More traffic.
@@ -102,9 +102,9 @@ Eye-catching card. People click on it. More traffic.
 - `og:image` — hero image (1200x630)
 - `og:url` — canonical article URL
 - `og:type` — "article"
-- `og:site_name` — "Mansati"
+- `og:site_name` — "lkwjd"
 - `article:published_time` — publication date
-- `article:author` — "Mansati Editorial Team"
+- `article:author` — "lkwjd Editorial Team"
 - `twitter:card` — "summary_large_image" (large preview on X/Twitter)
 - `twitter:title` — article title
 - `twitter:description` — article description
@@ -125,7 +125,7 @@ Eye-catching card. People click on it. More traffic.
 
 **Example:**
 ```html
-<link rel="canonical" href="https://mansati.com/article-shopify-saudi" />
+<link rel="canonical" href="https://lkwjd.com/article-shopify-saudi" />
 ```
 
 **How you benefit:**
@@ -144,14 +144,14 @@ Eye-catching card. People click on it. More traffic.
 **Regular search result:**
 ```
 From Zero to First Sale: Building a Shopify Store for the Saudi Market
-https://mansati.com/article-shopify-saudi
+https://lkwjd.com/article-shopify-saudi
 A comprehensive guide to creating a Shopify store for the Saudi market...
 ```
 
 **Rich result (with structured data):**
 ```
 From Zero to First Sale: Building a Shopify Store for the Saudi Market
-Mansati · Mar 24, 2026
+lkwjd · Mar 24, 2026
 [Hero Image Thumbnail]
 A comprehensive guide to creating a Shopify store for the Saudi market...
 ```
@@ -164,10 +164,10 @@ The rich result takes up more space, shows the author and date, and gets **2-3x 
   "@type": "Article",
   "headline": "From Zero to First Sale...",
   "description": "A comprehensive guide...",
-  "image": "https://mansati.com/assets/articles/article-shopify-saudi-1.webp",
+  "image": "https://lkwjd.com/assets/articles/article-shopify-saudi-1.webp",
   "datePublished": "2026-03-24",
-  "author": { "name": "Mansati" },
-  "publisher": { "name": "Mansati" }
+  "author": { "name": "lkwjd" },
+  "publisher": { "name": "lkwjd" }
 }
 ```
 
@@ -182,11 +182,11 @@ The rich result takes up more space, shows the author and date, and gets **2-3x 
 ## How To Verify It's Working
 
 ### Check Sitemap
-After deploying, visit: `https://mansati.com/sitemap.xml`
+After deploying, visit: `https://lkwjd.com/sitemap.xml`
 You should see an XML file listing all 18 pages.
 
 ### Check Robots.txt
-Visit: `https://mansati.com/robots.txt`
+Visit: `https://lkwjd.com/robots.txt`
 You should see "Allow: /" and the sitemap URL.
 
 ### Check Open Graph Tags

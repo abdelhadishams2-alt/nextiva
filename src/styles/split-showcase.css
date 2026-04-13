@@ -124,7 +124,7 @@
   top: 8%;
   transform: scale(1.08);
   width: 48%;
-  will-change: opacity, transform;
+
 }
 
 .split-showcase__face-label {
@@ -149,7 +149,7 @@
   opacity: 0;
   position: absolute;
   top: calc(66% - 140px);
-  will-change: opacity;
+
 }
 
 .split-showcase__task-item {
@@ -260,7 +260,7 @@
   top: 31%;
   transform: scale(1.08);
   width: 32%;
-  will-change: opacity, transform;
+
 }
 
 .split-showcase__face-box--team .split-showcase__face-label {
@@ -278,7 +278,7 @@
   position: absolute;
   right: calc(55% + 14px);
   top: 49%;
-  will-change: opacity;
+
 }
 
 .split-showcase__benefit-item {
@@ -384,7 +384,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 380px;
-  will-change: opacity;
+
 }
 
 .split-showcase__constellation-line {
@@ -393,7 +393,7 @@
   fill: none;
   stroke-dasharray: 150;
   stroke-dashoffset: 150;
-  will-change: stroke-dashoffset;
+
 }
 
 .split-showcase__constellation-line--secondary {
@@ -402,19 +402,19 @@
   fill: none;
   stroke-dasharray: 150;
   stroke-dashoffset: 150;
-  will-change: stroke-dashoffset;
+
 }
 
 .split-showcase__constellation-node {
   fill: hsla(0, 0%, 100%, 0.9);
   opacity: 0;
-  will-change: opacity;
+
 }
 
 .split-showcase__constellation-node--secondary {
   fill: hsla(0, 0%, 100%, 0.4);
   opacity: 0;
-  will-change: opacity;
+
 }
 
 .split-showcase__constellation-label {
@@ -431,7 +431,7 @@
   text-transform: uppercase;
   top: 50%;
   transform: translate(-50%, -50%);
-  will-change: opacity;
+
 }
 
 /* Constellation — active state animations */

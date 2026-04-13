@@ -19,7 +19,7 @@ Click "Post to X" on the Shopify article
     ↓
 API sends tweet: "From Zero to First Sale... [link]"
     ↓
-Tweet appears on your @mansati X account
+Tweet appears on your @lkwjd X account
 ```
 
 Same flow for LinkedIn.
@@ -81,7 +81,7 @@ From Zero to First Sale: Building a Shopify Store for the Saudi Market
 
 A comprehensive guide to creating a Shopify store for the Saudi market.
 
-https://mansati.com/article-shopify-saudi
+https://lkwjd.com/article-shopify-saudi
 ```
 
 ### On LinkedIn

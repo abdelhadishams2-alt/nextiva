@@ -1,6 +1,6 @@
 # Development Log
 
-Chronological record of significant changes to the Mansati project.
+Chronological record of significant changes to the lkwjd project.
 
 ---
 

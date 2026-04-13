@@ -1,5 +1,3 @@
-'use client';
-
 import { affiliatePartners } from '@/config/affiliates';
 
 interface AffiliateSidebarProps {

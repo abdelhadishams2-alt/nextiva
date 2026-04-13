@@ -25,6 +25,8 @@ export async function FeaturedStories() {
                   alt={t(`${key}.company`)}
                   width={768}
                   height={578}
+                  quality={75}
+                  loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="featured-stories__card-img"
                 />

@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Twitter API error', details: data }, { status: response.status });
     }
 
-    return NextResponse.json({ success: true, tweetId: data.data?.id, url: `https://x.com/mansati/status/${data.data?.id}` });
+    return NextResponse.json({ success: true, tweetId: data.data?.id, url: `https://x.com/lkwjd/status/${data.data?.id}` });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to post to X', details: String(error) }, { status: 500 });
   }
