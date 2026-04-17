@@ -643,39 +643,55 @@ sidebar_compatibility: works in main column
 
 ```
 blueprint_id: bp-faq-accordion
-blueprint_name: FAQ Accordion
+blueprint_name: FAQ Accordion (Premium Editorial)
 category: interactive
-article_role: Present frequently asked questions with expandable answers
+article_role: Present frequently asked questions with expandable answers in a premium numbered style
 
 structural_pattern:
-  - section heading (h2) with optional intro
-  - bordered container:
-    - each FAQ item (separated by borders):
-      - question button (full-width, flex row):
-        - question text (heading font, bold)
-        - chevron icon (rotates on open)
-      - answer panel (collapsible, hidden by default):
-        - answer text (paragraph, muted)
+  - section heading (h2) with accent bar
+  - faq list container (.shopify-guide__faq-list):
+    - each FAQ item (native <details> element, .shopify-guide__faq-item):
+      - <summary> with flex layout:
+        - question wrapper (.shopify-guide__faq-question):
+          - zero-padded number (.shopify-guide__faq-number): "01", "02", etc.
+          - question text (bold, dark)
+        - chevron circle (.shopify-guide__faq-chevron): pure CSS down-arrow in circle
+      - <p> answer text (indented under number, muted color)
+  - On open: item elevates with shadow, border goes transparent, number turns blue, chevron rotates 180deg and turns blue
 
 slot_definitions:
-  - SECTION_HEADING: h2 section title
+  - SECTION_HEADING: h2 section title (e.g., "Frequently Asked Questions")
   - FAQ_ITEMS[]: array of {question, answer} pairs (typically 4-8)
 
 hierarchy:
-  section > [h2? + faq-container > faq-item*N]
-  faq-item > [question-button > (text + chevron) + answer-panel > (text)]
+  section > [h2 + .shopify-guide__faq-list > details.shopify-guide__faq-item*N]
+  details > [summary > (.shopify-guide__faq-question > (.shopify-guide__faq-number + text) + .shopify-guide__faq-chevron) + p]
 
-required_elements: [at least 3 FAQ_ITEMS with question + answer]
+html_example: |
+  <details class="shopify-guide__faq-item">
+    <summary>
+      <span class="shopify-guide__faq-question">
+        <span class="shopify-guide__faq-number">01</span>
+        Question text here?
+      </span>
+      <span class="shopify-guide__faq-chevron"></span>
+    </summary>
+    <p>Answer text here.</p>
+  </details>
+
+required_elements: [at least 3 FAQ_ITEMS with question + answer, numbered sequentially]
 optional_elements: [SECTION_HEADING]
 
 responsive_behavior:
   - consistent across breakpoints
-  - padding reduces on mobile
+  - padding and gap reduce on mobile
+  - number size reduces slightly
 
 interaction_pattern:
-  - click question to toggle answer visibility
-  - chevron rotates on open/close
-  - only one item open at a time (optional)
+  - native <details>/<summary> toggle (no JavaScript needed)
+  - chevron rotates 180deg on open via CSS [open] selector
+  - item elevates with box-shadow on open
+  - number color changes to accent blue on open
 
 image_compatibility: none
 sidebar_compatibility: works in main column
@@ -7306,4 +7322,45 @@ responsive_behavior:
 
 image_compatibility: none
 sidebar_compatibility: works in main column or sidebar
+```
+
+---
+
+### BP-191: Verdict Section
+
+```
+blueprint_id: bp-verdict-section
+blueprint_name: Verdict Section
+category: summary
+article_role: Final verdict with overall score, category breakdowns, and closing recommendation. Uses dark navy gradient background (.article-section--verdict) for maximum visual prominence — impossible to scroll past without noticing.
+
+structural_pattern:
+  - Section wrapper uses .article-section--verdict modifier (dark navy gradient bg, white text)
+  - Verdict badge (.article-verdict__badge) with "Our Verdict" text before the h2
+  - h2 heading (white on dark)
+  - Verdict card container:
+    - Large overall score number + "/5" max label
+    - Breakdown rows: label + progress bar + individual score (3-6 categories)
+  - Summary paragraphs (2-3 closing paragraphs)
+
+slot_definitions:
+  - VERDICT_HEADING: h2 title (e.g., "Final Verdict: 4.5 out of 5")
+  - OVERALL_SCORE: numeric score (e.g., "4.5")
+  - SCORE_MAX: scale label (always "/ 5")
+  - BREAKDOWN_CATEGORIES[]: array of { label, score, width_percent }
+  - SUMMARY_PARAGRAPHS[]: 2-3 closing paragraphs with recommendation
+
+hierarchy:
+  section.article-section--verdict > [badge + h2 + verdict-card > (score-col + breakdown-col) + p*N]
+
+required_elements: [VERDICT_HEADING, OVERALL_SCORE, at least 3 BREAKDOWN_CATEGORIES]
+optional_elements: [SUMMARY_PARAGRAPHS]
+
+responsive_behavior:
+  - desktop: side-by-side score + breakdown in verdict card
+  - tablet: reduced padding, same layout
+  - mobile: stacked score above breakdown, reduced padding
+
+image_compatibility: none
+sidebar_compatibility: works in main column
 ```

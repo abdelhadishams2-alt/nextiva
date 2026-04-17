@@ -373,7 +373,8 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
               </section>
 
               {/* SECTION 11 -- Verdict */}
-              <section id="section-11" className="fade-up article-section">
+              <section id="section-11" className="fade-up article-section article-section--verdict">
+                <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s11Title')}</h2>
                 <figure className="article-image article-image--contextual">
                   <Image src="/assets/articles/best-website-builders-saudi-5.webp" alt={t('s11ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
@@ -406,7 +407,13 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
                 <div className="shopify-guide__faq-list">
                   {[1, 2, 3, 4, 5].map((n) => (
                     <details key={n} className="shopify-guide__faq-item">
-                      <summary>{t(`s12Q${n}`)}</summary>
+                      <summary>
+                        <span className="shopify-guide__faq-question">
+                          <span className="shopify-guide__faq-number">{String(n).padStart(2, '0')}</span>
+                          {t(`s12Q${n}`)}
+                        </span>
+                        <span className="shopify-guide__faq-chevron" />
+                      </summary>
                       <p>{t(`s12A${n}`)}</p>
                     </details>
                   ))}

@@ -1,75 +1,117 @@
 /* ----------------------------------------------------------------
-   FAQ Accordion (shared across articles)
+   FAQ Accordion — Premium Editorial Style
    ---------------------------------------------------------------- */
 
 .shopify-guide__faq-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   margin: 24px 0;
 }
 
 .shopify-guide__faq-item {
-  background: var(--card-bg, #f8f8f6);
-  border: 1px solid var(--border, #e1deda);
+  background: #fff;
+  border: 1px solid var(--border, #e9e9ec);
   border-radius: var(--radius-card, 12px);
   overflow: hidden;
-  transition: border-color var(--duration, 0.3s) var(--ease);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.shopify-guide__faq-item:hover {
+  border-color: var(--border-light, #cdc7c3);
 }
 
 .shopify-guide__faq-item[open] {
-  border-color: var(--accent, #0d9488);
+  background: #fff;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
+  transform: translateY(-2px);
 }
 
 .shopify-guide__faq-item summary {
-  padding: 20px 24px;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--text-dark, #1a1a1a);
+  padding: 24px 28px;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--text-primary, #1a1a1a);
   cursor: pointer;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .shopify-guide__faq-item summary::-webkit-details-marker {
   display: none;
 }
 
-.shopify-guide__faq-item summary::after {
-  content: "+";
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: var(--text-muted, #6c6967);
+/* Number + question wrapper */
+.shopify-guide__faq-question {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.shopify-guide__faq-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--border-light, #cdc7c3);
   flex-shrink: 0;
-  transition: transform var(--duration, 0.3s) var(--ease);
+  min-width: 28px;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.shopify-guide__faq-item[open] summary::after {
-  content: "\2212";
-  color: var(--accent, #0d9488);
+.shopify-guide__faq-item[open] .shopify-guide__faq-number {
+  color: var(--cta-blue, #06f);
 }
 
+.shopify-guide__faq-item:hover summary {
+  color: var(--brand-blue, #0062b8);
+}
+
+/* Chevron — pure CSS, no icon font needed */
+.shopify-guide__faq-chevron {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--card-bg, #f8f8f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shopify-guide__faq-chevron::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--text-tertiary, #6c6967);
+  border-bottom: 2px solid var(--text-tertiary, #6c6967);
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shopify-guide__faq-item[open] .shopify-guide__faq-chevron {
+  transform: rotate(180deg);
+  background: rgba(0, 102, 255, 0.08);
+}
+
+.shopify-guide__faq-item[open] .shopify-guide__faq-chevron::after {
+  border-color: var(--cta-blue, #06f);
+}
+
+/* Answer content */
 .shopify-guide__faq-item p {
-  padding: 0 24px 20px;
+  padding: 0 28px 24px;
   margin: 0;
-  color: var(--text-muted, #6c6967);
-  line-height: 1.7;
-  font-size: 0.95rem;
-}
-
-.shopify-guide__faq-item a {
-  color: var(--accent, #0d9488);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  font-weight: 500;
-  transition: color var(--duration, 0.3s) var(--ease);
-}
-
-.shopify-guide__faq-item a:hover {
-  color: var(--accent-hover, #0f766e);
+  margin-left: 48px;
+  color: var(--text-secondary, #4a4b46);
+  line-height: 1.75;
+  font-size: 0.9375rem;
 }
 
 /* ----------------------------------------------------------------
@@ -77,13 +119,27 @@
    ---------------------------------------------------------------- */
 
 @media (max-width: 768px) {
+  .shopify-guide__faq-list {
+    gap: 12px;
+  }
+
   .shopify-guide__faq-item summary {
-    padding: 16px 18px;
-    font-size: 0.92rem;
+    padding: 18px 20px;
+    font-size: 0.9375rem;
+  }
+
+  .shopify-guide__faq-question {
+    gap: 14px;
+  }
+
+  .shopify-guide__faq-number {
+    font-size: 1rem;
+    min-width: 24px;
   }
 
   .shopify-guide__faq-item p {
-    padding: 0 18px 16px;
-    font-size: 0.9rem;
+    padding: 0 20px 20px;
+    margin-left: 38px;
+    font-size: 0.875rem;
   }
 }

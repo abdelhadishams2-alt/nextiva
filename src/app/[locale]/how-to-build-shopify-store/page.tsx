@@ -426,7 +426,13 @@ export default async function HowToBuildShopifyStorePage({ params }: { params: P
                 <div className="shopify-guide__faq-list">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <details key={n} className="shopify-guide__faq-item">
-                      <summary>{t(`faq${n}Q`)}</summary>
+                      <summary>
+                        <span className="shopify-guide__faq-question">
+                          <span className="shopify-guide__faq-number">{String(n).padStart(2, '0')}</span>
+                          {t(`faq${n}Q`)}
+                        </span>
+                        <span className="shopify-guide__faq-chevron" />
+                      </summary>
                       {/* Note: t.raw() is used here for trusted, developer-controlled i18n content containing internal links -- not user-generated input */}
                       <p dangerouslySetInnerHTML={{ __html: t.raw(`faq${n}A`) }} />
                     </details>

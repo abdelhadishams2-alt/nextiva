@@ -438,7 +438,8 @@ export default async function BestProjectManagementToolsPage({ params }: { param
               </section>
 
               {/* SECTION 11 -- Verdict */}
-              <section id="section-11" className="fade-up article-section">
+              <section id="section-11" className="fade-up article-section article-section--verdict">
+                <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s11Title')}</h2>
                 <p className="lead-paragraph">{t('s11Intro')}</p>
                 <div className="pm-tools__verdict-grid">
@@ -469,7 +470,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <div className="shopify-guide__faq-list">
                   {[1, 2, 3, 4, 5].map((n) => (
                     <details key={n} className="shopify-guide__faq-item">
-                      <summary>{t(`s12Q${n}`)}</summary>
+                      <summary>
+                        <span className="shopify-guide__faq-question">
+                          <span className="shopify-guide__faq-number">{String(n).padStart(2, '0')}</span>
+                          {t(`s12Q${n}`)}
+                        </span>
+                        <span className="shopify-guide__faq-chevron" />
+                      </summary>
                       <p>{t(`s12A${n}`)}</p>
                     </details>
                   ))}

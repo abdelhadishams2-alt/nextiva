@@ -161,6 +161,31 @@ If no `VOICE_PROFILE` is provided, fall back to the generic writing quality rule
 - **DOMAIN INTEGRITY:** Stay within {topic} in {domain}. Do not drift.
 - **RATING SCALE:** All product ratings and scores MUST use a /5 scale (e.g., 4.5/5, 3.9/5). Never use /10. This applies to s11 scores, s13 category scores, s3Row ratings, comparison tables, and any other user-facing rating. Set `s11ScoreMax` and `s13ScoreMax` to `"/ 5"`. Score bar width calculations must divide by 5, not 10.
 
+### Scannability rules (MANDATORY)
+
+Someone reading ONLY the h2 headings must understand the article's narrative arc. Apply these rules:
+
+1. **Headlines tell a story** — each h2 should communicate the section's value proposition, not just its topic. Use "What X Costs in 2026" not "Pricing". Use "Why Saudi Merchants Choose Foodics" not "Market Position".
+2. **Lead paragraphs are scannable** — the first paragraph of every section must be wrapped in `<p class="lead-paragraph">`. It should summarize the section in 1-2 sentences for scanning readers.
+3. **Visual rhythm** — alternate between text-heavy sections and component-heavy sections (tables, cards, callouts). Never have 3+ consecutive text-only sections.
+4. **Key information prominence** — any statistic, price, percentage, or date that a reader might be searching for should appear in a callout, bold text, or stat card. Never buried in the middle of a paragraph without emphasis.
+5. **Section pacing** — every 2-3 body sections, insert a visual break element: callout, pull quote, data table, or stat cards. The maximum distance between visual elements is 3 paragraphs.
+
+### Callout visual hierarchy rules
+
+When generating callouts, use the appropriate variant class:
+- **Warnings/Limitations** → `.callout-block .callout-block--warning` (amber left border, warm background)
+- **Tips/Recommendations** → `.callout-block .callout-block--tip` (green left border, green-tinted background)
+- **Key Insights** → `.callout-block .callout-block--insight` (blue left border, blue-tinted background)
+- **Expert Quotes** → `.expert-callout` (blue-tinted background with left accent border and quote mark)
+
+Every article MUST include at least:
+- 1 expert callout (`.expert-callout`)
+- 1 key insight or tip callout (`.callout-block--insight` or `.callout-block--tip`)
+- The Verdict section with `.article-section--verdict` treatment (see Phase F)
+
+Callouts should NOT appear consecutively — separate them with at least 2 body paragraphs.
+
 ---
 
 ## PHASE C — TABLE OF CONTENTS (sidebar + inline)
@@ -312,6 +337,91 @@ For every editable section, add data attributes to the section wrapper element.
 - `expert-insight` — expert quotes or analysis
 
 Every section must have all four `data-section-*` attributes plus the `data-blueprint` attribute. The `data-section-*` attributes are stable identifiers used by the edit system. The `data-blueprint` attribute records which blueprint was used, enabling the Blueprint History Scan to ensure variety across articles.
+
+### Section modifier classes
+
+Based on `data-section-type`, add these BEM modifier classes to the section wrapper:
+
+- **Verdict/Conclusion sections** (type `conclusion` OR heading contains "verdict"): Add `article-section--verdict` AND `article-section--verdict-bg` modifier classes.
+  - Insert `<span class="article-verdict__badge">Our Verdict</span>` before the h2 heading.
+  - Example: `<section id="section-13" class="fade-up article-section article-section--verdict article-section--verdict-bg">`
+- **All verdict cards, progress bars, labels** inside a verdict section automatically receive white/inverted colors via CSS.
+- **Verdict background image** — see dedicated section below.
+
+### Section labels
+
+For these section types, add an `.article-section__label` span before the h2:
+- `key-facts` → `<span class="article-section__label">Key Facts</span>`
+- `expert-insight` → `<span class="article-section__label">Expert Insight</span>`
+- `faq` → `<span class="article-section__label">FAQ</span>`
+- `conclusion` → use `.article-verdict__badge` instead (see above)
+
+### FAQ section structure (MANDATORY for all FAQ sections)
+
+Every FAQ section MUST use the premium numbered accordion pattern with native `<details>`/`<summary>` elements. No JavaScript is needed — CSS handles all open/close animations.
+
+**Required HTML structure:**
+
+```html
+<div class="shopify-guide__faq-list">
+  <details class="shopify-guide__faq-item">
+    <summary>
+      <span class="shopify-guide__faq-question">
+        <span class="shopify-guide__faq-number">01</span>
+        Question text here?
+      </span>
+      <span class="shopify-guide__faq-chevron"></span>
+    </summary>
+    <p>Answer text here.</p>
+  </details>
+  <!-- Repeat for each FAQ item, incrementing the number: 02, 03, 04... -->
+</div>
+```
+
+**Rules:**
+- Numbers are zero-padded: 01, 02, 03... (not 1, 2, 3)
+- The `.shopify-guide__faq-chevron` is an empty `<span>` — CSS renders a circular button with a down-arrow via `::after`
+- On open: item elevates with shadow, number turns blue, chevron rotates 180deg
+- Include 4-6 FAQ items per article minimum
+- Each answer should be 2-4 sentences, directly useful
+
+### Verdict background image (MANDATORY for every verdict section)
+
+Every article with a verdict/conclusion section MUST include a generated background image. The image generation happens during PHASE E (image insertion) but the placement rules are here.
+
+**Image requirements:**
+1. **Related to the article topic** — a POS article gets a restaurant/retail interior with a terminal; a CRM article gets a modern office with screens; an HR article gets a professional workspace; a website builder article gets a creative studio with monitors
+2. **Absolutely no text** — no words, numbers, labels, watermarks, or UI text anywhere in the image
+3. **Dark and moody atmosphere** — deep navy and warm gold/amber tones so white text overlays remain readable
+4. **Atmospheric, not literal** — shallow depth of field, blurred backgrounds, bokeh lights, cinematic lighting. The image is a mood-setter, not a product screenshot
+5. **16:9 aspect ratio**, WebP format, saved to `public/assets/articles/{slug}-verdict-bg.webp`
+
+**Image generation prompt template:**
+```
+A modern {topic-related-environment} interior, dark moody atmosphere with deep navy and warm gold tones, shallow depth of field, soft bokeh lights, no people visible, no text or letters or numbers anywhere in the image, professional commercial photography style, {topic-specific-detail}
+```
+
+**HTML structure (plain HTML / fallback):**
+```html
+<section class="fade-up article-section article-section--verdict article-section--verdict-bg">
+  <img src="images/article-{slug}-verdict-bg.webp" alt="" class="article-verdict__bg-image" loading="lazy" decoding="async" width="1920" height="1080" />
+  <div class="article-verdict__overlay"></div>
+  <span class="article-verdict__badge">Our Verdict</span>
+  <h2>...</h2>
+  <!-- verdict content -->
+</section>
+```
+
+**For Next.js projects** (detected via framework router), use `next/image` with `fill`:
+```jsx
+<Image src="/assets/articles/{slug}-verdict-bg.webp" alt="" fill sizes="(max-width: 768px) 100vw, 1280px" quality={80} className="article-verdict__bg-image" loading="lazy" />
+```
+
+**CSS classes (pre-defined in project):**
+- `.article-section--verdict-bg` — clears gradient, sets overflow hidden + position relative
+- `.article-verdict__bg-image` — absolute fill, object-fit cover, z-index 0
+- `.article-verdict__overlay` — semi-transparent gradient overlay (navy 75% to blue 68%), z-index 1
+- All content sits at z-index 2 via parent rules
 
 ---
 
