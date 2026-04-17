@@ -346,6 +346,7 @@ Based on `data-section-type`, add these BEM modifier classes to the section wrap
   - Insert `<span class="article-verdict__badge">Our Verdict</span>` before the h2 heading.
   - Example: `<section id="section-13" class="fade-up article-section article-section--verdict article-section--verdict-bg">`
 - **All verdict cards, progress bars, labels** inside a verdict section automatically receive white/inverted colors via CSS.
+- **No brand-colored text inside verdict sections.** Do NOT apply brand hex colors (Wix blue, Shopify green, Salla purple, etc.) to `h3`/`h4`/`strong`/`span` elements inside a `.article-section--verdict` block — the dark navy background eats mid-tone brand colors and destroys contrast. Brand color should live on subtle elements that survive on dark backgrounds: left-border accents (4px solid), small pill backgrounds, or tiny icon swatches. Headings and body text inside verdict must stay white (`#fff`) or `rgba(255, 255, 255, 0.85+)`. If a card has a product-specific modifier (e.g., `.verdict-card--wix`), pair every `color:` rule on that modifier with a `.article-section--verdict .verdict-card--wix h3 { color: #fff; }` override so the color only applies outside the dark section. Same rule applies for cards placed in other dark-background section modifiers.
 - **Verdict background image** — see dedicated section below.
 
 ### Section labels
@@ -385,6 +386,87 @@ Every FAQ section MUST use the premium numbered accordion pattern with native `<
 - Include 4-6 FAQ items per article minimum
 - Each answer should be 2-4 sentences, directly useful
 
+### Merged verdict card pattern (MANDATORY for multi-product "best-of" articles)
+
+When the verdict section recommends one product per use-case/segment AND the article has individual product scores, the cards and the score list MUST be merged into ONE unit. Do NOT render a separate "[Brand] Score" sub-section with duplicate score bars — that's a height-killer on mobile and repeats the same four products.
+
+**When to apply:**
+- Article type is a multi-product comparison ("Best X for Y", "Top 10 X")
+- Each "Best for [segment]" card maps 1:1 to a scored product
+- There are 3-5 such cards
+
+**When NOT to apply:**
+- Single-product reviews (`foodics-review`, `odoo-zatca-compliance` style) — those use the scorecard with category breakdowns, not cards
+- 2-product head-to-heads (`shopify-vs-salla`) — those show each product in its own large card, no scores
+- Cards that recommend 2+ products each (`best-project-management-tools` uses Solo = "Notion or Trello")
+- Product cards that already live alone without a duplicate scores list (`best-website-builders`)
+
+**Required HTML structure (each card):**
+```html
+<div class="{article-slug}__verdict-card">
+  <span class="{article-slug}__verdict-label">Best for [Segment]</span>
+  <div class="{article-slug}__verdict-product">
+    <span class="{article-slug}__verdict-product-name">[Product Name]</span>
+    <span class="{article-slug}__verdict-product-score">4.5/ 5</span>
+  </div>
+  <div class="{article-slug}__verdict-score-bar">
+    <div class="{article-slug}__verdict-score-fill" style="width: 90%"></div>
+  </div>
+  <p>[Reasoning — the "why" part only, without the "Best for X: Product —" prefix.]</p>
+</div>
+```
+
+**Required CSS (inside the article's component CSS file):**
+```css
+.{article-slug}__verdict-product {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 10px;
+}
+.{article-slug}__verdict-product-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+.{article-slug}__verdict-product-score {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-primary);
+  opacity: 0.95;
+}
+.article-section--verdict .{article-slug}__verdict-product-name,
+.article-section--verdict .{article-slug}__verdict-product-score {
+  color: #fff;
+}
+.{article-slug}__verdict-score-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.{article-slug}__verdict-score-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  transition: width 0.8s var(--ease-out);
+}
+```
+
+**i18n strings:**
+- Store the recommendation text WITHOUT the "Best for X: Product — " prefix so the reasoning slot can be rendered directly. If legacy strings include the prefix (e.g., "Best for Restaurants: Foodics — the most complete..."), split on ` — ` and take everything after the first em-dash at render time.
+
+**Mobile behavior:**
+- 2-column grid on tablet+ stays; collapses to 1-column at `max-width: 768px`
+- Keep card padding at 24px desktop, no changes needed on mobile — the inner score bar is compact enough
+
+**Partial merges:**
+- If one card's recommended product has no score (e.g., `Startup → MudadHR` in best-hr-software), render that card with only `verdict-label`, `verdict-product-name`, and `<p>` (no score bar, no score number). Other cards keep the full structure. Never invent a score.
+
 ### Verdict background image (MANDATORY for every verdict section)
 
 Every article with a verdict/conclusion section MUST include a generated background image. The image generation happens during PHASE E (image insertion) but the placement rules are here.
@@ -421,7 +503,7 @@ A modern {topic-related-environment} interior, dark moody atmosphere with deep n
 - `.article-section--verdict-bg` — clears gradient, sets overflow hidden + position relative
 - `.article-verdict__bg-image` — absolute fill, object-fit cover, z-index 0
 - `.article-verdict__overlay` — semi-transparent gradient overlay (navy 75% to blue 68%), z-index 1
-- All content sits at z-index 2 via parent rules
+- All direct children sit at z-index 2 via a blanket parent rule (`.article-section--verdict-bg > *:not(.article-verdict__bg-image):not(.article-verdict__overlay)`). Any element type — `figure`, `ul`, custom grids, `aside` — automatically renders above the overlay.
 
 ---
 

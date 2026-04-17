@@ -438,29 +438,42 @@ export default async function BestProjectManagementToolsPage({ params }: { param
               </section>
 
               {/* SECTION 11 -- Verdict */}
-              <section id="section-11" className="fade-up article-section article-section--verdict">
+              <section id="section-11" className="fade-up article-section article-section--verdict article-section--verdict-bg">
+                <Image
+                  src="/assets/articles/best-pm-tools-verdict-bg.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1280px"
+                  quality={80}
+                  className="article-verdict__bg-image"
+                  loading="lazy"
+                />
+                <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s11Title')}</h2>
                 <p className="lead-paragraph">{t('s11Intro')}</p>
                 <div className="pm-tools__verdict-grid">
-                  {(['Solo', 'SmallTeam', 'MidSize', 'Enterprise'] as const).map((cat) => (
-                    <div key={cat} className="pm-tools__verdict-card">
-                      <span className="pm-tools__verdict-label">{t(`s11Label${cat}`)}</span>
-                      <p>{t(`s11Verdict${cat}`)}</p>
-                    </div>
-                  ))}
-                </div>
-                <h3>{t('s11ScoreLabel')}</h3>
-                <div className="pm-tools__scores">
-                  {(['clickup', 'monday', 'asana', 'jira'] as const).map((key) => (
-                    <div key={key} className="pm-tools__score-row">
-                      <span className="pm-tools__score-name">{t(`s3Row_${key}_name`)}</span>
-                      <div className="pm-tools__score-bar">
-                        <div className="pm-tools__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 5) * 100}%` }} />
+                  {([
+                    { cat: 'Solo', productKey: 'notion' },
+                    { cat: 'SmallTeam', productKey: 'clickup' },
+                    { cat: 'MidSize', productKey: 'asana' },
+                    { cat: 'Enterprise', productKey: 'jira' },
+                  ] as const).map(({ cat, productKey }) => {
+                    const score = t(`s11_${productKey}_score`);
+                    return (
+                      <div key={cat} className="pm-tools__verdict-card">
+                        <span className="pm-tools__verdict-label">{t(`s11Label${cat}`)}</span>
+                        <div className="pm-tools__verdict-product">
+                          <span className="pm-tools__verdict-product-name">{t(`s3Row_${productKey}_name`)}</span>
+                          <span className="pm-tools__verdict-product-score">{score}{t('s11ScoreMax')}</span>
+                        </div>
+                        <div className="pm-tools__verdict-score-bar">
+                          <div className="pm-tools__verdict-score-fill" style={{ width: `${(parseFloat(score) / 5) * 100}%` }} />
+                        </div>
+                        <p>{t(`s11Verdict${cat}`)}</p>
                       </div>
-                      <span className="pm-tools__score-value">{t(`s11_${key}_score`)}{t('s11ScoreMax')}</span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
 
@@ -508,7 +521,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
         question: t(`s12Q${n}`),
-        answer: t(`s12A${n}`),
+        answer: (t.raw(`s12A${n}`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

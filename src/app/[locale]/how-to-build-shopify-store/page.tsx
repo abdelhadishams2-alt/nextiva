@@ -481,7 +481,7 @@ export default async function HowToBuildShopifyStorePage({ params }: { params: P
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5, 6].map((n) => ({
         question: t(`faq${n}Q`),
-        answer: t(`faq${n}A`),
+        answer: (t.raw(`faq${n}A`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

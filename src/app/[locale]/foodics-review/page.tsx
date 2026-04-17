@@ -412,7 +412,17 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
               </section>
 
               {/* SECTION 13 -- Verdict */}
-              <section id="section-13" className="fade-up article-section article-section--verdict">
+              <section id="section-13" className="fade-up article-section article-section--verdict article-section--verdict-bg">
+                <Image
+                  src="/assets/articles/foodics-review-verdict-bg.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1280px"
+                  quality={80}
+                  className="article-verdict__bg-image"
+                  loading="lazy"
+                />
+                <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s13Title')}</h2>
                 <div className="foodics-review__verdict-card">
@@ -470,7 +480,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
         question: t(`s12Q${n}`),
-        answer: t(`s12A${n}`),
+        answer: (t.raw(`s12A${n}`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

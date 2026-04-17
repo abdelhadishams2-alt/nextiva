@@ -452,7 +452,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
         question: t(`s12Q${n}`),
-        answer: t(`s12A${n}`),
+        answer: (t.raw(`s12A${n}`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

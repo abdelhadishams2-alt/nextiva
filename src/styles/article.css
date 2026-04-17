@@ -1552,11 +1552,7 @@
   background: linear-gradient(135deg, rgba(2, 18, 44, 0.75) 0%, rgba(11, 61, 145, 0.68) 100%);
   z-index: 1;
 }
-.article-section--verdict-bg .article-verdict__badge,
-.article-section--verdict-bg h2,
-.article-section--verdict-bg h3,
-.article-section--verdict-bg p,
-.article-section--verdict-bg > div:not(.article-verdict__overlay) {
+.article-section--verdict-bg > *:not(.article-verdict__bg-image):not(.article-verdict__overlay) {
   position: relative;
   z-index: 2;
 }

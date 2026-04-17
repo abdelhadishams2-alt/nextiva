@@ -373,7 +373,17 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
               </section>
 
               {/* SECTION 11 -- Verdict */}
-              <section id="section-11" className="fade-up article-section article-section--verdict">
+              <section id="section-11" className="fade-up article-section article-section--verdict article-section--verdict-bg">
+                <Image
+                  src="/assets/articles/best-website-builders-verdict-bg.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1280px"
+                  quality={80}
+                  className="article-verdict__bg-image"
+                  loading="lazy"
+                />
+                <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s11Title')}</h2>
                 <figure className="article-image article-image--contextual">
@@ -381,12 +391,21 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
                   <figcaption>{t('s11ImageCaption')}</figcaption>
                 </figure>
                 <div className="best-builders__verdict-grid">
-                  {(['wix', 'shopify', 'salla', 'zid', 'wordpress', 'squarespace'] as const).map((key) => (
-                    <div key={key} className={`best-builders__verdict-card best-builders__verdict-card--${key}`}>
-                      <h3>{t(`s11Verdict_${key}_title`)}</h3>
-                      <p>{t(`s11Verdict_${key}_desc`)}</p>
-                    </div>
-                  ))}
+                  {(['wix', 'shopify', 'salla', 'zid', 'wordpress', 'squarespace'] as const).map((key) => {
+                    const score = t(`s11_${key}_score`);
+                    return (
+                      <div key={key} className={`best-builders__verdict-card best-builders__verdict-card--${key}`}>
+                        <h3>{t(`s11Verdict_${key}_title`)}</h3>
+                        <div className="best-builders__verdict-score-row">
+                          <div className="best-builders__verdict-score-bar">
+                            <div className="best-builders__verdict-score-fill" style={{ width: `${(parseFloat(score) / 5) * 100}%` }} />
+                          </div>
+                          <span className="best-builders__verdict-score-value">{score}{t('s11ScoreMax')}</span>
+                        </div>
+                        <p>{t(`s11Verdict_${key}_desc`)}</p>
+                      </div>
+                    );
+                  })}
                 </div>
                 <p>{t('s11P1')}</p>
                 <p>{t('s11P2')}</p>
@@ -444,7 +463,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
         question: t(`s12Q${n}`),
-        answer: t(`s12A${n}`),
+        answer: (t.raw(`s12A${n}`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

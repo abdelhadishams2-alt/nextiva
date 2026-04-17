@@ -132,6 +132,50 @@
   margin: 0;
 }
 
+/* Merged product + score inside verdict card */
+.crm-saudi__verdict-product {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 10px;
+}
+
+.crm-saudi__verdict-product-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.crm-saudi__verdict-product-score {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-primary);
+  opacity: 0.95;
+}
+
+.article-section--verdict .crm-saudi__verdict-product-name,
+.article-section--verdict .crm-saudi__verdict-product-score {
+  color: #fff;
+}
+
+.crm-saudi__verdict-score-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.crm-saudi__verdict-score-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  transition: width 0.8s var(--ease-out);
+}
+
 /* Score bars */
 .crm-saudi__scores {
   display: flex;

@@ -7334,33 +7334,56 @@ blueprint_name: Verdict Section
 category: summary
 article_role: Final verdict with overall score, category breakdowns, and closing recommendation. Uses dark navy gradient background (.article-section--verdict) for maximum visual prominence — impossible to scroll past without noticing.
 
-structural_pattern:
-  - Section wrapper uses .article-section--verdict modifier (dark navy gradient bg, white text)
-  - Verdict badge (.article-verdict__badge) with "Our Verdict" text before the h2
-  - h2 heading (white on dark)
-  - Verdict card container:
-    - Large overall score number + "/5" max label
-    - Breakdown rows: label + progress bar + individual score (3-6 categories)
-  - Summary paragraphs (2-3 closing paragraphs)
+variants:
+  - variant: single-product-scorecard
+    use_when: Article is a single-product review (e.g., foodics-review, odoo-zatca-compliance)
+    structural_pattern:
+      - Section wrapper uses .article-section--verdict + .article-section--verdict-bg modifiers
+      - Verdict badge (.article-verdict__badge) with "Our Verdict" text before the h2
+      - h2 heading (white on dark)
+      - Single verdict card with:
+        - Large overall score number + "/5" max label
+        - Breakdown rows: label + progress bar + individual score (3-6 categories)
+      - Summary paragraphs (2-3 closing paragraphs)
+    slot_definitions:
+      - VERDICT_HEADING: h2 title (e.g., "Final Verdict: 4.5 out of 5")
+      - OVERALL_SCORE: numeric score (e.g., "4.5")
+      - SCORE_MAX: scale label (always "/ 5")
+      - BREAKDOWN_CATEGORIES[]: array of { label, score, width_percent }
+      - SUMMARY_PARAGRAPHS[]: 2-3 closing paragraphs with recommendation
 
-slot_definitions:
-  - VERDICT_HEADING: h2 title (e.g., "Final Verdict: 4.5 out of 5")
-  - OVERALL_SCORE: numeric score (e.g., "4.5")
-  - SCORE_MAX: scale label (always "/ 5")
-  - BREAKDOWN_CATEGORIES[]: array of { label, score, width_percent }
-  - SUMMARY_PARAGRAPHS[]: 2-3 closing paragraphs with recommendation
+  - variant: multi-product-merged-cards
+    use_when: Article is a multi-product comparison ("Best X for Y") and each "Best for [segment]" card maps 1:1 to a scored product. DO NOT render a separate score list below the cards — scores go INSIDE each card to avoid height bloat and content duplication.
+    do_not_use_when:
+      - Cards recommend 2+ products each (keep cards without inline scores)
+      - Single product per article (use single-product-scorecard instead)
+      - 2-product head-to-head (use large product-cards, no scores)
+      - Product cards without a duplicate scores list already (already compact)
+    structural_pattern:
+      - Section wrapper uses .article-section--verdict + .article-section--verdict-bg modifiers
+      - Verdict badge + h2 + lead paragraph
+      - 2-column grid of merged verdict cards, each containing:
+        1. Label: "Best for [Segment]" (small uppercase)
+        2. Product row: product name (large) + score "4.5/5" (right-aligned)
+        3. Horizontal progress bar (white fill on translucent white track)
+        4. Reasoning paragraph (the "why", prefix-stripped)
+    slot_definitions:
+      - VERDICT_HEADING: h2 title
+      - VERDICT_INTRO: lead paragraph
+      - VERDICT_CARDS[]: array of { segment_label, product_name, score, score_max, width_percent, reasoning }
+    partial_merge_rule:
+      - If a card's recommended product has no score, render that card without the score row and progress bar (just label + product name + reasoning). Never invent a score.
+    required_elements: [VERDICT_HEADING, at least 3 VERDICT_CARDS]
 
 hierarchy:
-  section.article-section--verdict > [badge + h2 + verdict-card > (score-col + breakdown-col) + p*N]
-
-required_elements: [VERDICT_HEADING, OVERALL_SCORE, at least 3 BREAKDOWN_CATEGORIES]
-optional_elements: [SUMMARY_PARAGRAPHS]
+  section.article-section--verdict > [badge + h2 + (scorecard | verdict-grid) + p*N]
+  merged-card > [label + product-row + score-bar + reasoning]
 
 responsive_behavior:
-  - desktop: side-by-side score + breakdown in verdict card
-  - tablet: reduced padding, same layout
-  - mobile: stacked score above breakdown, reduced padding
+  - desktop: 2-column grid of merged cards; side-by-side score + breakdown on single-product
+  - tablet: 2-column grid stays
+  - mobile: grid collapses to 1-column, card padding preserved
 
-image_compatibility: none
+image_compatibility: background image supported via .article-section--verdict-bg
 sidebar_compatibility: works in main column
 ```
