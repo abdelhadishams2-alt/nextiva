@@ -1643,3 +1643,115 @@ and page structure. Write the updated file back to the same path.
 - **Registry mode:** use internal structural blueprints + project visual tokens. NEVER freeze Axiom-specific values (green palette, Alexandria/Poppins fonts, specific brand styling).
 - **The internal structural registry is the structural source of truth.** The active project provides the visual layer.
 - **Framework adapter output is authoritative.** When using a non-HTML adapter, trust its output format — do not manually rewrite adapter-generated files to look like HTML.
+
+---
+
+## MANDATORY: Case Study Color Discipline (BP-195)
+
+When generating a Case Study article (BP-195), follow these color rules strictly.
+Case studies are editorial narrative content and must look premium, not alarmist.
+
+### Prohibited
+
+- **Never use bright red on card borders, number badges, or accent lines.** Red
+  reads as error/alarm and breaks the editorial tone. This specifically applies
+  to `.case-challenge-list` items in both section 2 (the pre-solution challenges)
+  and section 8 (honest post-implementation challenges). Both MUST use the brand-blue
+  token, not red.
+- Never use more than 2 accent colors across an entire case study. If the brand
+  palette is navy + blue + gold, pick one primary accent (typically brand-blue)
+  and one secondary (typically brand-navy) and stop there.
+- Never saturate the before/after grid past ~8% background opacity on the
+  red/green cells. The semantic pair is allowed ONLY in that grid, and even
+  there it must be de-saturated so the overall article stays editorial.
+
+### Required
+
+- `.case-disclosure` uses warm amber (e.g. `#fff8e6` bg, `#d4a13b` left border) —
+  this signals "note" not "error" and is the only place warm tones appear.
+- `.case-challenge-list__item` uses `border-left: 4px solid var(--brand-blue)`
+  and `.case-challenge-list__number` uses `color: var(--brand-blue)`.
+- `.case-lessons__number` uses a brand-blue filled circle with white text.
+- `.case-metrics__tile` uses `border-top: 4px solid var(--brand-blue)` and
+  `.case-metrics__value` uses brand-blue for the digit color.
+- `.case-timeline::before` and the timeline dot markers use brand-blue with a
+  white inner border to create the "node on a track" effect.
+- `.case-pullquote` uses brand-navy background with a large off-white serif
+  open-quote pseudo-element at 25% opacity.
+
+### Rationale
+
+Case studies compete for attention against Best-Of comparison content that
+already uses strong color. The case-study form earns its distinctness through
+layout (timeline, pull quote, before/after, metrics tiles) and through
+typography (big numeric values in tiles), NOT through louder color. Keep the
+color restrained and let the narrative structure do the visual work.
+
+### Responsive Discipline (ALL Article Types)
+
+Every custom grid, table, or multi-column component MUST be tested and declared
+at **three breakpoints**, not two. Missing the tablet range is the most common
+responsive bug.
+
+**The three breakpoints:**
+- Desktop: `>1024px` — full multi-column layout.
+- Tablet: `max-width: 1024px` — intermediate collapse. This is the range most
+  frequently forgotten. Inside a sidebar-constrained article column (TOC left +
+  main center + affiliate sidebar right), usable width at tablet sizes is only
+  roughly 500–700px. A 3-column grid or table in that space is cramped.
+- Phone: `max-width: 768px` — 1-column stacked everything.
+
+**Two traps to never hit:**
+
+1. **Inline `gridColumn: 'span N'` on responsive grids.** The span count is
+   fixed and does not adapt when `grid-template-columns` changes at breakpoints.
+   At tablet (2-col) or mobile (1-col), a `span 3` item creates *implicit extra
+   columns* that break the grid's alignment. Always use a CSS modifier class
+   with `grid-column: 1 / -1` (spans from first to last line regardless of how
+   many columns are present at the current breakpoint).
+
+   ```jsx
+   /* WRONG */
+   <div className="grid-item" style={{ gridColumn: 'span 3' }}>
+   /* CORRECT */
+   <div className="grid-item grid-item--full">
+   ```
+   ```css
+   .grid-item--full { grid-column: 1 / -1; }
+   ```
+
+2. **Collapsing 3-column tables only at 768px.** At tablet widths
+   (768–1024px) inside a sidebar-constrained article column, 3-col tables
+   render with cells around 160–230px wide — too cramped for comparison
+   content. Collapse 3-column tables to stacked vertical cards at **1024px**,
+   not 768px.
+
+   When stacking:
+   - Hide the original `<thead>` label cells via `display: none` on all but the
+     first column's header.
+   - Add `data-label` attributes to each value cell in the JSX
+     (e.g. `data-label="Before"`, `data-label="After"`).
+   - Style `::before { content: attr(data-label); }` on the value cells so
+     each stacked card carries its own inline label.
+
+**Before shipping any article:** manually verify the desktop, tablet, and
+phone layout of every custom grid component. If a component only defines
+behavior at 768px, add a 1024px breakpoint.
+
+### CTA Button Specificity Trap
+
+The shared `article.css` defines `.article-layout a { color: inherit; }` with
+specificity 0,0,1,1. A naive `.case-cta__btn { color: var(--brand-navy); }`
+rule (specificity 0,0,1,0) LOSES this cascade battle, so the CTA button text
+inherits the parent's white color and renders invisibly on a white background.
+
+**Always declare the CTA button with bumped specificity**:
+
+```css
+.case-cta a.case-cta__btn { color: var(--brand-navy); }
+.case-cta a.case-cta__btn:hover { color: var(--brand-navy); }
+```
+
+Specificity 0,0,2,1 beats `.article-layout a` cleanly without `!important`.
+Apply the same pattern to ANY button-styled link inside `.article-layout`
+across any blueprint, not just case studies.

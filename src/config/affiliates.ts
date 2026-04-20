@@ -109,6 +109,18 @@ export const affiliatePartners: Record<string, AffiliatePartner> = {
     commission: 'Contact for terms',
     programUrl: 'https://asana.com/partners',
   },
+  zoho: {
+    name: 'Zoho Books',
+    url: 'https://www.zoho.com/sa/books/?ref=lkwjd',
+    commission: 'Contact for terms',
+    programUrl: 'https://www.zoho.com/partners',
+  },
+  wafeq: {
+    name: 'Wafeq',
+    url: 'https://www.wafeq.com?ref=lkwjd',
+    commission: 'Contact for terms',
+    programUrl: 'https://www.wafeq.com',
+  },
 };
 
 /**

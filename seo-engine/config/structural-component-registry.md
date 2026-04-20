@@ -7611,3 +7611,105 @@ responsive_behavior:
 image_compatibility: background image supported via .article-section--verdict-bg
 sidebar_compatibility: works in main column
 ```
+
+
+### BP-195: Case Study Article Pattern
+
+```
+blueprint_id: bp-case-study
+blueprint_name: Illustrative Case Study (narrative customer story)
+category: article-type
+article_role: full-article-pattern
+added: 2026-04-20
+
+purpose:
+  A complete, reusable article pattern for case studies — customer stories,
+  composite scenarios, or post-implementation retrospectives. Narrative structure
+  built from 9 sub-components. Designed to be visually distinct from Best-Of
+  comparison articles without sacrificing professionalism.
+
+when_to_use:
+  - Topic is a single-customer story or composite illustrative scenario
+  - Article arc is challenge → solution → timeline → results → lessons
+  - NOT for comparison content (use BP-192/193/194 article types instead)
+
+ethical_framing:
+  - If the subject is composite/illustrative (no single named real customer), the
+    article MUST include a .case-disclosure box immediately after the profile card
+    stating this clearly
+  - Every metric MUST sit inside a published outcome range (cite source on request)
+  - Pull-quote attribution MUST NOT invent a named person if the subject is composite —
+    attribute to "composite founder persona" or equivalent honest framing
+
+color_discipline:
+  - NEVER use bright red (#d04444, #ff0000, or equivalents) on card borders or
+    number badges. Red reads as alarm/error and is unprofessional for editorial
+    content. Use the project's brand-blue or brand-navy token for all accents.
+  - The ONLY legitimate place for a red/green semantic pair is inside the
+    before/after comparison grid, and even there colors must be de-saturated
+    to ≤8% background opacity.
+  - Disclosure box uses warm amber (not red) to signal "note" not "error"
+  - Avoid more than 2 accent colors in the entire article — otherwise it looks
+    like a dashboard, not editorial content
+
+sub_components:
+  1. hero: article-hero (same as other article types)
+  2. case-disclosure: amber-accented illustrative/composite disclaimer box
+  3. case-profile: 3-column facts grid on a navy background
+     { Company | Industry | Size | Location | Tool | Timeline | HeadlineResult }
+  4. case-challenge-list: numbered cards (red/alarm styling PROHIBITED — use brand-blue)
+     5-item list for the "pre-solution" pain points
+     3-item list for the "honest challenges post-implementation"
+  5. case-timeline: vertical timeline with dot markers
+     6 deployment milestones (Week/Month labels)
+  6. case-pullquote: large navy-background quote with giant serif open-mark
+     Includes attribution (composite persona if illustrative)
+  7. case-ba-grid: before/after table, 3-column (metric | before | after)
+     Use muted semantic palette (≤8% red/green bg) — not full-saturation
+  8. case-metrics: big-number tile grid, 3-col desktop
+     6 tiles × { value, label, subtext with source range }
+  9. case-lessons: 2-col grid of numbered takeaway cards (brand-blue circle number)
+  10. case-cta: gradient navy closing CTA block linking to related review/guide
+
+article_structure:
+  - Hero
+  - Disclosure (if composite/illustrative)
+  - Profile card
+  - Section 2: The Challenge (5 pain points)
+  - Inline image
+  - Section 3: The Solution (2 paragraphs)
+  - Section 4: Timeline (6 milestones)
+  - Inline image
+  - Pull quote
+  - Section 6: Before/After table (6 metrics)
+  - Inline image
+  - Section 7: Headline Results (6 metric tiles)
+  - Inline image
+  - Section 8: Honest Challenges (3 cards)
+  - Section 9: Lessons Learned (5 cards)
+  - Section 10: Closing CTA
+
+css_namespace: .case-* (all case-study components scoped under this prefix)
+required_stylesheet: article-case-study.css (scoped component library)
+
+responsive_behavior:
+  - desktop (>1024px): profile 3-col, metrics 3-col, lessons 2-col, before/after 3-col table
+  - tablet (max-width: 1024px): profile 2-col, metrics 2-col, lessons 2-col, before/after STACKS to vertical cards (metric → before → after per row). 3-col tables are too cramped inside a sidebar-constrained article column.
+  - mobile (max-width: 768px): ALL grids collapse to 1-col. Challenge cards collapse flex to column. Pull quote reduces to 1rem body + 3.5rem open-quote mark. CTA padding tightens.
+
+responsive_discipline_MANDATORY:
+  1. NEVER use inline `style={{ gridColumn: 'span N' }}` on grid items — the N is fixed and doesn't adapt when grid-template-columns changes at breakpoints. This creates implicit extra columns that break layout at tablet/mobile.
+     Correct: use a CSS modifier class that applies `grid-column: 1 / -1` so the item always spans the full current column count, whatever it is.
+  2. NEVER collapse a 3-column table only at 768px. Inside an article column (sidebar + TOC + main), tablet widths (768–1024px) leave roughly 500–700px of usable width. A 3-column table in that space produces cramped, hard-to-read cells. Collapse 3-col tables to stacked cards at 1024px, not 768px.
+  3. When stacking a 3-column table to vertical cards, use `::before { content: attr(data-label); }` on the value cells to show "Before" / "After" labels per card, and add `data-label="..."` attributes in the JSX. Hide the original thead label cells.
+  4. Every custom grid component MUST declare behavior at all three breakpoints: desktop, tablet (≤1024), phone (≤768). Missing the tablet breakpoint is the most common responsive bug.
+  5. Case study hero uses an extra `.article-hero__subtitle` paragraph that Best-Of articles do not. Mobile-specific rules are MANDATORY when you add the subtitle: reduce it to ~14px font-size, ~1.5 line-height, ~14px bottom margin; bump `.article-hero__content` top padding to ~80px so the hero badge clears the transparent navbar; tighten the badge to ~11px / 0.06em letter-spacing on phones. Without these, the subtitle dominates the mobile hero at desktop sizing and the badge collides with the navbar logo.
+
+image_compatibility:
+  - 5 images recommended: hero, POS close-up, branch/map, waste/inventory detail,
+    dashboard flat-lay
+  - All inline images use figure.article-image--contextual wrapper
+
+sidebar_compatibility: works with TOCSidebar + AffiliateSidebar as normal
+faq_compatibility: optional; most case studies do not need an FAQ section
+```
