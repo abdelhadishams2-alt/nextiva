@@ -1,6 +1,7 @@
 import "@/styles/article.css";
 import "@/styles/affiliate.css";
 import "@/styles/faq.css";
+import "@/styles/pricing-cards.css";
 import "@/styles/article-how-to-build-shopify-store.css";
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';

@@ -336,15 +336,27 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
               <section id="section-9" className="fade-up article-section">
                 <h2>{t('s9Title')}</h2>
                 <p>{t('s9Intro')}</p>
-                <div className="pos-saudi__others-grid">
-                  {(['posrocket', 'iiko', 'lightspeed', 'square', 'toast'] as const).map((key) => (
-                    <div key={key} className="pos-saudi__other-card">
-                      <h3>{t(`s9_${key}_name`)}</h3>
-                      <p className="pos-saudi__other-price">{t(`s9_${key}_price`)}</p>
-                      <p>{t(`s9_${key}_summary`)}</p>
-                      <p className="pos-saudi__other-verdict"><strong>{t(`s9_${key}_verdict`)}</strong></p>
-                    </div>
-                  ))}
+                <div className="article-others-list">
+                  {(['posrocket', 'iiko', 'lightspeed', 'square', 'toast'] as const).map((key) => {
+                    const tiers = t(`s9_${key}_price`).split('|').map((s) => s.trim()).filter(Boolean);
+                    return (
+                      <article key={key} className="article-others-row">
+                        <div className="article-others-main">
+                          <h3>{t(`s9_${key}_name`)}</h3>
+                          <p className="article-others-summary">{t(`s9_${key}_summary`)}</p>
+                          <p className="article-others-verdict">{t(`s9_${key}_verdict`)}</p>
+                        </div>
+                        <aside className="article-others-pricing">
+                          <span className="article-others-pricing-label">Pricing</span>
+                          <ul className="article-others-pricing-list">
+                            {tiers.map((tier, i) => (
+                              <li key={i}>{tier}</li>
+                            ))}
+                          </ul>
+                        </aside>
+                      </article>
+                    );
+                  })}
                 </div>
               </section>
 

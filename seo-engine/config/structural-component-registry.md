@@ -892,6 +892,164 @@ sidebar_compatibility: works in main column
 
 ---
 
+### BP-194: Pricing Cards — Single Product Tiered Plans
+
+```
+blueprint_id: bp-pricing-cards
+blueprint_name: Pricing Cards — Tiered Plans with Monthly/Annual Toggle
+category: conversion
+article_role: Present a single product's pricing tiers as interactive pricing cards with a Monthly/Annual toggle, a "Popular" featured plan, per-plan feature checklists, and a CTA per tier. Used when the article is promoting ONE product and needs to show its pricing plans cleanly.
+
+use_when:
+  - Article is a single-product guide, review, or promotion (e.g., "How to Build a Shopify Store", "Foodics Review")
+  - Section explicitly covers that one product's pricing plans
+  - 2-4 tiers available (not more — cards get cramped)
+  - The product has monthly AND annual pricing (required — the toggle is central)
+
+do_not_use_when:
+  - Comparing multiple products' pricing (use bp-comparison-table or bp-others-list)
+  - Listing secondary/runner-up products each with own pricing (use bp-others-list)
+  - Only one pricing tier exists (use a simple pricing statement instead)
+  - No annual option exists (the toggle would be dead UI)
+
+structural_pattern:
+  - Header: optional badge pill + h2 heading + description paragraph
+  - Toggle row: Monthly/Annual switch with "Save X%" hint on the annual side
+  - Grid of cards (2-4), one can be marked as .pricing-cards__card--popular (dark featured treatment with star badge):
+    - Popular badge (if featured)
+    - Plan name (small uppercase)
+    - Price row: large price + "/mo" period
+    - Billing note ("billed monthly" / "billed annually")
+    - Plan description
+    - Divider
+    - Feature checklist (each with check icon)
+    - CTA button (full-width, styled differently for popular card)
+  - Mobile: horizontal snap-scroll with pagination dots; popular card centered on load
+
+slot_definitions:
+  - SECTION_HEADING: h2 (e.g., "Choose Your Shopify Plan")
+  - DESCRIPTION: paragraph under heading
+  - BADGE: optional small pill above heading (e.g., "Pricing")
+  - MONTHLY_LABEL: toggle label (default "Monthly")
+  - YEARLY_LABEL: toggle label (default "Annual")
+  - SAVE_LABEL: annual-savings hint (e.g., "Save 25%")
+  - PLANS[]: array of { name, monthlyPrice, yearlyPrice, description, isPopular?, features[], ctaText, ctaUrl }
+    - exactly ONE plan should have isPopular=true (the featured recommendation)
+    - features should be 4-6 per plan — keep parity across plans for scannability
+    - ctaUrl should be an affiliate-safe path (e.g., /out/{partner}-pricing)
+
+required_elements: [SECTION_HEADING, DESCRIPTION, 2-4 PLANS each with name + monthlyPrice + yearlyPrice + features + ctaText + ctaUrl]
+optional_elements: [BADGE, one PLANS[].isPopular flag]
+
+required_component (Next.js projects with /components/ui/PricingCards):
+  ```jsx
+  import PricingCards from '@/components/ui/PricingCards';
+
+  <PricingCards
+    heading="Choose Your Plan"
+    description="All plans include a free trial."
+    badge="Pricing"
+    monthlyLabel="Monthly"
+    yearlyLabel="Annual"
+    saveLabel="Save 25%"
+    plans={[
+      { name: 'Basic', monthlyPrice: '$27', yearlyPrice: '$19', description: '...', isPopular: true, features: [...], ctaText: 'Start Free Trial', ctaUrl: '/out/partner-pricing' },
+      { name: 'Grow', monthlyPrice: '$72', yearlyPrice: '$54', description: '...', features: [...], ctaText: 'Start Free Trial', ctaUrl: '/out/partner-pricing' },
+      // ...
+    ]}
+  />
+  ```
+
+required_html (projects without the React component):
+  Use `.pricing-cards` as the section wrapper with `.pricing-cards__header`, `.pricing-cards__toggle`, `.pricing-cards__grid` > `.pricing-cards__card` (plus `--popular` modifier on one). See `src/styles/pricing-cards.css` in the nextiva repo for the full class list.
+
+responsive_behavior:
+  - desktop: 3-column grid (or 2/4 depending on plan count)
+  - tablet: 2-column or scrollable grid
+  - mobile: horizontal snap-scroll carousel with pagination dots; popular card auto-centered on load
+
+image_compatibility: none (card-based)
+sidebar_compatibility: works in main column only (cards need full article width)
+```
+
+---
+
+### BP-193: Others Worth Considering List
+
+```
+blueprint_id: bp-others-list
+blueprint_name: Others Worth Considering — Horizontal Row List
+category: comparison
+article_role: Present 3-5 secondary/niche product options that didn't make the top picks but each has a specific-use-case strength. Each product gets a full-width row with product name, summary, "Best for" highlight, and structured pricing tiers.
+
+use_when:
+  - Article section is explicitly framed as secondary/runner-up products ("More X Options Worth Considering", "Also Worth Mentioning", "Niche Alternatives")
+  - 3-5 products to list (NOT the main comparison — those belong in the comparison table)
+  - Each product has: a name, a 2-4 sentence summary, a "best-for" positioning, AND structured pricing tiers
+
+do_not_use_when:
+  - Primary product comparison (use comparison table)
+  - Feature grid for a single product (use feature-grid)
+  - When products have no pricing tier data
+  - Fewer than 3 or more than 6 products (layout breaks — use comparison table or mini-cards)
+
+structural_pattern:
+  - Section wrapper uses standard .article-section
+  - h2 heading + intro paragraph
+  - Vertical stack of full-width rows (.article-others-list)
+  - Each row (.article-others-row) has a 2-col internal grid on desktop:
+    - LEFT (main): h3 product name, summary paragraph, "Best for" callout (styled with left border + tinted blue background)
+    - RIGHT (pricing): small "PRICING" label, bulleted list of pricing tiers
+  - At ≤1024px, row collapses to single column; pricing moves below separated by a top border
+
+slot_definitions:
+  - SECTION_HEADING: h2 section title (e.g., "More X Options Worth Considering")
+  - INTRO_TEXT: paragraph explaining why these are worth a look but not top picks
+  - PRODUCTS[]: array of { name, summary, verdict, pricing_tiers[] }
+    - name: product name (short)
+    - summary: 2-4 sentence description
+    - verdict: "Best for X team who want Y..." — short positioning sentence
+    - pricing_tiers: array of strings, one per tier (e.g., ["Free — unlimited users", "Basic $49/mo", "Pro $199/mo"]). If the source data is a pipe-delimited string like "Free | Basic $49 | Pro $199", the writer MUST split on `|` and trim each piece — NEVER render the raw pipe-delimited string.
+
+required_elements: [SECTION_HEADING, INTRO_TEXT, at least 3 PRODUCTS each with name + summary + verdict + at least 2 pricing_tiers]
+
+required_html:
+  ```html
+  <section class="article-section">
+    <h2>{SECTION_HEADING}</h2>
+    <p>{INTRO_TEXT}</p>
+    <div class="article-others-list">
+      <!-- repeat per product -->
+      <article class="article-others-row">
+        <div class="article-others-main">
+          <h3>{PRODUCT_NAME}</h3>
+          <p class="article-others-summary">{PRODUCT_SUMMARY}</p>
+          <p class="article-others-verdict">{PRODUCT_VERDICT}</p>
+        </div>
+        <aside class="article-others-pricing">
+          <span class="article-others-pricing-label">Pricing</span>
+          <ul class="article-others-pricing-list">
+            <li>{TIER_1}</li>
+            <li>{TIER_2}</li>
+            <li>{TIER_3}</li>
+          </ul>
+        </aside>
+      </article>
+    </div>
+  </section>
+  ```
+
+responsive_behavior:
+  - desktop (default): 2-col internal split per row; main left, pricing right with vertical separator
+  - tablet (≤1024px): row collapses to single column; pricing moves below with top border separator
+  - mobile (≤768px): tighter padding; h3 smaller
+
+image_compatibility: none (text-focused editorial list)
+sidebar_compatibility: works in main column
+```
+
+---
+
 ### BP-192: Factors Grid (Numbered Criteria)
 
 ```

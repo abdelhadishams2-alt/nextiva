@@ -386,6 +386,80 @@ Every FAQ section MUST use the premium numbered accordion pattern with native `<
 - Include 4-6 FAQ items per article minimum
 - Each answer should be 2-4 sentences, directly useful
 
+### Pricing patterns — disambiguation table (READ FIRST before choosing)
+
+There are THREE distinct pricing-display patterns. Picking the wrong one makes the section unreadable. Use this decision table before emitting HTML:
+
+| Scenario | Pattern | Blueprint |
+|---|---|---|
+| Main *subject* product's own pricing tiers (article is about that one product) | Pricing Cards with monthly/annual toggle | BP-194 `bp-pricing-cards` (use `<PricingCards>` React component if available) |
+| Comparing MANY products' starting prices side-by-side | Comparison table | existing comparison-table blueprints |
+| Listing 3-5 secondary/runner-up products, each with its own pricing tiers | Others Worth Considering list | BP-193 `bp-others-list` (horizontal rows) |
+
+Common mistakes to avoid:
+- **Do NOT** put the subject product's pricing in a comparison table — it hides the tier-by-tier breakdown a buyer needs.
+- **Do NOT** use the Others list for the subject product's pricing — it's for secondary products only.
+- **Do NOT** put secondary products in Pricing Cards — the monthly/annual toggle assumes one product with uniform pricing structure.
+
+### Others-list pattern (MANDATORY for "Others Worth Considering" / secondary product sections)
+
+When a section lists 3-5 secondary/runner-up products (not the main comparison — those go in a comparison table), use the horizontal others-list blueprint (BP-193). Do NOT use a 3-column card grid — it produces uneven tall boxes and a pipe-delimited pricing string that readers can't scan.
+
+**When to apply:**
+- Section heading matches "More X Options", "Also Worth Mentioning", "Niche Alternatives", "Others Worth Considering"
+- 3-5 products to list
+- Each product has: name + short summary (2-4 sentences) + "best-for" positioning + pricing tier list
+
+**When NOT to apply:**
+- Main product comparison (comparison table)
+- Single-product feature list (feature-grid)
+- Fewer than 3 or more than 6 products
+- No pricing data per product
+
+**Pricing parsing rule (CRITICAL):**
+If source data provides pricing as a pipe-delimited string (e.g. `"Free (unlimited) | Basic $49/mo | Pro $199/mo"`), the writer MUST split the string on `|` and trim each segment, emitting one `<li>` per tier. Never emit the raw pipe-delimited string — it's unreadable. In JSX:
+```jsx
+const tiers = t(`s8_${key}_price`).split('|').map((s) => s.trim()).filter(Boolean);
+```
+
+**Required HTML (Next.js JSX or plain HTML):**
+```html
+<section class="article-section">
+  <h2>More X Options Worth Considering</h2>
+  <p>{intro}</p>
+  <div class="article-others-list">
+    <article class="article-others-row">
+      <div class="article-others-main">
+        <h3>Product Name</h3>
+        <p class="article-others-summary">Summary paragraph, 2-4 sentences.</p>
+        <p class="article-others-verdict">Best for X team who want Y...</p>
+      </div>
+      <aside class="article-others-pricing">
+        <span class="article-others-pricing-label">Pricing</span>
+        <ul class="article-others-pricing-list">
+          <li>Free — unlimited users</li>
+          <li>Basic $49/org/mo</li>
+          <li>Pro $199/org/mo</li>
+        </ul>
+      </aside>
+    </article>
+    <!-- repeat per product -->
+  </div>
+</section>
+```
+
+**CSS classes (pre-defined in article.css as shared utilities):**
+- `.article-others-list` — vertical stack of full-width rows with 16px gap
+- `.article-others-row` — 2-col internal grid (1.6fr | 1fr) on desktop; collapses to single column at ≤1024px
+- `.article-others-main` — left column: name + summary + verdict
+- `.article-others-summary` — plain description paragraph
+- `.article-others-verdict` — highlighted callout with left border + tinted blue background (the "Best for X" punchline)
+- `.article-others-pricing` — right column: pricing list, separated by vertical border (desktop) or top border (mobile)
+- `.article-others-pricing-label` — small uppercase "PRICING" header
+- `.article-others-pricing-list` — bulleted tier list with small blue dots
+
+**Order inside the main column matters:** h3 → summary → verdict. The verdict is the punchline and must sit AFTER the summary, not before. Never swap to card-style centered-text layouts.
+
 ### Factors grid pattern (MANDATORY for "How to Choose" / "What to Look For" sections)
 
 When a section lists 4-6 decision criteria or evaluation factors, use the numbered factors-grid blueprint (BP-192). Do NOT use `mini-cards-grid` or generic card grids — they produce uneven card heights with 6 items in a 4-col layout and lack visual hierarchy.

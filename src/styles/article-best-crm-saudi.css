@@ -61,12 +61,7 @@
 }
 
 /* Others grid */
-.crm-saudi__others-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 24px;
-}
+/* Legacy 3-col grid — superseded by .article-others-list in article.css */
 
 .crm-saudi__other-card {
   background: var(--card-bg, #f8f8f6);
