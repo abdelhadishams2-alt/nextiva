@@ -336,10 +336,13 @@ export default async function BestCrmSaudiPage({ params }: { params: Promise<{ l
               <section id="section-9" className="fade-up article-section">
                 <h2>{t('s9Title')}</h2>
                 <p className="lead-paragraph">{t('s9Intro')}</p>
-                <div className="mini-cards-grid mini-cards-grid--2col">
+                <div className="article-factors-grid">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <div key={n} className="mini-card">
-                      <h3>{t(`s9Factor${n}Title`)}</h3>
+                    <div key={n} className="article-factor-card">
+                      <div className="article-factor-header">
+                        <span className="article-factor-number">{String(n).padStart(2, '0')}</span>
+                        <h3>{t(`s9Factor${n}Title`)}</h3>
+                      </div>
                       <p>{t(`s9Factor${n}Desc`)}</p>
                     </div>
                   ))}

@@ -386,6 +386,50 @@ Every FAQ section MUST use the premium numbered accordion pattern with native `<
 - Include 4-6 FAQ items per article minimum
 - Each answer should be 2-4 sentences, directly useful
 
+### Factors grid pattern (MANDATORY for "How to Choose" / "What to Look For" sections)
+
+When a section lists 4-6 decision criteria or evaluation factors, use the numbered factors-grid blueprint (BP-192). Do NOT use `mini-cards-grid` or generic card grids — they produce uneven card heights with 6 items in a 4-col layout and lack visual hierarchy.
+
+**When to apply:**
+- Section heading matches "How to Choose", "What to Look For", "Key Factors", "Selection Criteria", "Buying Guide"
+- 4-6 distinct factors (not 3, not 10)
+- Each factor has a short title + short-paragraph explanation
+
+**When NOT to apply:**
+- Product comparisons (use mini-cards)
+- Feature lists (use feature-grid)
+- Statistics (use stats-cards)
+- Fewer than 4 or more than 6 items — the layout breaks
+
+**Required HTML (Next.js JSX or plain HTML):**
+```html
+<section class="article-section">
+  <h2>How to Choose the Right X</h2>
+  <p class="lead-paragraph">{intro}</p>
+  <div class="article-factors-grid">
+    <div class="article-factor-card">
+      <div class="article-factor-header">
+        <span class="article-factor-number">01</span>
+        <h3>Factor Title</h3>
+      </div>
+      <p>Factor description, 2-4 sentences.</p>
+    </div>
+    <!-- repeat per factor -->
+  </div>
+</section>
+```
+
+**CSS classes (pre-defined in article.css as shared utilities):**
+- `.article-factors-grid` — 3-col desktop / 2-col tablet / 1-col mobile, 20px gap
+- `.article-factor-card` — padded card with hover lift, border color tightens on hover
+- `.article-factor-header` — flex row, baseline-aligned, places number + h3 on same line
+- `.article-factor-number` — small uppercase brand-blue badge, zero-padded 2-digit ("01"–"09")
+
+**Numbering rules:**
+- Always zero-padded: 01, 02, 03, not 1, 2, 3
+- Sequential by order rendered
+- Always render inside the header flex wrapper, never as a separate line above the h3
+
 ### Merged verdict card pattern (MANDATORY for multi-product "best-of" articles)
 
 When the verdict section recommends one product per use-case/segment AND the article has individual product scores, the cards and the score list MUST be merged into ONE unit. Do NOT render a separate "[Brand] Score" sub-section with duplicate score bars — that's a height-killer on mobile and repeats the same four products.

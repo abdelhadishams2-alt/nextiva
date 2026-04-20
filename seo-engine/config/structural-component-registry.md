@@ -892,6 +892,72 @@ sidebar_compatibility: works in main column
 
 ---
 
+### BP-192: Factors Grid (Numbered Criteria)
+
+```
+blueprint_id: bp-factors-grid
+blueprint_name: Factors Grid — Numbered Criteria
+category: decision-support
+article_role: Present 4-6 decision-driving factors, selection criteria, or evaluation dimensions for a "How to Choose X" or "What to Look For" section. Each factor gets a zero-padded numbered badge inline with the title, breaking up text walls and giving scan anchors.
+
+use_when:
+  - Article section explicitly frames evaluation criteria ("How to Choose", "What to Look For", "Key Factors", "Buying Criteria")
+  - You have 4-6 distinct factors/criteria (not 3, not 10 — 4-6 is the sweet spot for 3-col grid)
+  - Each factor has a short title (2-5 words) and 2-4 sentence explanation
+
+do_not_use_when:
+  - Items are product comparisons (use bp-mini-cards)
+  - Items are features of a single product (use bp-feature-grid)
+  - Items are sequential steps (use bp-step-process)
+  - Items need statistics or metrics (use bp-stats-cards)
+
+structural_pattern:
+  - Section wrapper uses standard .article-section (light background, dark text)
+  - h2 heading + optional lead paragraph
+  - Grid container: `.article-factors-grid` — 3 columns desktop, 2 tablet, 1 mobile
+  - Each card: `.article-factor-card`
+    - Header row: `.article-factor-header` (flex, baseline-aligned)
+      - Zero-padded number: `.article-factor-number` ("01", "02", … — always 2 digits)
+      - Title: h3
+    - Description: p
+
+slot_definitions:
+  - SECTION_HEADING: h2 title (e.g., "How to Choose the Right CRM")
+  - INTRO_TEXT: optional lead paragraph
+  - FACTORS[]: array of { title, description } — 4 to 6 items
+
+required_elements: [SECTION_HEADING, at least 4 FACTORS]
+optional_elements: [INTRO_TEXT]
+
+responsive_behavior:
+  - desktop (default): 3-column grid
+  - tablet (≤1024px): 2-column grid
+  - mobile (≤768px): 1-column stack, reduced card padding
+
+required_html:
+  ```html
+  <section class="article-section">
+    <h2>{SECTION_HEADING}</h2>
+    <p class="lead-paragraph">{INTRO_TEXT}</p>
+    <div class="article-factors-grid">
+      <!-- repeat per factor -->
+      <div class="article-factor-card">
+        <div class="article-factor-header">
+          <span class="article-factor-number">01</span>
+          <h3>{FACTOR_TITLE}</h3>
+        </div>
+        <p>{FACTOR_DESCRIPTION}</p>
+      </div>
+    </div>
+  </section>
+  ```
+
+image_compatibility: none (text-focused)
+sidebar_compatibility: works in main column
+```
+
+---
+
 ## COMPONENT CLASSIFICATION INDEX
 
 | Blueprint ID | Name | Category | Best For |

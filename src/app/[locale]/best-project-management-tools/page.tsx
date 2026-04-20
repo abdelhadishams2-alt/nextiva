@@ -397,10 +397,13 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                   <Image src="/assets/articles/best-pm-tools-analytics.webp" alt={t('s9ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s9ImageCaption')}</figcaption>
                 </figure>
-                <div className="mini-cards-grid mini-cards-grid--2col">
+                <div className="article-factors-grid">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <div key={n} className="mini-card">
-                      <h3>{t(`s9Factor${n}Title`)}</h3>
+                    <div key={n} className="article-factor-card">
+                      <div className="article-factor-header">
+                        <span className="article-factor-number">{String(n).padStart(2, '0')}</span>
+                        <h3>{t(`s9Factor${n}Title`)}</h3>
+                      </div>
                       <p>{t(`s9Factor${n}Desc`)}</p>
                     </div>
                   ))}

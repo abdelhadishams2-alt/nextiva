@@ -356,10 +356,13 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                   <Image src="/assets/articles/best-pos-systems-saudi-5.webp" alt={t('s10ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
-                <div className="mini-cards-grid mini-cards-grid--2col">
+                <div className="article-factors-grid">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <div key={n} className="mini-card">
-                      <h3>{t(`s10Factor${n}Title`)}</h3>
+                    <div key={n} className="article-factor-card">
+                      <div className="article-factor-header">
+                        <span className="article-factor-number">{String(n).padStart(2, '0')}</span>
+                        <h3>{t(`s10Factor${n}Title`)}</h3>
+                      </div>
                       <p>{t(`s10Factor${n}Desc`)}</p>
                     </div>
                   ))}

@@ -341,10 +341,13 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                   <Image src="/assets/articles/best-hr-software-saudi-4.webp" alt="6 key factors for choosing HR software in Saudi Arabia" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>Key factors to evaluate when selecting HR software for your Saudi business</figcaption>
                 </figure>
-                <div className="mini-cards-grid mini-cards-grid--2col">
+                <div className="article-factors-grid">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <div key={n} className="mini-card">
-                      <h3>{t(`s10Factor${n}Title`)}</h3>
+                    <div key={n} className="article-factor-card">
+                      <div className="article-factor-header">
+                        <span className="article-factor-number">{String(n).padStart(2, '0')}</span>
+                        <h3>{t(`s10Factor${n}Title`)}</h3>
+                      </div>
                       <p>{t(`s10Factor${n}Desc`)}</p>
                     </div>
                   ))}

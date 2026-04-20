@@ -3754,6 +3754,81 @@
 .mini-card-tag { margin-top: 14px; font-size: 12px; font-weight: 600; color: var(--accent); }
 
 /* ----------------------------------------------------------------
+   Article Factors Grid — "How to Choose" 6-criteria pattern
+   Numbered badges inline with h3 title, 3-col desktop / 2-col tablet / 1-col mobile
+   ---------------------------------------------------------------- */
+.article-factors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.article-factor-card {
+  background: var(--card-bg, #f8f8f6);
+  border: 1px solid var(--border, #e9e9ec);
+  border-radius: var(--radius-card, 12px);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.article-factor-card:hover {
+  border-color: var(--brand-blue, #0062b8);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.article-factor-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.article-factor-number {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-blue, #0062b8);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.article-factor-card h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-primary, #1a1a1a);
+  margin: 0;
+}
+
+.article-factor-card p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #4a4b46);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .article-factors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .article-factors-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .article-factor-card {
+    padding: 22px 20px;
+  }
+}
+
+/* ----------------------------------------------------------------
    Scorecard Table (Ecommerce TCO)
    ---------------------------------------------------------------- */
 .scorecard-table { width: 100%; min-width: 640px; border-collapse: separate; border-spacing: 0; margin-top: 24px; }
