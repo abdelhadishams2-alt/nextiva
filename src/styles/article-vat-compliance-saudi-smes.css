@@ -1,0 +1,270 @@
+/* ----------------------------------------------------------------
+   VAT Compliance Saudi SMEs Article — Component Styles
+   ---------------------------------------------------------------- */
+
+/* Vendor Card Blocks */
+.vat-saudi__vendor-card {
+  padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem;
+  background: var(--card-bg, #f8f8f6);
+  border: 1px solid var(--border, #e1deda);
+  border-radius: var(--radius-card, 12px);
+  border-left: 3px solid var(--secondary, #0062b8);
+}
+
+.vat-saudi__vendor-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+  color: var(--primary, #02122c);
+}
+
+.vat-saudi__vendor-card p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  color: var(--foreground, #1a1a1a);
+}
+
+.vat-saudi__vendor-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border, #e1deda);
+  font-size: 0.95rem;
+}
+
+.vat-saudi__vendor-facts dt {
+  font-weight: 600;
+  color: var(--text-muted, #6c6967);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  align-self: baseline;
+}
+
+.vat-saudi__vendor-facts dd {
+  margin: 0;
+  color: var(--foreground, #1a1a1a);
+  line-height: 1.55;
+}
+
+/* Feature Matrix Table */
+.vat-saudi__matrix-table {
+  min-width: 820px;
+  font-size: 0.9rem;
+}
+
+.vat-saudi__matrix-table .highlight-col {
+  background: rgba(0, 98, 184, 0.06);
+}
+
+/* Pricing Table */
+.vat-saudi__pricing-table {
+  min-width: 760px;
+}
+
+/* Pitfall Blocks */
+.vat-saudi__pitfall-block {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border, #e1deda);
+  border-radius: 12px;
+  border-left: 3px solid #f59e0b;
+}
+
+.vat-saudi__pitfall-block h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--primary, #02122c);
+}
+
+.vat-saudi__pitfall-block p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--foreground, #1a1a1a);
+}
+
+/* Reimbursement Steps */
+.vat-saudi__step-block {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--muted-bg, #f9f4ef);
+  border-radius: 12px;
+  border-left: 3px solid var(--accent, #06f);
+}
+
+.vat-saudi__step-block h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--primary, #02122c);
+}
+
+.vat-saudi__step-block p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ----------------------------------------------------------------
+   Verdict grid — dark section, "best-for" product cards
+   ---------------------------------------------------------------- */
+.vat-saudi__verdict-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.vat-saudi__verdict-card {
+  background: var(--card-bg, #f8f8f6);
+  border: 1px solid var(--border, #e9e9ec);
+  border-radius: var(--radius-lg, 12px);
+  padding: 24px;
+  border-left: 4px solid var(--secondary, #0062b8);
+}
+
+.vat-saudi__verdict-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary, #0062b8);
+  margin-bottom: 8px;
+}
+
+.vat-saudi__verdict-card p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--foreground, #1a1a1a);
+  margin: 0;
+}
+
+.vat-saudi__verdict-product {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 10px;
+}
+
+.vat-saudi__verdict-product-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary, #02122c);
+}
+
+.vat-saudi__verdict-product-score {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--primary, #02122c);
+  opacity: 0.95;
+}
+
+.article-section--verdict .vat-saudi__verdict-product-name,
+.article-section--verdict .vat-saudi__verdict-product-score {
+  color: #fff;
+}
+
+.vat-saudi__verdict-score-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.vat-saudi__verdict-score-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  transition: width 0.8s ease-out;
+}
+
+/* Deadline urgency cards */
+.vat-saudi__deadline-card {
+  border-left: 3px solid #dc2626;
+}
+
+.vat-saudi__deadline-card .mini-card-badge {
+  background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .vat-saudi__vendor-card {
+    padding: 1.5rem 1.5rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .vat-saudi__vendor-facts {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .vat-saudi__vendor-facts dt {
+    margin-top: 0.75rem;
+  }
+
+  .vat-saudi__pitfall-block,
+  .vat-saudi__step-block {
+    padding: 1rem 1.25rem;
+  }
+
+  .vat-saudi__verdict-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .vat-saudi__vendor-card {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .vat-saudi__vendor-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .vat-saudi__pitfall-block,
+  .vat-saudi__step-block {
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .vat-saudi__pitfall-block h3,
+  .vat-saudi__step-block h3 {
+    font-size: 1rem;
+  }
+
+  .vat-saudi__pitfall-block p,
+  .vat-saudi__step-block p {
+    font-size: 0.9rem;
+  }
+
+  .vat-saudi__verdict-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vat-saudi__verdict-card {
+    padding: 20px;
+  }
+
+  .vat-saudi__verdict-product-name {
+    font-size: 1.1rem;
+  }
+}

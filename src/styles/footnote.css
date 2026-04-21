@@ -1,0 +1,179 @@
+/* ----------------------------------------------------------------
+   Footnote (inline reference)
+   ---------------------------------------------------------------- */
+
+.footnote__ref {
+  font-size: 0.72em;
+  vertical-align: super;
+  line-height: 1;
+  margin-inline-start: 0.12em;
+  scroll-margin-top: 6rem;
+}
+
+.footnote__ref-link {
+  color: var(--color-accent, #2563eb);
+  text-decoration: none;
+  padding: 0 0.15em;
+  border-radius: 3px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.footnote__ref-link:hover,
+.footnote__ref-link:focus-visible {
+  background-color: var(--color-accent-soft, rgba(37, 99, 235, 0.12));
+  color: var(--color-accent-strong, #1d4ed8);
+  outline: none;
+}
+
+.footnote__ref-link:focus-visible {
+  outline: 2px solid var(--color-accent, #2563eb);
+  outline-offset: 2px;
+}
+
+/* :target highlights the superscript briefly when jumped to via back-link */
+.footnote__ref:target {
+  background-color: var(--color-highlight, #fff3bf);
+  animation: footnote-highlight 1.6s ease-out;
+}
+
+@keyframes footnote-highlight {
+  0%   { background-color: var(--color-highlight, #fff3bf); }
+  100% { background-color: transparent; }
+}
+
+/* ----------------------------------------------------------------
+   Footnote List (bottom of article)
+   ---------------------------------------------------------------- */
+
+.footnote-list {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border, #e5e7eb);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footnote-list__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem 0;
+  color: var(--color-text-strong, #0f172a);
+  letter-spacing: -0.01em;
+}
+
+.footnote-list__list {
+  list-style: none;
+  padding-inline-start: 0;
+  counter-reset: footnote-counter;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.footnote-list__item {
+  counter-increment: footnote-counter;
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem 0.4rem 0;
+  color: var(--color-text-muted, #475569);
+  scroll-margin-top: 6rem;
+  border-radius: 4px;
+}
+
+.footnote-list__item::before {
+  content: counter(footnote-counter) ".";
+  font-weight: 600;
+  color: var(--color-text-strong, #0f172a);
+  text-align: end;
+}
+
+.footnote-list__item:target {
+  background-color: var(--color-highlight, #fff3bf);
+  animation: footnote-highlight 1.6s ease-out;
+}
+
+.footnote-list__claim {
+  color: var(--color-text, #334155);
+}
+
+.footnote-list__source {
+  color: var(--color-accent, #2563eb);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.footnote-list__source:hover,
+.footnote-list__source:focus-visible {
+  text-decoration: underline;
+}
+
+.footnote-list__date {
+  color: var(--color-text-faint, #94a3b8);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.footnote-list__back {
+  color: var(--color-text-muted, #475569);
+  text-decoration: none;
+  padding: 0 0.3em;
+  margin-inline-start: 0.25em;
+  border-radius: 3px;
+}
+
+.footnote-list__back:hover,
+.footnote-list__back:focus-visible {
+  background-color: var(--color-accent-soft, rgba(37, 99, 235, 0.12));
+  color: var(--color-accent, #2563eb);
+  outline: none;
+}
+
+/* ----------------------------------------------------------------
+   Tablet
+   ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .footnote-list {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+  }
+
+  .footnote-list__title {
+    font-size: 1.15rem;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Phone
+   ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .footnote-list {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .footnote-list__item {
+    grid-template-columns: 1.4rem 1fr;
+    gap: 0.35rem;
+  }
+
+  .footnote-list__date {
+    display: block;
+    margin-top: 0.15rem;
+  }
+}
+
+/* ----------------------------------------------------------------
+   RTL (Arabic)
+   ---------------------------------------------------------------- */
+
+[dir="rtl"] .footnote-list__item::before {
+  text-align: start;
+}
+
+[dir="rtl"] .footnote__ref {
+  margin-inline-end: 0.12em;
+  margin-inline-start: 0;
+}

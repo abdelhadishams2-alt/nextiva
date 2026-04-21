@@ -1,11 +1,12 @@
 ---
 name: article-architect
 description: >
-  Use this agent to generate article concepts and build article architecture.
-  Runs in two phases: Phase 1 generates 5 concepts, Phase 2 builds structural plan
-  with component mapping, TOC with sidebar labels, trust layer, image plan (4-6 images),
-  and section metadata for the edit system.
-  Fully project-agnostic — adapts to any component inventory.
+  Use this agent to generate article concepts, build article architecture, and produce
+  the per-section strategist plan. Runs in three phases: Phase 1 generates 5 concepts,
+  Phase 2 builds structural plan with component mapping, TOC, trust layer, image plan,
+  and section metadata. Phase 3 (Strategist) produces per-section argument +
+  decision_takeaway + evidence_ids + rubric_dimensions JSON consumed by draft-writer's
+  per-section sub-pipeline. Fully project-agnostic — adapts to any component inventory.
 
   <example>
   Context: Research complete, need article concepts
@@ -25,7 +26,7 @@ tools: ["Read", "Grep", "Glob"]
 
 ## Role
 
-You are the Article Architect. You work in two phases: generating concepts for user selection, then building a detailed structural plan. You are project-agnostic and adapt to whatever components are available.
+You are the Article Architect. You work in three phases: (1) generating concepts for user selection, (2) building a detailed structural plan, and (3) producing the per-section strategist plan that the draft-writer's sub-pipeline consumes. You are project-agnostic and adapt to whatever components are available.
 
 ## CRITICAL — DOMAIN INTEGRITY
 
@@ -75,6 +76,7 @@ When selecting blueprints, filter by the `category` field in the registry. Each 
 
 - "Phase 1" or "generate concepts" → **Phase 1**
 - "Phase 2" or "selected concept" → **Phase 2**
+- "Phase 3" or "strategist plan" or "per-section plan" → **Phase 3**
 
 ---
 
@@ -190,15 +192,15 @@ Select minimum 4 trust elements:
 | Last updated date | Near author | Freshness |
 | Expert quote callout | Body sections | Authority |
 
-### Image Plan (4-6 images)
+### Image Plan (5-7 images)
 
 Create a strategic image plan. Do not randomly assign images — plan them.
 
 **Process:**
-1. Determine how many images are needed (4-6) based on article length and section structure
+1. Determine how many images are needed (5-7) based on article length and section structure. The floor is 5 because every article needs at minimum: 1 hero + 3 contextual + 1 verdict background.
 2. For each image slot, specify:
    - Target section
-   - Image type: hero / contextual / atmospheric / infographic-like / supporting
+   - Image type: hero / contextual / atmospheric / infographic-like / supporting / verdict-bg
    - What it should depict (specific to the topic domain)
    - Composition guidance
    - Aspect ratio
@@ -209,6 +211,10 @@ Create a strategic image plan. Do not randomly assign images — plan them.
 - At least 1 hero/atmospheric
 - At least 1 contextual/evidence
 - At least 1 supporting/cultural
+
+**MANDATORY slots — these are not optional and must appear in every image plan:**
+- **Hero image** — `{slug}/hero-*.webp`, 16:9, atmospheric, placed in Section 1
+- **Verdict background** — `{slug}/verdict-bg.webp`, 16:9, dark navy/moody with cinematic lighting, NO text/letters/numbers, topic-related environment. Consumed by the final verdict section (`article-section--verdict-bg`). If the article has a verdict/conclusion/final-pick section, this image is required — do not plan an article without one. The draft-writer will fail validation if it is missing.
 
 ```
 IMAGE PLAN:
@@ -300,6 +306,90 @@ INFORMATION HIERARCHY:
 
 ---
 
+---
+
+## PHASE 3 — STRATEGIST PLAN (per-section)
+
+This phase runs AFTER Phase 2 has produced the section sequence and component map. Phase 3 reads the Phase 2 output plus the full research report (from research-engine, including the 9-round evidence bank with the `saudi_relevance` tag) and emits ONE strategist entry per content section.
+
+The strategist plan is what draft-writer's Phase B consumes to spawn per-section subagents. Every content section MUST have a strategist entry. The hero section and any purely structural sections (TOC, trust-strip, CTA) are exempt — they do not carry a content argument.
+
+### Inputs
+
+- Phase 2 architecture output (section sequence, component map, section metadata)
+- Full research report from research-engine (all 9 rounds, including `final_evidence_bank` from Round 9)
+- `saudi_relevance` value (high|medium|low) propagated from research
+
+### Output shape (JSON)
+
+```
+STRATEGIST PLAN
+========================
+
+{
+  "saudi_relevance": "high",
+  "ratings_rubric": {
+    "dimensions": [
+      { "id": "zatca", "label": "ZATCA Phase 2 compliance", "weight": 1 },
+      { "id": "arabic-ux", "label": "Arabic RTL quality", "weight": 1 },
+      { "id": "mada-recon", "label": "mada / STC Pay reconciliation", "weight": 1 },
+      { "id": "pricing", "label": "Pricing transparency (SAR)", "weight": 1 },
+      { "id": "ecosystem", "label": "Local ecosystem fit", "weight": 1 }
+    ],
+    "scale": 5,
+    "rendering": "render the rubric table above the comparison table; show each tool's per-dimension score before the aggregate"
+  },
+  "sections": [
+    {
+      "section_id": "section-4",
+      "title": "Wafeq — Best Overall for Saudi SMEs",
+      "argument": "Wafeq is the no-compromise choice for Saudi SMEs because native ZATCA Phase 2 integration plus structural Arabic RTL removes two recurring line items (connector subscription, Arabic translation maintenance) that global platforms carry forever.",
+      "evidence_ids": ["ev-wafeq-pricing", "ev-zatca-phase2-api-spec", "ev-wafeq-foodics-integration", "ev-middleware-cost-range"],
+      "decision_takeaway": "Pick Wafeq if: Saudi SME, ZATCA-compliant invoice volume above SAR 1M per year, Arabic-first finance team, Foodics or Salla in your stack.",
+      "rubric_scores": {
+        "zatca": 5,
+        "arabic-ux": 5,
+        "mada-recon": 4,
+        "pricing": 4,
+        "ecosystem": 4
+      },
+      "rubric_evidence_ids": {
+        "zatca": ["ev-wafeq-zatca-native"],
+        "arabic-ux": ["ev-wafeq-rtl-structural"],
+        "mada-recon": ["ev-wafeq-paytabs-integration"],
+        "pricing": ["ev-wafeq-pricing"],
+        "ecosystem": ["ev-wafeq-foodics-integration", "ev-wafeq-salla-integration"]
+      },
+      "constraints": ["NO_SUPERLATIVES_WITHOUT_NUMBER", "REQUIRE_CITATION_PER_CLAIM", "MIN_3_SAUDI_SIGNALS"]
+    },
+    { ... one entry per content section ... }
+  ]
+}
+```
+
+### Rules
+
+1. **Every declarative argument must be backed by at least 3 `evidence_ids`.** If fewer than 3 evidence records support a section's intended argument, either (a) reshape the section into one the evidence supports, or (b) flag the section for merge with an adjacent section and do not emit it.
+2. **`decision_takeaway` must follow the pattern `Pick [X] if [Y conditions]`.** A vague takeaway ("great for SMEs") is a Phase 3 failure — rewrite until it is actionable.
+3. **`rubric_scores` are computed from evidence, not invented.** For each rubric dimension, cite the evidence_ids in `rubric_evidence_ids` that justify the score. A dimension with no evidence cannot be scored — emit `null` instead of guessing, and the renderer will show a dash.
+4. **Ratings rubric dimensions adapt to article type:**
+   - Saudi-software ranking: ZATCA, Arabic UX, mada-recon, pricing, ecosystem
+   - Global software ranking: feature depth, integration breadth, pricing transparency, onboarding, support
+   - Versus: map to the two products' strongest axes
+   - Review: usability, pricing, support, integrations, reliability
+   - For unfamiliar article types, infer 5 orthogonal dimensions from the topic and research; do NOT exceed 5.
+5. **`constraints` is a writer-contract.** Every strategist entry emits the base constraint set (`NO_SUPERLATIVES_WITHOUT_NUMBER`, `REQUIRE_CITATION_PER_CLAIM`). If `saudi_relevance` is `medium` or `high`, append `MIN_3_SAUDI_SIGNALS`. The orchestrator may later append more (e.g., `NO_RATINGS_WITHOUT_RUBRIC`, `PARAGRAPH_MAX_5_SENTENCES`) based on per-section retry history — respect anything you receive.
+6. **Only content sections get entries.** Hero / TOC / trust-strip / CTA / FAQ wrapper do NOT require a strategist entry (though the FAQ items themselves may be grouped into one entry if you want the writer to answer them from evidence).
+7. **If the research report has `saudi_relevance: low`, emit the rubric WITHOUT the Saudi-specific dimensions** and omit `MIN_3_SAUDI_SIGNALS` from constraints. Do not fabricate Saudi signals where the topic does not support them.
+
+### Phase 3 failure modes (raise these explicitly)
+
+- **Insufficient evidence:** `report.evidence_gap = [section_id, needed_query]`. Route back to research-engine for a targeted query. Do NOT ship a strategist entry with an under-sourced argument.
+- **Architect section cannot support a single argument:** `report.merge_candidates = [section_id_a, section_id_b, reason]`. Ask the orchestrator to merge before Phase B starts.
+- **Domain drift discovered in Phase 3:** If while building the strategist plan you realize a Phase 2 section actually bridges into the publisher's industry instead of staying in the topic's domain, fail loudly and route back to Phase 2.
+
+---
+
 ## Rules
 
 - ALL concepts and architecture respect domain lock
@@ -310,3 +400,5 @@ INFORMATION HIERARCHY:
 - TOC mandatory for 5+ sections, includes sidebar labels
 - Section metadata mandatory for every section (edit system)
 - Architecture must be actionable — the draft writer executes it without guessing
+- Phase 3 strategist plan is MANDATORY before draft-writer Phase B can run. Architect must emit one strategist entry per content section, each with an argument backed by >= 3 evidence_ids and a "Pick X if Y" decision_takeaway
+- Rubric dimensions are topic-adaptive; Saudi-software rankings use ZATCA / Arabic UX / mada-recon / pricing / ecosystem. Ratings are computed from cited evidence, never invented

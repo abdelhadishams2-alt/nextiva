@@ -27,6 +27,40 @@
 - "World-class"
 - "Holistic approach"
 
+## Soft-Generic Superlatives (NEW — added for Content Quality Phase)
+
+These phrases are banned **unless the adjective or superlative is anchored to a specific number, date, or source URL in the same sentence**. The fact-checker subagent and quality-reviewer subagent enforce this.
+
+- "Unmatched" — permitted only if followed by a comparison with a specific number (e.g., "unmatched at its price point — SAR 69/mo vs the next-cheapest native-ZATCA platform at SAR 99/mo[^1]")
+- "Genuinely" — almost always padding ("genuinely hard to beat", "genuinely good"); remove and replace with the specific measurement
+- "Comprehensive" — if used, specify what is comprehensive (e.g., "covers all 22 ZATCA wave announcements published through April 2026[^1]")
+- "Powerful" — almost always vague; substitute a measured capability
+- "Cleanest" / "the cleanest in the industry" — unverifiable; replace with the specific metric ("documented latency of 30ms per request[^1]")
+- "Strongest" / "strongest all-rounder" — unverifiable without a methodology
+- "Loved by" / "genuinely loved" — market-survey phrasing without the survey link
+- "Extremely" + any adjective ("extremely reliable", "extremely fast") — substitute the number
+- "Arguably" / "arguably the best" — if you have to say "arguably", you have not earned the claim
+- "Truly" — almost always padding ("truly bilingual" → "bilingual, with financial statements generated in both English and Arabic from the same ledger")
+- "No-compromise" / "the clearest no-compromise choice" — replace with the specific trade-offs this tool does not force
+- "Value champion" — superlative without a benchmark
+- "The go-to choice" — without a named condition attached ("for Saudi SMEs processing > SAR 1M in invoices per year")
+- "Hard to beat" — without a specific metric being beaten
+- "The industry standard" — without citing the standards body or market-share source
+- "Industry-leading" / "world-leading" — unverifiable without a market-share source
+- "State-of-the-art" / "bleeding-edge" — vague; substitute the capability
+- "Best-of-breed" — vague; substitute the specific advantage
+
+### Exception rule (explicit)
+
+Any of the above is permitted if the same sentence contains BOTH:
+1. A specific numeric anchor (price, date, benchmark, percentage), AND
+2. A footnote citation `[^ev-id]` that the fact-checker has validated.
+
+Example of permitted usage:
+> "Wafeq's native ZATCA Phase 2 integration is the most documented in the ZATCA-approved vendor list, with Fatoora-portal acceptance tested across all 22 invoice wave announcements through April 2026[^5]."
+
+("most documented" is anchored to the "22 wave announcements through April 2026" number AND the `[^5]` citation.)
+
 ## Structural Patterns to Avoid
 - Opening with a question then immediately answering it
 - Every section starting with the same sentence structure

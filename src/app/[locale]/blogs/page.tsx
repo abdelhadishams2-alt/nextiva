@@ -10,6 +10,16 @@ import { SITE_CONFIG } from '@/config/site';
 
 const articles = [
   {
+    slug: 'vat-compliance-software-saudi-smes',
+    image: '/assets/articles/vat-compliance-software-saudi-smes/hero-riyadh-office.webp',
+    badge: 'Buyer\u2019s Guide',
+    title: 'VAT Compliance Software for Saudi SMEs Compared (2026)',
+    excerpt: 'Wave 24 lands June 30, 2026. We tested 7 ZATCA Phase 2 platforms — Wafeq, Zoho Books KSA, Qoyod, Daftra, Mezan, Rewaa, Odoo — on price, Arabic quality, integrations, and real implementation pitfalls.',
+    date: 'April 21, 2026',
+    readTime: '18 min read',
+    category: 'enterprise',
+  },
+  {
     slug: 'rayyan-coffee-foodics-case-study',
     image: '/assets/articles/case-study-rayyan-hero.webp',
     badge: 'Case Study',

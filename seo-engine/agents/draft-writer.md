@@ -123,7 +123,109 @@ Your process has 11 phases. Execute them in order.
 
 ## PHASE B — WRITING
 
-For each section in the architecture:
+**Phase B runs a per-section sub-pipeline FIRST. Only fall back to the legacy monolithic-write instructions in this phase if the sub-pipeline exhausts its retries.**
+
+### Phase B — Preflight
+
+Before the loop, confirm you have:
+
+- A `STRATEGIST PLAN` block from article-architect Phase 3 with one entry per content section
+- The full `final_evidence_bank` from research-engine Round 9 (all records validated by `engine/evidence-schema.js`)
+- The `saudi_relevance` tag (high / medium / low)
+- The architecture section list (ordered)
+
+If any of these is missing, route back to the upstream agent that should have produced it (strategist plan → article-architect Phase 3; validated evidence → research-engine Round 9). Do NOT proceed with the sub-pipeline without them.
+
+### Phase B — Per-section sub-pipeline (PRIMARY)
+
+For each content section (skip hero, TOC, trust-strip, CTA wrappers — those are assembled in Phases C/D/I):
+
+```
+MAX_RETRIES = 3
+attempt = 0
+accepted = false
+fallback_this_section = false
+
+while not accepted and attempt < MAX_RETRIES and not fallback_this_section:
+    attempt += 1
+
+    # 1. Section Writer subagent
+    #    Input: strategist.sections[section_id], selectByIds(bank, evidence_ids), voice_profile?, prior_attempts[]
+    #    Output: markdown with inline [ev-id] tags, writer_report comment
+    draft = spawn_subagent("section-writer", {...})
+
+    if draft.needed_queries:
+        queue_for_research_engine(draft.needed_queries)
+        # do NOT stop — the orchestrator may choose to fulfil these before the next attempt
+
+    # 2. Saudi Localizer subagent
+    #    Input: draft.markdown, full evidence_bank, saudi_relevance
+    #    Output: same markdown with Saudi signals woven in (or unchanged if relevance=low)
+    localized = spawn_subagent("saudi-localizer", {...})
+
+    if localized.failure_type == "shallow_saudi":
+        prior_attempts.append({failure: localized, raw: draft})
+        queue_for_research_engine(localized.needed_queries)
+        continue
+
+    # 3. Fact Checker subagent
+    #    Input: localized.markdown, full evidence_bank
+    #    Output: same markdown with [ev-id] → [^ev-id] conversions + footnotes_meta comment
+    cited = spawn_subagent("fact-checker", {...})
+
+    if cited.failure_type:  # missing_sources
+        prior_attempts.append({failure: cited, raw: localized})
+        if cited.ready_for_research_round_9:
+            queue_for_research_engine_round_9(cited.ready_for_research_round_9)
+        continue
+
+    # 4. Quality Reviewer subagent
+    #    Input: cited.markdown, strategist.sections[section_id], saudi_relevance, attempt
+    #    Output: pass/reject + subscores + failure_type
+    review = spawn_subagent("quality-reviewer", {...})
+
+    if review.pass:
+        accepted_sections.append(cited)
+        accepted = true
+        break
+
+    # Route by failure_type
+    prior_attempts.append({failure: review, raw: cited})
+
+    match review.failure_type:
+        case "missing_sources":
+            # Next attempt routes to section-writer with needed_queries propagated
+            if review.needed_queries:
+                queue_for_research_engine(review.needed_queries)
+        case "shallow_saudi":
+            # Next attempt: localizer will try again with richer saudi-scope bank
+            queue_for_research_engine_round_7(review.needed_queries)
+        case "generic_prose":
+            # Next attempt: reinforce NO_SUPERLATIVES_WITHOUT_NUMBER in constraints
+            strategist.sections[section_id].constraints.append("NO_SUPERLATIVES_WITHOUT_NUMBER")
+        case "weak_argument":
+            # Next attempt: echo the strategist.argument line at the top of writer's prompt
+            strategist.sections[section_id].constraints.append("ECHO_ARGUMENT_AT_TOP")
+        case "style_drift":
+            # Tighten style constraints
+            strategist.sections[section_id].constraints.append("PARAGRAPH_MAX_5_SENTENCES")
+
+if not accepted:
+    # Exhausted MAX_RETRIES — fall back to legacy path for THIS section only
+    fallback_this_section = true
+    legacy_section = write_section_legacy(section)  # see Phase B — LEGACY below
+    accepted_sections.append(legacy_section)
+    delivery_report.fallbacks.append({
+        section_id, attempts: MAX_RETRIES, last_failure_type: review.failure_type,
+        reason: review.failure_detail, needs_human_review: true
+    })
+```
+
+### Phase B — LEGACY (fallback only)
+
+Invoke this path ONLY when (a) the sub-pipeline exhausts MAX_RETRIES for a specific section, or (b) the preflight check reveals the strategist plan is absent because architect Phase 3 was never run (backward compatibility with pre-Phase-3 callers).
+
+For each section handled in legacy mode:
 
 1. Take the component structure (existing, registry blueprint, or generated) as the skeleton.
 2. Replace placeholder content with real article content.
@@ -503,6 +605,42 @@ When a section lists 4-6 decision criteria or evaluation factors, use the number
 - Always zero-padded: 01, 02, 03, not 1, 2, 3
 - Sequential by order rendered
 - Always render inside the header flex wrapper, never as a separate line above the h3
+
+### Verdict pattern selection — MANDATORY PRE-FLIGHT CHECK
+
+**Before writing the verdict section, answer this question explicitly and write the answer in a `<!-- verdict-pattern: ... -->` comment at the top of the section. Do not skip this step.**
+
+Count the number of distinct products/tools/vendors that the article evaluates (look at the comparison table, the "contenders" section, or the scoring framework):
+
+| Product count | Article type | Verdict pattern | DO NOT use |
+|---|---|---|---|
+| 1 | Single-product review (e.g., `foodics-review`, `odoo-zatca-compliance`) | Single-scorecard with category breakdown bars (`foodics-review__verdict-card` / `foodics-review__verdict-breakdown`) | Merged best-for cards — there's only one product |
+| 2 | Head-to-head comparison (e.g., `shopify-vs-salla`) | Two large product cards side by side, no scorecard | Either single-scorecard or merged best-for |
+| 3+ | Multi-product comparison / buyer's guide (e.g., `best-accounting-software`, `best-payment-gateways`, `best-pos-systems`, any "Best X for Y" or "X Compared") | **Merged best-for cards in a 2-column grid** (see next subsection). Each card = one "Best for [Segment]" + one product name + one score + one reasoning paragraph. Typically 4 cards. | Single-scorecard with category bars — that's for single-product reviews and it makes a buyer's guide look like you only evaluated one product |
+
+**Red-flag checklist — if ANY of these are true, you are writing a multi-product comparison and you MUST use the merged best-for cards pattern:**
+- The article title contains "Compared", "vs", "Best", "Top", "Which", "Shortlist"
+- The article body has a comparison table with 3+ product columns or 3+ product rows
+- The article body has a "scoring framework" or "criteria" section with weighted axes
+- The article has more than 3 distinct `h3` vendor headings inside any section
+- The research brief lists 3+ vendors with their own fact cards
+
+**If the red-flag check passes, the following are all MANDATORY:**
+1. A verdict background image saved as `{slug}-verdict-bg.webp` (Next.js: `public/assets/articles/{slug}/verdict-bg.webp` if the article uses a subdirectory for its assets). Generate it as part of PHASE E image planning — do not skip this and fall back to a plain-bg verdict section.
+2. The `article-section--verdict-bg` modifier class alongside `article-section--verdict`.
+3. The `<Image>` (Next.js) or `<img>` (HTML) bg tag + `<div class="article-verdict__overlay" />` immediately after it.
+4. The `<span class="article-verdict__badge">Our Verdict</span>` before the `<h2>`.
+5. A lead paragraph (2–3 sentences) between the `<h2>` and the card grid, introducing the verdict.
+6. A 2-column grid (`{slug}__verdict-grid`) containing 3–5 best-for cards, each with the merged product+score+reasoning structure from the next subsection.
+7. The grid collapses to 1-column at `max-width: 768px`.
+
+**Common anti-patterns that recur in pipeline runs — do not ship any of these:**
+- A single-scorecard in a verdict section of a multi-product comparison ("Category breakdown" bars like `Arabic UX 4.8/5, Pricing 4.4/5, ...`). That pattern is for single-product reviews only — in a buyer's guide it produces a stack of unexplained score bars that look like the image at the top of this rule.
+- A verdict section without a `article-section--verdict-bg` class and no background image. White-on-navy with no image is a half-baked verdict — generate the image.
+- A verdict with more than 5 cards. If the best-for taxonomy has >5 segments, keep the 4 highest-commercial-intent segments in the verdict grid and push the rest to a "Best for X" mini-cards grid in an earlier section.
+- Duplicating best-for cards in both an earlier section and the verdict. Pick one home for the best-for taxonomy; the verdict should be the canonical location for multi-product buyer's guides.
+
+---
 
 ### Merged verdict card pattern (MANDATORY for multi-product "best-of" articles)
 

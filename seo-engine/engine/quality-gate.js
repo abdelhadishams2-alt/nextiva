@@ -1023,6 +1023,177 @@ function runEEATScoring(html, keyword) {
   return { dimensions, totalScore, maxScore, grade };
 }
 
+// ── Content Quality Checks (Content Quality Phase) ─────────────
+
+/**
+ * Count declarative sentences in the stripped text. Heuristic:
+ * split on sentence terminators, drop sentences that are headings,
+ * bullets, or trivially short (< 4 words).
+ */
+function countDeclarativeSentences(html) {
+  const text = stripHtml(html);
+  const raw = text.split(/(?<=[.!?])\s+/);
+  let count = 0;
+  for (const s of raw) {
+    const trimmed = s.trim();
+    if (trimmed.length === 0) continue;
+    // Skip obvious markdown leftovers
+    if (/^[#*\-•]/.test(trimmed)) continue;
+    const wordCount = splitWords(trimmed).length;
+    if (wordCount < 4) continue;
+    count++;
+  }
+  return count;
+}
+
+/**
+ * Source presence check: what percentage of declarative sentences carry
+ * a footnote citation? Looks for [^N], [^ev-id], or <sup class="footnote-ref">.
+ */
+function sourcePresencePct(html) {
+  const declarative = countDeclarativeSentences(html);
+  if (declarative === 0) return { percent: 0, footnoted: 0, declarative: 0 };
+
+  // Strip HTML then count footnote-ref patterns
+  const text = stripHtml(html);
+  const footnotes = text.match(/\[\^[a-z0-9-]+\]/gi);
+  // Also count <sup class="footnote-ref">...</sup> if they survived the strip
+  const supFootnotes = html.match(/class="footnote-ref"/gi);
+
+  const footnoted = (footnotes ? footnotes.length : 0) + (supFootnotes ? supFootnotes.length : 0);
+  const percent = Math.round((footnoted / declarative) * 100);
+  return { percent, footnoted, declarative };
+}
+
+/**
+ * Saudi signal density: count of distinct Saudi-specific tokens.
+ * Used to gate articles where saudi_relevance was high or medium.
+ */
+const SAUDI_SIGNAL_TOKENS = [
+  'ZATCA', 'Fatoora', 'SAR', 'mada', 'STC Pay', 'SADAD', 'PayTabs', 'Moyasar',
+  'Vision 2030', 'PDPL', 'SAMA', 'Riyadh', 'Jeddah', 'Dammam', 'Mecca',
+  'Saudi', 'Saudi Arabia', 'KSA',
+  'Tabby', 'Tamara', 'Lean', 'Rain', 'Geidea', 'HyperPay',
+  'Wafeq', 'Salla', 'Foodics', 'Jisr', 'Mudad', 'Daftra', 'Zid',
+  'Al Rajhi', 'SNB', 'Riyad Bank', 'Nitaqat', 'Saudization', 'ZATCA-approved',
+  'CMA', 'SFDA', 'MOC', 'Ministry of Commerce',
+];
+
+function saudiSignalDensity(html) {
+  const text = stripHtml(html);
+  const found = new Set();
+  for (const token of SAUDI_SIGNAL_TOKENS) {
+    const re = new RegExp(`\\b${escapeRegex(token)}\\b`, 'i');
+    if (re.test(text)) found.add(token);
+  }
+  return { count: found.size, tokens: Array.from(found) };
+}
+
+/**
+ * Generic-phrase count: scan for banned soft-generics.
+ * A hit is counted UNLESS the same sentence contains a numeric anchor
+ * AND a footnote citation (the banned-patterns exception rule).
+ */
+const BANNED_SOFT_GENERICS = [
+  'best-in-class', 'best in class', 'world-class', 'world class',
+  'unmatched', 'genuinely', 'comprehensive', 'powerful',
+  'cleanest', 'strongest', 'loved by', 'loved-by',
+  'extremely reliable', 'extremely fast', 'extremely good',
+  'robust', 'seamless', 'arguably', 'truly',
+  'no-compromise', 'no compromise', 'value champion',
+  'the go-to choice', 'hard to beat', 'the industry standard',
+  'industry-leading', 'world-leading', 'state-of-the-art',
+  'bleeding-edge', 'best-of-breed', 'game-changer', 'game changer',
+  'unlock the power', 'take it to the next level',
+  'revolutionize', 'empower', 'paradigm shift', 'synergy',
+  'holistic approach', 'cutting-edge',
+];
+
+const NUMERIC_ANCHOR_RE = /\d|\bSAR\b|\bUSD\b|\b%\b|\$/i;
+const FOOTNOTE_ANCHOR_RE = /\[\^[a-z0-9-]+\]|class="footnote-ref"/i;
+
+function genericPhraseCount(html) {
+  const text = stripHtml(html);
+  const sentences = text.split(/(?<=[.!?])\s+/);
+  const hits = [];
+
+  for (const sentence of sentences) {
+    const sLower = sentence.toLowerCase();
+    for (const phrase of BANNED_SOFT_GENERICS) {
+      if (sLower.includes(phrase)) {
+        // Check the exception: same sentence must have BOTH numeric anchor AND footnote
+        const hasNumber = NUMERIC_ANCHOR_RE.test(sentence);
+        const hasFootnote = FOOTNOTE_ANCHOR_RE.test(sentence);
+        if (!(hasNumber && hasFootnote)) {
+          hits.push({ phrase, sentence: sentence.trim().slice(0, 180) });
+        }
+      }
+    }
+  }
+
+  return { count: hits.length, hits };
+}
+
+/**
+ * Decision clarity: detect at least one "Pick X if Y" pattern per ranking-style
+ * section or in the verdict. For a ranking-type article, expect >= 1 per product.
+ */
+function decisionClarityPresent(html) {
+  const text = stripHtml(html);
+  // Primary pattern: "Pick {name} if {conditions}"
+  const primary = text.match(/\bpick\s+[a-z][a-z0-9 &+\-/]{0,60}\s+if\s+/gi);
+  // Secondary pattern: "Choose {name} if ..." / "{name} is right for you if ..."
+  const secondary = text.match(/\bchoose\s+[a-z][a-z0-9 &+\-/]{0,60}\s+if\s+/gi);
+  const tertiary = text.match(/\bis right for you if\b/gi);
+  const count =
+    (primary ? primary.length : 0) +
+    (secondary ? secondary.length : 0) +
+    (tertiary ? tertiary.length : 0);
+  return { count, present: count >= 1 };
+}
+
+/**
+ * Aggregate all content-quality checks into a single report. Callers can
+ * compare scores against thresholds:
+ *   - source_presence_pct >= 90 (floor)
+ *   - saudi_signal_density >= 5 when relevance=high (varies by relevance)
+ *   - generic_phrase_count == 0 (floor)
+ *   - decision_clarity_present == true for ranking-type articles (floor)
+ */
+function runContentChecks(html, options = {}) {
+  const sourcePresence = sourcePresencePct(html);
+  const saudi = saudiSignalDensity(html);
+  const generic = genericPhraseCount(html);
+  const decision = decisionClarityPresent(html);
+
+  const saudiRelevance = options.saudiRelevance || 'medium';
+  const saudiThreshold = saudiRelevance === 'high' ? 5 : saudiRelevance === 'medium' ? 2 : 0;
+
+  const isRanking = options.articleType === 'best-of' || options.articleType === 'comparison' || options.articleType === 'versus';
+  const decisionThreshold = isRanking ? 1 : 0;
+
+  const floors = {
+    source_presence_pct: sourcePresence.percent >= 90,
+    saudi_signal_density: saudi.count >= saudiThreshold,
+    generic_phrase_count: generic.count === 0,
+    decision_clarity: decision.count >= decisionThreshold,
+  };
+
+  const allFloorsPassed = Object.values(floors).every(v => v === true);
+
+  return {
+    metrics: {
+      source_presence: sourcePresence,
+      saudi_signal_density: saudi,
+      generic_phrase_count: generic,
+      decision_clarity: decision,
+    },
+    thresholds: { saudi: saudiThreshold, decision: decisionThreshold },
+    floors,
+    pass: allFloorsPassed,
+  };
+}
+
 // ── Exports ─────────────────────────────────────────────────────
 
 module.exports = {
@@ -1032,5 +1203,14 @@ module.exports = {
   stripHtml,
   splitWords,
   escapeRegex,
-  CHECKLIST_DEFINITIONS
+  CHECKLIST_DEFINITIONS,
+  // Content Quality Phase additions
+  countDeclarativeSentences,
+  sourcePresencePct,
+  saudiSignalDensity,
+  genericPhraseCount,
+  decisionClarityPresent,
+  runContentChecks,
+  SAUDI_SIGNAL_TOKENS,
+  BANNED_SOFT_GENERICS,
 };
