@@ -10,6 +10,16 @@ import { SITE_CONFIG } from '@/config/site';
 
 const articles = [
   {
+    slug: 'saudization-nitaqat-guide',
+    image: '/assets/articles/saudization-nitaqat-guide/hero-riyadh-kafd.webp',
+    badge: 'Regulatory Deep-Dive',
+    title: 'Saudization & Nitaqat: The 2026 Guide for Saudi SMEs',
+    excerpt: 'Nitaqat just got harder — Yellow retired, profession quotas layered on top, Mudad WPS window cut to 30 days. We break down the bands, weighted counting, HRDF levers, and the HR software that keeps SMEs Green.',
+    date: 'April 21, 2026',
+    readTime: '22 min read',
+    category: 'enterprise',
+  },
+  {
     slug: 'vat-compliance-software-saudi-smes',
     image: '/assets/articles/vat-compliance-software-saudi-smes/hero-riyadh-office.webp',
     badge: 'Buyer\u2019s Guide',

@@ -1,6 +1,7 @@
 import "@/styles/article.css";
 import "@/styles/affiliate.css";
 import "@/styles/faq.css";
+import "@/styles/verdict-scorecard.css";
 import "@/styles/article-foodics-review.css";
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
