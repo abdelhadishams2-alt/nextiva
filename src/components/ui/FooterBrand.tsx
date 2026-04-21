@@ -31,7 +31,7 @@ export function FooterBrand() {
   return (
     <div className="footer-brand" ref={containerRef}>
       <Image
-        src="/assets/footer-bg-lkwjd.webp"
+        src="/assets/footer-desert.webp"
         alt=""
         fill
         loading="lazy"

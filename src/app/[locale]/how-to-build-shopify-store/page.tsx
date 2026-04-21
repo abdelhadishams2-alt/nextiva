@@ -1,6 +1,7 @@
 import "@/styles/article.css";
 import "@/styles/affiliate.css";
 import "@/styles/faq.css";
+import "@/styles/pricing-cards.css";
 import "@/styles/article-how-to-build-shopify-store.css";
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -426,7 +427,13 @@ export default async function HowToBuildShopifyStorePage({ params }: { params: P
                 <div className="shopify-guide__faq-list">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <details key={n} className="shopify-guide__faq-item">
-                      <summary>{t(`faq${n}Q`)}</summary>
+                      <summary>
+                        <span className="shopify-guide__faq-question">
+                          <span className="shopify-guide__faq-number">{String(n).padStart(2, '0')}</span>
+                          {t(`faq${n}Q`)}
+                        </span>
+                        <span className="shopify-guide__faq-chevron" />
+                      </summary>
                       {/* Note: t.raw() is used here for trusted, developer-controlled i18n content containing internal links -- not user-generated input */}
                       <p dangerouslySetInnerHTML={{ __html: t.raw(`faq${n}A`) }} />
                     </details>
@@ -475,7 +482,7 @@ export default async function HowToBuildShopifyStorePage({ params }: { params: P
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5, 6].map((n) => ({
         question: t(`faq${n}Q`),
-        answer: t(`faq${n}A`),
+        answer: (t.raw(`faq${n}A`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

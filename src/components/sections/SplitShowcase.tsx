@@ -191,12 +191,12 @@ export function SplitShowcase() {
             <Image
               loading="lazy"
               quality={75}
-              width={1024}
-              height={1024}
+              width={540}
+              height={540}
               src="/assets/we-buy-and-test.webp"
               className="split-showcase__img"
               alt=""
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
             />
             <div className="split-showcase__overlay split-showcase__overlay--ai">
               <div className="split-showcase__face-box split-showcase__face-box--ai">
@@ -231,12 +231,12 @@ export function SplitShowcase() {
             <Image
               loading="lazy"
               quality={75}
-              width={1024}
-              height={771}
+              width={540}
+              height={540}
               src="/assets/no-sponsored-review.webp"
               className="split-showcase__img"
               alt=""
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
             />
             <div className="split-showcase__overlay split-showcase__overlay--team">
               <div className="split-showcase__face-box split-showcase__face-box--team">
@@ -270,12 +270,12 @@ export function SplitShowcase() {
             <Image
               loading="lazy"
               quality={75}
-              width={847}
-              height={1024}
+              width={540}
+              height={540}
               src="/assets/mena-focused.webp"
               className="split-showcase__img"
               alt=""
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
             />
             <div className="split-showcase__overlay split-showcase__overlay--constellation">
               <ConstellationSVG />

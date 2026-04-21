@@ -161,6 +161,31 @@ If no `VOICE_PROFILE` is provided, fall back to the generic writing quality rule
 - **DOMAIN INTEGRITY:** Stay within {topic} in {domain}. Do not drift.
 - **RATING SCALE:** All product ratings and scores MUST use a /5 scale (e.g., 4.5/5, 3.9/5). Never use /10. This applies to s11 scores, s13 category scores, s3Row ratings, comparison tables, and any other user-facing rating. Set `s11ScoreMax` and `s13ScoreMax` to `"/ 5"`. Score bar width calculations must divide by 5, not 10.
 
+### Scannability rules (MANDATORY)
+
+Someone reading ONLY the h2 headings must understand the article's narrative arc. Apply these rules:
+
+1. **Headlines tell a story** — each h2 should communicate the section's value proposition, not just its topic. Use "What X Costs in 2026" not "Pricing". Use "Why Saudi Merchants Choose Foodics" not "Market Position".
+2. **Lead paragraphs are scannable** — the first paragraph of every section must be wrapped in `<p class="lead-paragraph">`. It should summarize the section in 1-2 sentences for scanning readers.
+3. **Visual rhythm** — alternate between text-heavy sections and component-heavy sections (tables, cards, callouts). Never have 3+ consecutive text-only sections.
+4. **Key information prominence** — any statistic, price, percentage, or date that a reader might be searching for should appear in a callout, bold text, or stat card. Never buried in the middle of a paragraph without emphasis.
+5. **Section pacing** — every 2-3 body sections, insert a visual break element: callout, pull quote, data table, or stat cards. The maximum distance between visual elements is 3 paragraphs.
+
+### Callout visual hierarchy rules
+
+When generating callouts, use the appropriate variant class:
+- **Warnings/Limitations** → `.callout-block .callout-block--warning` (amber left border, warm background)
+- **Tips/Recommendations** → `.callout-block .callout-block--tip` (green left border, green-tinted background)
+- **Key Insights** → `.callout-block .callout-block--insight` (blue left border, blue-tinted background)
+- **Expert Quotes** → `.expert-callout` (blue-tinted background with left accent border and quote mark)
+
+Every article MUST include at least:
+- 1 expert callout (`.expert-callout`)
+- 1 key insight or tip callout (`.callout-block--insight` or `.callout-block--tip`)
+- The Verdict section with `.article-section--verdict` treatment (see Phase F)
+
+Callouts should NOT appear consecutively — separate them with at least 2 body paragraphs.
+
 ---
 
 ## PHASE C — TABLE OF CONTENTS (sidebar + inline)
@@ -312,6 +337,291 @@ For every editable section, add data attributes to the section wrapper element.
 - `expert-insight` — expert quotes or analysis
 
 Every section must have all four `data-section-*` attributes plus the `data-blueprint` attribute. The `data-section-*` attributes are stable identifiers used by the edit system. The `data-blueprint` attribute records which blueprint was used, enabling the Blueprint History Scan to ensure variety across articles.
+
+### Section modifier classes
+
+Based on `data-section-type`, add these BEM modifier classes to the section wrapper:
+
+- **Verdict/Conclusion sections** (type `conclusion` OR heading contains "verdict"): Add `article-section--verdict` AND `article-section--verdict-bg` modifier classes.
+  - Insert `<span class="article-verdict__badge">Our Verdict</span>` before the h2 heading.
+  - Example: `<section id="section-13" class="fade-up article-section article-section--verdict article-section--verdict-bg">`
+- **All verdict cards, progress bars, labels** inside a verdict section automatically receive white/inverted colors via CSS.
+- **No brand-colored text inside verdict sections.** Do NOT apply brand hex colors (Wix blue, Shopify green, Salla purple, etc.) to `h3`/`h4`/`strong`/`span` elements inside a `.article-section--verdict` block — the dark navy background eats mid-tone brand colors and destroys contrast. Brand color should live on subtle elements that survive on dark backgrounds: left-border accents (4px solid), small pill backgrounds, or tiny icon swatches. Headings and body text inside verdict must stay white (`#fff`) or `rgba(255, 255, 255, 0.85+)`. If a card has a product-specific modifier (e.g., `.verdict-card--wix`), pair every `color:` rule on that modifier with a `.article-section--verdict .verdict-card--wix h3 { color: #fff; }` override so the color only applies outside the dark section. Same rule applies for cards placed in other dark-background section modifiers.
+- **Verdict background image** — see dedicated section below.
+
+### Section labels
+
+For these section types, add an `.article-section__label` span before the h2:
+- `key-facts` → `<span class="article-section__label">Key Facts</span>`
+- `expert-insight` → `<span class="article-section__label">Expert Insight</span>`
+- `faq` → `<span class="article-section__label">FAQ</span>`
+- `conclusion` → use `.article-verdict__badge` instead (see above)
+
+### FAQ section structure (MANDATORY for all FAQ sections)
+
+Every FAQ section MUST use the premium numbered accordion pattern with native `<details>`/`<summary>` elements. No JavaScript is needed — CSS handles all open/close animations.
+
+**Required HTML structure:**
+
+```html
+<div class="shopify-guide__faq-list">
+  <details class="shopify-guide__faq-item">
+    <summary>
+      <span class="shopify-guide__faq-question">
+        <span class="shopify-guide__faq-number">01</span>
+        Question text here?
+      </span>
+      <span class="shopify-guide__faq-chevron"></span>
+    </summary>
+    <p>Answer text here.</p>
+  </details>
+  <!-- Repeat for each FAQ item, incrementing the number: 02, 03, 04... -->
+</div>
+```
+
+**Rules:**
+- Numbers are zero-padded: 01, 02, 03... (not 1, 2, 3)
+- The `.shopify-guide__faq-chevron` is an empty `<span>` — CSS renders a circular button with a down-arrow via `::after`
+- On open: item elevates with shadow, number turns blue, chevron rotates 180deg
+- Include 4-6 FAQ items per article minimum
+- Each answer should be 2-4 sentences, directly useful
+
+### Pricing patterns — disambiguation table (READ FIRST before choosing)
+
+There are THREE distinct pricing-display patterns. Picking the wrong one makes the section unreadable. Use this decision table before emitting HTML:
+
+| Scenario | Pattern | Blueprint |
+|---|---|---|
+| Main *subject* product's own pricing tiers (article is about that one product) | Pricing Cards with monthly/annual toggle | BP-194 `bp-pricing-cards` (use `<PricingCards>` React component if available) |
+| Comparing MANY products' starting prices side-by-side | Comparison table | existing comparison-table blueprints |
+| Listing 3-5 secondary/runner-up products, each with its own pricing tiers | Others Worth Considering list | BP-193 `bp-others-list` (horizontal rows) |
+
+Common mistakes to avoid:
+- **Do NOT** put the subject product's pricing in a comparison table — it hides the tier-by-tier breakdown a buyer needs.
+- **Do NOT** use the Others list for the subject product's pricing — it's for secondary products only.
+- **Do NOT** put secondary products in Pricing Cards — the monthly/annual toggle assumes one product with uniform pricing structure.
+
+### Others-list pattern (MANDATORY for "Others Worth Considering" / secondary product sections)
+
+When a section lists 3-5 secondary/runner-up products (not the main comparison — those go in a comparison table), use the horizontal others-list blueprint (BP-193). Do NOT use a 3-column card grid — it produces uneven tall boxes and a pipe-delimited pricing string that readers can't scan.
+
+**When to apply:**
+- Section heading matches "More X Options", "Also Worth Mentioning", "Niche Alternatives", "Others Worth Considering"
+- 3-5 products to list
+- Each product has: name + short summary (2-4 sentences) + "best-for" positioning + pricing tier list
+
+**When NOT to apply:**
+- Main product comparison (comparison table)
+- Single-product feature list (feature-grid)
+- Fewer than 3 or more than 6 products
+- No pricing data per product
+
+**Pricing parsing rule (CRITICAL):**
+If source data provides pricing as a pipe-delimited string (e.g. `"Free (unlimited) | Basic $49/mo | Pro $199/mo"`), the writer MUST split the string on `|` and trim each segment, emitting one `<li>` per tier. Never emit the raw pipe-delimited string — it's unreadable. In JSX:
+```jsx
+const tiers = t(`s8_${key}_price`).split('|').map((s) => s.trim()).filter(Boolean);
+```
+
+**Required HTML (Next.js JSX or plain HTML):**
+```html
+<section class="article-section">
+  <h2>More X Options Worth Considering</h2>
+  <p>{intro}</p>
+  <div class="article-others-list">
+    <article class="article-others-row">
+      <div class="article-others-main">
+        <h3>Product Name</h3>
+        <p class="article-others-summary">Summary paragraph, 2-4 sentences.</p>
+        <p class="article-others-verdict">Best for X team who want Y...</p>
+      </div>
+      <aside class="article-others-pricing">
+        <span class="article-others-pricing-label">Pricing</span>
+        <ul class="article-others-pricing-list">
+          <li>Free — unlimited users</li>
+          <li>Basic $49/org/mo</li>
+          <li>Pro $199/org/mo</li>
+        </ul>
+      </aside>
+    </article>
+    <!-- repeat per product -->
+  </div>
+</section>
+```
+
+**CSS classes (pre-defined in article.css as shared utilities):**
+- `.article-others-list` — vertical stack of full-width rows with 16px gap
+- `.article-others-row` — 2-col internal grid (1.6fr | 1fr) on desktop; collapses to single column at ≤1024px
+- `.article-others-main` — left column: name + summary + verdict
+- `.article-others-summary` — plain description paragraph
+- `.article-others-verdict` — highlighted callout with left border + tinted blue background (the "Best for X" punchline)
+- `.article-others-pricing` — right column: pricing list, separated by vertical border (desktop) or top border (mobile)
+- `.article-others-pricing-label` — small uppercase "PRICING" header
+- `.article-others-pricing-list` — bulleted tier list with small blue dots
+
+**Order inside the main column matters:** h3 → summary → verdict. The verdict is the punchline and must sit AFTER the summary, not before. Never swap to card-style centered-text layouts.
+
+### Factors grid pattern (MANDATORY for "How to Choose" / "What to Look For" sections)
+
+When a section lists 4-6 decision criteria or evaluation factors, use the numbered factors-grid blueprint (BP-192). Do NOT use `mini-cards-grid` or generic card grids — they produce uneven card heights with 6 items in a 4-col layout and lack visual hierarchy.
+
+**When to apply:**
+- Section heading matches "How to Choose", "What to Look For", "Key Factors", "Selection Criteria", "Buying Guide"
+- 4-6 distinct factors (not 3, not 10)
+- Each factor has a short title + short-paragraph explanation
+
+**When NOT to apply:**
+- Product comparisons (use mini-cards)
+- Feature lists (use feature-grid)
+- Statistics (use stats-cards)
+- Fewer than 4 or more than 6 items — the layout breaks
+
+**Required HTML (Next.js JSX or plain HTML):**
+```html
+<section class="article-section">
+  <h2>How to Choose the Right X</h2>
+  <p class="lead-paragraph">{intro}</p>
+  <div class="article-factors-grid">
+    <div class="article-factor-card">
+      <div class="article-factor-header">
+        <span class="article-factor-number">01</span>
+        <h3>Factor Title</h3>
+      </div>
+      <p>Factor description, 2-4 sentences.</p>
+    </div>
+    <!-- repeat per factor -->
+  </div>
+</section>
+```
+
+**CSS classes (pre-defined in article.css as shared utilities):**
+- `.article-factors-grid` — 3-col desktop / 2-col tablet / 1-col mobile, 20px gap
+- `.article-factor-card` — padded card with hover lift, border color tightens on hover
+- `.article-factor-header` — flex row, baseline-aligned, places number + h3 on same line
+- `.article-factor-number` — small uppercase brand-blue badge, zero-padded 2-digit ("01"–"09")
+
+**Numbering rules:**
+- Always zero-padded: 01, 02, 03, not 1, 2, 3
+- Sequential by order rendered
+- Always render inside the header flex wrapper, never as a separate line above the h3
+
+### Merged verdict card pattern (MANDATORY for multi-product "best-of" articles)
+
+When the verdict section recommends one product per use-case/segment AND the article has individual product scores, the cards and the score list MUST be merged into ONE unit. Do NOT render a separate "[Brand] Score" sub-section with duplicate score bars — that's a height-killer on mobile and repeats the same four products.
+
+**When to apply:**
+- Article type is a multi-product comparison ("Best X for Y", "Top 10 X")
+- Each "Best for [segment]" card maps 1:1 to a scored product
+- There are 3-5 such cards
+
+**When NOT to apply:**
+- Single-product reviews (`foodics-review`, `odoo-zatca-compliance` style) — those use the scorecard with category breakdowns, not cards
+- 2-product head-to-heads (`shopify-vs-salla`) — those show each product in its own large card, no scores
+- Cards that recommend 2+ products each (`best-project-management-tools` uses Solo = "Notion or Trello")
+- Product cards that already live alone without a duplicate scores list (`best-website-builders`)
+
+**Required HTML structure (each card):**
+```html
+<div class="{article-slug}__verdict-card">
+  <span class="{article-slug}__verdict-label">Best for [Segment]</span>
+  <div class="{article-slug}__verdict-product">
+    <span class="{article-slug}__verdict-product-name">[Product Name]</span>
+    <span class="{article-slug}__verdict-product-score">4.5/ 5</span>
+  </div>
+  <div class="{article-slug}__verdict-score-bar">
+    <div class="{article-slug}__verdict-score-fill" style="width: 90%"></div>
+  </div>
+  <p>[Reasoning — the "why" part only, without the "Best for X: Product —" prefix.]</p>
+</div>
+```
+
+**Required CSS (inside the article's component CSS file):**
+```css
+.{article-slug}__verdict-product {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 10px;
+}
+.{article-slug}__verdict-product-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+.{article-slug}__verdict-product-score {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-primary);
+  opacity: 0.95;
+}
+.article-section--verdict .{article-slug}__verdict-product-name,
+.article-section--verdict .{article-slug}__verdict-product-score {
+  color: #fff;
+}
+.{article-slug}__verdict-score-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.{article-slug}__verdict-score-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  transition: width 0.8s var(--ease-out);
+}
+```
+
+**i18n strings:**
+- Store the recommendation text WITHOUT the "Best for X: Product — " prefix so the reasoning slot can be rendered directly. If legacy strings include the prefix (e.g., "Best for Restaurants: Foodics — the most complete..."), split on ` — ` and take everything after the first em-dash at render time.
+
+**Mobile behavior:**
+- 2-column grid on tablet+ stays; collapses to 1-column at `max-width: 768px`
+- Keep card padding at 24px desktop, no changes needed on mobile — the inner score bar is compact enough
+
+**Partial merges:**
+- If one card's recommended product has no score (e.g., `Startup → MudadHR` in best-hr-software), render that card with only `verdict-label`, `verdict-product-name`, and `<p>` (no score bar, no score number). Other cards keep the full structure. Never invent a score.
+
+### Verdict background image (MANDATORY for every verdict section)
+
+Every article with a verdict/conclusion section MUST include a generated background image. The image generation happens during PHASE E (image insertion) but the placement rules are here.
+
+**Image requirements:**
+1. **Related to the article topic** — a POS article gets a restaurant/retail interior with a terminal; a CRM article gets a modern office with screens; an HR article gets a professional workspace; a website builder article gets a creative studio with monitors
+2. **Absolutely no text** — no words, numbers, labels, watermarks, or UI text anywhere in the image
+3. **Dark and moody atmosphere** — deep navy and warm gold/amber tones so white text overlays remain readable
+4. **Atmospheric, not literal** — shallow depth of field, blurred backgrounds, bokeh lights, cinematic lighting. The image is a mood-setter, not a product screenshot
+5. **16:9 aspect ratio**, WebP format, saved to `public/assets/articles/{slug}-verdict-bg.webp`
+
+**Image generation prompt template:**
+```
+A modern {topic-related-environment} interior, dark moody atmosphere with deep navy and warm gold tones, shallow depth of field, soft bokeh lights, no people visible, no text or letters or numbers anywhere in the image, professional commercial photography style, {topic-specific-detail}
+```
+
+**HTML structure (plain HTML / fallback):**
+```html
+<section class="fade-up article-section article-section--verdict article-section--verdict-bg">
+  <img src="images/article-{slug}-verdict-bg.webp" alt="" class="article-verdict__bg-image" loading="lazy" decoding="async" width="1920" height="1080" />
+  <div class="article-verdict__overlay"></div>
+  <span class="article-verdict__badge">Our Verdict</span>
+  <h2>...</h2>
+  <!-- verdict content -->
+</section>
+```
+
+**For Next.js projects** (detected via framework router), use `next/image` with `fill`:
+```jsx
+<Image src="/assets/articles/{slug}-verdict-bg.webp" alt="" fill sizes="(max-width: 768px) 100vw, 1280px" quality={80} className="article-verdict__bg-image" loading="lazy" />
+```
+
+**CSS classes (pre-defined in project):**
+- `.article-section--verdict-bg` — clears gradient, sets overflow hidden + position relative
+- `.article-verdict__bg-image` — absolute fill, object-fit cover, z-index 0
+- `.article-verdict__overlay` — semi-transparent gradient overlay (navy 75% to blue 68%), z-index 1
+- All direct children sit at z-index 2 via a blanket parent rule (`.article-section--verdict-bg > *:not(.article-verdict__bg-image):not(.article-verdict__overlay)`). Any element type — `figure`, `ul`, custom grids, `aside` — automatically renders above the overlay.
 
 ---
 
@@ -1333,3 +1643,115 @@ and page structure. Write the updated file back to the same path.
 - **Registry mode:** use internal structural blueprints + project visual tokens. NEVER freeze Axiom-specific values (green palette, Alexandria/Poppins fonts, specific brand styling).
 - **The internal structural registry is the structural source of truth.** The active project provides the visual layer.
 - **Framework adapter output is authoritative.** When using a non-HTML adapter, trust its output format — do not manually rewrite adapter-generated files to look like HTML.
+
+---
+
+## MANDATORY: Case Study Color Discipline (BP-195)
+
+When generating a Case Study article (BP-195), follow these color rules strictly.
+Case studies are editorial narrative content and must look premium, not alarmist.
+
+### Prohibited
+
+- **Never use bright red on card borders, number badges, or accent lines.** Red
+  reads as error/alarm and breaks the editorial tone. This specifically applies
+  to `.case-challenge-list` items in both section 2 (the pre-solution challenges)
+  and section 8 (honest post-implementation challenges). Both MUST use the brand-blue
+  token, not red.
+- Never use more than 2 accent colors across an entire case study. If the brand
+  palette is navy + blue + gold, pick one primary accent (typically brand-blue)
+  and one secondary (typically brand-navy) and stop there.
+- Never saturate the before/after grid past ~8% background opacity on the
+  red/green cells. The semantic pair is allowed ONLY in that grid, and even
+  there it must be de-saturated so the overall article stays editorial.
+
+### Required
+
+- `.case-disclosure` uses warm amber (e.g. `#fff8e6` bg, `#d4a13b` left border) —
+  this signals "note" not "error" and is the only place warm tones appear.
+- `.case-challenge-list__item` uses `border-left: 4px solid var(--brand-blue)`
+  and `.case-challenge-list__number` uses `color: var(--brand-blue)`.
+- `.case-lessons__number` uses a brand-blue filled circle with white text.
+- `.case-metrics__tile` uses `border-top: 4px solid var(--brand-blue)` and
+  `.case-metrics__value` uses brand-blue for the digit color.
+- `.case-timeline::before` and the timeline dot markers use brand-blue with a
+  white inner border to create the "node on a track" effect.
+- `.case-pullquote` uses brand-navy background with a large off-white serif
+  open-quote pseudo-element at 25% opacity.
+
+### Rationale
+
+Case studies compete for attention against Best-Of comparison content that
+already uses strong color. The case-study form earns its distinctness through
+layout (timeline, pull quote, before/after, metrics tiles) and through
+typography (big numeric values in tiles), NOT through louder color. Keep the
+color restrained and let the narrative structure do the visual work.
+
+### Responsive Discipline (ALL Article Types)
+
+Every custom grid, table, or multi-column component MUST be tested and declared
+at **three breakpoints**, not two. Missing the tablet range is the most common
+responsive bug.
+
+**The three breakpoints:**
+- Desktop: `>1024px` — full multi-column layout.
+- Tablet: `max-width: 1024px` — intermediate collapse. This is the range most
+  frequently forgotten. Inside a sidebar-constrained article column (TOC left +
+  main center + affiliate sidebar right), usable width at tablet sizes is only
+  roughly 500–700px. A 3-column grid or table in that space is cramped.
+- Phone: `max-width: 768px` — 1-column stacked everything.
+
+**Two traps to never hit:**
+
+1. **Inline `gridColumn: 'span N'` on responsive grids.** The span count is
+   fixed and does not adapt when `grid-template-columns` changes at breakpoints.
+   At tablet (2-col) or mobile (1-col), a `span 3` item creates *implicit extra
+   columns* that break the grid's alignment. Always use a CSS modifier class
+   with `grid-column: 1 / -1` (spans from first to last line regardless of how
+   many columns are present at the current breakpoint).
+
+   ```jsx
+   /* WRONG */
+   <div className="grid-item" style={{ gridColumn: 'span 3' }}>
+   /* CORRECT */
+   <div className="grid-item grid-item--full">
+   ```
+   ```css
+   .grid-item--full { grid-column: 1 / -1; }
+   ```
+
+2. **Collapsing 3-column tables only at 768px.** At tablet widths
+   (768–1024px) inside a sidebar-constrained article column, 3-col tables
+   render with cells around 160–230px wide — too cramped for comparison
+   content. Collapse 3-column tables to stacked vertical cards at **1024px**,
+   not 768px.
+
+   When stacking:
+   - Hide the original `<thead>` label cells via `display: none` on all but the
+     first column's header.
+   - Add `data-label` attributes to each value cell in the JSX
+     (e.g. `data-label="Before"`, `data-label="After"`).
+   - Style `::before { content: attr(data-label); }` on the value cells so
+     each stacked card carries its own inline label.
+
+**Before shipping any article:** manually verify the desktop, tablet, and
+phone layout of every custom grid component. If a component only defines
+behavior at 768px, add a 1024px breakpoint.
+
+### CTA Button Specificity Trap
+
+The shared `article.css` defines `.article-layout a { color: inherit; }` with
+specificity 0,0,1,1. A naive `.case-cta__btn { color: var(--brand-navy); }`
+rule (specificity 0,0,1,0) LOSES this cascade battle, so the CTA button text
+inherits the parent's white color and renders invisibly on a white background.
+
+**Always declare the CTA button with bumped specificity**:
+
+```css
+.case-cta a.case-cta__btn { color: var(--brand-navy); }
+.case-cta a.case-cta__btn:hover { color: var(--brand-navy); }
+```
+
+Specificity 0,0,2,1 beats `.article-layout a` cleanly without `!important`.
+Apply the same pattern to ANY button-styled link inside `.article-layout`
+across any blueprint, not just case studies.

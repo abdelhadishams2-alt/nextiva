@@ -452,7 +452,13 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
                 <div className="shopify-guide__faq-list">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <details key={n} className="shopify-guide__faq-item">
-                      <summary>{t(`s12Q${n}`)}</summary>
+                      <summary>
+                        <span className="shopify-guide__faq-question">
+                          <span className="shopify-guide__faq-number">{String(n).padStart(2, '0')}</span>
+                          {t(`s12Q${n}`)}
+                        </span>
+                        <span className="shopify-guide__faq-chevron" />
+                      </summary>
                       <p>{t(`s12A${n}`)}</p>
                     </details>
                   ))}
@@ -460,7 +466,18 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
               </section>
 
               {/* SECTION 13 -- Verdict */}
-              <section id="section-13" className="fade-up article-section">
+              <section id="section-13" className="fade-up article-section article-section--verdict article-section--verdict-bg">
+                <Image
+                  src="/assets/articles/odoo-zatca-verdict-bg.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1280px"
+                  quality={80}
+                  className="article-verdict__bg-image"
+                  loading="lazy"
+                />
+                <div className="article-verdict__overlay" />
+                <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s13Title')}</h2>
                 <div className="foodics-review__verdict-card">
                   <div className="foodics-review__verdict-score">
@@ -517,7 +534,7 @@ export default async function OdooSaudiArabiaPage({ params }: { params: Promise<
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5, 6].map((n) => ({
         question: t(`s12Q${n}`),
-        answer: t(`s12A${n}`),
+        answer: (t.raw(`s12A${n}`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

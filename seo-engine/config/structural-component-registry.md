@@ -643,39 +643,55 @@ sidebar_compatibility: works in main column
 
 ```
 blueprint_id: bp-faq-accordion
-blueprint_name: FAQ Accordion
+blueprint_name: FAQ Accordion (Premium Editorial)
 category: interactive
-article_role: Present frequently asked questions with expandable answers
+article_role: Present frequently asked questions with expandable answers in a premium numbered style
 
 structural_pattern:
-  - section heading (h2) with optional intro
-  - bordered container:
-    - each FAQ item (separated by borders):
-      - question button (full-width, flex row):
-        - question text (heading font, bold)
-        - chevron icon (rotates on open)
-      - answer panel (collapsible, hidden by default):
-        - answer text (paragraph, muted)
+  - section heading (h2) with accent bar
+  - faq list container (.shopify-guide__faq-list):
+    - each FAQ item (native <details> element, .shopify-guide__faq-item):
+      - <summary> with flex layout:
+        - question wrapper (.shopify-guide__faq-question):
+          - zero-padded number (.shopify-guide__faq-number): "01", "02", etc.
+          - question text (bold, dark)
+        - chevron circle (.shopify-guide__faq-chevron): pure CSS down-arrow in circle
+      - <p> answer text (indented under number, muted color)
+  - On open: item elevates with shadow, border goes transparent, number turns blue, chevron rotates 180deg and turns blue
 
 slot_definitions:
-  - SECTION_HEADING: h2 section title
+  - SECTION_HEADING: h2 section title (e.g., "Frequently Asked Questions")
   - FAQ_ITEMS[]: array of {question, answer} pairs (typically 4-8)
 
 hierarchy:
-  section > [h2? + faq-container > faq-item*N]
-  faq-item > [question-button > (text + chevron) + answer-panel > (text)]
+  section > [h2 + .shopify-guide__faq-list > details.shopify-guide__faq-item*N]
+  details > [summary > (.shopify-guide__faq-question > (.shopify-guide__faq-number + text) + .shopify-guide__faq-chevron) + p]
 
-required_elements: [at least 3 FAQ_ITEMS with question + answer]
+html_example: |
+  <details class="shopify-guide__faq-item">
+    <summary>
+      <span class="shopify-guide__faq-question">
+        <span class="shopify-guide__faq-number">01</span>
+        Question text here?
+      </span>
+      <span class="shopify-guide__faq-chevron"></span>
+    </summary>
+    <p>Answer text here.</p>
+  </details>
+
+required_elements: [at least 3 FAQ_ITEMS with question + answer, numbered sequentially]
 optional_elements: [SECTION_HEADING]
 
 responsive_behavior:
   - consistent across breakpoints
-  - padding reduces on mobile
+  - padding and gap reduce on mobile
+  - number size reduces slightly
 
 interaction_pattern:
-  - click question to toggle answer visibility
-  - chevron rotates on open/close
-  - only one item open at a time (optional)
+  - native <details>/<summary> toggle (no JavaScript needed)
+  - chevron rotates 180deg on open via CSS [open] selector
+  - item elevates with box-shadow on open
+  - number color changes to accent blue on open
 
 image_compatibility: none
 sidebar_compatibility: works in main column
@@ -871,6 +887,230 @@ responsive_behavior:
   - mobile: 1-column stack
 
 image_compatibility: none (card-based, text-focused)
+sidebar_compatibility: works in main column
+```
+
+---
+
+### BP-194: Pricing Cards — Single Product Tiered Plans
+
+```
+blueprint_id: bp-pricing-cards
+blueprint_name: Pricing Cards — Tiered Plans with Monthly/Annual Toggle
+category: conversion
+article_role: Present a single product's pricing tiers as interactive pricing cards with a Monthly/Annual toggle, a "Popular" featured plan, per-plan feature checklists, and a CTA per tier. Used when the article is promoting ONE product and needs to show its pricing plans cleanly.
+
+use_when:
+  - Article is a single-product guide, review, or promotion (e.g., "How to Build a Shopify Store", "Foodics Review")
+  - Section explicitly covers that one product's pricing plans
+  - 2-4 tiers available (not more — cards get cramped)
+  - The product has monthly AND annual pricing (required — the toggle is central)
+
+do_not_use_when:
+  - Comparing multiple products' pricing (use bp-comparison-table or bp-others-list)
+  - Listing secondary/runner-up products each with own pricing (use bp-others-list)
+  - Only one pricing tier exists (use a simple pricing statement instead)
+  - No annual option exists (the toggle would be dead UI)
+
+structural_pattern:
+  - Header: optional badge pill + h2 heading + description paragraph
+  - Toggle row: Monthly/Annual switch with "Save X%" hint on the annual side
+  - Grid of cards (2-4), one can be marked as .pricing-cards__card--popular (dark featured treatment with star badge):
+    - Popular badge (if featured)
+    - Plan name (small uppercase)
+    - Price row: large price + "/mo" period
+    - Billing note ("billed monthly" / "billed annually")
+    - Plan description
+    - Divider
+    - Feature checklist (each with check icon)
+    - CTA button (full-width, styled differently for popular card)
+  - Mobile: horizontal snap-scroll with pagination dots; popular card centered on load
+
+slot_definitions:
+  - SECTION_HEADING: h2 (e.g., "Choose Your Shopify Plan")
+  - DESCRIPTION: paragraph under heading
+  - BADGE: optional small pill above heading (e.g., "Pricing")
+  - MONTHLY_LABEL: toggle label (default "Monthly")
+  - YEARLY_LABEL: toggle label (default "Annual")
+  - SAVE_LABEL: annual-savings hint (e.g., "Save 25%")
+  - PLANS[]: array of { name, monthlyPrice, yearlyPrice, description, isPopular?, features[], ctaText, ctaUrl }
+    - exactly ONE plan should have isPopular=true (the featured recommendation)
+    - features should be 4-6 per plan — keep parity across plans for scannability
+    - ctaUrl should be an affiliate-safe path (e.g., /out/{partner}-pricing)
+
+required_elements: [SECTION_HEADING, DESCRIPTION, 2-4 PLANS each with name + monthlyPrice + yearlyPrice + features + ctaText + ctaUrl]
+optional_elements: [BADGE, one PLANS[].isPopular flag]
+
+required_component (Next.js projects with /components/ui/PricingCards):
+  ```jsx
+  import PricingCards from '@/components/ui/PricingCards';
+
+  <PricingCards
+    heading="Choose Your Plan"
+    description="All plans include a free trial."
+    badge="Pricing"
+    monthlyLabel="Monthly"
+    yearlyLabel="Annual"
+    saveLabel="Save 25%"
+    plans={[
+      { name: 'Basic', monthlyPrice: '$27', yearlyPrice: '$19', description: '...', isPopular: true, features: [...], ctaText: 'Start Free Trial', ctaUrl: '/out/partner-pricing' },
+      { name: 'Grow', monthlyPrice: '$72', yearlyPrice: '$54', description: '...', features: [...], ctaText: 'Start Free Trial', ctaUrl: '/out/partner-pricing' },
+      // ...
+    ]}
+  />
+  ```
+
+required_html (projects without the React component):
+  Use `.pricing-cards` as the section wrapper with `.pricing-cards__header`, `.pricing-cards__toggle`, `.pricing-cards__grid` > `.pricing-cards__card` (plus `--popular` modifier on one). See `src/styles/pricing-cards.css` in the nextiva repo for the full class list.
+
+responsive_behavior:
+  - desktop: 3-column grid (or 2/4 depending on plan count)
+  - tablet: 2-column or scrollable grid
+  - mobile: horizontal snap-scroll carousel with pagination dots; popular card auto-centered on load
+
+image_compatibility: none (card-based)
+sidebar_compatibility: works in main column only (cards need full article width)
+```
+
+---
+
+### BP-193: Others Worth Considering List
+
+```
+blueprint_id: bp-others-list
+blueprint_name: Others Worth Considering — Horizontal Row List
+category: comparison
+article_role: Present 3-5 secondary/niche product options that didn't make the top picks but each has a specific-use-case strength. Each product gets a full-width row with product name, summary, "Best for" highlight, and structured pricing tiers.
+
+use_when:
+  - Article section is explicitly framed as secondary/runner-up products ("More X Options Worth Considering", "Also Worth Mentioning", "Niche Alternatives")
+  - 3-5 products to list (NOT the main comparison — those belong in the comparison table)
+  - Each product has: a name, a 2-4 sentence summary, a "best-for" positioning, AND structured pricing tiers
+
+do_not_use_when:
+  - Primary product comparison (use comparison table)
+  - Feature grid for a single product (use feature-grid)
+  - When products have no pricing tier data
+  - Fewer than 3 or more than 6 products (layout breaks — use comparison table or mini-cards)
+
+structural_pattern:
+  - Section wrapper uses standard .article-section
+  - h2 heading + intro paragraph
+  - Vertical stack of full-width rows (.article-others-list)
+  - Each row (.article-others-row) has a 2-col internal grid on desktop:
+    - LEFT (main): h3 product name, summary paragraph, "Best for" callout (styled with left border + tinted blue background)
+    - RIGHT (pricing): small "PRICING" label, bulleted list of pricing tiers
+  - At ≤1024px, row collapses to single column; pricing moves below separated by a top border
+
+slot_definitions:
+  - SECTION_HEADING: h2 section title (e.g., "More X Options Worth Considering")
+  - INTRO_TEXT: paragraph explaining why these are worth a look but not top picks
+  - PRODUCTS[]: array of { name, summary, verdict, pricing_tiers[] }
+    - name: product name (short)
+    - summary: 2-4 sentence description
+    - verdict: "Best for X team who want Y..." — short positioning sentence
+    - pricing_tiers: array of strings, one per tier (e.g., ["Free — unlimited users", "Basic $49/mo", "Pro $199/mo"]). If the source data is a pipe-delimited string like "Free | Basic $49 | Pro $199", the writer MUST split on `|` and trim each piece — NEVER render the raw pipe-delimited string.
+
+required_elements: [SECTION_HEADING, INTRO_TEXT, at least 3 PRODUCTS each with name + summary + verdict + at least 2 pricing_tiers]
+
+required_html:
+  ```html
+  <section class="article-section">
+    <h2>{SECTION_HEADING}</h2>
+    <p>{INTRO_TEXT}</p>
+    <div class="article-others-list">
+      <!-- repeat per product -->
+      <article class="article-others-row">
+        <div class="article-others-main">
+          <h3>{PRODUCT_NAME}</h3>
+          <p class="article-others-summary">{PRODUCT_SUMMARY}</p>
+          <p class="article-others-verdict">{PRODUCT_VERDICT}</p>
+        </div>
+        <aside class="article-others-pricing">
+          <span class="article-others-pricing-label">Pricing</span>
+          <ul class="article-others-pricing-list">
+            <li>{TIER_1}</li>
+            <li>{TIER_2}</li>
+            <li>{TIER_3}</li>
+          </ul>
+        </aside>
+      </article>
+    </div>
+  </section>
+  ```
+
+responsive_behavior:
+  - desktop (default): 2-col internal split per row; main left, pricing right with vertical separator
+  - tablet (≤1024px): row collapses to single column; pricing moves below with top border separator
+  - mobile (≤768px): tighter padding; h3 smaller
+
+image_compatibility: none (text-focused editorial list)
+sidebar_compatibility: works in main column
+```
+
+---
+
+### BP-192: Factors Grid (Numbered Criteria)
+
+```
+blueprint_id: bp-factors-grid
+blueprint_name: Factors Grid — Numbered Criteria
+category: decision-support
+article_role: Present 4-6 decision-driving factors, selection criteria, or evaluation dimensions for a "How to Choose X" or "What to Look For" section. Each factor gets a zero-padded numbered badge inline with the title, breaking up text walls and giving scan anchors.
+
+use_when:
+  - Article section explicitly frames evaluation criteria ("How to Choose", "What to Look For", "Key Factors", "Buying Criteria")
+  - You have 4-6 distinct factors/criteria (not 3, not 10 — 4-6 is the sweet spot for 3-col grid)
+  - Each factor has a short title (2-5 words) and 2-4 sentence explanation
+
+do_not_use_when:
+  - Items are product comparisons (use bp-mini-cards)
+  - Items are features of a single product (use bp-feature-grid)
+  - Items are sequential steps (use bp-step-process)
+  - Items need statistics or metrics (use bp-stats-cards)
+
+structural_pattern:
+  - Section wrapper uses standard .article-section (light background, dark text)
+  - h2 heading + optional lead paragraph
+  - Grid container: `.article-factors-grid` — 3 columns desktop, 2 tablet, 1 mobile
+  - Each card: `.article-factor-card`
+    - Header row: `.article-factor-header` (flex, baseline-aligned)
+      - Zero-padded number: `.article-factor-number` ("01", "02", … — always 2 digits)
+      - Title: h3
+    - Description: p
+
+slot_definitions:
+  - SECTION_HEADING: h2 title (e.g., "How to Choose the Right CRM")
+  - INTRO_TEXT: optional lead paragraph
+  - FACTORS[]: array of { title, description } — 4 to 6 items
+
+required_elements: [SECTION_HEADING, at least 4 FACTORS]
+optional_elements: [INTRO_TEXT]
+
+responsive_behavior:
+  - desktop (default): 3-column grid
+  - tablet (≤1024px): 2-column grid
+  - mobile (≤768px): 1-column stack, reduced card padding
+
+required_html:
+  ```html
+  <section class="article-section">
+    <h2>{SECTION_HEADING}</h2>
+    <p class="lead-paragraph">{INTRO_TEXT}</p>
+    <div class="article-factors-grid">
+      <!-- repeat per factor -->
+      <div class="article-factor-card">
+        <div class="article-factor-header">
+          <span class="article-factor-number">01</span>
+          <h3>{FACTOR_TITLE}</h3>
+        </div>
+        <p>{FACTOR_DESCRIPTION}</p>
+      </div>
+    </div>
+  </section>
+  ```
+
+image_compatibility: none (text-focused)
 sidebar_compatibility: works in main column
 ```
 
@@ -7306,4 +7546,170 @@ responsive_behavior:
 
 image_compatibility: none
 sidebar_compatibility: works in main column or sidebar
+```
+
+---
+
+### BP-191: Verdict Section
+
+```
+blueprint_id: bp-verdict-section
+blueprint_name: Verdict Section
+category: summary
+article_role: Final verdict with overall score, category breakdowns, and closing recommendation. Uses dark navy gradient background (.article-section--verdict) for maximum visual prominence — impossible to scroll past without noticing.
+
+variants:
+  - variant: single-product-scorecard
+    use_when: Article is a single-product review (e.g., foodics-review, odoo-zatca-compliance)
+    structural_pattern:
+      - Section wrapper uses .article-section--verdict + .article-section--verdict-bg modifiers
+      - Verdict badge (.article-verdict__badge) with "Our Verdict" text before the h2
+      - h2 heading (white on dark)
+      - Single verdict card with:
+        - Large overall score number + "/5" max label
+        - Breakdown rows: label + progress bar + individual score (3-6 categories)
+      - Summary paragraphs (2-3 closing paragraphs)
+    slot_definitions:
+      - VERDICT_HEADING: h2 title (e.g., "Final Verdict: 4.5 out of 5")
+      - OVERALL_SCORE: numeric score (e.g., "4.5")
+      - SCORE_MAX: scale label (always "/ 5")
+      - BREAKDOWN_CATEGORIES[]: array of { label, score, width_percent }
+      - SUMMARY_PARAGRAPHS[]: 2-3 closing paragraphs with recommendation
+
+  - variant: multi-product-merged-cards
+    use_when: Article is a multi-product comparison ("Best X for Y") and each "Best for [segment]" card maps 1:1 to a scored product. DO NOT render a separate score list below the cards — scores go INSIDE each card to avoid height bloat and content duplication.
+    do_not_use_when:
+      - Cards recommend 2+ products each (keep cards without inline scores)
+      - Single product per article (use single-product-scorecard instead)
+      - 2-product head-to-head (use large product-cards, no scores)
+      - Product cards without a duplicate scores list already (already compact)
+    structural_pattern:
+      - Section wrapper uses .article-section--verdict + .article-section--verdict-bg modifiers
+      - Verdict badge + h2 + lead paragraph
+      - 2-column grid of merged verdict cards, each containing:
+        1. Label: "Best for [Segment]" (small uppercase)
+        2. Product row: product name (large) + score "4.5/5" (right-aligned)
+        3. Horizontal progress bar (white fill on translucent white track)
+        4. Reasoning paragraph (the "why", prefix-stripped)
+    slot_definitions:
+      - VERDICT_HEADING: h2 title
+      - VERDICT_INTRO: lead paragraph
+      - VERDICT_CARDS[]: array of { segment_label, product_name, score, score_max, width_percent, reasoning }
+    partial_merge_rule:
+      - If a card's recommended product has no score, render that card without the score row and progress bar (just label + product name + reasoning). Never invent a score.
+    required_elements: [VERDICT_HEADING, at least 3 VERDICT_CARDS]
+
+hierarchy:
+  section.article-section--verdict > [badge + h2 + (scorecard | verdict-grid) + p*N]
+  merged-card > [label + product-row + score-bar + reasoning]
+
+responsive_behavior:
+  - desktop: 2-column grid of merged cards; side-by-side score + breakdown on single-product
+  - tablet: 2-column grid stays
+  - mobile: grid collapses to 1-column, card padding preserved
+
+image_compatibility: background image supported via .article-section--verdict-bg
+sidebar_compatibility: works in main column
+```
+
+
+### BP-195: Case Study Article Pattern
+
+```
+blueprint_id: bp-case-study
+blueprint_name: Illustrative Case Study (narrative customer story)
+category: article-type
+article_role: full-article-pattern
+added: 2026-04-20
+
+purpose:
+  A complete, reusable article pattern for case studies — customer stories,
+  composite scenarios, or post-implementation retrospectives. Narrative structure
+  built from 9 sub-components. Designed to be visually distinct from Best-Of
+  comparison articles without sacrificing professionalism.
+
+when_to_use:
+  - Topic is a single-customer story or composite illustrative scenario
+  - Article arc is challenge → solution → timeline → results → lessons
+  - NOT for comparison content (use BP-192/193/194 article types instead)
+
+ethical_framing:
+  - If the subject is composite/illustrative (no single named real customer), the
+    article MUST include a .case-disclosure box immediately after the profile card
+    stating this clearly
+  - Every metric MUST sit inside a published outcome range (cite source on request)
+  - Pull-quote attribution MUST NOT invent a named person if the subject is composite —
+    attribute to "composite founder persona" or equivalent honest framing
+
+color_discipline:
+  - NEVER use bright red (#d04444, #ff0000, or equivalents) on card borders or
+    number badges. Red reads as alarm/error and is unprofessional for editorial
+    content. Use the project's brand-blue or brand-navy token for all accents.
+  - The ONLY legitimate place for a red/green semantic pair is inside the
+    before/after comparison grid, and even there colors must be de-saturated
+    to ≤8% background opacity.
+  - Disclosure box uses warm amber (not red) to signal "note" not "error"
+  - Avoid more than 2 accent colors in the entire article — otherwise it looks
+    like a dashboard, not editorial content
+
+sub_components:
+  1. hero: article-hero (same as other article types)
+  2. case-disclosure: amber-accented illustrative/composite disclaimer box
+  3. case-profile: 3-column facts grid on a navy background
+     { Company | Industry | Size | Location | Tool | Timeline | HeadlineResult }
+  4. case-challenge-list: numbered cards (red/alarm styling PROHIBITED — use brand-blue)
+     5-item list for the "pre-solution" pain points
+     3-item list for the "honest challenges post-implementation"
+  5. case-timeline: vertical timeline with dot markers
+     6 deployment milestones (Week/Month labels)
+  6. case-pullquote: large navy-background quote with giant serif open-mark
+     Includes attribution (composite persona if illustrative)
+  7. case-ba-grid: before/after table, 3-column (metric | before | after)
+     Use muted semantic palette (≤8% red/green bg) — not full-saturation
+  8. case-metrics: big-number tile grid, 3-col desktop
+     6 tiles × { value, label, subtext with source range }
+  9. case-lessons: 2-col grid of numbered takeaway cards (brand-blue circle number)
+  10. case-cta: gradient navy closing CTA block linking to related review/guide
+
+article_structure:
+  - Hero
+  - Disclosure (if composite/illustrative)
+  - Profile card
+  - Section 2: The Challenge (5 pain points)
+  - Inline image
+  - Section 3: The Solution (2 paragraphs)
+  - Section 4: Timeline (6 milestones)
+  - Inline image
+  - Pull quote
+  - Section 6: Before/After table (6 metrics)
+  - Inline image
+  - Section 7: Headline Results (6 metric tiles)
+  - Inline image
+  - Section 8: Honest Challenges (3 cards)
+  - Section 9: Lessons Learned (5 cards)
+  - Section 10: Closing CTA
+
+css_namespace: .case-* (all case-study components scoped under this prefix)
+required_stylesheet: article-case-study.css (scoped component library)
+
+responsive_behavior:
+  - desktop (>1024px): profile 3-col, metrics 3-col, lessons 2-col, before/after 3-col table
+  - tablet (max-width: 1024px): profile 2-col, metrics 2-col, lessons 2-col, before/after STACKS to vertical cards (metric → before → after per row). 3-col tables are too cramped inside a sidebar-constrained article column.
+  - mobile (max-width: 768px): ALL grids collapse to 1-col. Challenge cards collapse flex to column. Pull quote reduces to 1rem body + 3.5rem open-quote mark. CTA padding tightens.
+
+responsive_discipline_MANDATORY:
+  1. NEVER use inline `style={{ gridColumn: 'span N' }}` on grid items — the N is fixed and doesn't adapt when grid-template-columns changes at breakpoints. This creates implicit extra columns that break layout at tablet/mobile.
+     Correct: use a CSS modifier class that applies `grid-column: 1 / -1` so the item always spans the full current column count, whatever it is.
+  2. NEVER collapse a 3-column table only at 768px. Inside an article column (sidebar + TOC + main), tablet widths (768–1024px) leave roughly 500–700px of usable width. A 3-column table in that space produces cramped, hard-to-read cells. Collapse 3-col tables to stacked cards at 1024px, not 768px.
+  3. When stacking a 3-column table to vertical cards, use `::before { content: attr(data-label); }` on the value cells to show "Before" / "After" labels per card, and add `data-label="..."` attributes in the JSX. Hide the original thead label cells.
+  4. Every custom grid component MUST declare behavior at all three breakpoints: desktop, tablet (≤1024), phone (≤768). Missing the tablet breakpoint is the most common responsive bug.
+  5. Case study hero uses an extra `.article-hero__subtitle` paragraph that Best-Of articles do not. Mobile-specific rules are MANDATORY when you add the subtitle: reduce it to ~14px font-size, ~1.5 line-height, ~14px bottom margin; bump `.article-hero__content` top padding to ~80px so the hero badge clears the transparent navbar; tighten the badge to ~11px / 0.06em letter-spacing on phones. Without these, the subtitle dominates the mobile hero at desktop sizing and the badge collides with the navbar logo.
+
+image_compatibility:
+  - 5 images recommended: hero, POS close-up, branch/map, waste/inventory detail,
+    dashboard flat-lay
+  - All inline images use figure.article-image--contextual wrapper
+
+sidebar_compatibility: works with TOCSidebar + AffiliateSidebar as normal
+faq_compatibility: optional; most case studies do not need an FAQ section
 ```

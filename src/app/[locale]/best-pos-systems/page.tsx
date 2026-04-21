@@ -336,15 +336,27 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
               <section id="section-9" className="fade-up article-section">
                 <h2>{t('s9Title')}</h2>
                 <p>{t('s9Intro')}</p>
-                <div className="pos-saudi__others-grid">
-                  {(['posrocket', 'iiko', 'lightspeed', 'square', 'toast'] as const).map((key) => (
-                    <div key={key} className="pos-saudi__other-card">
-                      <h3>{t(`s9_${key}_name`)}</h3>
-                      <p className="pos-saudi__other-price">{t(`s9_${key}_price`)}</p>
-                      <p>{t(`s9_${key}_summary`)}</p>
-                      <p className="pos-saudi__other-verdict"><strong>{t(`s9_${key}_verdict`)}</strong></p>
-                    </div>
-                  ))}
+                <div className="article-others-list">
+                  {(['posrocket', 'iiko', 'lightspeed', 'square', 'toast'] as const).map((key) => {
+                    const tiers = t(`s9_${key}_price`).split('|').map((s) => s.trim()).filter(Boolean);
+                    return (
+                      <article key={key} className="article-others-row">
+                        <div className="article-others-main">
+                          <h3>{t(`s9_${key}_name`)}</h3>
+                          <p className="article-others-summary">{t(`s9_${key}_summary`)}</p>
+                          <p className="article-others-verdict">{t(`s9_${key}_verdict`)}</p>
+                        </div>
+                        <aside className="article-others-pricing">
+                          <span className="article-others-pricing-label">Pricing</span>
+                          <ul className="article-others-pricing-list">
+                            {tiers.map((tier, i) => (
+                              <li key={i}>{tier}</li>
+                            ))}
+                          </ul>
+                        </aside>
+                      </article>
+                    );
+                  })}
                 </div>
               </section>
 
@@ -356,10 +368,13 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                   <Image src="/assets/articles/best-pos-systems-saudi-5.webp" alt={t('s10ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
-                <div className="mini-cards-grid mini-cards-grid--2col">
+                <div className="article-factors-grid">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <div key={n} className="mini-card">
-                      <h3>{t(`s10Factor${n}Title`)}</h3>
+                    <div key={n} className="article-factor-card">
+                      <div className="article-factor-header">
+                        <span className="article-factor-number">{String(n).padStart(2, '0')}</span>
+                        <h3>{t(`s10Factor${n}Title`)}</h3>
+                      </div>
                       <p>{t(`s10Factor${n}Desc`)}</p>
                     </div>
                   ))}
@@ -367,28 +382,44 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
               </section>
 
               {/* SECTION 11 -- Verdict */}
-              <section id="section-11" className="fade-up article-section">
+              <section id="section-11" className="fade-up article-section article-section--verdict article-section--verdict-bg">
+                <Image
+                  src="/assets/articles/best-pos-verdict-bg.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1280px"
+                  quality={80}
+                  className="article-verdict__bg-image"
+                  loading="lazy"
+                />
+                <div className="article-verdict__overlay" />
+                <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s11Title')}</h2>
                 <p className="lead-paragraph">{t('s11Intro')}</p>
                 <div className="pos-saudi__verdict-grid">
-                  {(['Restaurant', 'Retail', 'Budget', 'Enterprise'] as const).map((cat) => (
-                    <div key={cat} className="pos-saudi__verdict-card">
-                      <span className="pos-saudi__verdict-label">Best for {cat}</span>
-                      <p>{t(`s11Verdict${cat}`)}</p>
-                    </div>
-                  ))}
-                </div>
-                <h3>{t('s11ScoreLabel')}</h3>
-                <div className="pos-saudi__scores">
-                  {(['foodics', 'marn', 'odoo', 'loyverse'] as const).map((key) => (
-                    <div key={key} className="pos-saudi__score-row">
-                      <span className="pos-saudi__score-name">{t(`s3Row_${key}_name`)}</span>
-                      <div className="pos-saudi__score-bar">
-                        <div className="pos-saudi__score-fill" style={{ width: `${(parseFloat(t(`s11_${key}_score`)) / 5) * 100}%` }} />
+                  {([
+                    { cat: 'Restaurant', productKey: 'foodics' },
+                    { cat: 'Retail', productKey: 'marn' },
+                    { cat: 'Budget', productKey: 'loyverse' },
+                    { cat: 'Enterprise', productKey: 'odoo' },
+                  ] as const).map(({ cat, productKey }) => {
+                    const score = t(`s11_${productKey}_score`);
+                    const fullText = t(`s11Verdict${cat}`);
+                    const reasoning = fullText.split(' — ').slice(1).join(' — ') || fullText;
+                    return (
+                      <div key={cat} className="pos-saudi__verdict-card">
+                        <span className="pos-saudi__verdict-label">Best for {cat}</span>
+                        <div className="pos-saudi__verdict-product">
+                          <span className="pos-saudi__verdict-product-name">{t(`s3Row_${productKey}_name`)}</span>
+                          <span className="pos-saudi__verdict-product-score">{score}{t('s11ScoreMax')}</span>
+                        </div>
+                        <div className="pos-saudi__verdict-score-bar">
+                          <div className="pos-saudi__verdict-score-fill" style={{ width: `${(parseFloat(score) / 5) * 100}%` }} />
+                        </div>
+                        <p>{reasoning}</p>
                       </div>
-                      <span className="pos-saudi__score-value">{t(`s11_${key}_score`)}{t('s11ScoreMax')}</span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
 
@@ -398,7 +429,13 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <div className="shopify-guide__faq-list">
                   {[1, 2, 3, 4, 5].map((n) => (
                     <details key={n} className="shopify-guide__faq-item">
-                      <summary>{t(`s12Q${n}`)}</summary>
+                      <summary>
+                        <span className="shopify-guide__faq-question">
+                          <span className="shopify-guide__faq-number">{String(n).padStart(2, '0')}</span>
+                          {t(`s12Q${n}`)}
+                        </span>
+                        <span className="shopify-guide__faq-chevron" />
+                      </summary>
                       <p>{t(`s12A${n}`)}</p>
                     </details>
                   ))}
@@ -430,7 +467,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
       ]} />
       <FaqJsonLd items={[1, 2, 3, 4, 5].map((n) => ({
         question: t(`s12Q${n}`),
-        answer: t(`s12A${n}`),
+        answer: (t.raw(`s12A${n}`) as string).replace(/<[^>]+>/g, ''),
       }))} />
     </>
   );

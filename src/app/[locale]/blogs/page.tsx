@@ -10,6 +10,36 @@ import { SITE_CONFIG } from '@/config/site';
 
 const articles = [
   {
+    slug: 'rayyan-coffee-foodics-case-study',
+    image: '/assets/articles/case-study-rayyan-hero.webp',
+    badge: 'Case Study',
+    title: 'How a 45-Branch Saudi Coffee Chain Cut Waste 11% with Foodics',
+    excerpt: 'An illustrative composite case study grounded in published Foodics customer outcomes. 45 branches, 14-week rollout, SAR 1.8M annual savings, 100% ZATCA Phase 2 coverage.',
+    date: 'April 20, 2026',
+    readTime: '14 min read',
+    category: 'restaurant',
+  },
+  {
+    slug: 'best-payment-gateways',
+    image: '/assets/articles/best-payment-gateways-saudi-hero.webp',
+    badge: 'Best Of',
+    title: 'Best Payment Gateways in Saudi Arabia (2026): mada, Apple Pay, BNPL & Honest Pricing',
+    excerpt: 'We tested Moyasar, Tap Payments, PayTabs, Checkout.com, HyperPay, STC Pay, and Geidea. mada routing, Tabby/Tamara BNPL, ZATCA webhooks, and honest pricing in SAR and USD.',
+    date: 'April 20, 2026',
+    readTime: '17 min read',
+    category: 'enterprise',
+  },
+  {
+    slug: 'best-accounting-software',
+    image: '/assets/articles/best-accounting-saudi-hero.webp',
+    badge: 'Best Of',
+    title: 'Best Accounting Software (2026): ZATCA Phase 2, Arabic & Honest Pricing',
+    excerpt: 'We compared Wafeq, Zoho Books, QuickBooks, Xero, Odoo, Sage, and FreshBooks on ZATCA Phase 2, Arabic RTL, mada reconciliation, and real pricing in USD and SAR.',
+    date: 'April 20, 2026',
+    readTime: '16 min read',
+    category: 'enterprise',
+  },
+  {
     slug: 'best-project-management-tools',
     image: '/assets/articles/best-pm-tools-1.webp',
     badge: 'Best Of',

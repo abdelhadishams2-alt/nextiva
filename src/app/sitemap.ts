@@ -2,6 +2,9 @@ import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/config/site';
 
 const articleDates: Record<string, string> = {
+  'rayyan-coffee-foodics-case-study': '2026-04-20',
+  'best-payment-gateways': '2026-04-20',
+  'best-accounting-software': '2026-04-20',
   'best-hr-software': '2026-04-06',
   'best-crm-software': '2026-04-06',
   'best-pos-systems': '2026-04-06',

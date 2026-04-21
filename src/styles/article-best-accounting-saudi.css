@@ -1,0 +1,154 @@
+/* ----------------------------------------------------------------
+   Article: Best Accounting Software in Saudi Arabia
+   Uses shared utilities (.article-factors-grid, .article-others-list)
+   from article.css; adds comparison/pricing table + verdict styling.
+   ---------------------------------------------------------------- */
+
+/* Comparison table */
+.accounting-saudi__comparison-table thead th {
+  background: var(--brand-navy);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+}
+
+.accounting-saudi__comparison-table tbody tr:nth-child(even) {
+  background: var(--card-bg, #f8f8f6);
+}
+
+.accounting-saudi__comparison-table td {
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.accounting-saudi__score {
+  display: inline-block;
+  background: var(--brand-blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* Pricing table */
+.accounting-saudi__pricing-table thead th {
+  background: var(--brand-navy);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.accounting-saudi__pricing-table td {
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.accounting-saudi__pricing-table tbody tr:nth-child(even) {
+  background: var(--card-bg, #f8f8f6);
+}
+
+/* ----------------------------------------------------------------
+   Verdict grid — merged multi-product cards (BP-191 variant)
+   ---------------------------------------------------------------- */
+.accounting-saudi__verdict-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.accounting-saudi__verdict-card {
+  background: var(--card-bg, #f8f8f6);
+  border: 1px solid var(--border, #e9e9ec);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border-left: 4px solid var(--brand-blue);
+}
+
+.accounting-saudi__verdict-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-blue);
+  margin-bottom: 8px;
+}
+
+.accounting-saudi__verdict-card p {
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Merged product + score inside verdict card */
+.accounting-saudi__verdict-product {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 10px;
+}
+
+.accounting-saudi__verdict-product-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.accounting-saudi__verdict-product-score {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-primary);
+  opacity: 0.95;
+}
+
+.article-section--verdict .accounting-saudi__verdict-product-name,
+.article-section--verdict .accounting-saudi__verdict-product-score {
+  color: #fff;
+}
+
+.accounting-saudi__verdict-score-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.accounting-saudi__verdict-score-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  transition: width 0.8s var(--ease-out);
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Tablets
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .accounting-saudi__verdict-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive — Phones
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .accounting-saudi__verdict-grid {
+    grid-template-columns: 1fr;
+  }
+}
