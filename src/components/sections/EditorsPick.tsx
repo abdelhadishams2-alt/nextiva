@@ -76,7 +76,8 @@ export function EditorsPick() {
               width={600}
               height={400}
               quality={75}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="low"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               placeholder="blur"
               blurDataURL={BLUR_DATA_URL}
@@ -163,7 +164,8 @@ export function EditorsPick() {
               width={600}
               height={400}
               quality={75}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="low"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           ))}

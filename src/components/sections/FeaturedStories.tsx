@@ -18,7 +18,7 @@ export async function FeaturedStories() {
         </div>
 
         <div className="featured-stories__grid">
-          {CARD_KEYS.map((key, i) => (
+          {CARD_KEYS.map((key) => (
             <a href={t(`${key}.link`)} className="featured-stories__card" key={key}>
               <div className="featured-stories__card-image">
                 <Image
@@ -27,9 +27,10 @@ export async function FeaturedStories() {
                   width={768}
                   height={578}
                   quality={75}
-                  /* First card is the nearest below-the-fold image; warm it up without fighting the hero LCP */
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={i === 0 ? 'low' : 'auto'}
+                  /* All 4 cards start downloading at page load so they're ready by the time you scroll.
+                     Low priority keeps them out of the hero LCP's way. */
+                  loading="eager"
+                  fetchPriority="low"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}

@@ -12,7 +12,9 @@ export async function CallToAction() {
           src="/assets/cta-bg-new.webp"
           alt=""
           fill
-          loading="lazy"
+          /* eager + low priority — starts downloading at page load without competing with the hero LCP */
+          loading="eager"
+          fetchPriority="low"
           quality={75}
           sizes="100vw"
           placeholder="blur"

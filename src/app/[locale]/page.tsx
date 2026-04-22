@@ -56,13 +56,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         href="/assets/hero-backgrounds/hero-main.webp"
         fetchPriority="high"
       />
-      {/* Low-priority warm-up for the big CTA background image that appears below the fold. */}
-      <link
-        rel="preload"
-        as="image"
-        href="/assets/cta-bg-new.webp"
-        fetchPriority="low"
-      />
       <Navbar transparent />
       <Hero />
       <LogoTrustBar />

@@ -43,7 +43,8 @@ export async function EndOfBusywork() {
             src="/assets/cantrust-lkwjd.webp"
             alt=""
             fill
-            loading="lazy"
+            loading="eager"
+            fetchPriority="low"
             quality={75}
             sizes="(max-width: 768px) 100vw, 50vw"
             placeholder="blur"

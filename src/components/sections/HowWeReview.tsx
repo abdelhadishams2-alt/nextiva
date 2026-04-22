@@ -162,7 +162,8 @@ export function HowWeReview() {
                 height={810}
                 quality={75}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 900px"
-                loading={step.index === 0 ? 'eager' : 'lazy'}
+                /* All 5 steps download at page load (step 1 high priority, rest low) so the carousel never stalls on rotation */
+                loading="eager"
                 fetchPriority={step.index === 0 ? 'high' : 'low'}
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}

@@ -190,7 +190,8 @@ export function SplitShowcase() {
         <div className="split-showcase__card">
           <div className="split-showcase__card-image">
             <Image
-              loading="lazy"
+              loading="eager"
+              fetchPriority="low"
               quality={75}
               width={540}
               height={540}
@@ -232,7 +233,8 @@ export function SplitShowcase() {
         <div className="split-showcase__card">
           <div className="split-showcase__card-image">
             <Image
-              loading="lazy"
+              loading="eager"
+              fetchPriority="low"
               quality={75}
               width={540}
               height={540}
@@ -273,7 +275,8 @@ export function SplitShowcase() {
         <div className="split-showcase__card">
           <div className="split-showcase__card-image">
             <Image
-              loading="lazy"
+              loading="eager"
+              fetchPriority="low"
               quality={75}
               width={540}
               height={540}
