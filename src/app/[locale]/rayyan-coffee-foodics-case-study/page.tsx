@@ -98,7 +98,7 @@ export default async function RayyanCoffeeCaseStudyPage({ params }: { params: Pr
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/case-study-rayyan-hero.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/case-study-rayyan-hero.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoMAAcAA4BaJYgCdACpjGDMYAD2v6UW8VCY1lDBJzNNl6XX05uvDQ9zXhNlerSRsERgvqjriI2+yiM3WBYjVzhX6JccwugAAAA=" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

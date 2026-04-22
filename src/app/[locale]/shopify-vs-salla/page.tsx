@@ -97,7 +97,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/shopify-vs-salla-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/shopify-vs-salla-1.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAgCdASoMAAcAA4BaJZgCdH8AGZCgRYJ7AAD+tnS3BD9k5LGszJe6pfAYcmyMpaZK5E17poQnTp3ubR4onRXbGVrr2NDBw+U8aeAA" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

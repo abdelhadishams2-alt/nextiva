@@ -99,7 +99,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/best-pm-tools-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/best-pm-tools-1.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoMAAcAA4BaJZACdAECpW3D6zwAAP7t4ZNeWdnAzqn1XAPA5D2Adag2xOXzKjpRARGLZlqwL8LYYByAAAA=" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

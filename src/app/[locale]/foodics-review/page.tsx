@@ -102,7 +102,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/foodics-review-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/foodics-review-1.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoMAAcAA4BaJZACdAELFL5AAP7eH17vxnnWaaJGS3OY2LVShUeIm7UlNeh4NNLOsy2mryOBJWrSqw7AakQAAA==" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

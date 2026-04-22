@@ -201,7 +201,7 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
         {/* Hero */}
         <section className="blogs-hero">
           <div className="blogs-hero__bg">
-            <Image src="/assets/blogs-hero-bg.webp" alt="" fill priority quality={75} style={{ objectFit: 'cover' }} />
+            <Image src="/assets/blogs-hero-bg.webp" alt="" fill priority fetchPriority="high" quality={75} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoMAAUAA4BaJYgCdAD0ckCOAAD+9q3mGY6UsQQbSAvHHTceC4HVWk2kjMYTTB2AAAA=" style={{ objectFit: 'cover' }} />
           </div>
           <div className="blogs-hero__overlay" />
           <div className="blogs-hero__content">
@@ -223,6 +223,35 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
 
       <CallToAction />
       <Footer />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            '@id': `${SITE_CONFIG.url}/blogs`,
+            name: t('metaTitle'),
+            description: t('metaDescription'),
+            url: `${SITE_CONFIG.url}/blogs`,
+            publisher: {
+              '@type': 'Organization',
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url,
+              logo: `${SITE_CONFIG.url}/assets/lkwjd-logo.webp`,
+            },
+            blogPost: articles.map((a) => ({
+              '@type': 'BlogPosting',
+              headline: a.title,
+              description: a.excerpt,
+              url: `${SITE_CONFIG.url}/${a.slug}`,
+              image: `${SITE_CONFIG.url}${a.image}`,
+              datePublished: a.date,
+            })),
+          }),
+        }}
+      />
     </>
   );
 }
+

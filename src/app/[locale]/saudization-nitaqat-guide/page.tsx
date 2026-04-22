@@ -110,7 +110,7 @@ export default async function SaudizationNitaqatGuidePage({ params }: { params: 
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/saudization-nitaqat-guide/hero-riyadh-kafd.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/saudization-nitaqat-guide/hero-riyadh-kafd.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAAAQAgCdASoMAAcAA4BaJYwCdIExGBaEn1XAAP68hJDjIbr0L96rpHvEEVFg2wWbDa8P6gyzAJyoAA==" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

@@ -27,8 +27,11 @@ export async function Hero() {
           alt=""
           fill
           priority
+          fetchPriority="high"
           quality={80}
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoMAAgAA4BaJQBOgCFqwJ6rAAD+5gvi1dPqI+oulxUeP59bt9bQcdviu8tDJOgPdL2JVXOAAAA="
           style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
         />
       </div>

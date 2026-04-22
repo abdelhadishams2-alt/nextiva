@@ -99,7 +99,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/best-pos-systems-saudi-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/best-pos-systems-saudi-1.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoMAAcAA4BaJZACdAYsPNBIYLQAAPfcZjowLPiK701X4E5Hp9L2yAeutc5u/RfmuCUECNjgJXRfFMsOueWyW5ymVX54FGAA" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

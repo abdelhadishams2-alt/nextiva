@@ -106,7 +106,7 @@ export default async function VatComplianceSaudiSmesPage({ params }: { params: P
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/vat-compliance-software-saudi-smes/hero-riyadh-office.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/vat-compliance-software-saudi-smes/hero-riyadh-office.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAcAA4BaJZACdAEUVfm7jwXQAP7t65Ckrz5rUmn8NuXvMVpE3xKpkpzNZS7FtAK848K+19D/jU6qVKAZBlOI9SqlF+7VAAA=" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

@@ -50,6 +50,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/hero-backgrounds/hero-main.webp"
+        fetchPriority="high"
+      />
       <Navbar transparent />
       <Hero />
       <LogoTrustBar />

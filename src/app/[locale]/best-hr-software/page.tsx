@@ -99,7 +99,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/best-hr-software-saudi-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/best-hr-software-saudi-1.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoMAAcAA4BaJZQC06D0cjJaAAD+t5r/WgjdDlmYBT5cLl7w6CVW9hnB3IBEGZhr1Tvkl3N6EJgFAAhqJ1GwS/0eQAA=" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

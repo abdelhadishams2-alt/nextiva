@@ -98,7 +98,7 @@ export default async function BestAccountingSaudiPage({ params }: { params: Prom
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/best-accounting-saudi-hero.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/best-accounting-saudi-hero.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoMAAcAA4BaJQBWAB5QBXQ8AP7kKayHamXstZBElhenl9OwmimoGoDRblz0yycwKAgdEY5LdsVNklkAAAA=" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

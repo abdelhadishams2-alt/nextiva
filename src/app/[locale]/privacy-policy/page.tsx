@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${t('title')} — ${SITE_CONFIG.name}`,
     description: t('metaDescription'),
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
     alternates: { canonical: `${SITE_CONFIG.url}/privacy-policy` },
     openGraph: {
       title: `${t('title')} — ${SITE_CONFIG.name}`,

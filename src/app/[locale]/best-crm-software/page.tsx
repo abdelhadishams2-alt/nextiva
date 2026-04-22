@@ -99,7 +99,7 @@ export default async function BestCrmSaudiPage({ params }: { params: Promise<{ l
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/best-crm-saudi-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/best-crm-saudi-1.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoMAAcAA4BaJQBWD+ACRCYiqplwAP7rXjfDjDCDQGADpXgwuyFwPdfc5Bt7nybhhlW8ULa8LaAujsw8AJVZWoJAYDFXoIhoc2AAAA==" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

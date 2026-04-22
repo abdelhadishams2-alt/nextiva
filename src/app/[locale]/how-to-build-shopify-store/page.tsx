@@ -107,7 +107,7 @@ export default async function HowToBuildShopifyStorePage({ params }: { params: P
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/how-to-build-shopify-store-2.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/how-to-build-shopify-store-2.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAAcAA4BaJQBOgB+FqN0b7RAA/ugAMsqO0H3iNrjAO2b0Dw2ZvOMfecw/8IAYKuUCl1376fiJMYURd7I+QAAA" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">

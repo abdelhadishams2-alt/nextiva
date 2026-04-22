@@ -99,7 +99,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
         {/* HERO */}
         <section id="section-1" className="article-section article-hero">
           <div className="article-hero__bg">
-            <Image src="/assets/articles/best-website-builders-saudi-1.webp" alt={t('heroImageAlt')} fill priority style={{ objectFit: 'cover' }} />
+            <Image src="/assets/articles/best-website-builders-saudi-1.webp" alt={t('heroImageAlt')} fill priority fetchPriority="high" quality={80} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoMAAcAA4BaJbACdAEDczUiy4AA/rez7kNaQbp698FiO4CbeMXBC9htSanzzWGUW2ptp4qcJUx4rFerjGvteIo4APG8/tLz6AA=" style={{ objectFit: 'cover' }} />
           </div>
           <div className="article-hero__overlay" />
           <div className="article-hero__content">
