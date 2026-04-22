@@ -166,7 +166,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-website-builders-saudi-2.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-website-builders-saudi-2.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-table-wrap">
@@ -202,7 +202,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
                 <h2>{t('s4Title')}</h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-website-builders-saudi-3.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-website-builders-saudi-3.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
                 <h3>{t('s4ProsTitle')}</h3>
@@ -298,7 +298,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-website-builders-saudi-4.webp" alt={t('s8ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-website-builders-saudi-4.webp" alt={t('s8ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <h3>{t('s8ProsTitle')}</h3>
@@ -382,7 +382,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
                   sizes="(max-width: 768px) 100vw, 1280px"
                   quality={80}
                   className="article-verdict__bg-image"
-                  loading="lazy"
+                  loading="eager" fetchPriority="low"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                 />
@@ -390,7 +390,7 @@ export default async function BestWebsiteBuildersSaudiPage({ params }: { params:
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s11Title')}</h2>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-website-builders-saudi-5.webp" alt={t('s11ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-website-builders-saudi-5.webp" alt={t('s11ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s11ImageCaption')}</figcaption>
                 </figure>
                 <div className="best-builders__verdict-grid">

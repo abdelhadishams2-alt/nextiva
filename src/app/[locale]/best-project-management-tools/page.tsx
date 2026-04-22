@@ -198,7 +198,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pm-tools-solo.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-pm-tools-solo.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
 
@@ -243,7 +243,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <h2>{t('s5Title')}</h2>
                 <p className="lead-paragraph">{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pm-tools-small-team.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-pm-tools-small-team.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
 
@@ -332,7 +332,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <h2>{t('s7Title')}</h2>
                 <p className="lead-paragraph">{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pm-tools-enterprise.webp" alt={t('s7ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-pm-tools-enterprise.webp" alt={t('s7ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
 
@@ -407,7 +407,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                 <h2>{t('s9Title')}</h2>
                 <p className="lead-paragraph">{t('s9Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pm-tools-analytics.webp" alt={t('s9ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-pm-tools-analytics.webp" alt={t('s9ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s9ImageCaption')}</figcaption>
                 </figure>
                 <div className="article-factors-grid">
@@ -462,7 +462,7 @@ export default async function BestProjectManagementToolsPage({ params }: { param
                   sizes="(max-width: 768px) 100vw, 1280px"
                   quality={80}
                   className="article-verdict__bg-image"
-                  loading="lazy"
+                  loading="eager" fetchPriority="low"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                 />

@@ -1,0 +1,30 @@
+# Excluded from Vercel uploads & build scans. The Next.js app doesn't need any of this.
+# Vercel applies this in addition to .gitignore.
+
+# Claude plugins / tooling (12 MB, 733 files of unused-at-runtime content)
+seo-engine/
+article-engine/
+.claude/
+.claude-bridge-pid
+.superdesign/
+
+# Dev notes and planning docs
+dev_docs/
+docs/
+CLAUDE.md
+PRODUCTION-AUDIT.md
+
+# Playwright / screenshots / local build caches
+.playwright-mcp/
+.screenshots/
+tsconfig.tsbuildinfo
+
+# Stray files at repo root that aren't imported anywhere
+Image.webp
+faq-appearance.png
+
+# Environment examples / local envs (Vercel manages env vars in its own UI)
+.env
+.env.local
+.env.*.local
+.env.example

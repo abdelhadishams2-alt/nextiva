@@ -35,7 +35,8 @@ export function FooterBrand() {
         src="/assets/footer-desert.webp"
         alt=""
         fill
-        loading="lazy"
+        loading="eager"
+        fetchPriority="low"
         quality={75}
         sizes="100vw"
         placeholder="blur"

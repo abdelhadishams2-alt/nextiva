@@ -198,7 +198,7 @@ export default async function BestCrmSaudiPage({ params }: { params: Promise<{ l
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-crm-saudi-hubspot.webp" alt="HubSpot CRM dashboard interface" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-crm-saudi-hubspot.webp" alt="HubSpot CRM dashboard interface" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>HubSpot offers one of the most generous free CRM plans on the market</figcaption>
                 </figure>
                 <p>{t('s4P1')}</p>
@@ -228,7 +228,7 @@ export default async function BestCrmSaudiPage({ params }: { params: Promise<{ l
                 <h2>{t('s5Title')}</h2>
                 <p className="lead-paragraph">{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-crm-saudi-zoho-crm.webp" alt="Zoho CRM with Arabic interface" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-crm-saudi-zoho-crm.webp" alt="Zoho CRM with Arabic interface" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Zoho CRM offers full Arabic and RTL support out of the box</figcaption>
                 </figure>
                 <p>{t('s5P1')}</p>
@@ -260,7 +260,7 @@ export default async function BestCrmSaudiPage({ params }: { params: Promise<{ l
                 <h2>{t('s6Title')}</h2>
                 <p className="lead-paragraph">{t('s6Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-crm-saudi-salesforce.webp" alt="Salesforce CRM enterprise dashboard" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-crm-saudi-salesforce.webp" alt="Salesforce CRM enterprise dashboard" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Salesforce opened its Riyadh headquarters in January 2025</figcaption>
                 </figure>
                 <p>{t('s6P1')}</p>
@@ -290,7 +290,7 @@ export default async function BestCrmSaudiPage({ params }: { params: Promise<{ l
                 <h2>{t('s7Title')}</h2>
                 <p className="lead-paragraph">{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-crm-saudi-freshsales.webp" alt="Freshsales CRM pipeline view" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/best-crm-saudi-freshsales.webp" alt="Freshsales CRM pipeline view" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Freshsales combines an affordable price with built-in AI capabilities</figcaption>
                 </figure>
                 <p>{t('s7P1')}</p>
@@ -401,7 +401,7 @@ export default async function BestCrmSaudiPage({ params }: { params: Promise<{ l
                   sizes="(max-width: 768px) 100vw, 1280px"
                   quality={80}
                   className="article-verdict__bg-image"
-                  loading="lazy"
+                  loading="eager" fetchPriority="low"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                 />

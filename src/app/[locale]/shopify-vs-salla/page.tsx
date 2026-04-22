@@ -165,7 +165,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/shopify-vs-salla-2.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/shopify-vs-salla-2.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
 
@@ -231,7 +231,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                 <h2>{t('s5Title')}</h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/shopify-vs-salla-3.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/shopify-vs-salla-3.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
 
@@ -419,7 +419,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                   sizes="(max-width: 768px) 100vw, 1280px"
                   quality={80}
                   className="article-verdict__bg-image"
-                  loading="lazy"
+                  loading="eager" fetchPriority="low"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                 />
@@ -427,7 +427,7 @@ export default async function ShopifyVsSallaPage({ params }: { params: Promise<{
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>
                 <h2>{t('s10Title')}</h2>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/shopify-vs-salla-4.webp" alt={t('s10ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/shopify-vs-salla-4.webp" alt={t('s10ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
 

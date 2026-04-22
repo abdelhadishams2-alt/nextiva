@@ -178,7 +178,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/foodics-review-screenshot-1.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/foodics-review-screenshot-1.webp" alt={t('s3ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -262,7 +262,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                 <h2>{t('s7Title')}</h2>
                 <p>{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/foodics-review-screenshot-3.webp" alt={t('s7ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/foodics-review-screenshot-3.webp" alt={t('s7ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
                 <ul>
@@ -290,7 +290,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/foodics-review-screenshot-2.webp" alt={t('s8ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/foodics-review-screenshot-2.webp" alt={t('s8ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-table-wrap">
@@ -422,7 +422,7 @@ export default async function FoodicsReviewPage({ params }: { params: Promise<{ 
                   sizes="(max-width: 768px) 100vw, 1280px"
                   quality={80}
                   className="article-verdict__bg-image"
-                  loading="lazy"
+                  loading="eager" fetchPriority="low"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                 />

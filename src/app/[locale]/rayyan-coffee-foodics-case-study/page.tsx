@@ -173,7 +173,7 @@ export default async function RayyanCoffeeCaseStudyPage({ params }: { params: Pr
                 <h2>{t('s2Title')}</h2>
                 <p className="lead-paragraph">{t('s2Lead')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/case-study-rayyan-pos.webp" alt="Hands operating a tablet-based restaurant point-of-sale system at a cafe counter" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/case-study-rayyan-pos.webp" alt="Hands operating a tablet-based restaurant point-of-sale system at a cafe counter" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Pre-Foodics, baristas juggled five aggregator tablets per counter — a pattern repeated across most MENA multi-branch chains.</figcaption>
                 </figure>
                 <ol className="case-challenge-list">
@@ -210,7 +210,7 @@ export default async function RayyanCoffeeCaseStudyPage({ params }: { params: Pr
                   ))}
                 </ol>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/case-study-rayyan-branches.webp" alt="Isometric map of Saudi Arabia with glowing pins representing a multi-branch coffee chain network" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/case-study-rayyan-branches.webp" alt="Isometric map of Saudi Arabia with glowing pins representing a multi-branch coffee chain network" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Rollout sequenced by region: Riyadh (22 branches) first, then Jeddah (14), then Eastern Province (9).</figcaption>
                 </figure>
               </section>
@@ -240,7 +240,7 @@ export default async function RayyanCoffeeCaseStudyPage({ params }: { params: Pr
                   ))}
                 </div>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/case-study-rayyan-waste.webp" alt="Commercial coffee grinder, precisely labeled bean jars, and a digital scale — representing disciplined inventory tracking" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/case-study-rayyan-waste.webp" alt="Commercial coffee grinder, precisely labeled bean jars, and a digital scale — representing disciplined inventory tracking" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Gram-level tracking of beans and milk is what turned a ~14% waste rate into ~3%.</figcaption>
                 </figure>
               </section>
@@ -259,7 +259,7 @@ export default async function RayyanCoffeeCaseStudyPage({ params }: { params: Pr
                   ))}
                 </div>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/case-study-rayyan-dashboard.webp" alt="Laptop showing generic analytics dashboard on a warm wood desk beside a latte and coffee beans" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
+                  <Image src="/assets/articles/case-study-rayyan-dashboard.webp" alt="Laptop showing generic analytics dashboard on a warm wood desk beside a latte and coffee beans" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>The regional data champions spent the first 90 days living inside the Foodics reporting dashboards.</figcaption>
                 </figure>
               </section>
