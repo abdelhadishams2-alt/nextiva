@@ -1,11 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { gsap } from '@/lib/gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-
-gsap.registerPlugin(ScrollToPlugin);
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>) {
@@ -22,18 +18,11 @@ function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>) {
 
   e.preventDefault();
 
-  /* Kill any in-flight scroll tweens to prevent stacking */
-  gsap.killTweensOf(window);
-
-  gsap.to(window, {
-    scrollTo: { y: target, offsetY: 80, autoKill: true },
-    duration: 0.9,
-    ease: 'power2.out',
-    onComplete: () => {
-      /* Update URL hash only after scroll finishes — avoids native jump */
-      window.history.replaceState(null, '', `#${id}`);
-    },
-  });
+  /* 80px top offset accounts for the sticky navbar covering section headings. */
+  const top = target.getBoundingClientRect().top + window.scrollY - 80;
+  window.scrollTo({ top, behavior: 'smooth' });
+  /* Update URL hash without triggering the browser's native jump. */
+  window.history.replaceState(null, '', `#${id}`);
 }
 
 function MegaMenuItem({ title, desc, href }: { title: string; desc: string; href: string }) {

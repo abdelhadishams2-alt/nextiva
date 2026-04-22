@@ -3,6 +3,7 @@ import "@/styles/affiliate.css";
 import "@/styles/faq.css";
 import "@/styles/article-vat-compliance-saudi-smes.css";
 import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -181,7 +182,7 @@ export default async function VatComplianceSaudiSmesPage({ params }: { params: P
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/zatca-clearance-flow.webp" alt={t('s3ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/zatca-clearance-flow.webp" alt={t('s3ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -215,7 +216,7 @@ export default async function VatComplianceSaudiSmesPage({ params }: { params: P
                 <h2>{t('s5Title')}</h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/sme-owner-comparing.webp" alt={t('s5ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/sme-owner-comparing.webp" alt={t('s5ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
 
@@ -295,7 +296,7 @@ export default async function VatComplianceSaudiSmesPage({ params }: { params: P
                 <h2>{t('s7Title')}</h2>
                 <p>{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/pos-invoice-counter.webp" alt={t('s7ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/pos-invoice-counter.webp" alt={t('s7ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s7ImageCaption')}</figcaption>
                 </figure>
                 <div className="data-table-wrap">
@@ -330,7 +331,7 @@ export default async function VatComplianceSaudiSmesPage({ params }: { params: P
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/implementation-pitfalls.webp" alt={t('s8ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/implementation-pitfalls.webp" alt={t('s8ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
@@ -361,7 +362,7 @@ export default async function VatComplianceSaudiSmesPage({ params }: { params: P
                 <h2>{t('s10Title')}</h2>
                 <p>{t('s10Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/team-evaluating.webp" alt={t('s10ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/vat-compliance-software-saudi-smes/team-evaluating.webp" alt={t('s10ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -404,6 +405,8 @@ export default async function VatComplianceSaudiSmesPage({ params }: { params: P
                   quality={80}
                   className="article-verdict__bg-image"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { FeaturedStoriesAnimation } from './FeaturedStoriesAnimation';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 
 const CARD_KEYS = ['card1', 'card2', 'card3', 'card4'] as const;
 
@@ -17,7 +18,7 @@ export async function FeaturedStories() {
         </div>
 
         <div className="featured-stories__grid">
-          {CARD_KEYS.map((key) => (
+          {CARD_KEYS.map((key, i) => (
             <a href={t(`${key}.link`)} className="featured-stories__card" key={key}>
               <div className="featured-stories__card-image">
                 <Image
@@ -26,8 +27,12 @@ export async function FeaturedStories() {
                   width={768}
                   height={578}
                   quality={75}
-                  loading="lazy"
+                  /* First card is the nearest below-the-fold image; warm it up without fighting the hero LCP */
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={i === 0 ? 'low' : 'auto'}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                   className="featured-stories__card-img"
                 />
               </div>

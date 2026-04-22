@@ -1,6 +1,4 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 const TRUST_LOGOS = [
   { name: 'Slack', svg: (
@@ -64,8 +62,8 @@ const TRUST_LOGOS = [
   )},
 ];
 
-export function LogoTrustBar() {
-  const t = useTranslations('LogoTrustBar');
+export async function LogoTrustBar() {
+  const t = await getTranslations('LogoTrustBar');
 
   return (
     <section className="logo-trust-bar">

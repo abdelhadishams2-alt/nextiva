@@ -3,6 +3,7 @@ import "@/styles/affiliate.css";
 import "@/styles/faq.css";
 import "@/styles/article-best-pos-systems-saudi.css";
 import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -197,7 +198,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pos-systems-saudi-2.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/best-pos-systems-saudi-2.webp" alt={t('s4ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
                 <p>{t('s4P1')}</p>
@@ -214,7 +215,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <h2>{t('s5Title')}</h2>
                 <p className="lead-paragraph">{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pos-systems-saudi-3.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/best-pos-systems-saudi-3.webp" alt={t('s5ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s5ImageCaption')}</figcaption>
                 </figure>
                 <p>{t('s5P1')}</p>
@@ -253,7 +254,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <h2>{t('s6Title')}</h2>
                 <p className="lead-paragraph">{t('s6Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pos-systems-saudi-4.webp" alt="Retail store owner using a tablet-based POS system in Saudi Arabia" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/best-pos-systems-saudi-4.webp" alt="Retail store owner using a tablet-based POS system in Saudi Arabia" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Marn POS is designed specifically for the Saudi retail and service market</figcaption>
                 </figure>
                 <p>{t('s6P1')}</p>
@@ -365,7 +366,7 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                 <h2>{t('s10Title')}</h2>
                 <p className="lead-paragraph">{t('s10Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-pos-systems-saudi-5.webp" alt={t('s10ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/best-pos-systems-saudi-5.webp" alt={t('s10ImageAlt')} width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s10ImageCaption')}</figcaption>
                 </figure>
                 <div className="article-factors-grid">
@@ -391,6 +392,8 @@ export default async function BestPosSystemsSaudiPage({ params }: { params: Prom
                   quality={80}
                   className="article-verdict__bg-image"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>

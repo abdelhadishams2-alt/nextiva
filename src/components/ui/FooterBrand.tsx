@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 
 export function FooterBrand() {
   const t = useTranslations('Footer');
@@ -37,6 +38,8 @@ export function FooterBrand() {
         loading="lazy"
         quality={75}
         sizes="100vw"
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
         style={{ objectFit: 'cover', zIndex: 0 }}
       />
       <span className="footer-brand__giant-text footer-brand__reveal">

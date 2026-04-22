@@ -3,6 +3,7 @@ import "@/styles/affiliate.css";
 import "@/styles/faq.css";
 import "@/styles/article-saudization-nitaqat.css";
 import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -185,7 +186,7 @@ export default async function SaudizationNitaqatGuidePage({ params }: { params: 
                 <h2>{t('s3Title')}</h2>
                 <p>{t('s3Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/saudization-nitaqat-guide/nitaqat-bands-abstract.webp" alt={t('s3ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/saudization-nitaqat-guide/nitaqat-bands-abstract.webp" alt={t('s3ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s3ImageCaption')}</figcaption>
                 </figure>
                 {bandKeys.map((key) => (
@@ -202,7 +203,7 @@ export default async function SaudizationNitaqatGuidePage({ params }: { params: 
                 <h2>{t('s4Title')}</h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/saudization-nitaqat-guide/workforce-office.webp" alt={t('s4ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/saudization-nitaqat-guide/workforce-office.webp" alt={t('s4ImageAlt')} width={1920} height={1071} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s4ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -262,7 +263,7 @@ export default async function SaudizationNitaqatGuidePage({ params }: { params: 
                 <h2>{t('s6Title')}</h2>
                 <p>{t('s6Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/saudization-nitaqat-guide/compliance-ecosystem.webp" alt="Saudi SME owner checking compliance dashboards on a smartphone" width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/saudization-nitaqat-guide/compliance-ecosystem.webp" alt="Saudi SME owner checking compliance dashboards on a smartphone" width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Owners now log into five MHRSD-operated platforms on a regular cadence — Qiwa and Mudad at least weekly during hiring.</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -294,7 +295,7 @@ export default async function SaudizationNitaqatGuidePage({ params }: { params: 
                 <h2>{t('s8Title')}</h2>
                 <p>{t('s8Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/saudization-nitaqat-guide/najdi-courtyard.webp" alt={t('s8ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/saudization-nitaqat-guide/najdi-courtyard.webp" alt={t('s8ImageAlt')} width={1920} height={1288} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>{t('s8ImageCaption')}</figcaption>
                 </figure>
                 <div className="mini-cards-grid">
@@ -357,6 +358,8 @@ export default async function SaudizationNitaqatGuidePage({ params }: { params: 
                   quality={80}
                   className="article-verdict__bg-image"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>

@@ -15,6 +15,18 @@
   max-width: none;
 }
 
+/* Off-screen preload — renders every carousel image once so rotations hit the HTTP cache. */
+.editors-pick__prewarm {
+  height: 1px;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  width: 1px;
+}
+
 /* ----------------------------------------------------------------
    Header
    ---------------------------------------------------------------- */

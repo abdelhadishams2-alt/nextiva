@@ -7,7 +7,7 @@ import { ScrollReady } from "@/components/ui/ScrollReady";
 const CookieConsent = dynamic(() => import("@/components/ui/CookieConsent"));
 
 const CLIENT_NAMESPACES = [
-  'Navbar', 'HeroShowcase', 'LogoTrustBar', 'SplitShowcase',
+  'Navbar', 'HeroShowcase', 'SplitShowcase',
   'EditorsPick', 'HowWeReview',
   'Footer', 'CookieConsent', 'Blogs', 'Error',
 ] as const;

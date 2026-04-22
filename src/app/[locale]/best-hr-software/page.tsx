@@ -3,6 +3,7 @@ import "@/styles/affiliate.css";
 import "@/styles/faq.css";
 import "@/styles/article-best-hr-software-saudi.css";
 import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -195,7 +196,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-hr-software-saudi-3.webp" alt="Saudi employees using HR mobile self-service app" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/best-hr-software-saudi-3.webp" alt="Saudi employees using HR mobile self-service app" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Jisr provides a mobile-first experience for employee self-service</figcaption>
                 </figure>
                 <p>{t('s4P1')}</p>
@@ -333,7 +334,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <h2>{t('s9Title')}</h2>
                 <p className="lead-paragraph">{t('s9Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-hr-software-saudi-2.webp" alt="Saudi HR compliance workflow showing GOSI, Mudad, Nitaqat, and Qiwa" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/best-hr-software-saudi-2.webp" alt="Saudi HR compliance workflow showing GOSI, Mudad, Nitaqat, and Qiwa" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Saudi HR compliance requires integration with multiple government platforms</figcaption>
                 </figure>
                 <p>{t('s9P1')}</p>
@@ -350,7 +351,7 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                 <h2>{t('s10Title')}</h2>
                 <p className="lead-paragraph">{t('s10Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/best-hr-software-saudi-4.webp" alt="6 key factors for choosing HR software in Saudi Arabia" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/best-hr-software-saudi-4.webp" alt="6 key factors for choosing HR software in Saudi Arabia" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Key factors to evaluate when selecting HR software for your Saudi business</figcaption>
                 </figure>
                 <div className="article-factors-grid">
@@ -376,6 +377,8 @@ export default async function BestHrSoftwareSaudiPage({ params }: { params: Prom
                   quality={80}
                   className="article-verdict__bg-image"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>

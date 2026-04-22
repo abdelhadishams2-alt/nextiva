@@ -3,6 +3,7 @@ import "@/styles/affiliate.css";
 import "@/styles/faq.css";
 import "@/styles/article-best-payment-gateways-saudi.css";
 import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -154,7 +155,7 @@ export default async function BestPaymentGatewaysSaudiPage({ params }: { params:
                 <h2>{t('s2Title')}</h2>
                 <p className="lead-paragraph">{t('s2Lead')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/payment-gateways-local-methods.webp" alt="Contactless payment card and smartphone with Saudi fintech aesthetic" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/payment-gateways-local-methods.webp" alt="Contactless payment card and smartphone with Saudi fintech aesthetic" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>mada, Apple Pay, STC Pay, and Tabby/Tamara together cover over 90% of Saudi checkout volume in 2026.</figcaption>
                 </figure>
                 <p>{t('s2P1')}</p>
@@ -199,7 +200,7 @@ export default async function BestPaymentGatewaysSaudiPage({ params }: { params:
                 <h2>{t('s4Title')}</h2>
                 <p className="lead-paragraph">{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/payment-gateways-tap.webp" alt="Clean developer workspace with smartphone showing generic payment dashboard" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/payment-gateways-tap.webp" alt="Clean developer workspace with smartphone showing generic payment dashboard" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Moyasar's REST API is widely regarded as the cleanest in the Saudi market.</figcaption>
                 </figure>
                 <p>{t('s4P1')}</p>
@@ -255,7 +256,7 @@ export default async function BestPaymentGatewaysSaudiPage({ params }: { params:
                 <h2>{t('s6Title')}</h2>
                 <p className="lead-paragraph">{t('s6Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/payment-gateways-hyperpay.webp" alt="Enterprise data center corridor with glowing server racks" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/payment-gateways-hyperpay.webp" alt="Enterprise data center corridor with glowing server racks" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>PayTabs runs on a deeply invested regional infrastructure with 168-currency support and native Tabby/Tamara routing.</figcaption>
                 </figure>
                 <p>{t('s6P1')}</p>
@@ -285,7 +286,7 @@ export default async function BestPaymentGatewaysSaudiPage({ params }: { params:
                 <h2>{t('s7Title')}</h2>
                 <p className="lead-paragraph">{t('s7Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/payment-gateways-checkout.webp" alt="Global connectivity visualization with glowing cross-continent payment routes" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/payment-gateways-checkout.webp" alt="Global connectivity visualization with glowing cross-continent payment routes" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                   <figcaption>Checkout.com's Interchange++ pricing saves meaningful basis points once card volume scales past SAR 100k/month.</figcaption>
                 </figure>
                 <p>{t('s7P1')}</p>
@@ -395,6 +396,8 @@ export default async function BestPaymentGatewaysSaudiPage({ params }: { params:
                   quality={80}
                   className="article-verdict__bg-image"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="article-verdict__overlay" />
                 <span className="article-verdict__badge">{t('verdictBadge')}</span>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 
 export async function CallToAction() {
   const t = await getTranslations('CallToAction');
@@ -14,6 +15,8 @@ export async function CallToAction() {
           loading="lazy"
           quality={75}
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
           style={{ objectFit: 'cover' }}
         />
       </div>

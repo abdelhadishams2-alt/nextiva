@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  /* Only weight 500 is referenced (via --arizona-heading-weight). */
+  weight: ["500"],
   display: "swap",
 });
 

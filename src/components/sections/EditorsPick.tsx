@@ -4,6 +4,7 @@ import '@/styles/editors-pick.css';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 
 const TOOL_KEYS = ['notion', 'zoom', 'hubspot', 'canva'] as const;
 const ROTATE_INTERVAL = 5000;
@@ -77,6 +78,8 @@ export function EditorsPick() {
               quality={75}
               loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
             <div className="editors-pick__card-overlay" />
             <div className="editors-pick__card-content">
@@ -147,6 +150,23 @@ export function EditorsPick() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Prewarm — off-screen copies of every carousel image so the browser caches
+            them on first paint. Without this, each 5 s rotation triggers a fresh fetch. */}
+        <div aria-hidden="true" className="editors-pick__prewarm">
+          {TOOL_KEYS.map((toolKey) => (
+            <Image
+              key={`prewarm-${toolKey}`}
+              src={t(`tools.${toolKey}.image`)}
+              alt=""
+              width={600}
+              height={400}
+              quality={75}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          ))}
         </div>
       </div>
     </section>

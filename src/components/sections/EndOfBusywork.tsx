@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 
 export async function EndOfBusywork() {
   const t = await getTranslations('EndOfBusywork');
@@ -45,6 +46,8 @@ export async function EndOfBusywork() {
             loading="lazy"
             quality={75}
             sizes="(max-width: 768px) 100vw, 50vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
             style={{ objectFit: 'cover' }}
           />
         </div>

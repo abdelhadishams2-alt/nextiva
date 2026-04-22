@@ -4,6 +4,7 @@ import '@/styles/split-showcase.css';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef } from 'react';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -197,6 +198,8 @@ export function SplitShowcase() {
               className="split-showcase__img"
               alt=""
               sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
             <div className="split-showcase__overlay split-showcase__overlay--ai">
               <div className="split-showcase__face-box split-showcase__face-box--ai">
@@ -237,6 +240,8 @@ export function SplitShowcase() {
               className="split-showcase__img"
               alt=""
               sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
             <div className="split-showcase__overlay split-showcase__overlay--team">
               <div className="split-showcase__face-box split-showcase__face-box--team">
@@ -276,6 +281,8 @@ export function SplitShowcase() {
               className="split-showcase__img"
               alt=""
               sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
             <div className="split-showcase__overlay split-showcase__overlay--constellation">
               <ConstellationSVG />

@@ -3,7 +3,8 @@
 import '@/styles/how-we-review.css';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 
 const STEP_KEYS = ['step1', 'step2', 'step3', 'step4', 'step5'] as const;
 const AUTOPLAY_DURATION = 4000;
@@ -147,7 +148,7 @@ export function HowWeReview() {
           </div>
         </div>
 
-        {/* Mockup Panel — all images stacked, only active one visible */}
+        {/* Mockup Panel — all 5 images stay mounted; first eager, rest low-priority so they warm cache before the carousel rotates to them */}
         <div className="how-we-review__mockup-area">
           {steps.map((step) => (
             <div
@@ -161,7 +162,10 @@ export function HowWeReview() {
                 height={810}
                 quality={75}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 900px"
-                loading="lazy"
+                loading={step.index === 0 ? 'eager' : 'lazy'}
+                fetchPriority={step.index === 0 ? 'high' : 'low'}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
                 className="how-we-review__mockup-img"
               />
             </div>

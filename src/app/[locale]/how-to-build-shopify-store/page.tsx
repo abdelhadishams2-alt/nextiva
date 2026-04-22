@@ -4,6 +4,7 @@ import "@/styles/faq.css";
 import "@/styles/pricing-cards.css";
 import "@/styles/article-how-to-build-shopify-store.css";
 import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/blur-placeholder';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SITE_CONFIG } from '@/config/site';
 import ReadingProgress from '@/components/ui/ReadingProgress';
@@ -193,7 +194,7 @@ export default async function HowToBuildShopifyStorePage({ params }: { params: P
                 </h2>
                 <p>{t('s4Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/how-to-build-shopify-store-2.webp" alt="Shopify admin dashboard overview" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/how-to-build-shopify-store-2.webp" alt="Shopify admin dashboard overview" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                 </figure>
                 <ol className="shopify-guide__steps">
                   {[1, 2, 3, 4, 5].map((n) => (
@@ -213,7 +214,7 @@ export default async function HowToBuildShopifyStorePage({ params }: { params: P
                 </h2>
                 <p>{t('s5Intro')}</p>
                 <figure className="article-image article-image--contextual">
-                  <Image src="/assets/articles/how-to-build-shopify-store-4.webp" alt="Shopify theme store and Dawn theme customizer" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" />
+                  <Image src="/assets/articles/how-to-build-shopify-store-4.webp" alt="Shopify theme store and Dawn theme customizer" width={1200} height={630} quality={80} sizes="(max-width: 768px) 100vw, 800px" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                 </figure>
                 <ol className="shopify-guide__steps">
                   {[1, 2, 3, 4, 5].map((n) => (
