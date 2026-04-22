@@ -195,13 +195,19 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/blogs-hero-bg.webp"
+        fetchPriority="high"
+      />
       <Navbar transparent />
 
       <main>
         {/* Hero */}
         <section className="blogs-hero">
           <div className="blogs-hero__bg">
-            <Image src="/assets/blogs-hero-bg.webp" alt="" fill priority fetchPriority="high" quality={75} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoMAAUAA4BaJYgCdAD0ckCOAAD+9q3mGY6UsQQbSAvHHTceC4HVWk2kjMYTTB2AAAA=" style={{ objectFit: 'cover' }} />
+            <Image src="/assets/blogs-hero-bg.webp" alt="" fill priority fetchPriority="high" quality={75} sizes="100vw" placeholder="blur" blurDataURL="data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMAAUAA4BaJYgCdAED+yN4AAD+9q3mGY4cH7zn3q7eNy2Tzi8f9k5lXrRH/e5aRMmAAA==" style={{ objectFit: 'cover' }} />
           </div>
           <div className="blogs-hero__overlay" />
           <div className="blogs-hero__content">

@@ -160,8 +160,9 @@ export function HowWeReview() {
                 width={1440}
                 height={810}
                 quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 900px"
+                loading="lazy"
                 className="how-we-review__mockup-img"
-                {...(step.index === 0 ? { priority: true } : { loading: 'lazy' as const })}
               />
             </div>
           ))}

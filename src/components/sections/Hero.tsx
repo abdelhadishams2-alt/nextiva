@@ -2,6 +2,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import { HeroShowcase } from "./HeroShowcase";
+import { DeferredOnIdle } from "@/components/ui/DeferredOnIdle";
 const HeroParticles = dynamic(() => import("./HeroParticles").then(m => ({ default: m.HeroParticles })));
 const HeroAnimation = dynamic(() => import("./HeroAnimation").then(m => ({ default: m.HeroAnimation })));
 
@@ -37,8 +38,10 @@ export async function Hero() {
       </div>
       <div className="hero__overlay" />
       <div className="hero__blur-bottom" />
-      <HeroParticles />
-      <HeroAnimation />
+      <DeferredOnIdle>
+        <HeroParticles />
+        <HeroAnimation />
+      </DeferredOnIdle>
       <div className="hero__container">
         <div className="hero__content">
           <div className="hero__eyebrow">
